@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="api">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/api/forms-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/api/jna-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/api/JMapViewer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/api/platform-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/api/vlcj-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

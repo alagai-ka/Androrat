@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Androrat.iml" filepath="$PROJECT_DIR$/Androrat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Androrat/Androrat1.iml" filepath="$PROJECT_DIR$/Androrat/Androrat1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroratServer/AndroratServer.iml" filepath="$PROJECT_DIR$/AndroratServer/AndroratServer.iml" />
+    </modules>
+  </component>
+</project>
