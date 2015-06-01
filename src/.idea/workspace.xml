@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Androrat/src/my/app/Library/AdvancedSystemInfo.java" afterPath="$PROJECT_DIR$/Androrat/src/my/app/Library/AdvancedSystemInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java" afterPath="$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -40,30 +40,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdvancedSystemInfo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/Library/AdvancedSystemInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1410973">
-              <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
-              <folding>
-                <element signature="e#6874#6882#0" expanded="true" />
-                <element signature="e#7273#9457#0" expanded="true" />
-                <element signature="e#9456#9457#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProcessCommand.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProcessCommand.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="373" column="8" selection-start-line="373" selection-start-column="8" selection-end-line="373" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.4456522">
+              <caret line="337" column="27" selection-start-line="337" selection-start-column="27" selection-end-line="337" selection-end-column="27" />
               <folding>
-                <element signature="e#13519#13527#0" expanded="true" />
-                <element signature="e#13874#13882#0" expanded="true" />
-                <element signature="e#14238#14246#0" expanded="true" />
-                <element signature="e#16005#16013#0" expanded="true" />
+                <element signature="e#13552#13560#0" expanded="true" />
+                <element signature="e#13907#13915#0" expanded="true" />
+                <element signature="e#14271#14279#0" expanded="true" />
+                <element signature="e#16038#16046#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,8 +80,8 @@
         <option value="$PROJECT_DIR$/Androrat/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/Androrat/src/my/app/client/ClientListener.java" />
         <option value="$PROJECT_DIR$/Androrat/src/my/app/client/Preference.java" />
-        <option value="$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java" />
         <option value="$PROJECT_DIR$/Androrat/src/my/app/Library/AdvancedSystemInfo.java" />
+        <option value="$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java" />
       </list>
     </option>
   </component>
@@ -163,24 +149,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="InOut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InOut" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Packet" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,7 +286,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="FullScreen" value="false" />
@@ -578,7 +546,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433181732439</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Comments on AdvancedSystemInfo">
+      <created>1433188147801</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1433188147801</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -629,7 +603,8 @@
     <MESSAGE value="First" />
     <MESSAGE value="Comments on:&#10;AlarmListener&#10;AndroratActivity&#10;BootReceiver&#10;ClientListener&#10;LauncherActivity&#10;Perference" />
     <MESSAGE value="Comments on Perference, ProcessCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on Perference, ProcessCommand" />
+    <MESSAGE value="Comments on AdvancedSystemInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on AdvancedSystemInfo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -715,10 +690,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#13519#13527#0" expanded="true" />
-            <element signature="e#13874#13882#0" expanded="true" />
-            <element signature="e#14238#14246#0" expanded="true" />
-            <element signature="e#16005#16013#0" expanded="true" />
+            <element signature="e#13552#13560#0" expanded="true" />
+            <element signature="e#13907#13915#0" expanded="true" />
+            <element signature="e#14271#14279#0" expanded="true" />
+            <element signature="e#16038#16046#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -969,31 +944,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="373" column="8" selection-start-line="373" selection-start-column="8" selection-end-line="373" selection-end-column="8" />
-          <folding>
-            <element signature="e#13519#13527#0" expanded="true" />
-            <element signature="e#13874#13882#0" expanded="true" />
-            <element signature="e#14238#14246#0" expanded="true" />
-            <element signature="e#16005#16013#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InOut/out/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.51521736">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="217" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1008,12 +962,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/Library/AdvancedSystemInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1410973">
-          <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.20326087">
+          <caret line="172" column="11" selection-start-line="172" selection-start-column="11" selection-end-line="172" selection-end-column="11" />
           <folding>
             <element signature="e#6874#6882#0" expanded="true" />
-            <element signature="e#7273#9457#0" expanded="true" />
             <element signature="e#9456#9457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="217" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4456522">
+          <caret line="337" column="27" selection-start-line="337" selection-start-column="27" selection-end-line="337" selection-end-column="27" />
+          <folding>
+            <element signature="e#13552#13560#0" expanded="true" />
+            <element signature="e#13907#13915#0" expanded="true" />
+            <element signature="e#14271#14279#0" expanded="true" />
+            <element signature="e#16038#16046#0" expanded="true" />
           </folding>
         </state>
       </provider>
