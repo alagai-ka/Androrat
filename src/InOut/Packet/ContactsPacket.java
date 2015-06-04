@@ -9,18 +9,31 @@ import java.util.ArrayList;
 
 import utils.Contact;
 
+/**
+ * Diese Klasse ist zum Speicher ind versenden der Kontaktliste gedacht
+ */
 public class ContactsPacket implements Packet{
-
+	/**
+	 * list	Die Kontaktliste
+	 */
 	ArrayList<Contact> list;
 
 	public ContactsPacket() {
 		
 	}
-	
+
+	/**
+	 * Der Konstruktor bekommt eine Kontaktliste übergeben und speichert diese in der Klassenvariablen
+	 * @param ar	Kontakliste
+	 */
 	public ContactsPacket(ArrayList<Contact> ar) {
 		list = ar;
 	}
-	
+
+	/**
+	 * Erstellt aus der Kontakliste ein byte-Array
+	 * @return	byte-Array mit den Daten der Kontaktliste
+	 */
 	public byte[] build() {
 		try {
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -32,6 +45,10 @@ public class ContactsPacket implements Packet{
 		}
 	}
 
+	/**
+	 * Bekommt ein byte-Array mit den Daten einer Kontakliste und extrahiert diese um sie in der Klassenvariablen zu speichern.
+	 * @param packet Ein Paket mit den Daten des byte-Arrays
+	 */
 	public void parse(byte[] packet) {
 		ByteArrayInputStream bis = new ByteArrayInputStream(packet);
 		ObjectInputStream in;
@@ -41,7 +58,11 @@ public class ContactsPacket implements Packet{
 		} catch (Exception e) {
 		}
 	}
-	
+
+	/**
+	 * Liefert die Kontaktliste
+	 * @return	Kontaktliste
+	 */
 	public ArrayList<Contact> getList() {
 		return list;
 	}
