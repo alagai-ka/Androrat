@@ -335,131 +335,302 @@ public class ProcessCommand
 		}
 			
 	}
-// HIER WEITER KOMMENTIEREN
 
-
-
-
-
-
+	/**
+	 * Erstellt ein PreferencePacket und gibt die zurück
+	 * @return	PreferencePacket
+	 */
 	public PreferencePacket loadPreferences()
 	{
+		/**
+		 * p	Neues PreferencePacket
+		 */
 		PreferencePacket p = new PreferencePacket();
-		
+		/**
+		 * Lädt den Inthalt aus der xml/preferences Datei unt speichert dies in settings.
+		 */
 		SharedPreferences settings = client.getSharedPreferences("preferences", 0);
-
+		/**
+		 * Setzt die Ip in p in dem es aus settings das Feld Ip zurückhaben möchte. Ist dies nicht vorhanden so wird als default 192.168.0.12 zurückgegeben.
+		 */
 		p.setIp( settings.getString("ip", "192.168.0.12"));
+		/**
+		 * Set den Port in p, wenn kein Port vorhanden war wird der default Wert 9999 verwendet.
+		 */
 		p.setPort (settings.getInt("port", 9999));
+		/**
+		 * Setzt den WaitTrigger in p. Sollte kein Wert vorhanden sein wir als Default-Wert false gesetzt.
+		 */
 		p.setWaitTrigger(settings.getBoolean("waitTrigger", false));
-		
+		/**
+		 * Neue ArrayList smsKeywords
+		 */
 		ArrayList<String> smsKeyWords = new ArrayList<String>();
+		/**
+		 * Holt die Keywords aus settings und speichert sie in keywords ab. Der default ist der leere String.
+		 */
 		String keywords = settings.getString("smsKeyWords", "");
+		/**
+		 * Überprüfen ob es Kexwords gibt.
+		 */
 		if(keywords.equals(""))
+		/**
+		 * Wenn nicht wird smsKeywWords auf null gesetzt.
+		 */
 			smsKeyWords = null;
 		else {
+			/**
+			 * Ansonsten wird ein StringTokenizer erzeugt der den String in Tokens unterteilt sobald ein Semikolon in dem String vorkommt.
+			 */
 			StringTokenizer st = new StringTokenizer(keywords, ";");
 			while (st.hasMoreTokens())
 			{
+				/**
+				 * Die einzelnen Token werden dem SMSKeyword-Array hinzugefügt.
+ 				 */
 				smsKeyWords.add(st.nextToken());
 			}
+			/**
+			 * Schließlich wird die ArrayList p hinzugefügt.
+			 */
 			p.setKeywordSMS(smsKeyWords);
 		}
-		
+		/**
+		 * Erstellt eine ArrayList whiteListCall
+		 */
 		ArrayList<String> whiteListCall = new ArrayList<String>();
+		/**
+		 * Inhalt aus settings extrahieren. Wenn kein Inhalt vorhanden ist wird als default der leere String zurückgeliefert.
+		 */
 		String listCall = settings.getString("numCall", "");
+		/**
+		 * Überprüfen ob der String einen Inhalt hat.
+		 */
 		if(listCall.equals(""))
+		/**
+		 * Wenn nicht wird die ArrayList auf null gesetzt.
+		 */
 			whiteListCall = null;
 		else {
+			/**
+			 * Ansosnten wird ein StringTokenizer erstellt um den String in Token zu unterteilen wenn eun Semikolon im String vorkommt.
+			 */
 			StringTokenizer st = new StringTokenizer(listCall, ";");
 			while (st.hasMoreTokens())
 			{
+				/**
+				 * Die Token werden dann de ArrayList hinzugefügt.
+				 */
 				whiteListCall.add(st.nextToken());
 			}
+			/**
+			 * Die Liste wird anschließend p hinzugefügt.
+			 */
 			p.setPhoneNumberCall(whiteListCall);
 		}
 		
-		
+		/**
+		 * Hier wird eine WhiteList für SMS-Nummern erzeugt.
+		 * Auch hierfür wird eine ArrayList erstellt. Diese nennt sich whiteListSMS
+		 */
 		ArrayList<String> whiteListSMS = new ArrayList<String>();
+		/**
+		 * Im Anschluss wird der Inhalt aus settings extrahiert.
+		 */
 		String listSMS = settings.getString("numSMS", "");
+		/**
+		 * Danach wird überprüft ob der String einen Ihnhalt hat, wenn nicht wird die ArrayList auf null gesetzt
+		 */
 		if(listSMS.equals(""))
 			whiteListSMS = null;
 		else {
+			/**
+			 * Ansonsten wird der String mit Hilfe eines StringTokenizer in Token unterteilt.
+			 */
 			StringTokenizer st = new StringTokenizer(listSMS, ";");
 			while (st.hasMoreTokens())
 			{
+				/**
+				 * Die einzelnen Token werden der ArrayList whiteListSMS hinzugefügt.
+				 */
 				whiteListSMS.add(st.nextToken());
 			}
+			/**
+			 * Und abschließend wird die whiteListSMS p hinzugefügt.
+			 */
 			p.setPhoneNumberSMS(whiteListSMS);
 		}
+		/**
+		 * Zum Schluss wird nun das PreferencePacket p zurückgegeben.
+		 */
 		return p;
 	}
 
+	/**
+	 * Bekommt ein Byte Array und schreibt den Inhalt in die xml/preferences Datei.
+	 * @param data byte Array mit den Preferneces-Daten
+	 */
 	private void savePreferences(byte[] data)
 	{
+		/**
+		 * Erstellen eines neuen PreferencesPacket pp
+		 */
 		PreferencePacket pp = new PreferencePacket();
+		/**
+		 * Parsen der Daten damit diese in pp gespeichert sind.
+		 */
 		pp.parse(data);
-		
+		/**
+		 * Die xml/prefereces Datei auslesen und in settings speichern.
+		 */
 		SharedPreferences settings = client.getSharedPreferences("preferences", 0);
-
+		/**
+		 * Einen Editor erstellen um settigs zu verändern.
+		 */
 		SharedPreferences.Editor editor = settings.edit();
+		/**
+		 * Die Ip aus pp in Settings schreiben
+		 */
 		editor.putString("ip", pp.getIp());
+		/**
+		 * den Port aus pp in den settings schreiben
+		 */
 		editor.putInt("port", pp.getPort());
+		/**
+		 * den waitTrigger in settings schreiben
+		 */
 		editor.putBoolean("waitTrigger", pp.isWaitTrigger());
-		
+		/**
+		 * Strings erstellen um die smsKeyWords, numsCall und numsSMS zwischen zuspeichern.
+		 */
 		String smsKeyWords = "";
 		String numsCall = "";
 		String numsSMS = "";
-		
+		/**
+		 * Die smsKeyWord Arrayliste aus pp für jedes Elemten durchgehen
+		 */
 		ArrayList<String> smsKeyWord = pp.getKeywordSMS();
 		for (int i = 0; i < smsKeyWord.size(); i++)
 		{
+			/**
+			 * Überprüfen ob das letze Element erreicht ist.
+			 */
 			if (i == (smsKeyWord.size() - 1))
+			/**
+			 * Wenn es erreicht ist nur den Sting an smsKeyWords anhängen.
+			 */
 				smsKeyWords += smsKeyWord.get(i);
 			else
+			/**
+			 * Ansonstne den String + ein Semikolon anhängen.
+			 */
 				smsKeyWords += smsKeyWord.get(i) + ";";
 		}
+		/**
+		 * Die smsKeywords in settings verändern.
+		 */
 		editor.putString("smsKeyWords", smsKeyWords);
-		
+		/**
+		 * Die whiteListCall ArrayList aus pp holen.
+		 */
 		ArrayList<String> whiteListCall = pp.getPhoneNumberCall();
+		/**
+		 * Die ArrayList durchgehen.
+		 */
 		for (int i = 0; i < whiteListCall.size(); i++)
 		{
+			/**
+			 * Überprüfen ob Letzes Element.
+			 */
 			if (i == (whiteListCall.size() - 1))
+			/**
+			 * Nur den String an numsCall anhängen.
+			 */
 				numsCall += whiteListCall.get(i);
 			else
+			/**
+			 * Sollte es nicht das letze Element sein so wird der Sting und ein Semikolon angehängt.
+			 */
 				numsCall += whiteListCall.get(i) + ";";
 		}
+		/**
+		 * Den String numsCall in settings schreib/verändern
+		 */
 		editor.putString("numCall", numsCall);
 
-		
+		/**
+		 * Auslesen der whiteListSMS aus pp.
+		 */
 		ArrayList<String> whiteListSMS = pp.getPhoneNumberSMS();
+		/**
+		 * Die ArrayList durgehen
+		 */
 		for (int i = 0; i < whiteListSMS.size(); i++)
 		{
+			/**
+			 * Überprüfen ob es sich um das letze Element handelt.
+			 */
 			if (i == (whiteListSMS.size() - 1))
+			/**
+			 * Falls ja wird dem String numsSMS nur der String an der Stelle i hinzugefügt.
+			 */
 				numsSMS += whiteListSMS.get(i);
 			else
+			/**
+			 * Falls es nicht das letze Element ist wird numsSMS der String und ein Semikolon angehängt.
+			 */
 				numsSMS += whiteListSMS.get(i) + ";";
 		}
+		/**
+		 * Nun wird in der Sting noch in settings geschrieben.
+		 */
 		editor.putString("numSMS", numsSMS);
+		/**
+		 * Zum Schluss werden die Änderungen noch in die Datei geschrieben.
+		 */
 		editor.commit();
 
 	}
 
+	/**
+	 * Erstellt eine ArrayList<String> bei der jedes Element kleiner gleich 167 Elementen lang ist.
+	 * @param text Bekommt den Text einer SMS
+	 * @return
+	 */
 	private ArrayList<String> MessageDecoupator(String text)
 	{
 		ArrayList<String> multipleMsg = new ArrayList<String>();
 
 		int taille = 0;
+		/**
+		 * Solange taille kleiner als die Länge des Textes ist
+		 */
 		while (taille < text.length())
 		{
+			/**
+			 * Überprüfen ob taille - Textlänge kleiner als 167 ist
+			 */
 			if ((taille - text.length()) < 167)
 			{
+				/**
+				 * Wenn ka dann wird der substring von taille bis Zur Länge vom Text der StringArrayList hinzugefügt
+				 */
 				multipleMsg.add(text.substring(taille, text.length()));
 			} else
 			{
+				/**
+				 * Wenn der Text Länger ist als 167 wird diese in 167 große Teile zerlegt und jeder Teil zu mutliplMsg hinzugefügt.
+				 */
 				multipleMsg.add(text.substring(taille, taille + 167));
 			}
+			/**
+			 * taille im 167 erhöhen.
+			 */
 			taille += 167;
 		}
+		/**
+		 * ArrayList zurückliefern.
+		 */
 		return multipleMsg;
 	}
 
