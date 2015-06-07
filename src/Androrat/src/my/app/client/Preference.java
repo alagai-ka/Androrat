@@ -6,7 +6,7 @@ import android.preference.PreferenceActivity;
 
 
 /**
- * Der Sinn dieser Klasse ist nicht eindeutig, da bisher noch kein Intent gefunden wurde, der diese Activity startet.
+ * Der Sinn dieser Klasse ist nicht eindeutig, da der einzige Intent der diese Klasse aktivieren könnte, in der Klasse Client auskommentiert ist.
  * Es werden jedoch die Daten die in der xml.preferences Datei gespeichert wurden wieder hergestellt.
  * Dabei handelt es sich um die IP, den Port, die Schlüsselwörter, die Nummern für SMS und Telefonie und den waitTrigger.
  */

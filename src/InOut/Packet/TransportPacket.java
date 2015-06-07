@@ -73,6 +73,9 @@ public class TransportPacket implements Packet {
 		System.out.println("Recuperation de la donnee");
 		*/
 		// si la place restante dans le buffer est insuffisante
+		/**
+		 * Wenn der restliche Platz des Buffers unzureichend ist
+		 */
 		if ((buffer.limit() - buffer.position()) < localLength) {
 			
 			dataFilling(buffer, buffer.limit() - buffer.position());
@@ -82,6 +85,9 @@ public class TransportPacket implements Packet {
 		} 
 		else 
 		{
+			/**
+			 * WEnn es genug plat gibt wird das ganze paket gespoeicehrt
+			 */
 			// s'il y a assez de place, on sauvegarde tout le paquet
 				data = new byte[localLength];
 				buffer.get(data, 0, data.length);
