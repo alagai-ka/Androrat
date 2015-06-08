@@ -1,7 +1,7 @@
 package Packet;
 
 /**
- * Eine Paket Implementierung die nur ein byte-Array speichert
+ * Eine Paket Implementierung die nur ein byte-Array speichert. Diese wird für die Übermittlung von Bilder und Audiodaten verwendet.
  */
 public class RawPacket implements Packet {
 	/**

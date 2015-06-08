@@ -6,12 +6,29 @@ import Packet.CallStatusPacket;
 import Packet.Packet;
 import Packet.RawPacket;
 
+/**
+ * Diese Klasse verarbeitet die CallMonitor-Pakete
+ */
 public class CallMonitorHandler implements PacketHandler {
-	
+	/**
+	 * gui	Die Benutzeroberfläche
+	 */
 	private GUI gui;
+	/**
+	 * channel	Der Datenkanal
+	 */
 	private int channel;
+	/**
+	 * imei	Die IMEI des verbunden Geräts
+	 */
 	private String imei;
-	
+
+	/**
+	 * Der Konstruktor der Klasse weißt die übergebenen Variablen den Klassenvaribalen zu.
+	 * @param channel	Der Datenkanal
+	 * @param imei	Die IMEI des Geräts
+	 * @param gui	Die GUI
+	 */
 	public CallMonitorHandler(int channel, String imei, GUI gui) {
 		this.gui = gui;
 		this.channel = channel;
@@ -24,6 +41,13 @@ public class CallMonitorHandler implements PacketHandler {
 		
 	}
 
+	/**
+	 * Diese Methode erhält das Paket. Darauf hin wird eine Lognachricht erzeugt.
+	 * Im Anschluss wird der Listener für den Datenkanal aus dem Server entfernt und die GUI mitr den Daten des Geräts upgedatet.
+	 * @param p	Das Paket
+	 * @param temp_imei	Eine IMEI
+	 * @param c	Der Server
+	 */
 	@Override
 	public void handlePacket(Packet p, String temp_imei, Server c) {
 		gui.logTxt("Call monitoring data has been received");

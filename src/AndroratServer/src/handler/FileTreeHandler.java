@@ -9,12 +9,29 @@ import Packet.FileTreePacket;
 import Packet.Packet;
 import gui.GUI;
 
+/**
+ * Diese Klasse ist zum Verarbeiten eine FileTreePackets zuständig
+ */
 public class FileTreeHandler implements PacketHandler {
-	
+	/**
+	 * gui Die Benutzerüberfläche
+	 */
 	private GUI gui;
+	/**
+	 * channel	Der Datenkanal
+	 */
 	private int channel;
+	/**
+	 * imei	Die IMEI des verbundenen Geräts
+	 */
 	private String imei;
-	
+
+	/**
+	 * Der Konstruktor weißt die Daten den Klassenvariablen zu.
+	 * @param chan	Der Datankanal
+	 * @param imei	Die IMEI
+	 * @param gui	Die Benutzeroberfläche
+	 */
 	public FileTreeHandler(int chan, String imei, GUI gui) {
 		channel = chan;
 		this.imei = imei;
@@ -26,6 +43,12 @@ public class FileTreeHandler implements PacketHandler {
 		// TODO Auto-generated method stub
 	}
 
+	/**
+	 * Diese Methode erstell eine Lognachricht, entfernt den Listener für den entsprechenden Kanal um dann die updateFileTree Methode aufzurufen um die Daten auf der Gui anzuzeigen.
+	 * @param p	Das Paket
+	 * @param temp_imei	Eine IMEI
+	 * @param c	Der Server
+	 */
 	@Override
 	public void handlePacket(Packet p, String temp_imei, Server c) {
 		gui.logTxt("File tree data has been received");

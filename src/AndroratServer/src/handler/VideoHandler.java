@@ -5,6 +5,11 @@ import server.Server;
 import Packet.Packet;
 import Packet.RawPacket;
 
+/**
+ * Diese Klasse ist zur Verarbeitung von Videodatein vorhanden.
+ * Allerdings gibt es noch kein Gegenstück auf dem Client.
+ * Daher ist diese Klasse ohne Funktion.
+ */
 public class VideoHandler implements PacketHandler {
 
 	private GUI gui;
