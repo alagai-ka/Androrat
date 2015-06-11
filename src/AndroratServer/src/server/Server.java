@@ -48,17 +48,43 @@ import Packet.ShortSMSPacket;
 import Packet.TransportPacket;
 import Packet.LogPacket;
 
+/**
+ * Diese Klasse implementiert den Server.
+ */
 public class Server implements Controler {
-
+	/**
+	 * serverSocket	Der Socket des Severs
+	 */
 	private ServerSocket serverSocket;
+	/**
+	 * serverPort	Der Port auf dem der Server lauscht.
+	 */
 	private int serverPort;
+	/**
+	 * online 	Schleifenvariable
+	 */
 	private boolean online = true;
 	private int Nclient;
+	/**
+	 * gui	Die GUI
+	 */
 	private GUI gui;
-
+	/**
+	 * clientMap	Zum Speichern der ClientHandler
+	 */
 	private HashMap<String, ClientHandler> clientMap;
+	/**
+	 * channelHandlerMap	Zum Speicher der ChannelDistributionHandler
+	 */
 	private HashMap<String, ChannelDistributionHandler> channelHandlerMap;
 
+	/**
+	 * Dies ist der Konstruktor.
+	 * Hier wir erstmal der übergebene Port überprüft. Sollte dieser 0 sein so wird der in config.txt gespeicherte Port ausgelesen.
+	 * Sollte die nicht funktionieren, so wird der Port per default auf 9999 gesetzt.
+	 * Zusätzlich werden die Klassenvariablen initalisiert und erstellt.
+	 * @param port	Der Port auf dem der Server lauscht.
+	 */
 	public Server(int port) {
 		if(port == 0) {
 			try {
@@ -84,7 +110,11 @@ public class Server implements Controler {
 		setOnline();
 
 	}
-	
+
+	/**
+	 * Ersteööt einen neuen Server mit dem Port 0. Es wird also der Port der config.txt genommen oder der default Wert 9999.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Server s = new Server(0);
 	}
