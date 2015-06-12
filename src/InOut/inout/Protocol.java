@@ -2,6 +2,10 @@ package inout;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Diese Klasse stellt das Protokoll der Anwendung dar. Hier können alle nötigen Informationen und Befehle gespeichert werden.
+ * Daraus wird dann ein Header gebaut. Diese Daten können dann versendet und ausgewertet werde.
+ */
 public class Protocol {
 	
 	public final static int HEADER_LENGTH_DATA = 15;
@@ -85,8 +89,16 @@ public class Protocol {
 	
 	public final static String KEY_SEND_SMS_NUMBER = "number";
 	public final static String KEY_SEND_SMS_BODY = "body";
-	
-	
+
+	/**
+	 * Erstellt aus den obigen Daten und den übergebenen Daten einen Header
+	 * @param totalLenght	Komplette Größe
+	 * @param localLength	Die Lokale Größe
+	 * @param moreF		Letzes Paket
+	 * @param idPaquet	Id des Pakets
+	 * @param channel	Der Daten Kanal
+	 * @return	den Header
+	 */
 	public static byte[] dataHeaderGenerator(int totalLenght, int localLength, boolean moreF, short idPaquet, int channel) 
 	{
 		byte[] byteTotalLength = ByteBuffer.allocate(4).putInt(totalLenght).array();
