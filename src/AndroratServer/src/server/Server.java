@@ -64,6 +64,9 @@ public class Server implements Controler {
 	 * online 	Schleifenvariable
 	 */
 	private boolean online = true;
+	/**
+	 * Nclient	Tempräre IMEI
+	 */
 	private int Nclient;
 	/**
 	 * gui	Die GUI
@@ -112,13 +115,17 @@ public class Server implements Controler {
 	}
 
 	/**
-	 * Ersteööt einen neuen Server mit dem Port 0. Es wird also der Port der config.txt genommen oder der default Wert 9999.
+	 * Erstellt einen neuen Server mit dem Port 0. Es wird also der Port der config.txt genommen oder der default Wert 9999.
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Server s = new Server(0);
 	}
-	
+
+	/**
+	 * Mit dieser Methode wird der Port, den der Benutzer verwenden möchte in der Datei config.txt gespeichert.
+	 * @param newPort	Der Port den der Benutzer verwenden möchte.
+	 */
 	public void savePortConfig(String newPort) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("config.txt"), false));
@@ -131,46 +138,94 @@ public class Server implements Controler {
 		}
 	}
 
+	/**
+	 * Diese Methdoe startet den Server und erstellt einen Clienthandler und einen ChannelDistributionHandler.
+	 * Diese werden mit Hilfe der Nclient Nummer + dem angehängten Wort client indentifiziert.
+	 * Dieser String fungiert dann als temppräre IMEI.
+	 */
 	public void setOnline() {
+		/**
+		 * Die Schleife ist solange aktiv wie online True ist.
+		 */
 		while (online) {
+			/**
+			 * Lognachricht, dass der Server online ist.
+			 */
 			gui.logTxt("SERVER online, awaiting for a client...");
 			try {
-
+				/**
+				 * Mit diesem Aufruf wird der serverSocket aktiviert und wartet auf eingehende Verbindungen auf dem Socket
+				 */
 				Socket cs = serverSocket.accept();
 
 				// inscription temporaire d'un client connecte
+				/**
+				 * Die temporäre IMEI für den Client der sich verbindet.
+				 */
 				String id = Nclient + "client";
+				/**
+				 * Für diesen Client wird ein neuer ClientHandler erstellt und dieser gespeichert.
+				 * Zusätzlich wird ein ChannelDistributionHandler erstellt und gespeichert.
+				 */
 				ClientHandler newCH = new ClientHandler(cs, id, this, gui);
 				clientMap.put(id, newCH);
 				channelHandlerMap.put(id, new ChannelDistributionHandler());
-
+				/**
+				 * Hier wird der ClientHandler als Thread gestartet.
+				 * Zusätzlich wird eine Lognachricht ausgegeben, das die Verbindung mit der temporären ID besteht.
+				 */
 				newCH.start();
 				// System.out.println("client accept�");
 				gui.logTxt("Connection established,temporary IMEI was assigned: " + id);
-
+				/**
+				 * Sollte eine IOException geworfen werden so wird eine Fehlernachricht erstellt.
+				 */
 			} catch (IOException e) {
 				// e.printStackTrace();
 				gui.logErrTxt("ERROR while establishing a connection");
 			}
 		}
-		
+		/**
+		 * Wenn die Schleife abbricht, wird die Lognachricht, das der Server gestoppt wurde angezeigt.
+		 */
 		gui.logTxt("*** SERVER STOPPED ***\n");
 	}
-	
+
+	/**
+	 * Den Server stoppen
+	 */
 	public void setOffline() {
 		online = false;
 	}
 
-
+	/**
+	 * Empfängt die Daten eines Kanals des übergebenen Pakets.
+	 * @param p	Das Paket
+	 * @param i	der Key die IMEI.
+	 */
 	public void Storage(TransportPacket p, String i) {
+		/**
+		 * result	Das Ergbnis.
+		 */
 		int result = 0;
+		/**
+		 * Der Datenkanal.
+		 */
 		int chan = p.getChannel();
 		// System.out.println("PacketStorage recu sur le canal " + chan);
 		//gui.logTxt("Receiving data from the channel: " + chan);
-
+		/**
+		 * Überprüfen ob die ChannelHandlerMap den übergebenen Schlüssel enthält.
+		 * Sollte dies nicht der Fall sein so wird eine Fehlernachricht erstellt, dass es sich um Daten eines unbekannten Clients handelt und die Methode beendet.
+		 */
 		if (!channelHandlerMap.containsKey(i)) {
 			gui.logTxt("ERROR: received data is from an unknown client");
 			return;
+			/**
+			 * Hier wird nun überprüft ob der channelHandlerMap die benötigten Daten enthält.
+			 * Sollte dies nicht der Fall sein handelt es sich um einen unregistrierten Kanal und eine Fehlermeldung wird geworfen.
+			 * Ansonsten wird das Paket der channelHandlerMap hinzugefügt.
+ 			 */
 		} else if (channelHandlerMap.get(i).getPacketMap(chan) == null
 				|| channelHandlerMap.get(i).getStorage(chan) == null) {
 
@@ -178,7 +233,14 @@ public class Server implements Controler {
 			return;
 		} else
 			result = channelHandlerMap.get(i).getStorage(chan).addPacket(p);
-
+		/**
+		 * Überprüfen ob die Variable PACKET_LOST in Protocol gesetzt ist.
+		 * Wenn ja Fehlernachricht erstellen.
+		 * Sollte dies nicht der Fall sein so wir überprüft ob das letzte Paket schon angekommen ist.
+		 * Wenn ja wird einen Fehlermeldung erstellt.
+		 * Danach wird überprüft ob es die Größe der Daten korrekt war. Sollte dies nicht der Fall sein so wird einen Fehlernachricht erstellt.
+		 * Abschließend wird noch überpüft ob alle Daten erfolgreich übergeben wurde. Wenn ja wird die Methode dataHandlerStarter aufegrufen.
+		 */
 		if (result == Protocol.PACKET_LOST) {
 			gui.logErrTxt("ERROR: one packet has been lost.");
 
@@ -196,8 +258,18 @@ public class Server implements Controler {
 
 	// la m�thode permettant de retrouver le DataHandler en question et de
 	// lancer le traitement de la donn�e re�ue
-	public void dataHandlerStarter(int channel, String imei) {
 
+	/**
+	 * Diese Methode ist dazu da die Daten des DatenHandler zu extrahieren.
+	 * Zusätzlich werden hier die handlePacket Methoden der einzelnen Pakete aufgerufen um die Daten auf der GUI anzuzeigen
+	 * @param channel	Der Datenkanal
+	 * @param imei	Die Imei
+	 */
+	public void dataHandlerStarter(int channel, String imei) {
+		/**
+		 * Überprüfen ob es einen ChannelHandler für die übergebene IMEI gibt.
+		 * Sollte dies nicht der Fall sein so wird eine Fehlernachricht geworfen und dei Methode beendet.
+		 */
 		if (channelHandlerMap.get(imei).getStorage(channel) == null
 				|| channelHandlerMap.get(imei).getPacketMap(channel) == null
 				|| channelHandlerMap.get(imei).getPacketHandlerMap(channel) == null)
@@ -207,18 +279,32 @@ public class Server implements Controler {
 					+ channel);
 			return;
 		}
-
+		/**
+		 * Extrahieren der finalen Paketdaten aus der channelHandlerMap
+		 */
 		byte[] final_data = channelHandlerMap.get(imei).getStorage(channel)
 				.getFinalData();
 
 		// r�cup�ration du packet
+		/**
+		 * Extrahieren des Pakets aus der channelHandlerMap
+		 */
 		Packet p = channelHandlerMap.get(imei).getPacketMap(channel);
+		/**
+		 * Die Daten des Pakets in aus dem final_data Byte-Array extrahieren und in den Klassenvariablen speichern.
+		 */
 		p.parse(final_data);
 
 		// r�cup�ration du gestionnaire du packet
+		/**
+		 * Erstellen eine Handlers für den Datenkanal
+		 */
 		PacketHandler handler = channelHandlerMap.get(imei).getPacketHandlerMap(channel);
 
 		// lancement du traitement
+		/**
+		 * Die Daten auf der GUI anzeigen.
+		 */
 		handler.handlePacket(p, imei, this);
 	}
 
@@ -363,7 +449,17 @@ public class Server implements Controler {
 			args = nullArgs;
 		clientMap.get(imei).toMux(command, channel, args);
 	}
-	
+
+	/**
+	 * Diese Methode soll einen freien Datenkanal finden. Dieser wird in der Variable channel gespeichert.
+	 * Sollte der Kanal jedoch schon in Benutzung sein so wird eine Fehlernachricht erstllt.
+	 * Danach wird ein neuer FileHandler in der channelHandlerMap registriern. Zum Schluss wird noch der Befehl, der Datenkanal und die Argumente an den Mux gesendet.
+	 * @param imei	Die IMEI
+	 * @param command	Der Befehl
+	 * @param args	Die Argumente
+	 * @param dir	Der Pfad
+	 * @param name	Der Name
+	 */
 	public void commandFileSender(String imei, short command, byte[] args, String dir, String name) {
 		int channel = channelHandlerMap.get(imei).getFreeChannel();
 		
@@ -378,6 +474,13 @@ public class Server implements Controler {
 		clientMap.get(imei).toMux(command, channel, args);
 	}
 
+	/**
+	 * Diese Methode entfernt den Listener des channels und übergibt die Argumente dem Mux
+	 * @param imei	Die IMEI
+	 * @param command	Der Befehl
+	 * @param args	Die Argumente
+	 * @param channel	Der Datenkanal
+	 */
 	public void commandStopSender(String imei, short command, byte[] args,
 			int channel) {
 
@@ -388,7 +491,13 @@ public class Server implements Controler {
 			args = nullArgs;
 		clientMap.get(imei).toMux(command, channel, args);
 	}
-	
+
+	/**
+	 * Mit dieser Methode kann ein Client gelöscht werden.
+	 * Hierzu wird in der clientMap der Eintrag mit dem Key i gelöscht, danach wird der Eintrag auch in der channelHandlerMap entfernt
+	 * und schließlich wird der Client auch von der Gui entfernt. Danach wird noch eine Lognachricht erstellt.
+	 * @param i
+	 */
 	public void DeleteClientHandler(String i)
 	{
 		if(clientMap.containsKey(i) && channelHandlerMap.containsKey(i))
@@ -403,14 +512,26 @@ public class Server implements Controler {
 			gui.logErrTxt(i+"client's data couldnt't be deleted after it's disonnection");
 	}
 
+	/**
+	 * Git die GUI zurück.
+	 * @return	Die GUI
+	 */
 	public GUI getGui() {
 		return gui;
 	}
 
+	/**
+	 * Gibt die clientMap zurück.
+	 * @return	Die ClientMap
+	 */
 	public HashMap<String, ClientHandler> getClientMap() {
 		return clientMap;
 	}
 
+	/**
+	 * Gibt die channelHandlerMap zurück.
+	 * @return	Die channelHandlerMap
+	 */
 	public HashMap<String, ChannelDistributionHandler> getChannelHandlerMap() {
 		return channelHandlerMap;
 	}
