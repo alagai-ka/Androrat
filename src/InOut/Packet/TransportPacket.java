@@ -4,6 +4,9 @@ import java.nio.ByteBuffer;
 
 import inout.Protocol;
 
+/**
+ * blablub
+ */
 public class TransportPacket implements Packet {
 
 	private int totalLength;
