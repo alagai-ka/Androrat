@@ -3,6 +3,11 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Diese Klasse ist zum Speichert der Daten von Ordnern gedacht.
+ * Neben einem Konstruktor, der die Klassenvariablen befüllt gibt es für alle Variablen get und set Methoden.
+ * Ansonten hat diese Klasse keine weiter Methoden.
+ */
 	public class MyFile implements Serializable {
 
 		private static final long serialVersionUID = -8076326593527941165L;
