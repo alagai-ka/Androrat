@@ -26,6 +26,9 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JSplitPane;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des Karten Tabs vorhanden.
+ */
 public class MapPanel extends JPanel {
 	
 	private boolean streaming = false;
@@ -47,7 +50,8 @@ public class MapPanel extends JPanel {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
-	 * Create the panel.
+	 * Diese Methode erstellt das Kartenpanel
+	 * @param gui	Die GUI
 	 */
 	public MapPanel(UserGUI gui) {
 		
@@ -243,11 +247,21 @@ public class MapPanel extends JPanel {
 		setLayout(groupLayout);
 
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Center View gedrückt wird.
+	 * Die Methode rückt die die letzte Position des Geräts in die Mitte der Karte.
+	 */
 	private void centerMapView() {
 		 mapViewer.setDisplayPositionByLatLon(lastLatitude, lastLongitude, mapViewer.getZoom());
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Start Streaming aufgerufen wird.
+	 * Hierbei wird überprüft ob schon gestreamt wird.
+	 * Jenachdem wird der Button umbenannt und startet oder stoppt das Streamen der Lokalisationsdaten.
+	 * Um die entsprechenden Befehele zu senden werden entweder die Methode fireStopGPSStreaming oder die Methode fireStartGPSStreaming der Klasse GUI aufgerufen
+	 */
 	private void fireButtonStreaming() {
 		if(streaming) {
 			btnStopStreaming.setText("Start streaming");
@@ -262,7 +276,17 @@ public class MapPanel extends JPanel {
 			gui.fireStartGPSStreaming(provider);
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisieren der Map.
+	 * Ihr werden die neuen Koordinaten übergeben und diese werden dann auf der Karte eingezeichnet.
+	 * Diese Methode wird aufgerufen sobald neue Daten des Clients am Server empfangen werden.
+	 * @param longitude	Längenrgrad
+	 * @param latitude	Breitengrad
+	 * @param altitude	Die Höhe
+	 * @param speed	Die Geschwindigkeit
+	 * @param accuracy	Die Genauigkeit
+	 */
 	public void updateMap(double longitude, double latitude, double altitude, float speed, float accuracy) {
 		lastLatitude = latitude;
 		lastLongitude = longitude;
@@ -282,7 +306,11 @@ public class MapPanel extends JPanel {
 		Date date = new Date(System.currentTimeMillis());
 		lblVallastdata.setText(date.toString());
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Überprüfen ob gerade gestreamt wird oder nicht.
+	 * @return True wenn der Stream aktiv ist, false sonst.
+	 */
 	public boolean getStreaming() {
 		return streaming;
 	}

@@ -34,6 +34,9 @@ import java.io.File;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
+/**
+ * Diese Klasse ist zum Verwalten des Panels der Ordnerstruktur vorhanden.
+ */
 public class FileTreePanel extends JPanel {
 
 	private JTree tree;
@@ -54,7 +57,8 @@ public class FileTreePanel extends JPanel {
 	private JTextField txtDir;
 
 	/**
-	 * Create the panel.
+	 * Erstellt das Panel mit der Ordnerstruktur
+	 * @param gui	Die GUI
 	 */
 	public FileTreePanel(UserGUI gui) {
 		this.gui = gui;
@@ -236,6 +240,11 @@ public class FileTreePanel extends JPanel {
 		this.updateFileTree(listFile);
 	}
 
+	/**
+	 * Diese Methode erhält eine Liste von MyFiles und erstellt daraus einen Ordnerbaum und zeigt diesen an.
+	 * Diese Methode ist zum Aktualisieren falls neue Daten erhalten werden.
+	 * @param fileList	Die Liste der Ordner.
+	 */
 	public void updateFileTree(ArrayList<MyFile> fileList) {
 
 		File dir = null;
@@ -250,7 +259,13 @@ public class FileTreePanel extends JPanel {
 		tree.setModel(treeModel);
 		repaint();
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Anzeigen und Hinzufügen von Kindknoten vorhanden.
+	 * @param parentPath	Der Pfade des Elternknoten
+	 * @param cur	Der derzeitige Ordner
+	 * @return	Den Knoten der Erstellt wurde.
+	 */
 	private DefaultMutableTreeNode addNodes(TreePath parentPath, MyFile cur) {
 		
 		DefaultMutableTreeNode curNode = new DefaultMutableTreeNode(cur.getName());
@@ -273,7 +288,10 @@ public class FileTreePanel extends JPanel {
 		return curNode;
 	}
 
-
+	/**
+	 * Diese Methode wird benötigt, sobald ein Ordner angeklickt wird um die entsprechenden Informationen über diesen auszulesen und anzuseigen.
+	 * @param e	Das Mausevent
+	 */
 	private void fireClickNode(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			TreePath path = tree.getPathForLocation(e.getX(), e.getY());
@@ -329,11 +347,19 @@ public class FileTreePanel extends JPanel {
 			}
 		}
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen sobald er Button Download File gedrückt wird.
+	 * Sie ruft die Methode fireFileDownload der Klasse Gui auf um die Anfrage an den Client zu senden.
+	 */
 	private void fireButtonDownload() {
 		gui.fireFileDownload(selectedAbsolutePath, txtDir.getText(), selectedName);
 	}
 
+	/**
+	 * Diese Methode ruft die Methode fireTreeFile der KLasse GUI auf sobald auf den Button Get FileTree gedrückt wird.
+	 * Es wird dann eine Anfrage an den Client gesendet.
+	 */
 	private void fireButtonRequestTree() {
 		gui.fireTreeFile();
 	}

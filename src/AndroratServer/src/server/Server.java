@@ -82,10 +82,12 @@ public class Server implements Controler {
 	private HashMap<String, ChannelDistributionHandler> channelHandlerMap;
 
 	/**
+	 * Dieser Konstruktor ist der Startpunkt des Servers hier wird zusätzlich die Gui erstellt.
 	 * Dies ist der Konstruktor.
 	 * Hier wir erstmal der übergebene Port überprüft. Sollte dieser 0 sein so wird der in config.txt gespeicherte Port ausgelesen.
 	 * Sollte die nicht funktionieren, so wird der Port per default auf 9999 gesetzt.
 	 * Zusätzlich werden die Klassenvariablen initalisiert und erstellt.
+	 *
 	 * @param port	Der Port auf dem der Server lauscht.
 	 */
 	public Server(int port) {

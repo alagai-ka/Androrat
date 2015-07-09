@@ -40,6 +40,9 @@ import java.util.Vector;
 
 import javax.swing.JSplitPane;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des KontaktTab zuständig
+ */
 public class ContactPanel extends JPanel {
 
 	private JList list;
@@ -58,7 +61,8 @@ public class ContactPanel extends JPanel {
 	private JSplitPane splitPane;
 
 	/**
-	 * Create the panel.
+	 * Erstellt das Kontaktpanel mit alles Felder und Buttons.
+	 * @param gui	Die GUI
 	 */
 	public ContactPanel(UserGUI gui) {
 		this.gui = gui;

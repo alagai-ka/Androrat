@@ -27,6 +27,9 @@ import java.util.Date;
 import Packet.CallPacket;
 import javax.swing.JSplitPane;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des Calllogtabs zuständig
+ */
 public class CallLogPanel extends JPanel {
 	
 	public static Color IN_CALL = new Color(14,92,7);
@@ -44,7 +47,8 @@ public class CallLogPanel extends JPanel {
 	private UserGUI gui;
 
 	/**
-	 * Create the panel.
+	 * Erstellt ein neues Calllogpanel
+	 * @param gui	Die GUI
 	 */
 	public CallLogPanel(UserGUI gui) {
 		this.gui = gui;
@@ -213,7 +217,13 @@ public class CallLogPanel extends JPanel {
 	    }
 	    return formatter;
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen sobald der Button Get Call Logs gedrückt wird.
+	 * Es wird dann überprüft ob Filter für die Anrufliste deklariert wurden oder nicht.
+	 * Ist dies der Fall wird in dem String request diese Filterliste gespeichert.
+	 * Zum Schluss wird die Mehtode fireGetCallLogs der Klasse Gui aufgerufen die Daten an den Client zu senden.
+	 */
 	private void fireGetCallLogs() {
 		String request = "";
 		if(comboBox.getSelectedIndex() != 0) request += " type = "+comboBox.getSelectedIndex();
@@ -270,7 +280,12 @@ public class CallLogPanel extends JPanel {
 		
 		gui.fireGetCallLogs(request);
 	}
-	
+
+	/**
+	 * Erhält einen ArrayListe von CallPackets und verarbeitet diese um sie auf der Gui anzuzeigen.
+	 * Diese Methode wird aufgerufen sobald ein neues CallLogPacket ankommt um die Daten auf der Gui zu aktualisieren.
+	 * @param logsList	Die Anrufliste.
+	 */
 	public void updateCallLogs(ArrayList<CallPacket> logsList) {
 		this.clearPanel();
 		for(CallPacket packet : logsList) {
@@ -298,7 +313,10 @@ public class CallLogPanel extends JPanel {
 	public void addCall(String txt, Color color) {
 		colorPane.append(color, txt);
 	}
-	
+
+	/**
+	 * Diese Methode entfernt die bisher auf dem Panel angezeigten Daten.
+	 */
 	public void clearPanel() {
 		colorPane.setText("");
 	}
