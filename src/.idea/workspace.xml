@@ -18,11 +18,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -826,7 +821,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436450008999</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Comments on: HomePanel, MonitorPanel, SMSLogPanel, SoundPanel">
+      <created>1436537120391</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1436537120391</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -835,6 +836,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
@@ -856,7 +858,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -896,7 +897,8 @@
     <MESSAGE value="Comments on: MyFile" />
     <MESSAGE value="Comments on: TransportPacket" />
     <MESSAGE value="Comments on: CallLogPanel, ContactPanel, FileTreePanel, MapPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: CallLogPanel, ContactPanel, FileTreePanel, MapPanel" />
+    <MESSAGE value="Comments on: HomePanel, MonitorPanel, SMSLogPanel, SoundPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: HomePanel, MonitorPanel, SMSLogPanel, SoundPanel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1158,6 +1160,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.442029">
           <caret line="227" column="45" selection-start-line="227" selection-start-column="45" selection-end-line="227" selection-end-column="45" />
+          <folding>
+            <element signature="e#1443#1459#0" expanded="true" />
+            <element signature="e#7680#7688#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,6 +1171,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5416667">
           <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
+          <folding>
+            <element signature="e#3975#4092#0" expanded="true" />
+            <element signature="e#4091#4092#0" expanded="true" />
+            <element signature="e#7876#7986#0" expanded="true" />
+            <element signature="e#7985#7986#0" expanded="true" />
+            <element signature="e#9090#9199#0" expanded="true" />
+            <element signature="e#9198#9199#0" expanded="true" />
+            <element signature="e#9282#9393#0" expanded="true" />
+            <element signature="e#9392#9393#0" expanded="true" />
+            <element signature="e#9714#9824#0" expanded="true" />
+            <element signature="e#9823#9824#0" expanded="true" />
+            <element signature="e#12784#12792#0" expanded="true" />
+            <element signature="e#12835#12843#0" expanded="true" />
+            <element signature="e#12885#12893#0" expanded="true" />
+            <element signature="e#14128#14129#0" expanded="true" />
+            <element signature="e#14196#14197#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
