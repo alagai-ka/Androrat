@@ -18,54 +18,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/AdvInfoHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/AdvInfoHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/AdvancedInformationPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/AdvancedInformationPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/CallLogHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/CallLogHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/CallLogPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/CallLogPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/CallMonitorHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/CallMonitorHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/CallPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/CallPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/CallStatusPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/CallStatusPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/ChannelDistributionHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/ChannelDistributionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/server/ClientHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/server/ClientHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/ClientLogHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/ClientLogHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/CommandHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/CommandHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/CommandPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/CommandPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/out/Connection.class" afterPath="$PROJECT_DIR$/out/production/Androrat/out/Connection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/utils/Contact.class" afterPath="$PROJECT_DIR$/out/production/Androrat/utils/Contact.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/ContactsHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/ContactsHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/ContactsPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/ContactsPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/in/Demux.class" afterPath="$PROJECT_DIR$/out/production/Androrat/in/Demux.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/FileHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/FileHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/FilePacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/FilePacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/FileTreeHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/FileTreeHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/FileTreePacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/FileTreePacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/GPSHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/GPSHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/LogPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/LogPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/utils/MyFile.class" afterPath="$PROJECT_DIR$/out/production/Androrat/utils/MyFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/PictureHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/PictureHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/PreferenceHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/PreferenceHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/PreferencePacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/PreferencePacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/inout/Protocol.class" afterPath="$PROJECT_DIR$/out/production/Androrat/inout/Protocol.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/RawPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/RawPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/in/Receiver.class" afterPath="$PROJECT_DIR$/out/production/Androrat/in/Receiver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/SMSHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/SMSHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/SMSMonitorHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/SMSMonitorHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/SMSPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/SMSPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/SMSTreePacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/SMSTreePacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/out/Sender.class" afterPath="$PROJECT_DIR$/out/production/Androrat/out/Sender.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/ShortSMSPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/ShortSMSPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/SoundHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/SoundHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/TemporaryStorage.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/TemporaryStorage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/TransportPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/TransportPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/handler/VideoHandler.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/handler/VideoHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/CallLogPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/CallLogPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/ContactPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/ContactPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/server/Server.java" afterPath="$PROJECT_DIR$/AndroratServer/src/server/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -88,55 +45,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ColorPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/ColorPane.java">
+      <file leaf-file-name="SoundPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MonitorPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="165" column="21" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PicturePanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/PicturePanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.5797101">
+              <caret line="334" column="124" selection-start-line="334" selection-start-column="124" selection-end-line="334" selection-end-column="124" />
               <folding>
-                <element signature="e#4879#4880#0" expanded="true" />
-                <element signature="e#4907#4908#0" expanded="true" />
+                <element signature="e#6037#6154#0" expanded="true" />
+                <element signature="e#6153#6154#0" expanded="true" />
+                <element signature="e#14288#14289#0" expanded="true" />
+                <element signature="e#14311#14312#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SMSLogPanel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.05592105">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -158,10 +77,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/InOut/Packet/Packet.java" />
-        <option value="$PROJECT_DIR$/InOut/Packet/AdvancedInformationPacket.java" />
-        <option value="$PROJECT_DIR$/InOut/Packet/FilePacket.java" />
-        <option value="$PROJECT_DIR$/InOut/Packet/GPSPacket.java" />
         <option value="$PROJECT_DIR$/InOut/Packet/CallStatusPacket.java" />
         <option value="$PROJECT_DIR$/InOut/Packet/CallLogPacket.java" />
         <option value="$PROJECT_DIR$/InOut/Packet/CallPacket.java" />
@@ -209,6 +124,10 @@
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/ContactPanel.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java" />
+        <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java" />
+        <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java" />
+        <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java" />
+        <option value="$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java" />
       </list>
     </option>
   </component>
@@ -251,8 +170,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -519,6 +436,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -901,7 +820,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434198738339</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Comments on: CallLogPanel, ContactPanel, FileTreePanel, MapPanel">
+      <created>1436450008999</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1436450008999</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -912,11 +837,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.342827" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -970,7 +895,8 @@
     <MESSAGE value="Comments on: Contact" />
     <MESSAGE value="Comments on: MyFile" />
     <MESSAGE value="Comments on: TransportPacket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: TransportPacket" />
+    <MESSAGE value="Comments on: CallLogPanel, ContactPanel, FileTreePanel, MapPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: CallLogPanel, ContactPanel, FileTreePanel, MapPanel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -997,83 +923,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InOut/Packet/CommandPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3142858">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25176057">
-          <caret line="148" column="93" selection-start-line="148" selection-start-column="93" selection-end-line="148" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/TemporaryStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7007042">
-          <caret line="188" column="41" selection-start-line="188" selection-start-column="41" selection-end-line="188" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/FileTreeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37142858">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/PacketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/SMSHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71428573">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/Packet/AdvancedInformationPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3428574">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/ChannelDistributionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/FileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.142857">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/in/Receiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7777777">
-          <caret line="72" column="50" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/inout/Controler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.148148">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InOut/out/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6584507">
@@ -1205,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8667763">
           <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,9 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="40" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1238,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,7 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,23 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/VideoPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1305,7 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2236842">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,14 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.9259896">
           <caret line="318" column="7" selection-start-line="318" selection-start-column="7" selection-end-line="318" selection-end-column="7" />
-          <folding>
-            <element signature="e#4629#4731#0" expanded="true" />
-            <element signature="e#4730#4731#0" expanded="true" />
-            <element signature="e#11999#12000#0" expanded="true" />
-            <element signature="e#12034#12035#0" expanded="true" />
-            <element signature="e#12144#12145#0" expanded="true" />
-            <element signature="e#12172#12173#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1328,15 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8315217">
           <caret line="311" column="59" selection-start-line="311" selection-start-column="59" selection-end-line="311" selection-end-column="59" />
-          <folding>
-            <element signature="e#2642#2742#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-            <element signature="e#4340#4446#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="e#10434#10445#0" expanded="true" />
-            <element signature="e#11090#11091#0" expanded="true" />
-            <element signature="e#11113#11114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1344,28 +1151,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0963855">
           <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
-          <folding>
-            <element signature="e#2502#2619#0" expanded="true" />
-            <element signature="e#2618#2619#0" expanded="true" />
-            <element signature="e#2970#3084#0" expanded="true" />
-            <element signature="e#3083#3084#0" expanded="true" />
-            <element signature="e#3174#3287#0" expanded="true" />
-            <element signature="e#3286#3287#0" expanded="true" />
-            <element signature="e#3430#3548#0" expanded="true" />
-            <element signature="e#3547#3548#0" expanded="true" />
-            <element signature="e#8069#8184#0" expanded="true" />
-            <element signature="e#8183#8184#0" expanded="true" />
-            <element signature="e#10556#10557#0" expanded="true" />
-            <element signature="e#10584#10585#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.442029">
+          <caret line="227" column="45" selection-start-line="227" selection-start-column="45" selection-end-line="227" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/HomePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="-2.5416667">
+          <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56110156">
+          <caret line="312" column="41" selection-start-line="312" selection-start-column="41" selection-end-line="312" selection-end-column="41" />
+          <folding>
+            <element signature="e#11662#11663#0" expanded="true" />
+            <element signature="e#11697#11698#0" expanded="true" />
+            <element signature="e#11854#11855#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.804348">
+          <caret line="251" column="51" selection-start-line="251" selection-start-column="51" selection-end-line="251" selection-end-column="51" />
+          <folding>
+            <element signature="e#2397#2504#0" expanded="true" />
+            <element signature="e#2503#2504#0" expanded="true" />
+            <element signature="e#8082#8083#0" expanded="true" />
+            <element signature="e#8106#8107#0" expanded="true" />
+            <element signature="e#8289#8290#0" expanded="true" />
+            <element signature="e#8314#8315#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1377,39 +1204,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MonitorPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="21" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/FileTreePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.69384056">
-          <caret line="239" column="24" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="24" />
-          <folding>
-            <element signature="e#1443#1459#0" expanded="true" />
-            <element signature="e#3069#3177#0" expanded="true" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3259#3364#0" expanded="true" />
-            <element signature="e#3363#3364#0" expanded="true" />
-            <element signature="e#7057#7165#0" expanded="true" />
-            <element signature="e#7164#7165#0" expanded="true" />
-            <element signature="e#7627#7635#0" expanded="true" />
-            <element signature="e#11498#11499#0" expanded="true" />
-            <element signature="e#11579#11580#0" expanded="true" />
-            <element signature="e#11801#11802#0" expanded="true" />
-            <element signature="e#11826#11827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/PicturePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+          <caret line="166" column="13" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="13" />
           <folding>
             <element signature="e#4879#4880#0" expanded="true" />
             <element signature="e#4907#4908#0" expanded="true" />
@@ -1417,11 +1215,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SMSLogPanel.java">
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/stop.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/stop.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/stop2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/People.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/play.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/Jesus.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/gtk-media-stop.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/gtk-media-record.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/gtk-media-pause.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/res/enableSound.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/VideoPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.05592105">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state vertical-scroll-proportion="-0.55921054">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/handler/SoundHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4819079">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/SoundPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5797101">
+          <caret line="334" column="124" selection-start-line="334" selection-start-column="124" selection-end-line="334" selection-end-column="124" />
+          <folding>
+            <element signature="e#6037#6154#0" expanded="true" />
+            <element signature="e#6153#6154#0" expanded="true" />
+            <element signature="e#14288#14289#0" expanded="true" />
+            <element signature="e#14311#14312#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -224,6 +224,9 @@ public class FileTreePanel extends JPanel {
 		this.init();
 	}
 
+	/**
+	 * Methode zum Initialisieren des Panels.
+	 */
 	public void init() {
 		MyFile f0 = new MyFile(new File("src"));
 		MyFile f1 = new MyFile(new File("src/handler"));

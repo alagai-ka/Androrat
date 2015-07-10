@@ -22,6 +22,9 @@ import java.util.Date;
 import java.util.HashSet;
 import javax.swing.JSplitPane;
 
+/**
+ * Diese Klasse ist für die Tabs zum Monitoren der einkommenden Anrufe oder SMS zuständig.
+ */
 public class MonitorPanel extends JPanel {
 	
 	private UserGUI gui;
@@ -40,7 +43,9 @@ public class MonitorPanel extends JPanel {
 	private JSplitPane splitPane;
 
 	/**
-	 * Create the panel.
+	 * Diese Methode erstellt das entspechende Panel
+	 * @param gui	Die Guo
+	 * @param callMonitor	Ob es sich um Call Monitor oder SMS Monitor handelt
 	 */
 	public MonitorPanel(UserGUI gui, boolean callMonitor) {
 		this.gui = gui;
@@ -149,7 +154,16 @@ public class MonitorPanel extends JPanel {
 		lblNewLabel_3.setVisible(false);
 		lblReceived.setVisible(false);
 	}
-	
+
+	/**
+	 * Diese Methode wir aufgerufen wenn der Button Start monitoring gedrückt wird.
+	 * Da der Button zum Starten und Stoppen des Monitoning zuständig ist, wird zu erst überprüft welcher Zustand zutrifft.
+	 * jenachdem wird der Text des Buttons verändert.
+	 * Sollte es schon aktiv sein so wird zusätzlich die Variable callMonitor überprüft. Sollte diese true sein wird die Funktion fireStopCallMonitoring aufgerufen.
+	 * Sonste wird die Methode fireStopSMSMonitoring der Klasse GUI aufgerufen.
+	 * Sollte das ganze noch nicht aktiv sein so wird der Filter auf den Inhalt überprüft. Im Anschluss wird dann jenachdem welchen Wert callMonitor besitzt die Methode
+	 * fireStartCallMonitoring oder die Methode fireStartSMSMonitoring aufgerufen.
+	 */
 	private void fireButtonMonitoring() {
 		if(monitoring) {
 			btnStartMonitoring.setText("Start monitoring");
@@ -180,7 +194,13 @@ public class MonitorPanel extends JPanel {
 				gui.fireStartSMSMonitoring(phoneNumbers);
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist zum bestimmen des Type des eingehenden Anrufes da.
+	 * Zusätzlich werden die Informationen dann in unterschiedlichen Farben dargestellt.
+	 * @param type	Der Type des Anrufs
+	 * @param phoneNumber	Die Telefonnummer
+	 */
 	public void addMonitoredCall(int type, String phoneNumber) {
 		Color color = Color.darkGray;
 		String message = "";
@@ -208,15 +228,29 @@ public class MonitorPanel extends JPanel {
 		
 		colorPane.append(color,message+ phoneNumber+" at "+ (new Date(System.currentTimeMillis())).toString() +"\n");
 	}
-	
+
+	/**
+	 * Diese Methode ist zum hinzufügen einer neuen SMS für das Monitorfenster zuständig.
+	 * @param addr	Die Telefonnummer
+	 * @param date	Der Zeitstempel
+	 * @param body	Der Text der SMS
+	 */
 	public void addMonitoredSMS(String addr, long date, String body) {
 		colorPane.append(Color.black, "Number: "+addr +"\nBody:\n"+body+"\nSMS at "+(new Date(date)).toString()+"\n\n");
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Überprüfen ob das Monitoring gerade aktiv ist oder nicht.
+	 * @return	True wenn aktiv, false sonst.
+	 */
 	public boolean getMonitoring() {
 		return monitoring;
 	}
-	
+
+	/**
+	 * Diese Methode gibt zurück ob es sich um ein CallMonitor oder ein SMSMonitor handelt.
+	 * @return	True wenn CallMoniotr, false sonst.
+	 */
 	public boolean getCallMonitor() {
 		return callMonitor;
 	}

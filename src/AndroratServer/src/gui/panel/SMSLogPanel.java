@@ -29,6 +29,9 @@ import Packet.SMSPacket;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 
+/**
+ * Diese Methode ist zum Erstellen und Verwalten des SMSLogTabs vorhanden.
+ */
 public class SMSLogPanel extends JPanel {
 	
 	public static Color IN_SMS = new Color(14,92,7);
@@ -45,7 +48,8 @@ public class SMSLogPanel extends JPanel {
 	private UserGUI gui;
 
 	/**
-	 * Create the panel.
+	 * Diese Methode ist zum Erstellen des SMSLog Panels da.
+	 * @param gui	Die GUI
 	 */
 	public SMSLogPanel(UserGUI gui) {
 		this.gui = gui;
@@ -199,7 +203,12 @@ public class SMSLogPanel extends JPanel {
 	    }
 	    return formatter;
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Get SMS aufgerufen wird.
+	 * Hier wird dann überprüft ob Filter gesetzt wurden. Sollte dies der Fall sein so werden diese in einen String geschrieben.
+	 * Zum Schluss wird dann die Methode fireGetSMS der Klasse GUI aufgerufen und der String mit den Filtern übergeben.
+	 */
 	private void fireGetSMS() {
 		String request = "";
 		///if(sourceBox.getSelectedIndex() != 0) request += " _id = "+sourceBox.getSelectedIndex();
@@ -266,7 +275,11 @@ public class SMSLogPanel extends JPanel {
 		
 		gui.fireGetSMS(request);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Anzeigen von neuen SMS Paketen da. Hier werden die Daten aus den Paketen extrahiert und anschließend auf der GUI angezeigt.
+	 * @param logsList Die SMSPackets
+	 */
 	public void updateSMS(ArrayList<SMSPacket> logsList) {
 		this.clearPanel();
 		for(SMSPacket p: logsList) {
@@ -295,11 +308,19 @@ public class SMSLogPanel extends JPanel {
 				colorPane.append(OUT_SMS, mess);
 		}
 	}
-	
+
+	/**
+	 * Diese Methode wird nie aufgerufen.
+	 * @param txt
+	 * @param color
+	 */
 	public void addSMS(String txt, Color color) {
 		colorPane.append(color, txt);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum entfernen von Daten auf der GUI zuständig. Dies ist nötig um neue Daten anzeigen zu können.
+	 */
 	public void clearPanel() {
 		colorPane.setText("");
 	}
