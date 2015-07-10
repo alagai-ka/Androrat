@@ -18,7 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/UserGUI.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/UserGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -44,8 +44,42 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20552677">
-              <caret line="58" column="33" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="577" column="66" selection-start-line="577" selection-start-column="66" selection-end-line="577" selection-end-column="66" />
+              <folding>
+                <element signature="e#12430#12431#0" expanded="true" />
+                <element signature="e#12462#12463#0" expanded="true" />
+                <element signature="e#21677#21678#0" expanded="true" />
+                <element signature="e#21750#21751#0" expanded="true" />
+                <element signature="e#22501#22502#0" expanded="true" />
+                <element signature="e#22573#22574#0" expanded="true" />
+                <element signature="e#22780#22781#0" expanded="true" />
+                <element signature="e#22847#22848#0" expanded="true" />
+                <element signature="e#23095#23096#0" expanded="true" />
+                <element signature="e#23169#23170#0" expanded="true" />
+                <element signature="e#24140#24141#0" expanded="true" />
+                <element signature="e#24208#24209#0" expanded="true" />
+                <element signature="e#25776#25792#0" expanded="true" />
+                <element signature="e#28460#28654#0" expanded="true" />
+                <element signature="e#28653#28654#0" expanded="true" />
+                <element signature="e#28808#28946#0" expanded="true" />
+                <element signature="e#28945#28946#0" expanded="true" />
+                <element signature="e#29563#29759#0" expanded="true" />
+                <element signature="e#29758#29759#0" expanded="true" />
+                <element signature="e#29996#30195#0" expanded="true" />
+                <element signature="e#30194#30195#0" expanded="true" />
+                <element signature="e#31486#31680#0" expanded="true" />
+                <element signature="e#31679#31680#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="283" column="35" selection-start-line="283" selection-start-column="24" selection-end-line="283" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -78,7 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Androrat/src/my/app/client/Preference.java" />
         <option value="$PROJECT_DIR$/Androrat/src/my/app/client/Client.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/CallLogHandler.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/CallMonitorHandler.java" />
@@ -129,6 +162,7 @@
         <option value="$PROJECT_DIR$/Androrat/src/my/app/client/ProcessCommand.java" />
         <option value="$PROJECT_DIR$/InOut/Packet/LogPacket.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/UserGUI.java" />
+        <option value="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
       </list>
     </option>
   </component>
@@ -220,6 +254,28 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AndroratServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -240,6 +296,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AndroratServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="panel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,7 +741,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436548752567</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Comments on: UserGUI">
+      <created>1436552755381</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1436552755381</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -707,7 +795,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First" />
     <MESSAGE value="Comments on:&#10;AlarmListener&#10;AndroratActivity&#10;BootReceiver&#10;ClientListener&#10;LauncherActivity&#10;Perference" />
     <MESSAGE value="Comments on Perference, ProcessCommand" />
     <MESSAGE value="Comments on AdvancedSystemInfo" />
@@ -732,7 +819,8 @@
     <MESSAGE value="Comments on: HomePanel, MonitorPanel, SMSLogPanel, SoundPanel" />
     <MESSAGE value="Comments on: ColorPanel, PicturePanel, VideoPanel" />
     <MESSAGE value="Comments on: AdvContactGUI, SMSDialog,User,UserModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: AdvContactGUI, SMSDialog,User,UserModel" />
+    <MESSAGE value="Comments on: UserGUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: UserGUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -845,14 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.513158">
-          <caret line="103" column="57" selection-start-line="103" selection-start-column="57" selection-end-line="103" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/server/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34539473">
@@ -876,39 +956,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8315217">
-          <caret line="311" column="59" selection-start-line="311" selection-start-column="59" selection-end-line="311" selection-end-column="59" />
-          <folding>
-            <element signature="e#2642#2742#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-            <element signature="e#4340#4446#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="e#10434#10445#0" expanded="true" />
-            <element signature="e#11090#11091#0" expanded="true" />
-            <element signature="e#11113#11114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/ContactPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0963855">
           <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
           <folding>
-            <element signature="e#2502#2619#0" expanded="true" />
-            <element signature="e#2618#2619#0" expanded="true" />
-            <element signature="e#2970#3084#0" expanded="true" />
-            <element signature="e#3083#3084#0" expanded="true" />
-            <element signature="e#3174#3287#0" expanded="true" />
-            <element signature="e#3286#3287#0" expanded="true" />
-            <element signature="e#3430#3548#0" expanded="true" />
-            <element signature="e#3547#3548#0" expanded="true" />
-            <element signature="e#8069#8184#0" expanded="true" />
-            <element signature="e#8183#8184#0" expanded="true" />
-            <element signature="e#10556#10557#0" expanded="true" />
-            <element signature="e#10584#10585#0" expanded="true" />
+            <element signature="e#2502#2619#0" expanded="false" />
+            <element signature="e#2618#2619#0" expanded="false" />
+            <element signature="e#2970#3084#0" expanded="false" />
+            <element signature="e#3083#3084#0" expanded="false" />
+            <element signature="e#3174#3287#0" expanded="false" />
+            <element signature="e#3286#3287#0" expanded="false" />
+            <element signature="e#3430#3548#0" expanded="false" />
+            <element signature="e#3547#3548#0" expanded="false" />
+            <element signature="e#8069#8184#0" expanded="false" />
+            <element signature="e#8183#8184#0" expanded="false" />
+            <element signature="e#10556#10557#0" expanded="false" />
+            <element signature="e#10584#10585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -918,8 +982,8 @@
         <state vertical-scroll-proportion="0.442029">
           <caret line="227" column="45" selection-start-line="227" selection-start-column="45" selection-end-line="227" selection-end-column="45" />
           <folding>
-            <element signature="e#1443#1459#0" expanded="true" />
-            <element signature="e#7680#7688#0" expanded="true" />
+            <element signature="e#1443#1459#0" expanded="false" />
+            <element signature="e#7680#7688#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -929,21 +993,21 @@
         <state vertical-scroll-proportion="-2.5416667">
           <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
           <folding>
-            <element signature="e#3975#4092#0" expanded="true" />
-            <element signature="e#4091#4092#0" expanded="true" />
-            <element signature="e#7876#7986#0" expanded="true" />
-            <element signature="e#7985#7986#0" expanded="true" />
-            <element signature="e#9090#9199#0" expanded="true" />
-            <element signature="e#9198#9199#0" expanded="true" />
-            <element signature="e#9282#9393#0" expanded="true" />
-            <element signature="e#9392#9393#0" expanded="true" />
-            <element signature="e#9714#9824#0" expanded="true" />
-            <element signature="e#9823#9824#0" expanded="true" />
-            <element signature="e#12784#12792#0" expanded="true" />
-            <element signature="e#12835#12843#0" expanded="true" />
-            <element signature="e#12885#12893#0" expanded="true" />
-            <element signature="e#14128#14129#0" expanded="true" />
-            <element signature="e#14196#14197#0" expanded="true" />
+            <element signature="e#3975#4092#0" expanded="false" />
+            <element signature="e#4091#4092#0" expanded="false" />
+            <element signature="e#7876#7986#0" expanded="false" />
+            <element signature="e#7985#7986#0" expanded="false" />
+            <element signature="e#9090#9199#0" expanded="false" />
+            <element signature="e#9198#9199#0" expanded="false" />
+            <element signature="e#9282#9393#0" expanded="false" />
+            <element signature="e#9392#9393#0" expanded="false" />
+            <element signature="e#9714#9824#0" expanded="false" />
+            <element signature="e#9823#9824#0" expanded="false" />
+            <element signature="e#12784#12792#0" expanded="false" />
+            <element signature="e#12835#12843#0" expanded="false" />
+            <element signature="e#12885#12893#0" expanded="false" />
+            <element signature="e#14128#14129#0" expanded="false" />
+            <element signature="e#14196#14197#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -953,10 +1017,10 @@
         <state vertical-scroll-proportion="0.56110156">
           <caret line="312" column="41" selection-start-line="312" selection-start-column="41" selection-end-line="312" selection-end-column="41" />
           <folding>
-            <element signature="e#11662#11663#0" expanded="true" />
-            <element signature="e#11697#11698#0" expanded="true" />
-            <element signature="e#11854#11855#0" expanded="true" />
-            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11662#11663#0" expanded="false" />
+            <element signature="e#11697#11698#0" expanded="false" />
+            <element signature="e#11854#11855#0" expanded="false" />
+            <element signature="e#11882#11883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -966,12 +1030,12 @@
         <state vertical-scroll-proportion="5.804348">
           <caret line="251" column="51" selection-start-line="251" selection-start-column="51" selection-end-line="251" selection-end-column="51" />
           <folding>
-            <element signature="e#2397#2504#0" expanded="true" />
-            <element signature="e#2503#2504#0" expanded="true" />
-            <element signature="e#8082#8083#0" expanded="true" />
-            <element signature="e#8106#8107#0" expanded="true" />
-            <element signature="e#8289#8290#0" expanded="true" />
-            <element signature="e#8314#8315#0" expanded="true" />
+            <element signature="e#2397#2504#0" expanded="false" />
+            <element signature="e#2503#2504#0" expanded="false" />
+            <element signature="e#8082#8083#0" expanded="false" />
+            <element signature="e#8106#8107#0" expanded="false" />
+            <element signature="e#8289#8290#0" expanded="false" />
+            <element signature="e#8314#8315#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1039,10 +1103,10 @@
         <state vertical-scroll-proportion="0.5797101">
           <caret line="334" column="124" selection-start-line="334" selection-start-column="124" selection-end-line="334" selection-end-column="124" />
           <folding>
-            <element signature="e#6037#6154#0" expanded="true" />
-            <element signature="e#6153#6154#0" expanded="true" />
-            <element signature="e#14288#14289#0" expanded="true" />
-            <element signature="e#14311#14312#0" expanded="true" />
+            <element signature="e#6037#6154#0" expanded="false" />
+            <element signature="e#6153#6154#0" expanded="false" />
+            <element signature="e#14288#14289#0" expanded="false" />
+            <element signature="e#14311#14312#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1052,13 +1116,13 @@
         <state vertical-scroll-proportion="2.5215147">
           <caret line="201" column="34" selection-start-line="201" selection-start-column="34" selection-end-line="201" selection-end-column="34" />
           <folding>
-            <element signature="e#1347#1355#0" expanded="true" />
-            <element signature="e#2529#2645#0" expanded="true" />
-            <element signature="e#2644#2645#0" expanded="true" />
-            <element signature="e#3874#3976#0" expanded="true" />
-            <element signature="e#3975#3976#0" expanded="true" />
-            <element signature="e#5035#5036#0" expanded="true" />
-            <element signature="e#5063#5064#0" expanded="true" />
+            <element signature="e#1347#1355#0" expanded="false" />
+            <element signature="e#2529#2645#0" expanded="false" />
+            <element signature="e#2644#2645#0" expanded="false" />
+            <element signature="e#3874#3976#0" expanded="false" />
+            <element signature="e#3975#3976#0" expanded="false" />
+            <element signature="e#5035#5036#0" expanded="false" />
+            <element signature="e#5063#5064#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1068,22 +1132,22 @@
         <state vertical-scroll-proportion="1.5266781">
           <caret line="280" column="1" selection-start-line="280" selection-start-column="1" selection-end-line="280" selection-end-column="1" />
           <folding>
-            <element signature="e#4037#4433#0" expanded="true" />
-            <element signature="e#4432#4433#0" expanded="true" />
-            <element signature="e#5822#5992#0" expanded="true" />
-            <element signature="e#5991#5992#0" expanded="true" />
-            <element signature="e#6248#6576#0" expanded="true" />
-            <element signature="e#6575#6576#0" expanded="true" />
-            <element signature="e#6618#6769#0" expanded="true" />
-            <element signature="e#6768#6769#0" expanded="true" />
-            <element signature="e#6809#6907#0" expanded="true" />
-            <element signature="e#6906#6907#0" expanded="true" />
-            <element signature="e#6946#7044#0" expanded="true" />
-            <element signature="e#7043#7044#0" expanded="true" />
-            <element signature="e#7084#7185#0" expanded="true" />
-            <element signature="e#7184#7185#0" expanded="true" />
-            <element signature="e#7808#7809#0" expanded="true" />
-            <element signature="e#7831#7832#0" expanded="true" />
+            <element signature="e#4037#4433#0" expanded="false" />
+            <element signature="e#4432#4433#0" expanded="false" />
+            <element signature="e#5822#5992#0" expanded="false" />
+            <element signature="e#5991#5992#0" expanded="false" />
+            <element signature="e#6248#6576#0" expanded="false" />
+            <element signature="e#6575#6576#0" expanded="false" />
+            <element signature="e#6618#6769#0" expanded="false" />
+            <element signature="e#6768#6769#0" expanded="false" />
+            <element signature="e#6809#6907#0" expanded="false" />
+            <element signature="e#6906#6907#0" expanded="false" />
+            <element signature="e#6946#7044#0" expanded="false" />
+            <element signature="e#7043#7044#0" expanded="false" />
+            <element signature="e#7084#7185#0" expanded="false" />
+            <element signature="e#7184#7185#0" expanded="false" />
+            <element signature="e#7808#7809#0" expanded="false" />
+            <element signature="e#7831#7832#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1093,8 +1157,8 @@
         <state vertical-scroll-proportion="0.7357513">
           <caret line="320" column="12" selection-start-line="320" selection-start-column="8" selection-end-line="320" selection-end-column="12" />
           <folding>
-            <element signature="e#12144#12145#0" expanded="true" />
-            <element signature="e#12172#12173#0" expanded="true" />
+            <element signature="e#12144#12145#0" expanded="false" />
+            <element signature="e#12172#12173#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1189,14 +1253,6 @@
             <element signature="e#4571#4572#0" expanded="false" />
             <element signature="e#4605#4606#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,11 +1371,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="283" column="35" selection-start-line="283" selection-start-column="24" selection-end-line="283" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20552677">
-          <caret line="58" column="33" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="33" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="577" column="66" selection-start-line="577" selection-start-column="66" selection-end-line="577" selection-end-column="66" />
+          <folding>
+            <element signature="e#12430#12431#0" expanded="true" />
+            <element signature="e#12462#12463#0" expanded="true" />
+            <element signature="e#21677#21678#0" expanded="true" />
+            <element signature="e#21750#21751#0" expanded="true" />
+            <element signature="e#22501#22502#0" expanded="true" />
+            <element signature="e#22573#22574#0" expanded="true" />
+            <element signature="e#22780#22781#0" expanded="true" />
+            <element signature="e#22847#22848#0" expanded="true" />
+            <element signature="e#23095#23096#0" expanded="true" />
+            <element signature="e#23169#23170#0" expanded="true" />
+            <element signature="e#24140#24141#0" expanded="true" />
+            <element signature="e#24208#24209#0" expanded="true" />
+            <element signature="e#25776#25792#0" expanded="true" />
+            <element signature="e#28460#28654#0" expanded="true" />
+            <element signature="e#28653#28654#0" expanded="true" />
+            <element signature="e#28808#28946#0" expanded="true" />
+            <element signature="e#28945#28946#0" expanded="true" />
+            <element signature="e#29563#29759#0" expanded="true" />
+            <element signature="e#29758#29759#0" expanded="true" />
+            <element signature="e#29996#30195#0" expanded="true" />
+            <element signature="e#30194#30195#0" expanded="true" />
+            <element signature="e#31486#31680#0" expanded="true" />
+            <element signature="e#31679#31680#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

