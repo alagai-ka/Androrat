@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import inout.Protocol;
 
 /**
- * blablub
+ * Zum Erstellen und Verwalten eines Tranport Paketes
  */
 public class TransportPacket implements Packet {
 	/**

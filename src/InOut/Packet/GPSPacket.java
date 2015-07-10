@@ -2,6 +2,9 @@ package Packet;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Diese Klasse ist zum Speichern und Versenden von GPS Daten vorhanden.
+ */
 public class GPSPacket implements Packet
 {
 	/**

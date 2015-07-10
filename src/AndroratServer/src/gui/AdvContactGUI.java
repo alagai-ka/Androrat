@@ -18,6 +18,9 @@ import javax.swing.JTextArea;
 import utils.Contact;
 import javax.swing.JScrollPane;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des Fensters zum Anzeigen von Erweiterten Kontaktinformationen.
+ */
 public class AdvContactGUI extends JFrame {
 	
 	private JLabel lblValname;
@@ -38,7 +41,8 @@ public class AdvContactGUI extends JFrame {
 
 
 	/**
-	 * Create the frame.
+	 * Erstellt die GUI zum Anzeigen der erweiterten Kontaktdaten.
+	 * @param contact	Der Kontakt
 	 */
 	public AdvContactGUI(Contact contact) {
 		this.contact = contact;
@@ -229,7 +233,10 @@ public class AdvContactGUI extends JFrame {
 		
 		this.initContactInfo();
 	}
-	
+
+	/**
+	 * Diese Methode extrahiert die Daten den Kontakts und zeigt sie auf der Gui an.
+	 */
 	private void initContactInfo() {
 		lblValid.setText(""+contact.getId());
 		lblVallasttime.setText(""+(new Date(contact.getLast_time_contacted())));

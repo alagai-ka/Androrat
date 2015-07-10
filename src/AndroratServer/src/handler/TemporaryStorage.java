@@ -83,7 +83,7 @@ public class TemporaryStorage
 	/**
 	 * Diese Methode wird zum Hinzufügen eines Pakets verwendet.
 	 * @param packet	Das Paket
-	 * @return
+	 * @return Den entsprechenden Wert des Protocols.
 	 */
 	public short addPacket(TransportPacket packet)
 	{
@@ -177,7 +177,7 @@ public class TemporaryStorage
 
 	/**
 	 * Git die Sequenznummer des letzten empfandenen Pakets zurück.
-	 * @return
+	 * @return	Letze Sequenznummer
 	 */
 	public int getLastPacketPositionReceived()
 	{

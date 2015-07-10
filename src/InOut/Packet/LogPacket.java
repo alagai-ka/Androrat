@@ -78,7 +78,7 @@ public class LogPacket implements Packet {
 
 	/**
 	 * Liefert die Lognachticht
-	 * @return
+	 * @return die Lognachricht
 	 */
 	public String getMessage() {
 		return message;

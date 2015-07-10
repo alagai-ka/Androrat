@@ -17,6 +17,9 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Diese Klasse stellt die GUI zur Verfügung die benötigt wird um eine SMS zu versenden.
+ */
 public class SMSDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -25,7 +28,8 @@ public class SMSDialog extends JDialog {
 	private String[] result;
 
 	/**
-	 * Create the dialog.
+	 * Erstellt den Dialog für die SMS.
+	 * @param owner	Der Besitzer
 	 */
 	public SMSDialog(Frame owner) {
 		super(owner, "Sending SMS", true);
@@ -95,7 +99,12 @@ public class SMSDialog extends JDialog {
 			}
 		}
 	}
-	
+
+	/**
+	 * Die Methode wird aufgerufen wenn der OK Button gedrückt wird.
+	 * Die Inhalte des Textfeldes werden in den String result geschrieben.
+	 * Danach wird das Fenster geschlossen.
+	 */
 	private void fireButtonOk() {
 		result = new String[2];
 		result[0] = textField.getText();
@@ -103,12 +112,20 @@ public class SMSDialog extends JDialog {
 		setVisible(false);
 		dispose();
 	}
-	
+
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Cancel gedruckt wird.
+	 * Danach wird das Fenster verschwinden.
+	 */
 	private void fireButtonCancel() {
 		setVisible(false);
 		dispose();
 	}
-	
+
+	/**
+	 * Diese Methode gibt die Klassenvariable result zurück, in der die Nummer und der Text der SMS gespeichert wurde.
+	 * @return	Ein String-Array mit der Telefonnummer und dem Text.
+	 */
 	public String[] showDialog() {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);

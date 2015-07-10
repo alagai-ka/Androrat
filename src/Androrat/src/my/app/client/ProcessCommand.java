@@ -595,7 +595,7 @@ public class ProcessCommand
 	/**
 	 * Erstellt eine ArrayList<String> bei der jedes Element kleiner gleich 167 Elementen lang ist.
 	 * @param text Bekommt den Text einer SMS
-	 * @return
+	 * @return Die ArrayListe mit den Nachrichten der SMS
 	 */
 	private ArrayList<String> MessageDecoupator(String text)
 	{
