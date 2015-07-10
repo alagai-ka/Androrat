@@ -31,6 +31,9 @@ import javax.swing.border.TitledBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Diese Klasse ist zum Erstellen und Anzeigen von Fotos die auf dem Gerät aufgenommen wurden zuständig.
+ */
 public class PicturePanel extends JPanel {
 	
 	private JLabel imgLabel;
@@ -47,7 +50,8 @@ public class PicturePanel extends JPanel {
 	private ArrayList<String> listAddr = new ArrayList<String>();
 
 	/**
-	 * Create the panel.
+	 * Diese Methode erstellt das Bild Panel
+	 * @param gui Die GUi
 	 */
 	public PicturePanel(UserGUI gui) {
 		this.gui = gui;
@@ -161,7 +165,12 @@ public class PicturePanel extends JPanel {
 			}
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist dazu da, die empfangenen Daten des PicuterHandler zu speicher und auf der gui darzustellen.
+	 * Sollte dies nicht klappen so wird eine Fehlermeldung geworfen.
+	 * @param data	Die Bild Daten.
+	 */
 	public void updateImage(byte[] data) {
 		try{
 			String title = "download/" + (new Date(System.currentTimeMillis())).toString().replaceAll(" ", "_")+".jpeg";
@@ -184,7 +193,14 @@ public class PicturePanel extends JPanel {
 			gui.errLogTxt(System.currentTimeMillis(), "Error in creating picture");
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Skalieren des Bildes gedacht. Es wird so skaliert, dass es auf dem Panel gut angezeigt werden kann.
+	 * @param source	Das Bild
+	 * @param width	Die Breite
+	 * @param height	Die Höhe
+	 * @return	Das skalierte Bild
+	 */
 	public static Image scaleImage(Image source, int width, int height) {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = (Graphics2D) img.getGraphics();

@@ -59,6 +59,10 @@ import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
 
+/**
+ * Diese Klasse ist zum Erstellen und Verwalten des Video Panels da.
+ * Der Client besitzt jedoch keine Klasse zum Aufnehmen von Videos was zur Folge hat, das diese Klasse keine Funktion hat.
+ */
 public class VideoPanel extends JPanel
 {
 
@@ -102,7 +106,8 @@ public class VideoPanel extends JPanel
 	String filename;
 
 	/**
-	 * Create the panel.
+	 * Diese Methode ist zum Erstellen des Video Panel da. Wählt man dies jedoch im Programm aus so passiert nichts.
+	 * @param gui	Die GUI
 	 */
 	public VideoPanel(UserGUI gui)
 	{
@@ -186,7 +191,7 @@ public class VideoPanel extends JPanel
 	    
 	    frame.pack();
 	    frame.setVisible(true);
-	    //*/
+	    //
 	    //mediaPlayer.playMedia("tbbt.mp4");
 	    
 //	    contentPane.setVisible(true);
