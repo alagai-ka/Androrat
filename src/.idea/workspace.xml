@@ -18,6 +18,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/AdvContactGUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/AdvContactGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ColorPane.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ColorPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$ImageListCellRenderer.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$ImageListCellRenderer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$10.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$8.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$9.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$MyRenderer.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$MyRenderer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/User.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$10.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$11.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$12.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$13.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$14.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$15.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$8.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$9.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserModel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -44,43 +124,41 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="577" column="66" selection-start-line="577" selection-start-column="66" selection-end-line="577" selection-end-column="66" />
+            <state vertical-scroll-proportion="1.0559211">
+              <caret line="1041" column="20" selection-start-line="1041" selection-start-column="20" selection-end-line="1041" selection-end-column="20" />
               <folding>
-                <element signature="e#12430#12431#0" expanded="true" />
-                <element signature="e#12462#12463#0" expanded="true" />
-                <element signature="e#21677#21678#0" expanded="true" />
-                <element signature="e#21750#21751#0" expanded="true" />
-                <element signature="e#22501#22502#0" expanded="true" />
-                <element signature="e#22573#22574#0" expanded="true" />
-                <element signature="e#22780#22781#0" expanded="true" />
-                <element signature="e#22847#22848#0" expanded="true" />
-                <element signature="e#23095#23096#0" expanded="true" />
-                <element signature="e#23169#23170#0" expanded="true" />
-                <element signature="e#24140#24141#0" expanded="true" />
-                <element signature="e#24208#24209#0" expanded="true" />
-                <element signature="e#25776#25792#0" expanded="true" />
-                <element signature="e#28460#28654#0" expanded="true" />
-                <element signature="e#28653#28654#0" expanded="true" />
-                <element signature="e#28808#28946#0" expanded="true" />
-                <element signature="e#28945#28946#0" expanded="true" />
-                <element signature="e#29563#29759#0" expanded="true" />
-                <element signature="e#29758#29759#0" expanded="true" />
-                <element signature="e#29996#30195#0" expanded="true" />
-                <element signature="e#30194#30195#0" expanded="true" />
-                <element signature="e#31486#31680#0" expanded="true" />
-                <element signature="e#31679#31680#0" expanded="true" />
+                <element signature="e#22046#22047#0" expanded="true" />
+                <element signature="e#22119#22120#0" expanded="true" />
+                <element signature="e#23647#23648#0" expanded="true" />
+                <element signature="e#23719#23720#0" expanded="true" />
+                <element signature="e#24194#24195#0" expanded="true" />
+                <element signature="e#24261#24262#0" expanded="true" />
+                <element signature="e#24854#24855#0" expanded="true" />
+                <element signature="e#24928#24929#0" expanded="true" />
+                <element signature="e#27034#27035#0" expanded="true" />
+                <element signature="e#27102#27103#0" expanded="true" />
+                <element signature="e#30037#30053#0" expanded="true" />
+                <element signature="e#33096#33290#0" expanded="true" />
+                <element signature="e#33289#33290#0" expanded="true" />
+                <element signature="e#33444#33582#0" expanded="true" />
+                <element signature="e#33581#33582#0" expanded="true" />
+                <element signature="e#33678#33803#0" expanded="true" />
+                <element signature="e#33802#33803#0" expanded="true" />
+                <element signature="e#34199#34395#0" expanded="true" />
+                <element signature="e#34394#34395#0" expanded="true" />
+                <element signature="e#34632#34831#0" expanded="true" />
+                <element signature="e#34830#34831#0" expanded="true" />
+                <element signature="e#35131#35268#0" expanded="true" />
+                <element signature="e#35267#35268#0" expanded="true" />
+                <element signature="e#35407#35542#0" expanded="true" />
+                <element signature="e#35541#35542#0" expanded="true" />
+                <element signature="e#35684#35820#0" expanded="true" />
+                <element signature="e#35819#35820#0" expanded="true" />
+                <element signature="e#36122#36316#0" expanded="true" />
+                <element signature="e#36315#36316#0" expanded="true" />
+                <element signature="e#37554#37695#0" expanded="true" />
+                <element signature="e#37694#37695#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="283" column="35" selection-start-line="283" selection-start-column="24" selection-end-line="283" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +168,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#179#180#0" expanded="false" />
+                <element signature="e#210#211#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -205,6 +287,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -328,8 +412,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -747,7 +829,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436552755381</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Comments on: GUI noch nicht fertig">
+      <created>1436558179056</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1436558179056</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -756,20 +844,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.342827" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -779,8 +865,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -795,7 +883,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Comments on:&#10;AlarmListener&#10;AndroratActivity&#10;BootReceiver&#10;ClientListener&#10;LauncherActivity&#10;Perference" />
     <MESSAGE value="Comments on Perference, ProcessCommand" />
     <MESSAGE value="Comments on AdvancedSystemInfo" />
     <MESSAGE value="ProcessCommand weiter kommentiern" />
@@ -820,7 +907,8 @@
     <MESSAGE value="Comments on: ColorPanel, PicturePanel, VideoPanel" />
     <MESSAGE value="Comments on: AdvContactGUI, SMSDialog,User,UserModel" />
     <MESSAGE value="Comments on: UserGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: UserGUI" />
+    <MESSAGE value="Comments on: GUI noch nicht fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: GUI noch nicht fertig" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -937,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34539473">
           <caret line="171" column="33" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,10 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.442029">
           <caret line="227" column="45" selection-start-line="227" selection-start-column="45" selection-end-line="227" selection-end-column="45" />
-          <folding>
-            <element signature="e#1443#1459#0" expanded="false" />
-            <element signature="e#7680#7688#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,12 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5797101">
           <caret line="334" column="124" selection-start-line="334" selection-start-column="124" selection-end-line="334" selection-end-column="124" />
-          <folding>
-            <element signature="e#6037#6154#0" expanded="false" />
-            <element signature="e#6153#6154#0" expanded="false" />
-            <element signature="e#14288#14289#0" expanded="false" />
-            <element signature="e#14311#14312#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,15 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5215147">
           <caret line="201" column="34" selection-start-line="201" selection-start-column="34" selection-end-line="201" selection-end-column="34" />
-          <folding>
-            <element signature="e#1347#1355#0" expanded="false" />
-            <element signature="e#2529#2645#0" expanded="false" />
-            <element signature="e#2644#2645#0" expanded="false" />
-            <element signature="e#3874#3976#0" expanded="false" />
-            <element signature="e#3975#3976#0" expanded="false" />
-            <element signature="e#5035#5036#0" expanded="false" />
-            <element signature="e#5063#5064#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,10 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7357513">
           <caret line="320" column="12" selection-start-line="320" selection-start-column="8" selection-end-line="320" selection-end-column="12" />
-          <folding>
-            <element signature="e#12144#12145#0" expanded="false" />
-            <element signature="e#12172#12173#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1167,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13980263">
           <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,7 +1238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32702237">
           <caret line="237" column="72" selection-start-line="237" selection-start-column="72" selection-end-line="237" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,12 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5996377">
           <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#2865#2972#0" expanded="true" />
-            <element signature="e#2971#2972#0" expanded="true" />
-            <element signature="e#3183#3294#0" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1196,7 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.305921">
           <caret line="186" column="33" selection-start-line="186" selection-start-column="33" selection-end-line="186" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,9 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9440789">
           <caret line="175" column="68" selection-start-line="175" selection-start-column="68" selection-end-line="175" selection-end-column="68" />
-          <folding>
-            <element signature="e#1959#1965#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,7 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7236842">
           <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,10 +1281,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6924342">
           <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-          <folding>
-            <element signature="e#1684#1685#0" expanded="false" />
-            <element signature="e#1705#1706#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1241,7 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.108552635">
           <caret line="597" column="57" selection-start-line="597" selection-start-column="57" selection-end-line="597" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,10 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55263156">
           <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
-          <folding>
-            <element signature="e#4571#4572#0" expanded="false" />
-            <element signature="e#4605#4606#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1260,7 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5378289">
           <caret line="41" column="31" selection-start-line="37" selection-start-column="20" selection-end-line="41" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,50 +1420,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="283" column="35" selection-start-line="283" selection-start-column="24" selection-end-line="283" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#179#180#0" expanded="false" />
+            <element signature="e#210#211#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1611842">
+          <caret line="283" column="35" selection-start-line="283" selection-start-column="24" selection-end-line="283" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="577" column="66" selection-start-line="577" selection-start-column="66" selection-end-line="577" selection-end-column="66" />
+        <state vertical-scroll-proportion="1.0559211">
+          <caret line="1041" column="20" selection-start-line="1041" selection-start-column="20" selection-end-line="1041" selection-end-column="20" />
           <folding>
-            <element signature="e#12430#12431#0" expanded="true" />
-            <element signature="e#12462#12463#0" expanded="true" />
-            <element signature="e#21677#21678#0" expanded="true" />
-            <element signature="e#21750#21751#0" expanded="true" />
-            <element signature="e#22501#22502#0" expanded="true" />
-            <element signature="e#22573#22574#0" expanded="true" />
-            <element signature="e#22780#22781#0" expanded="true" />
-            <element signature="e#22847#22848#0" expanded="true" />
-            <element signature="e#23095#23096#0" expanded="true" />
-            <element signature="e#23169#23170#0" expanded="true" />
-            <element signature="e#24140#24141#0" expanded="true" />
-            <element signature="e#24208#24209#0" expanded="true" />
-            <element signature="e#25776#25792#0" expanded="true" />
-            <element signature="e#28460#28654#0" expanded="true" />
-            <element signature="e#28653#28654#0" expanded="true" />
-            <element signature="e#28808#28946#0" expanded="true" />
-            <element signature="e#28945#28946#0" expanded="true" />
-            <element signature="e#29563#29759#0" expanded="true" />
-            <element signature="e#29758#29759#0" expanded="true" />
-            <element signature="e#29996#30195#0" expanded="true" />
-            <element signature="e#30194#30195#0" expanded="true" />
-            <element signature="e#31486#31680#0" expanded="true" />
-            <element signature="e#31679#31680#0" expanded="true" />
+            <element signature="e#22046#22047#0" expanded="true" />
+            <element signature="e#22119#22120#0" expanded="true" />
+            <element signature="e#23647#23648#0" expanded="true" />
+            <element signature="e#23719#23720#0" expanded="true" />
+            <element signature="e#24194#24195#0" expanded="true" />
+            <element signature="e#24261#24262#0" expanded="true" />
+            <element signature="e#24854#24855#0" expanded="true" />
+            <element signature="e#24928#24929#0" expanded="true" />
+            <element signature="e#27034#27035#0" expanded="true" />
+            <element signature="e#27102#27103#0" expanded="true" />
+            <element signature="e#30037#30053#0" expanded="true" />
+            <element signature="e#33096#33290#0" expanded="true" />
+            <element signature="e#33289#33290#0" expanded="true" />
+            <element signature="e#33444#33582#0" expanded="true" />
+            <element signature="e#33581#33582#0" expanded="true" />
+            <element signature="e#33678#33803#0" expanded="true" />
+            <element signature="e#33802#33803#0" expanded="true" />
+            <element signature="e#34199#34395#0" expanded="true" />
+            <element signature="e#34394#34395#0" expanded="true" />
+            <element signature="e#34632#34831#0" expanded="true" />
+            <element signature="e#34830#34831#0" expanded="true" />
+            <element signature="e#35131#35268#0" expanded="true" />
+            <element signature="e#35267#35268#0" expanded="true" />
+            <element signature="e#35407#35542#0" expanded="true" />
+            <element signature="e#35541#35542#0" expanded="true" />
+            <element signature="e#35684#35820#0" expanded="true" />
+            <element signature="e#35819#35820#0" expanded="true" />
+            <element signature="e#36122#36316#0" expanded="true" />
+            <element signature="e#36315#36316#0" expanded="true" />
+            <element signature="e#37554#37695#0" expanded="true" />
+            <element signature="e#37694#37695#0" expanded="true" />
           </folding>
         </state>
       </provider>

