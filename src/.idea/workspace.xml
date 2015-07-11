@@ -18,7 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InOut/in/Demux.java" afterPath="$PROJECT_DIR$/InOut/in/Demux.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InOut/out/Mux.java" afterPath="$PROJECT_DIR$/InOut/out/Mux.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -41,22 +41,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Mux.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Mux.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Demux.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/InOut/in/Demux.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13980263">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-              <folding />
+            <state vertical-scroll-proportion="-1.2530121">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+              <folding>
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#412#413#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Androrat/src/my/app/client/Client.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/CallLogHandler.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/CallMonitorHandler.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/PacketHandler.java" />
@@ -129,6 +121,7 @@
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/UserGUI.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
         <option value="$PROJECT_DIR$/InOut/in/Demux.java" />
+        <option value="$PROJECT_DIR$/InOut/out/Mux.java" />
       </list>
     </option>
   </component>
@@ -669,7 +662,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436617828523</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Comments on: DMUX Klassenbeschreibung">
+      <created>1436618033200</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1436618033200</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -717,7 +716,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Comments on AdvancedSystemInfo" />
     <MESSAGE value="ProcessCommand weiter kommentiern" />
     <MESSAGE value="Comments on: Paket Packet bis auf TransportPacket" />
     <MESSAGE value="Comments on: Client Aber!! Schauen wegen den SMS Listen usw" />
@@ -742,7 +740,8 @@
     <MESSAGE value="Comments on: UserGUI" />
     <MESSAGE value="Comments on: GUI noch nicht fertig" />
     <MESSAGE value="Comments on: GUI Fertig" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: GUI Fertig" />
+    <MESSAGE value="Comments on: DMUX Klassenbeschreibung" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: DMUX Klassenbeschreibung" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1297,19 +1296,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InOut/in/Demux.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13980263">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2530121">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -6,17 +6,28 @@ import java.io.DataOutputStream;
 
 import Packet.TransportPacket;
 
+/**
+ * Diese Klasse ist zum Aufteilen von zu großen Dateien um diese dann in kleinen Paketet über das Internet zu versenden.
+ */
 public class Mux 
 {
 
 	Sender sender ;
-	
+
+	/**
+	 * Erstellt einen neuen Sender
+	 * @param out	Der OutputStream
+	 */
 	public Mux(DataOutputStream out)
 	{
 		sender = new Sender(out);
 	}
 
-
+	/**
+	 * Diese Methode teilt die Daten auf und sendet sie. Außerdem werden sie mit Sequenznummern versehen und ob es sich um das letzte Paket handelt.
+	 * @param chan	Der Datenkanal
+	 * @param data	Die Daten
+	 */
 	public void send(int chan,byte[] data)
 	{
 		try
