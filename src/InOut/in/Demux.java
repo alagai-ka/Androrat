@@ -6,7 +6,7 @@ import inout.Protocol;
 import java.nio.ByteBuffer;
 
 /**
- *
+ * KLasse zum Demultiplexen
  */
 public class Demux {
 	// acces au controler

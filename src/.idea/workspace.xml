@@ -18,87 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0a2d17a-3b46-444f-afb3-eb1481ca498d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/AdvContactGUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/AdvContactGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/CallLogPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ColorPane.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ColorPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$ImageListCellRenderer.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel$ImageListCellRenderer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/ContactPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/FileTreePanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" afterPath="$PROJECT_DIR$/out/production/Androrat/Packet/GPSPacket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$10.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$8.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$9.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$MyRenderer.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI$MyRenderer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/GUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/HomePanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MapPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/MonitorPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/PicturePanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/SMSDialog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SMSLogPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/server/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/SoundPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/User.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$10.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$11.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$12.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$13.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$14.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$15.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$8.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$9.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserModel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/UserModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$1.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$2.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$3.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$4.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$5.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$6.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$7.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel.class" afterPath="$PROJECT_DIR$/out/production/AndroratServer/gui/panel/VideoPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" afterPath="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InOut/in/Demux.java" afterPath="$PROJECT_DIR$/InOut/in/Demux.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
@@ -121,58 +41,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/GUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0559211">
-              <caret line="1041" column="20" selection-start-line="1041" selection-start-column="20" selection-end-line="1041" selection-end-column="20" />
-              <folding>
-                <element signature="e#22046#22047#0" expanded="true" />
-                <element signature="e#22119#22120#0" expanded="true" />
-                <element signature="e#23647#23648#0" expanded="true" />
-                <element signature="e#23719#23720#0" expanded="true" />
-                <element signature="e#24194#24195#0" expanded="true" />
-                <element signature="e#24261#24262#0" expanded="true" />
-                <element signature="e#24854#24855#0" expanded="true" />
-                <element signature="e#24928#24929#0" expanded="true" />
-                <element signature="e#27034#27035#0" expanded="true" />
-                <element signature="e#27102#27103#0" expanded="true" />
-                <element signature="e#30037#30053#0" expanded="true" />
-                <element signature="e#33096#33290#0" expanded="true" />
-                <element signature="e#33289#33290#0" expanded="true" />
-                <element signature="e#33444#33582#0" expanded="true" />
-                <element signature="e#33581#33582#0" expanded="true" />
-                <element signature="e#33678#33803#0" expanded="true" />
-                <element signature="e#33802#33803#0" expanded="true" />
-                <element signature="e#34199#34395#0" expanded="true" />
-                <element signature="e#34394#34395#0" expanded="true" />
-                <element signature="e#34632#34831#0" expanded="true" />
-                <element signature="e#34830#34831#0" expanded="true" />
-                <element signature="e#35131#35268#0" expanded="true" />
-                <element signature="e#35267#35268#0" expanded="true" />
-                <element signature="e#35407#35542#0" expanded="true" />
-                <element signature="e#35541#35542#0" expanded="true" />
-                <element signature="e#35684#35820#0" expanded="true" />
-                <element signature="e#35819#35820#0" expanded="true" />
-                <element signature="e#36122#36316#0" expanded="true" />
-                <element signature="e#36315#36316#0" expanded="true" />
-                <element signature="e#37554#37695#0" expanded="true" />
-                <element signature="e#37694#37695#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Mux.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#179#180#0" expanded="false" />
-                <element signature="e#210#211#0" expanded="false" />
-              </folding>
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Demux.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/InOut/in/Demux.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.13980263">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -215,7 +99,6 @@
         <option value="$PROJECT_DIR$/AndroratServer/src/handler/ChannelDistributionHandler.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/InOut/in/Receiver.java" />
-        <option value="$PROJECT_DIR$/InOut/in/Demux.java" />
         <option value="$PROJECT_DIR$/InOut/inout/Controler.java" />
         <option value="$PROJECT_DIR$/InOut/inout/Protocol.java" />
         <option value="$PROJECT_DIR$/InOut/out/Sender.java" />
@@ -245,6 +128,7 @@
         <option value="$PROJECT_DIR$/InOut/Packet/LogPacket.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/UserGUI.java" />
         <option value="$PROJECT_DIR$/AndroratServer/src/gui/GUI.java" />
+        <option value="$PROJECT_DIR$/InOut/in/Demux.java" />
       </list>
     </option>
   </component>
@@ -317,7 +201,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AndroratServer" />
+              <option name="myItemId" value="InOut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InOut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="in" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -332,80 +234,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AndroratServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroratServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroratServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroratServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="panel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -835,7 +663,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436558179056</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Comments on: GUI Fertig">
+      <created>1436617828523</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1436617828523</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -844,18 +678,20 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.342827" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -865,10 +701,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -883,7 +717,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Comments on Perference, ProcessCommand" />
     <MESSAGE value="Comments on AdvancedSystemInfo" />
     <MESSAGE value="ProcessCommand weiter kommentiern" />
     <MESSAGE value="Comments on: Paket Packet bis auf TransportPacket" />
@@ -908,7 +741,8 @@
     <MESSAGE value="Comments on: AdvContactGUI, SMSDialog,User,UserModel" />
     <MESSAGE value="Comments on: UserGUI" />
     <MESSAGE value="Comments on: GUI noch nicht fertig" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments on: GUI noch nicht fertig" />
+    <MESSAGE value="Comments on: GUI Fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on: GUI Fertig" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,20 +769,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InOut/utils/EncoderHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Programme/Android/SDK/platforms/android-8/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3333335">
-          <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Programme/Android/SDK/platforms/android-8/android.jar!/android/view/View.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1025,6 +845,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34539473">
           <caret line="171" column="33" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1274,6 +1095,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7236842">
           <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,18 +1242,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#179#180#0" expanded="false" />
-            <element signature="e#210#211#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroratServer/src/gui/panel/MapPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1611842">
@@ -1476,6 +1286,30 @@
             <element signature="e#37554#37695#0" expanded="true" />
             <element signature="e#37694#37695#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InOut/in/Receiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InOut/out/Mux.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InOut/in/Demux.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13980263">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
