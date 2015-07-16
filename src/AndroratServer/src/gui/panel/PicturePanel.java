@@ -172,9 +172,26 @@ public class PicturePanel extends JPanel {
 	 * @param data	Die Bild Daten.
 	 */
 	public void updateImage(byte[] data) {
+		String dir = "download/";
+		String dwnName = (new Date(System.currentTimeMillis())).toString().replaceAll(" ", "_")+".jpeg";
+		dwnName = dwnName.replaceAll(":","-");
+		String title = dir + dwnName;
+		File fpartent = new File(dir);
+		if (!fpartent.exists()){
+			fpartent.mkdirs();
+		}
+		File fchild = new File(fpartent,dwnName);
+		if ( !fchild.exists()){
+			try {
+				fchild.createNewFile();
+			}catch(Exception e){
+				String pb = "Not Working";
+			}
+		}
+
+
 		try{
-			String title = "download/" + (new Date(System.currentTimeMillis())).toString().replaceAll(" ", "_")+".jpeg";
-			FileOutputStream out = new FileOutputStream(title);
+			FileOutputStream out = new FileOutputStream(fchild);
 			out.write(data);
 			out.close();
 			
