@@ -78,7 +78,10 @@ public class PhotoTaker {
 	 * Zum Erstellen von Fotos.
 	 * @return True falls das Foto aufgenommen wurde, falls sonst.
 	 */
-	public boolean takePhoto() {
+	public boolean takePhoto(byte[] args) {
+		int numCam = Camera.getNumberOfCameras();
+		int FrontCam = Camera.CameraInfo.CAMERA_FACING_FRONT;
+		int BackCam = Camera.CameraInfo.CAMERA_FACING_BACK;
 		/**
 		 * Überprüfen ob die Kamera vorhanden ist.
 		 */
@@ -92,7 +95,18 @@ public class PhotoTaker {
 			/**
 			 * Kreiert ein Kamera objekt, welches den Zugriff auf die Hardwarekamera zulässt.
 			 */
-        	cam = Camera.open();
+			if (numCam > 1){
+				if (args[0]== 0){
+					cam = Camera.open(BackCam);
+				}
+				else{
+					cam = Camera.open(FrontCam);
+				}
+			}
+			else {
+				cam = Camera.open();
+			}
+
         } catch (Exception e) { return false; }
         
         Log.i("PhotoTaker", "Right after Open !");

@@ -116,11 +116,11 @@ public class PicturePanel extends JPanel {
 					.addContainerGap())
 		);
 		comboBox = new JComboBox(items);
-		
+		final String cam = (String)comboBox.getSelectedItem();
 		JButton btnTakePicture = new JButton("Take Picture");
 		btnTakePicture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fireTakePicture();
+				fireTakePicture(cam);
 			}
 		});
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
@@ -147,8 +147,8 @@ public class PicturePanel extends JPanel {
 		setLayout(groupLayout);
 	}
 	
-	private void fireTakePicture() {
-		gui.fireTakePicture();
+	private void fireTakePicture(String cam) {
+		gui.fireTakePicture(cam);
 	}
 	
 	private void fireMouseClickedInList() {

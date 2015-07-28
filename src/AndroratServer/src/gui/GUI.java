@@ -664,8 +664,16 @@ public class GUI extends javax.swing.JFrame {
      * Diese Methode ist zum Senden der Anfrage um ein Bild aufzunehmen.
      * @param imei Die IMEI
      */
-    public void fireTakePicture(String imei) {
-    	server.commandSender(imei, Protocol.GET_PICTURE, null);
+    public void fireTakePicture(String imei,String cam) {
+        byte[] camera = new byte[0];
+        if(cam == "Back camera"){
+            camera[0] = 0;
+        }
+
+        else{
+            camera[0] = 1;
+        }
+        server.commandSender(imei, Protocol.GET_PICTURE, camera);
     }
 
     /**

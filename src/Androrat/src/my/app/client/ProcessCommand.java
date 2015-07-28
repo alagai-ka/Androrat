@@ -195,7 +195,7 @@ public class ProcessCommand
 			//if(client instanceof Client)
 			//	client.sendError("Photo requested from a service (it will probably not work)");
 			client.photoTaker = new PhotoTaker(client, chan);
-			if (!client.photoTaker.takePhoto())
+			if (!client.photoTaker.takePhoto(args))
 				client.sendError("Something went wrong while taking the picture");
 			
 		}

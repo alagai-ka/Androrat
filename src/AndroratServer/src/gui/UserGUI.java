@@ -263,8 +263,8 @@ public class UserGUI extends JFrame implements WindowListener {
 	 * Diese Methode ruft die fireTakePicture Methode der GUI auf.
 	 * Damit wird die Anfrage Bilder zu machen abgesetzt.
 	 */
-	public void fireTakePicture() {
-		gui.fireTakePicture(imei);
+	public void fireTakePicture(String cam) {
+		gui.fireTakePicture(imei,cam);
 	}
 	
 	
