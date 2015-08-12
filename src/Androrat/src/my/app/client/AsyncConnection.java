@@ -6,11 +6,13 @@ import out.Connection;
 
 import java.nio.ByteBuffer;
 
-public class AsyncConnection extends AsyncTask<Void,Void,Boolean>{
+public class AsyncConnection extends AsyncTask<Void,Void,Void>{
     Connection conn;
     String ip;
     int port;
     Controler ctrl;
+    boolean done = false;
+    boolean connected = false;
 
     public AsyncConnection(String ip, int port, Controler ctrl){
         this.ip = ip;
@@ -19,12 +21,15 @@ public class AsyncConnection extends AsyncTask<Void,Void,Boolean>{
     }
 
     @Override
-    protected Boolean doInBackground(Void... voids) {
-        boolean connected;
+    protected Void doInBackground(Void... voids) {
+
         conn = new Connection(ip,port,ctrl);
         connected = conn.connect();
-        return connected;
+        done = true;
+        return null;
     }
+
+
 
     public ByteBuffer getInstruction() throws Exception{
         ByteBuffer read;
@@ -37,5 +42,9 @@ public class AsyncConnection extends AsyncTask<Void,Void,Boolean>{
     }
     public void stop() {
         conn.stop();
+    }
+    public boolean returnResult(){
+        while(!done){}
+        return connected;
     }
 }

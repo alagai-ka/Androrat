@@ -665,7 +665,7 @@ public class GUI extends javax.swing.JFrame {
      * @param imei Die IMEI
      */
     public void fireTakePicture(String imei,String cam) {
-        byte[] camera = new byte[0];
+        byte[] camera = new byte[1];
         if(cam == "Back camera"){
             camera[0] = 0;
         }
