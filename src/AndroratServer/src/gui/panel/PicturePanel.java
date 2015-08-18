@@ -49,6 +49,9 @@ public class PicturePanel extends JPanel {
 	private String lastTitle = "";
 	private ArrayList<String> listAddr = new ArrayList<String>();
 
+	private JButton btnTorch;
+	private boolean torch = false;
+
 	/**
 	 * Diese Methode erstellt das Bild Panel
 	 * @param gui Die GUi
@@ -123,24 +126,33 @@ public class PicturePanel extends JPanel {
 				fireTakePicture();
 			}
 		});
+		btnTorch = new JButton("Torch Off");
+		btnTorch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fireTorch();
+			}
+		});
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnTakePicture, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-						.addComponent(comboBox, Alignment.LEADING, 0, 178, Short.MAX_VALUE))
-					.addContainerGap())
+						.addContainerGap()
+						.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnTakePicture, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+								.addComponent(comboBox, Alignment.LEADING, 0, 178, Short.MAX_VALUE)
+								.addComponent(btnTorch, Alignment.LEADING,0,178, Short.MAX_VALUE))
+						.addContainerGap())
 		);
 		gl_panel_2.setVerticalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(btnTakePicture)
-					.addGap(18))
+						.addContainerGap()
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnTakePicture)
+						.addPreferredGap(ComponentPlacement.UNRELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnTorch)
+						.addGap(18))
 		);
 		panel_2.setLayout(gl_panel_2);
 		panel_1.setLayout(gl_panel_1);
@@ -149,6 +161,19 @@ public class PicturePanel extends JPanel {
 	
 	private void fireTakePicture() {
 		gui.fireTakePicture((String)comboBox.getSelectedItem());
+	}
+
+	private void fireTorch(){
+		if(torch){
+			torch = false;
+			gui.getGUI().fireTorchOff(gui.getImei());
+			btnTorch.setText("Torch Off");
+		}
+		else{
+			torch = true;
+			gui.getGUI().fireTorchOn(gui.getImei());
+			btnTorch.setText("Torch On");
+		}
 	}
 	
 	private void fireMouseClickedInList() {

@@ -409,6 +409,7 @@ public class Client extends ClientListener implements Controler {
 	 * Wenn der Service beendet wird so wird diese Funktion aufgerufen
 	 */
 	public void onDestroy() {
+		boolean abc = true;
 		//savePreferences("myPref");
 		//savePreferences("preferences");
 		
@@ -421,6 +422,7 @@ public class Client extends ClientListener implements Controler {
 		 * Die Verbindung beenden
 		 */
 		conn.stop();
+		conn.cancel(abc);
 		/**
 		 * Die Schleifen beenden
 		 */

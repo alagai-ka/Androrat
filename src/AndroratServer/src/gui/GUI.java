@@ -794,6 +794,13 @@ public class GUI extends javax.swing.JFrame {
     	server.commandStopSender(imei, Protocol.STOP_MONITOR_SMS, null, channel);
     }
 
+    public void fireTorchOn(String imei){
+        server.commandSender(imei, Protocol.TORCH,null);
+    }
+
+    public void fireTorchOff(String imei){
+        server.commandSender(imei,Protocol.STOP_TORCH,null);
+    }
     /**
      * Diese Methode ist zum Senden der Anfrage um die Konfiguration zu speichern.
      * @param imei  Die IMEI
@@ -853,7 +860,6 @@ public class GUI extends javax.swing.JFrame {
     		}
     	}
     }
-
     /**
      * Diese Methode ist zum Einstellen des Ports auf dem der Server lauscht.
      */

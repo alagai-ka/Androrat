@@ -60,6 +60,8 @@ public class Protocol {
 	public final static short GET_ADV_INFORMATIONS = (short) (P_INST + 21); // -
 	public final static short OPEN_BROWSER = (short) (P_INST + 22); // String url
 	public final static short DO_VIBRATE = (short) (P_INST + 23); // long millisec
+	public final static short TORCH = (short) (P_INST + 24);
+	public final static short STOP_TORCH = (short) (P_INST + 25);
 	// email ?
 	
 	//--- Reponse Client -> Server

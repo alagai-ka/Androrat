@@ -45,7 +45,7 @@ public class HomePanel extends JPanel {
 	private JTextField toastField;
 	private JTextField durationField;
 	private JTextField urlField;
-
+	private boolean torch = false;
 	/**
 	 * Erstellt das Home Panel.
 	 * @param gui	Die Gui
@@ -245,6 +245,7 @@ public class HomePanel extends JPanel {
 				fireButtonVibrate();
 			}
 		});
+
 		
 		durationField = new JTextField();
 		durationField.setColumns(10);
@@ -268,27 +269,27 @@ public class HomePanel extends JPanel {
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addComponent(toastField, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnToastIt))
-								.addGroup(gl_panel_1.createSequentialGroup()
+							.addGroup(gl_panel_1.createSequentialGroup()
+									.addContainerGap()
 									.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblOpenUrl)
-										.addComponent(lblDuration))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
-										.addGroup(gl_panel_1.createSequentialGroup()
-											.addComponent(durationField, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(btnVibrate))
-										.addComponent(urlField, GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(156)
-							.addComponent(btnBrowseIt, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)))
+											.addGroup(gl_panel_1.createSequentialGroup()
+													.addComponent(toastField, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(btnToastIt))
+											.addGroup(gl_panel_1.createSequentialGroup()
+													.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+															.addComponent(lblOpenUrl)
+															.addComponent(lblDuration))
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+															.addGroup(gl_panel_1.createSequentialGroup()
+																	.addComponent(durationField, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addComponent(btnVibrate))
+															.addComponent(urlField, GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))))
+							.addGroup(gl_panel_1.createSequentialGroup()
+									.addGap(156)
+									.addComponent(btnBrowseIt, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
 		gl_panel_1.setVerticalGroup(
@@ -348,6 +349,7 @@ public class HomePanel extends JPanel {
 		long l = Long.valueOf(value);
 		gui.getGUI().fireVibrate(gui.getImei(), l);
 	}
+
 
 	/**
 	 * Diese Methode wird aufgerufen wenn der Button Browse it aktiviert wird.

