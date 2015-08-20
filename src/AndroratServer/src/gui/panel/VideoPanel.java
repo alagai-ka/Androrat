@@ -111,7 +111,7 @@ public class VideoPanel extends JPanel
 	 */
 	public VideoPanel(UserGUI gui)
 	{
-		 NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "D://Util/VLC");
+		 NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "D://Programme/VLC");
 			Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
 		this.gui = gui ;
 		factory = new MediaPlayerFactory("--no-video-title-show");
