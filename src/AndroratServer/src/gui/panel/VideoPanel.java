@@ -256,15 +256,17 @@ public class VideoPanel extends JPanel
 		return streaming;
 	}
 
-	public void fireButtonStartStreaming()
-	{
+	public void fireButtonStartStreaming() {
+		byte[] cam = new byte[1];
+		cam[0]= 1;
 		if (!streaming)
 		{
 			filename = new Date(System.currentTimeMillis()).toString().replaceAll(" ", "_") + ".mp4";
+			filename = filename.replaceAll(":","-");
 			try
 			{
 				fout = new FileOutputStream(new File(filename));
-				gui.fireStartVideoStream();
+				gui.fireStartVideoStream(cam);
 				btnStartStream.setText("Stop Streaming");
 				streaming = true;
 			} catch (FileNotFoundException e)

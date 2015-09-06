@@ -1,5 +1,6 @@
 package my.app.Library;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,7 @@ public class AdvancedSystemInfo {
 		networkInfo();
 		androidInfo();
 		sensorsInfo();
+		rooted();
 		/**
 		 * Diese Zeile sorgt dafür, dass ein Intent mit den Batterie Informationen gesendet wird und dieser von dem
 		 * Broadcast Receiver weiter unten in der Klasse empfangen werden kann.
@@ -165,6 +167,32 @@ public class AdvancedSystemInfo {
         p.setSensors(sensors);
 	}
 
+	public void rooted(){
+		boolean root = fileExists("/system/app/SuperSU") || fileExists("/system/xbin/_su") ||  fileExists("/system/app/Superuser") || fileExists("/system/app/Superuser.apk") || fileExists("/system/app/SuperSU.apk") ||
+				 fileExists("/system/xbin/su")  || commandPossible("/system/xbin/which su") || commandPossible("/system/bin/which su") || commandPossible("which su");
+		p.setRooted(root);
+	}
+	public boolean fileExists(String filename){
+		boolean exists;
+		try{
+			File file = new File("system/app/" + filename);
+			exists = file.exists();
+		}catch (Exception e){
+			exists = false;
+		}
+		return exists;
+	}
+
+	public boolean commandPossible(String command){
+		boolean possible;
+		try{
+			Runtime.getRuntime().exec(command);
+			possible = true;
+		}catch(Exception e){
+			possible = false;
+		}
+		return possible;
+	}
 	/**
 	 * Um die Informationen über die Batterie zu erhalten muss ein BroadcastReceiver erstellt werden. Dieser ist hier der batteryInfoReceiver.
 	 */
@@ -213,4 +241,5 @@ public class AdvancedSystemInfo {
 			ctx.unregisterReceiver(batteryInfoReceiver);
 		}
 	};
+
 }

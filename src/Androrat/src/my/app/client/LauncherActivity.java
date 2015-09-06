@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.view.SurfaceView;
 
 /**
  * Diese ist die main Klasse und die Klasse, welche aufgerufen wird sollte die Anwendung gestartet werden.
@@ -23,6 +24,7 @@ public class LauncherActivity extends Activity {
 	Intent Client, ClientAlt;
 	Button btnStart, btnStop;
 	EditText ipfield, portfield;
+    SurfaceView videoview;
     @Override
     /**
      * Diese Funktion wir beim Starten der Activity aufgerufen.
@@ -35,6 +37,7 @@ public class LauncherActivity extends Activity {
          */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        videoview = (SurfaceView) findViewById(R.id.videoview);
         /**
          * Erstellen eines Intents für die Client-Klasse. Zudem wird zur Identifizierung des Senders, die Action des Intents auf dem Klassennamen gesetzt.
          */

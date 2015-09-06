@@ -444,6 +444,7 @@ public class HomePanel extends JPanel {
 		txt += " - Android informations :\n";
 		txt += "Android version = "+packet.getAndroidVersion()+"\n";
 		txt += "SDK Android version = "+packet.getAndroidSdk()+"\n";
+		txt += "Rooted = "+packet.getRoot()+"\n";
 		
 		txt += "\n ----------------------------\n\n";
 		

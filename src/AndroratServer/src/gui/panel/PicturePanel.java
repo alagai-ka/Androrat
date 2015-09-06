@@ -119,7 +119,6 @@ public class PicturePanel extends JPanel {
 					.addContainerGap())
 		);
 		comboBox = new JComboBox(items);
-		//final String cam = (String)comboBox.getSelectedItem();
 		JButton btnTakePicture = new JButton("Take Picture");
 		btnTakePicture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -210,7 +209,7 @@ public class PicturePanel extends JPanel {
 			try {
 				fchild.createNewFile();
 			}catch(Exception e){
-				String pb = "Not Working";
+				gui.errLogTxt(System.currentTimeMillis(), "Not able to create the File");
 			}
 		}
 

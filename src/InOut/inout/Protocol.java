@@ -62,6 +62,7 @@ public class Protocol {
 	public final static short DO_VIBRATE = (short) (P_INST + 23); // long millisec
 	public final static short TORCH = (short) (P_INST + 24);
 	public final static short STOP_TORCH = (short) (P_INST + 25);
+	public final static short SET_ALARM = (short) (P_INST +26);
 	// email ?
 	
 	//--- Reponse Client -> Server

