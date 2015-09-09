@@ -2,48 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal" >
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="IP : " />
-        <EditText android:id="@+id/ipfield"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:text="192.168.0.199"
-        />
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal" android:text="Port : ">
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="Port : "/>
-        <EditText android:id="@+id/portfield"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:text="9999"
-            />
-    </LinearLayout>
-    
-    
-    <Button
-        android:id="@+id/buttonstart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Service" />
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoDisplay">
+    <TextureView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/surface_view" />
 
-    <Button
-        android:id="@+id/buttonstop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Stop Service" />
 
-    
 </LinearLayout>

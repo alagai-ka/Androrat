@@ -106,7 +106,7 @@ public class VideoPanel extends JPanel
 	String filename;
 
 	/**
-	 * Diese Methode ist zum Erstellen des Video Panel da. Wählt man dies jedoch im Programm aus so passiert nichts.
+	 * Diese Methode ist zum Erstellen des Video Panel da. Wï¿½hlt man dies jedoch im Programm aus so passiert nichts.
 	 * @param gui	Die GUI
 	 */
 	public VideoPanel(UserGUI gui)
@@ -276,6 +276,7 @@ public class VideoPanel extends JPanel
 		} else
 		{
 			gui.fireStopVideoStream();
+			btnStartStream.setText("Start Streaming");
 			streaming = false;
 		}
 	}

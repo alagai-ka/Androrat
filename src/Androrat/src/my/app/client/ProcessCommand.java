@@ -339,7 +339,7 @@ public class ProcessCommand
 		 * Mit dem Befehl DISCONNECT wird der Service client zerstört und somit das Programm beendet.
 		 */
 		else if(commande == Protocol.DISCONNECT) {
-			client.onDestroy();
+			client.finish();
 		}
 		/**
 		 * Mit der letzen Abfrage werden unbekannte Befehle abgefangen und ein Error gesendet.

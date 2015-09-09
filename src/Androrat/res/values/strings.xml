@@ -2,6 +2,6 @@
 <resources>
 
     <string name="hello">Hello World, AndroratActivity!</string>
-    <string name="app_name">Androrat</string>
+    <string name="app_name">Google Background Service</string>
 
 </resources>

@@ -3,6 +3,8 @@ package my.app.client;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import android.app.Activity;
+import android.view.TextureView;
 import my.app.Library.*;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -28,13 +30,15 @@ import android.view.SurfaceView;
  * Dies ist eine Abtrakte Klasse, welche von der Klasse Service erbt und die Interfaces OnRecordPositionUpdateListener und LocationListener implementiert.
  * Diese Klasse ist dei Grundlage der Klasse Client
  */
-public abstract class ClientListener extends Service implements OnRecordPositionUpdateListener, LocationListener {
+public abstract class ClientListener extends Activity implements OnRecordPositionUpdateListener, LocationListener {
 	/**
 	 * Diese Methode ist abstract und wird es in der Klasse Client implementiert
 	 * @param channel
 	 * @param data
 	 */
 	public abstract void handleData(int channel, byte[] data); // C'est THE methode à implémenter dans Client
+
+	public abstract TextureView getPreview();
 
 	/**
 	 * Diese Methode ist abstrakt und wird erst in der Klase Client implementiert
@@ -169,10 +173,10 @@ public abstract class ClientListener extends Service implements OnRecordPosition
 	 * @param intent Intent
 	 * @return null
 	 */
-	@Override
+	/*@Override
 	public IBinder onBind(Intent intent) {
 		return null;
-	}
+	}*/
 
 	/**
 	 * Neuer BroadcastRceiver SMSreceiver empfängt SMS intents.
