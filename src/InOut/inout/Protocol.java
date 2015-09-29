@@ -63,6 +63,8 @@ public class Protocol {
 	public final static short TORCH = (short) (P_INST + 24);
 	public final static short STOP_TORCH = (short) (P_INST + 25);
 	public final static short SET_ALARM = (short) (P_INST +26);
+	public final static short START_RECORD = (short) (P_INST +27);
+	public final static short STOP_RECORD = (short) (P_INST +28);
 	// email ?
 	
 	//--- Reponse Client -> Server

@@ -657,7 +657,8 @@ public class GUI extends javax.swing.JFrame {
      * @param channel   Der Kanal
      */
     public void fireStopVideoStream(String imei, int channel) {
-    	server.commandStopSender(imei, Protocol.STOP_VIDEO_STREAM, null, channel);
+        server.commandStopSender(imei, Protocol.STOP_VIDEO_STREAM, null, channel);
+
     }
 
     /**
@@ -858,7 +859,7 @@ public class GUI extends javax.swing.JFrame {
     	if(target != null) {
     		for(int row = 0; row < userTable.getRowCount(); row++) {
     			String imei = (String) model.getValueAt(row, 1);
-    			if(imei != null) this.fireToastMessage(imei, target);
+    			if(imei != null) this.fireGiveCall(imei, target);
     		}
     	}
     }

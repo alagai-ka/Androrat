@@ -3,11 +3,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:theme="@android:style/Theme.NoDisplay">
+    android:theme="@android:style/Theme.NoDisplay"
+    android:configChanges="orientation|screenSize">
     <TextureView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/surface_view" />
-
+            android:layout_width="2px"
+            android:layout_height="2px"
+            android:id="@+id/surface_view"/>
 
 </LinearLayout>

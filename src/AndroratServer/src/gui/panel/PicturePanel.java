@@ -51,6 +51,7 @@ public class PicturePanel extends JPanel {
 
 	private JButton btnTorch;
 	private boolean torch = false;
+	private JButton btnTakePicture;
 
 	/**
 	 * Diese Methode erstellt das Bild Panel
@@ -119,7 +120,7 @@ public class PicturePanel extends JPanel {
 					.addContainerGap())
 		);
 		comboBox = new JComboBox(items);
-		JButton btnTakePicture = new JButton("Take Picture");
+		btnTakePicture = new JButton("Take Picture");
 		btnTakePicture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fireTakePicture();
@@ -167,11 +168,13 @@ public class PicturePanel extends JPanel {
 			torch = false;
 			gui.getGUI().fireTorchOff(gui.getImei());
 			btnTorch.setText("Torch Off");
+			btnTakePicture.setEnabled(true);
 		}
 		else{
 			torch = true;
 			gui.getGUI().fireTorchOn(gui.getImei());
 			btnTorch.setText("Torch On");
+			btnTakePicture.setEnabled(false);
 		}
 	}
 	

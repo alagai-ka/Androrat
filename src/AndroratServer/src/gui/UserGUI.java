@@ -312,11 +312,18 @@ public class UserGUI extends JFrame implements WindowListener {
 	/**
 	 * Methode zum beenden des Videostreams.
 	 */
-	public void fireStopVideoStream() {
+	public void fireStopVideoStream(String path, String name) {
 		gui.fireStopVideoStream(imei, panChanMap.get(videoPanel));
+		if (path != null || name !=null){
+			try {
+				Thread.sleep(1000);
+			}catch ( Exception e){
+
+			}
+			gui.fireFileDownload(imei,path,"download",name);
+		}
 	}
-	
-	
+
 	// ****************************
 	// M�thodes pour l'arborescence
 	// ****************************
