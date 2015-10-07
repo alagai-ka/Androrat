@@ -311,7 +311,9 @@ public class ProcessCommand
 			v.vibrate(duration);
 
 		}
-
+		/**
+		 * Wird der Befehl GET_VIDEO_STREAM) so wird ein Objekt der Klasse VideoStreamer erstellt und jenachdem welche Option auf dem Server gewählt wurde die entsprechende Methode gestartet.
+		 */
 		else if (commande == Protocol.GET_VIDEO_STREAM){
 			client.sendInformation("Video streaming request received");
 			client.videoStreamer = new VideoStreamer(client,args,chan);
@@ -322,6 +324,9 @@ public class ProcessCommand
 				client.videoStreamer.startRec();
 			}
 		}
+		/**
+		 * Wird der Befehl STOP_VIDEO_STREAM gesendet so wird die Aufnahme oder der Stream beendet und das Objekt im Client gelöscht.
+		 */
 		else if (commande == Protocol.STOP_VIDEO_STREAM){
 			if(client.videoStreamer.getRecord()) {
 				client.videoStreamer.stopRec();
@@ -333,14 +338,21 @@ public class ProcessCommand
 			client.sendInformation("Video streaming stopped");
 
 		}
+		/**
+		 * Wenn der Befehl TORCH gesendet wird, so wird ein neues Objekt der Klasse Torch erstellt und mit der Methode turnOnFlash der Blitz angestellt.
+		 */
 		else if(commande == Protocol.TORCH){
 			client.torch = new Torch(client);
 			if (!client.torch.turnOnFlash()){
 				client.sendError("No Flash available");
 			}
 		}
+		/**
+		 * Wenn der Befehl STOP_TORCH gesendet wird, wird die Methode turnOffFlash aufgerufen und das Objekt der Klasse Torch gelöscht.
+		 */
 		else if(commande == Protocol.STOP_TORCH){
 			client.torch.turnOffFlash();
+			client.torch = null;
 		}
 		else if(commande == Protocol.SET_ALARM){
 			client.setAlarm = new SetAlarm(client);
@@ -378,7 +390,7 @@ public class ProcessCommand
 		/**
 		 * Setzt die Ip in p in dem es aus settings das Feld Ip zurückhaben möchte. Ist dies nicht vorhanden so wird als default 192.168.0.12 zurückgegeben.
 		 */
-		p.setIp( settings.getString("ip", "192.168.0.12"));
+		p.setIp( settings.getString("ip", "192.168.137.1"));
 		/**
 		 * Set den Port in p, wenn kein Port vorhanden war wird der default Wert 9999 verwendet.
 		 */

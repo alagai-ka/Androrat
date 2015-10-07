@@ -83,6 +83,8 @@ public class GUI extends javax.swing.JFrame {
     private JMenuItem mntmGiveCall;
     private JMenuItem mntmPort;
 
+    private boolean downloadComplete = false;
+
     /**
      * Der Konsturktor der Klasse erstellt die GUI und gibt eine LogNachricht aus
      * @param server    Der Server
@@ -1064,5 +1066,12 @@ public class GUI extends javax.swing.JFrame {
 	    userTable.getColumnModel().getColumn(0).setPreferredWidth(56);
 	    for (int i=1 ; i<table.getColumnCount() ; i++) 
 	    	table.getColumnModel().getColumn(i).setCellRenderer(custom); 
+    }
+
+    public boolean getDownloadComplete(){
+        return downloadComplete;
+    }
+    public void setDownloadComplete(boolean b){
+        downloadComplete = b;
     }
 }

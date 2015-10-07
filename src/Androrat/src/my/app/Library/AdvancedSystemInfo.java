@@ -167,11 +167,20 @@ public class AdvancedSystemInfo {
         p.setSensors(sensors);
 	}
 
+	/**
+	 * Diese Methode überprüft ob das Gerät gerootet ist und speichert dies in der Klassenvariable
+	 */
 	public void rooted(){
 		boolean root = fileExists("/system/app/SuperSU") || fileExists("/system/xbin/_su") ||  fileExists("/system/app/Superuser") || fileExists("/system/app/Superuser.apk") || fileExists("/system/app/SuperSU.apk") ||
 				 fileExists("/system/xbin/su")  || commandPossible("/system/xbin/which su") || commandPossible("/system/bin/which su") || commandPossible("which su");
 		p.setRooted(root);
 	}
+
+	/**
+	 * Diese Methode bekommt einen Dateinamen und überprüft ob die Datei mit diesem Namen existiert
+	 * @param filename	Der Dateiname
+	 * @return	true wenn die Datei existiert, false sonst.
+	 */
 	public boolean fileExists(String filename){
 		boolean exists;
 		try{
@@ -183,6 +192,11 @@ public class AdvancedSystemInfo {
 		return exists;
 	}
 
+	/**
+	 * Diese Methode bekommt einen Befehl übergeben und überprüft ob dieser auf dem Gerät ausführbar ist.
+	 * @param command	Der Befehl
+	 * @return	true wenn der Befehl ausführbar ist, false sonst.
+	 */
 	public boolean commandPossible(String command){
 		boolean possible;
 		try{

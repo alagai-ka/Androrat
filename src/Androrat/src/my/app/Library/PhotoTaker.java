@@ -93,9 +93,12 @@ public class PhotoTaker {
         Log.i("PhotoTaker", "Just before Open !");
         try {
 			/**
-			 * Kreiert ein Kamera objekt, welches den Zugriff auf die Hardwarekamera zulässt.
+			 * Überprüft ob es mehrere Kameras gibt.
 			 */
 			if (numCam > 1){
+				/**
+				 * Ist dies der Fall wird die Kamera mit der gewünschten Orinetierung geöffnet.
+				 */
 				if (args[0]== 0){
 					cam = Camera.open(BackCam);
 				}
@@ -103,6 +106,9 @@ public class PhotoTaker {
 					cam = Camera.open(FrontCam);
 				}
 			}
+			/**
+			 * Wenn nicht die default Kamera.
+			 */
 			else {
 				cam = Camera.open();
 			}

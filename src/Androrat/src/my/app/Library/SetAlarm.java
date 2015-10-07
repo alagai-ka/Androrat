@@ -20,6 +20,7 @@ public class SetAlarm {
         Intent setAlarm = new Intent(AlarmClock.ACTION_SET_ALARM);
         setAlarm.putExtra(AlarmClock.EXTRA_HOUR,hour);
         setAlarm.putExtra(AlarmClock.EXTRA_MINUTES,minute);
+        setAlarm.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         c.startActivity(setAlarm);
     }
 }

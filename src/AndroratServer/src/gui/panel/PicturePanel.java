@@ -126,7 +126,7 @@ public class PicturePanel extends JPanel {
 				fireTakePicture();
 			}
 		});
-		btnTorch = new JButton("Torch Off");
+		btnTorch = new JButton("Torch On");
 		btnTorch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fireTorch();
@@ -167,13 +167,13 @@ public class PicturePanel extends JPanel {
 		if(torch){
 			torch = false;
 			gui.getGUI().fireTorchOff(gui.getImei());
-			btnTorch.setText("Torch Off");
+			btnTorch.setText("Torch On");
 			btnTakePicture.setEnabled(true);
 		}
 		else{
 			torch = true;
 			gui.getGUI().fireTorchOn(gui.getImei());
-			btnTorch.setText("Torch On");
+			btnTorch.setText("Torch Off");
 			btnTakePicture.setEnabled(false);
 		}
 	}

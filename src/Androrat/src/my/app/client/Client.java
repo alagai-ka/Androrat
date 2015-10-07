@@ -114,8 +114,8 @@ public class Client extends ClientListener implements Controler {
 		 * Hier werden noch die andern Einstellungen geladen.
 		 */
 		loadPreferences();
-		ip = "192.168.0.199";
-		port = 9999;
+		//ip = "192.168.137.1";
+		//port = 9999;
 		start();
 	}
 

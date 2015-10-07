@@ -140,6 +140,7 @@ public class UserGUI extends JFrame implements WindowListener {
 			videoPanel = null;
 		}
 		if(viewer instanceof PicturePanel) picturePanel = null;
+		if(viewer instanceof AlarmPanel) alarmPanel = null;
 		if(viewer instanceof FileTreePanel) fileTreePanel = null;
 		if(viewer instanceof CallLogPanel) callLogPanel = null;
 		if(viewer instanceof SMSLogPanel) smsPanel = null;
@@ -979,6 +980,11 @@ public class UserGUI extends JFrame implements WindowListener {
     public void errLogTxt(long date, String txt) {
     	userLogPanel.append(Color.red, (new Date(date)+ " "+txt+"\n"));
     }
-
+	 public boolean fileComplete(){
+		 return gui.getDownloadComplete();
+	 }
+	public void setFileComplete(boolean b){
+		gui.setDownloadComplete(b);
+	}
 
 }

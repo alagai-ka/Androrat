@@ -181,7 +181,9 @@ public class FileHandler implements PacketHandler {
 					/**
 					 * Ansonsten war es das letzte Paket und der FileStream kann geschlossen werden und der Listener für den Kanal gelöscht.
 					 */
+					gui.setDownloadComplete(true);
 					gui.logTxt("File transfert complete !");
+
 					fout.close();
 					c.getChannelHandlerMap().get(imei).removeListener(channel);
 				}

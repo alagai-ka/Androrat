@@ -18,8 +18,6 @@ public class AlarmPanel extends JPanel {
     public AlarmPanel(UserGUI gui){
         this.gui = gui;
 
-
-
         JLabel lblHour = new JLabel("Hour :");
         JLabel lblMinute = new JLabel("Minute :");
 

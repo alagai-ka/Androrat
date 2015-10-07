@@ -107,17 +107,20 @@ public class VideoPanel extends JPanel
 	private UserGUI gui;
 	String filename;
 	private Object[] items = {"Back camera", "Front camera"};
-	private Object[] mode = {"Stream", "Download"};
+	private Object[] mode = {"Chunk-Stream", "Download", "Stream"};
 	private String recmode;
 	private String path;
 	private String recfilename;
+	private Thread fakeStream;
+	private byte[] options;
+	private boolean stopChunk = true;
 	/**
-	 * Diese Methode ist zum Erstellen des Video Panel da. W�hlt man dies jedoch im Programm aus so passiert nichts.
+	 * Diese Methode ist zum Erstellen des Video Panel da. Es ist wichtig, dass hier auch der Pfad zu der VLC Bibliothek angepasst wird, da sonst kein Panel erscheint.
 	 * @param gui	Die GUI
 	 */
 	public VideoPanel(UserGUI gui)
 	{
-		 NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "D://Programme/VLC");
+		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "D://Programme/VLC");
 			Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
 		this.gui = gui ;
 		factory = new MediaPlayerFactory("--no-video-title-show");
@@ -269,77 +272,165 @@ public class VideoPanel extends JPanel
 		return streaming;
 	}
 
+	/**
+	 * Diese Methode wird aufgerufen wenn der Button Start gedrückt wird. Hiermit wird das Aufnehmen oder das Streamen gestartet.
+	 */
 	public void fireButtonStartStreaming() {
+		/**
+		 * Hiermit wird entschieden ob gestream oder heruntegeladen werden soll.
+		 */
 		recmode = (String) modus.getSelectedItem();
+		/**
+		 * Hiermit wird festgelegt welche Orinetierung die Kamera haben soll.
+		 */
 		String selectedCam = (String)camera.getSelectedItem();
-		byte[] options = new byte[2];
+		/**
+		 * Dieses Array wird benutzt um die Auswahl an den Client zu senden.
+		 */
+		byte[] option = new byte[2];
+		/**
+		 * Überprüfen welche Kamera verwendet werden soll.
+		 */
 		if(selectedCam == "Back camera"){
-			options[0] = 0;
+			option[0] = 0;
 		}
 
 		else{
-			options[0] = 1;
+			option[0] = 1;
 		}
+		/**
+		 * Überprüfen welcher Modus verwendet wird.
+		 */
 		if(recmode == "Stream"){
-			options[1] = 0;
+			option[1] = 0;
 		}
 
 		else{
-			options[1] = 1;
+			option[1] = 1;
 		}
+		options = option;
+		/**
+		 * Wenn das Streamen noch nicht aktiv ist.
+		 */
 		if (!streaming) {
-			filename = new Date(System.currentTimeMillis()).toString().replaceAll(" ", "_") + ".mp4";
-			filename = filename.replaceAll(":", "-");
 			try {
-				fout = new FileOutputStream(new File(filename));
-				gui.fireStartVideoStream(options);
-				btnStartStream.setText("Stop Streaming");
+				/**
+				 * Überprüfen ob gestreamt werden soll.
+				 */
+				if(recmode == "Stream") {
+					/**
+					 * Ist dies der Fall so wird eine neu Datei mit entsprechendem OutputStream erstellt.
+					 */
+					filename = new Date(System.currentTimeMillis()).toString().replaceAll(" ", "_") + ".mp4";
+					filename = filename.replaceAll(":", "-");
+					fout = new FileOutputStream(new File(filename));
+				}
+				/**
+				 * Der Befehl zum Starten wird hiermit an den Client gesendet.
+				 */
+				if(recmode == "Chunk-Stream"){
+					gui.setFileComplete(false);
+					fakeStream = new Thread(
+							new Runnable() {
+								public void run() {
+									chunkStream();
+								}
+							});
+					fakeStream.start();
+				}
+				else {
+					gui.fireStartVideoStream(options);
+				}
+				/**
+				 * Ändern des Texts des Buttons
+				 */
+				btnStartStream.setText("Stop");
 				streaming = true;
 
 				}catch(FileNotFoundException e){
 					gui.getGUI().logErrTxt("Cannot create output file for video streaming");
 				}
+			/**
+			 * Wenn schon aufgenommen oder gestreamt wird
+			 */
 		} else {
+			/**
+			 * Überprüfen ob aufgenommen oder gestream wird.
+			 */
 			if(recmode == "Stream") {
+				/**
+				 * Bei einem Stream wird der Methdoe fireStopVideoStream keine Parameter übergeben.
+				 * Diese Methode stop den Stream
+				 */
 				gui.fireStopVideoStream(null, null);
 			}
-			else{
+			else if (recmode == "Download"){
+				/**
+				 * Bei der Aufnahme wird der Pfad, unter welchem die Datei auf dem Cleint und der Name der Datei übergeben und die Aufnahme angehalten.
+				 */
 				gui.fireStopVideoStream(path, recfilename);
+			}else{
+				stopChunk=false;
+				fakeStream=null;
 			}
-			btnStartStream.setText("Start Streaming");
+			btnStartStream.setText("Start");
 			streaming = false;
 		}
 	}
-	
- 
+
+	/**
+	 * Mit dieser Methode können die Videodaten auf dem Panel abgespielt werden.
+	 */
 	public void fireButtonPlay() {
+		/**
+		 * Überprüfen ob gerade was abgespielt wird.
+		 */
 		if(!playing) {
+			/**
+			 * Überprüfen welche Datei geöffnet werden muss. Und diese abspielen.
+			 */
 			if(recmode == "Stream") {
 				mediaPlayer.playMedia(filename);
 			}else{
 				mediaPlayer.playMedia("download/"+ recfilename);
 			}
+			/**
+			 * Ändern des Buttons
+			 */
 			lblStart.setEnabled(false);
 			lblStop.setEnabled(true);
 			playing = true;
 		}
 		else {
+			/**
+			 * Wenn nichts abgespielt wird beenden des mediaPlayers. Zusätzlich wird der Button geändert.
+			 */
 			mediaPlayer.stop();
 			lblStart.setEnabled(true);
 			lblStop.setEnabled(false);
 			playing = false;
 		}
 	}
-	
 
+	/**
+	 * Diese Methode fürgt der Datei die gestreamten Videodaten hinzu sofern die Option Stream gewählt wurde.
+	 * Ansonste wird hier der Dateipfad unter welchem die Datei auf dem Client gespeichert wurde übergeben.
+	 * @param data	Videodaten oder Dateipfad
+	 */
 	public void addVideoBytes(byte[] data)
 	{
 		try
 		{
+			/**
+			 * Wenn gestreamt wird die ankommenden Daten auf den OutputStream schreiben und somit in die Datei.
+			 */
 			if(recmode == "Stream") {
 				fout.write(data);
 			}
 			else{
+				/**
+				 * Ansonsten die Daten, des eine Pakets welches ankommt, in einen String um wandeln. Den Namen der Datei aus diesem String extrahieren und dies in den Klassenvariablen speichern.
+				 */
 				path = new String(data);
 				int pb = path.lastIndexOf("/");
 				recfilename = path.substring(pb+1);
@@ -347,6 +438,30 @@ public class VideoPanel extends JPanel
 		} catch (IOException e)
 		{
 			gui.getGUI().logErrTxt("Error while writing in video file");
+		}
+	}
+
+	public void chunkStream(){
+		boolean abc = true;
+		boolean first = true;
+		while(stopChunk) {
+			gui.fireStartVideoStream(options);
+			try {
+				Thread.sleep(15000);
+			} catch (Exception e) {
+
+			}
+			gui.fireStopVideoStream(path, recfilename);
+			while (abc) {
+				abc = !gui.fileComplete();
+				System.out.print(abc);
+			}
+			if (!first) {
+				fireButtonPlay();
+				first = false;
+			}
+			gui.setFileComplete(false);
+			fireButtonPlay();
 		}
 	}
 }
