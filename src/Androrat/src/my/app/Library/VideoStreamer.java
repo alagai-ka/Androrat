@@ -91,7 +91,7 @@ public class VideoStreamer {
             /**
              * Erstellen einer neuen Datei, in welcher später die Videodaten gespeichert werden.
              */
-            tempstore = new File(cl.getCacheDir()+"/Tryingagain.mp4");//(SDCardpath.getAbsolutePath() +"/Tryingagain.mp4" ); // cl.getCacheDir()
+            tempstore = new File(cl.getCacheDir()+"/videoRec.mp4");//(SDCardpath.getAbsolutePath() +"/Tryingagain.mp4" ); // cl.getCacheDir()
             /**
              * InputStreams erstellen für diese Datei, damit die Daten später ausgelesen werden können.
              */

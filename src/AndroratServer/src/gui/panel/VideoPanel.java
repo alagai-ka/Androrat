@@ -111,9 +111,11 @@ public class VideoPanel extends JPanel
 	private String recmode;
 	private String path;
 	private String recfilename;
+	private String recfilenameold = null;
 	private Thread fakeStream;
 	private byte[] options;
 	private boolean stopChunk = true;
+	private int i = 1;
 	/**
 	 * Diese Methode ist zum Erstellen des Video Panel da. Es ist wichtig, dass hier auch der Pfad zu der VLC Bibliothek angepasst wird, da sonst kein Panel erscheint.
 	 * @param gui	Die GUI
@@ -419,6 +421,7 @@ public class VideoPanel extends JPanel
 	 */
 	public void addVideoBytes(byte[] data)
 	{
+
 		try
 		{
 			/**
@@ -434,6 +437,19 @@ public class VideoPanel extends JPanel
 				path = new String(data);
 				int pb = path.lastIndexOf("/");
 				recfilename = path.substring(pb+1);
+				int pb1 = recfilename.lastIndexOf(".");
+				recfilename = recfilename.substring(0,pb1);
+				recfilename += i;
+				recfilename+=".mp4";
+				if(recfilenameold != null){
+					recfilenameold = recfilename;
+				}
+				if(recfilenameold==null) {
+					recfilenameold = recfilename;
+				}
+				System.out.println();
+				System.out.println(recfilenameold);
+				i++;
 			}
 		} catch (IOException e)
 		{
@@ -443,7 +459,7 @@ public class VideoPanel extends JPanel
 
 	public void chunkStream(){
 		boolean abc = true;
-		boolean first = true;
+		playing = false;
 		while(stopChunk) {
 			gui.fireStartVideoStream(options);
 			try {
@@ -456,12 +472,18 @@ public class VideoPanel extends JPanel
 				abc = !gui.fileComplete();
 				System.out.print(abc);
 			}
-			if (!first) {
-				fireButtonPlay();
-				first = false;
+			if (playing) {
+				mediaPlayer.stop();
+				playing=false;
 			}
 			gui.setFileComplete(false);
-			fireButtonPlay();
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e) {
+
+			}
+			mediaPlayer.playMedia("download/" + recfilenameold);
+			playing=true;
 		}
 	}
 }
