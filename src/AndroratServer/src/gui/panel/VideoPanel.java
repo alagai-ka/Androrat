@@ -339,6 +339,8 @@ public class VideoPanel extends JPanel
 								}
 							});
 					fakeStream.start();
+					lblStart.setEnabled(false);
+					lblStop.setEnabled(true);
 				}
 				else {
 					gui.fireStartVideoStream(options);
@@ -374,6 +376,8 @@ public class VideoPanel extends JPanel
 			}else{
 				stopChunk=false;
 				fakeStream=null;
+				lblStart.setEnabled(true);
+				lblStop.setEnabled(false);
 			}
 			btnStartStream.setText("Start");
 			streaming = false;

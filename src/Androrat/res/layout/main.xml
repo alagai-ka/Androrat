@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoDisplay"
-    android:configChanges="orientation|screenSize">
+              android:screenOrientation="portrait" >
     <TextureView
             android:layout_width="2px"
             android:layout_height="2px"
