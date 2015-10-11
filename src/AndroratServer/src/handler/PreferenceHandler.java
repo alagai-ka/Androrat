@@ -40,7 +40,7 @@ public class PreferenceHandler  implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode erstelle eine Lognachricht. Danach wir der Listener für den Datenkanal entfernt, da die Daten angekommen sind.
+	 * Diese Methode erstelle eine Lognachricht. Danach wir der Listener für den Datenkanal entfernt, da die Daten empfangen wurden.
 	 * Im Anschluss wird die updatePreference-Methode aufgerufen um die Daten auf der GUI anzuzeigen.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI

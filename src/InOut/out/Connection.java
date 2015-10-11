@@ -27,7 +27,7 @@ public class Connection
 	 */
 	Socket s;
 	/**
-	 * ip	Die ip
+	 * ip	Die IP
 	 */
 	String ip = "localhost";
 	/**
@@ -90,11 +90,11 @@ public class Connection
 	}
 
 	/**
-	 * Diese Methode erstellt mit den Datne des Konstrukors einen neue Verbindung.
-	 * Hierzu wird zu erst ein neuer Socket mit der ip und dem Port erstellt.
-	 * Danach werden die beiden Streams für diesen Socket erstllt.
-	 * Im Anschluss wird ein neuer MuX und ein neuer DMUX ersellt und ein neuer Receiver.
-	 * Schliesßlich wird true zurückgegeben sollte dies erfolgreich gewesen sein und false falls es nicht geklappt hat.
+	 * Diese Methode erstellt mit den Daten des Konstrukors einen neue Verbindung.
+	 * Hierzu wird zuerst ein neuer Socket mit der IP und dem Port erstellt.
+	 * Danach werden die beiden Streams für diesen Socket erstellt.
+	 * Im Anschluss wird ein neuer MuX, ein neuer DMUX und ein neuer Receiver ersellt.
+	 * Schließlich wird true zurückgegeben sollte dies erfolgreich gewesen sein und false falls es nicht geklappt hat.
 	 * @return	true wenn die Verbundung erstellt wurde, false sonst.
 	 */
 	public boolean connect()
@@ -116,7 +116,7 @@ public class Connection
 	}
 
 	/**
-	 * Zum ernuet verbinden wird hier die Methode connect aufgerufen.
+	 * Zum ernuet Verbinden wird hier die Methode connect aufgerufen.
 	 * @return	True wenn Verbindung steht, false sonst.
 	 */
 	public boolean reconnect()
@@ -125,9 +125,9 @@ public class Connection
 	}
 
 	/**
-	 * Diese Methode lauft auf eingehende Verbindungen zum Socket und nimmt diese an.
-	 * Zusätzlich werden dann die verschiedenen Stream für diese Verbindung erstellt.
-	 * Auch ein neuer Mux wird erstellt. Sollte dies erfolgreich gewesen sein so wird true zurückgegeben, ansonsten false.
+	 * Diese Methode lauscht auf eingehende Verbindungen zum Socket und nimmt diese an.
+	 * Zusätzlich werden dann die verschiedenen Streams für diese Verbindung erstellt.
+	 * Auch ein neuer Mux wird erstellt. Sollte dies erfolgreich gewesen sein, wird true zurückgegeben, ansonsten false.
 	 * @param ss	Der Serversocket.
 	 * @return	true wenn die Verbindung aktzeptiert wurde und die Variablen entsprechend erstellt, false sonst.
 	 */

@@ -7,7 +7,7 @@ import out.Connection;
 import java.nio.ByteBuffer;
 
 /**
- * Diese Klasse wird benötigt um den Verbindungsaufbau in einem eigen Task zu realisiertn.
+ * Diese Klasse wird benötigt um den Verbindungsaufbau in einem eigenen Task zu realisieren.
  */
 public class AsyncConnection extends AsyncTask<Void,Void,Void>{
     Connection conn;
@@ -18,7 +18,7 @@ public class AsyncConnection extends AsyncTask<Void,Void,Void>{
     boolean connected = false;
 
     /**
-     * Der Konstruktor erhält die Daten, welche für den Verbindungaufbau nötig sind und speichert sie in den Klassenvariablen
+     * Der Konstruktor erhält die Daten, welche für den Verbindungaufbau nötig sind und speichert sie in den Klassenvariablen.
      * @param ip    Die IP
      * @param port  Der Port
      * @param ctrl  Der Controller
@@ -30,7 +30,7 @@ public class AsyncConnection extends AsyncTask<Void,Void,Void>{
     }
 
     /**
-     * Diese Methode erstellt eine Objekt der Klasse Connection und baut dann eine Verbindung auf. Dies geschieht allerdings in einem eigenen Task
+     * Diese Methode erstellt eine Objekt der Klasse Connection und baut dann eine Verbindung auf. Dies geschieht allerdings in einem eigenen Task.
      * @param voids Keine Parameter
      * @return  Es wird nichts zurückgegeben
      */
@@ -72,7 +72,7 @@ public class AsyncConnection extends AsyncTask<Void,Void,Void>{
     }
 
     /**
-     * Diese Methode gibt, wenn der Task feritg ausgeführt wurde, zurück ob der Verbindungsaufbau erfolgreich war oder nicht.
+     * Diese Methode gibt, wenn der Task fertig ausgeführt wurde, zurück ob der Verbindungsaufbau erfolgreich war oder nicht.
      * @return  true wenn der Verbindungsaufbau erfolgreich war, false sonst.
      */
     public boolean returnResult(){

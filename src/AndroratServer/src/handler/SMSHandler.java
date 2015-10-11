@@ -44,7 +44,7 @@ public class SMSHandler implements PacketHandler {
 
 	/**
 	 * Diese Methode erstellt zuerst eine Lognachricht die auf der Gui angezeigt wird.
-	 * Darnach wird der Listener für den Datankanal entfernt, da die Daten schon angekommen sind.
+	 * Darnach wird der Listener für den Datankanal entfernt, da die Daten empfangen wurden.
 	 * Zum Abschluss wird noch die updateSMS Methode aufgerufen um die Daten des Pakets auf der GUI anzuzeigen.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI

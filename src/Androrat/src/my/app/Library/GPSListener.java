@@ -10,7 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 
 /**
- * Diese Klasse ist zur Ortung des Grätes bestimmt.
+ * Diese Klasse ist zur Ortung des Gerätes bestimmt.
  */
 public class GPSListener {
 	/**
@@ -26,15 +26,15 @@ public class GPSListener {
 	 */
 	private LocationManager mlocManager;
 	/**
-	 * Der Listener für den er Location Manager erstellt wird.
+	 * Der Listener für welchen der Location Manager erstellt wird.
 	 */
 	private LocationListener listener;
 	/**
-	 * Der Kanale der Datenübertragung
+	 * Der Kanale zur Datenübertragung
 	 */
 	private int channel ;
 	/**
-	 * Das GPSPacket welches später an den Server gesendet wird.
+	 * Das GPSPacket, welches später an den Server gesendet wird.
 	 */
 	private GPSPacket packet;
 
@@ -60,7 +60,7 @@ public class GPSListener {
 		 */
 	    mlocManager = (LocationManager) ((Context) c).getSystemService(Context.LOCATION_SERVICE);
 		/**
-		 * Mit diesem Aufruf wird ein Update des Standortes mit Hilfe des gegeben Providers durchgeführt.
+		 * Mit diesem Aufruf wird ein Update des Standortes mit Hilfe des gegeben Providers durchgeführt, wenn das Gerät seinen Standort wechselt.
 		 */
 	    mlocManager.requestLocationUpdates( prov, 0, 0, listener);
 	    //mlocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, listener);

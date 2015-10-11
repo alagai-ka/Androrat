@@ -35,11 +35,11 @@ public class CallMonitor {
 	Boolean isCalling = false;
 
 	/**
-	 * Konstruktor der Klasse erstellt einen Intent Filter für eingehende und ausgehende Anrufe.
+	 * Konstruktor der Klasse erstellt einen Intentfilter für eingehende und ausgehende Anrufe.
 	 * Zusätzlich werden die Klassenvariablen intialisiert
 	 * @param c	Der Service der das Objekt erstellt
 	 * @param chan	Datenübertragungskanal
-	 * @param args	Liste der Nummer nachdenen man Filtern soll.
+	 * @param args	Liste der Nummer nach denen gefiltert wird.
 	 */
 	public CallMonitor(ClientListener c, int chan, byte[] args) {
 		this.ctx = c;
@@ -52,24 +52,24 @@ public class CallMonitor {
 	}
 
 	/**
-	 * Beende des BroadcastReceiver
+	 * Beende des BroadcastReceiver.
 	 */
 	public void stop() {
 		ctx.unregisterReceiver(Callreceiver);
 	}
 
 	/**
-	 * Erstellen des BroadcastReceiver
+	 * Erstellen des BroadcastReceiver.
 	 */
 	protected BroadcastReceiver Callreceiver = new BroadcastReceiver() {
 		 private static final String TAG = "CallReceiver";
-		 
-		@Override
 		/**
-		 * Kommt ein entsprechender Intent an, der auf den Filter passt so wird diese Methode aufgerufen.
+		 * Kommt ein Intent an, welcher die Bedingungen des Filters erfüllt, wird dieser hier verarbeitet.
 		 * @param context Der Kontext
 		 * @param intent Der ankommende Intent
 		 */
+		@Override
+
 		public void onReceive(final Context context, final Intent intent) {
 			//Log.i(TAG, "Call state changed !");
 			/**
@@ -77,16 +77,16 @@ public class CallMonitor {
 			 */
 			final String action = intent.getAction();
 			/**
-			 * Überprüfen ob es sich um einen ausgehenden Anruf handelt
+			 * Überprüfen ob es sich um einen ausgehenden Anruf handelt.
  			 */
 			if(action.equals(Intent.ACTION_NEW_OUTGOING_CALL)){
 				/**
-				 * Auslesen der Telefonnummer
+				 * Auslesen der Telefonnummer.
 				 */
 				String number=intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
 				Log.i(TAG,"Outgoing call to "+number);
 				/**
-				 * Neues Callstatuspacket erstellen mit der Nummer und dem Status
+				 * Neues Callstatuspacket erstellen und in diesem die Telefonnummer und den Status übergeben.
 				 */
 				ctx.handleData(channel, new CallStatusPacket(4, number).build());
 				/**
@@ -111,7 +111,7 @@ public class CallMonitor {
 				 */
 				if(phoneNumber != null && phoneNumberFilter != null) {
 					/**
-					 * Wenn ein Filter vorhanden überprüfen ob die Nummer im Filter vorkommt.
+					 * Wenn ein Filter vorhanden überprüfen, ob die Nummer im Filter vorkommt.
 					 * Ist die nicht der Fall wird die Methode beendet.
 					 */
 					if(!phoneNumberFilter.contains(phoneNumber))
@@ -128,7 +128,7 @@ public class CallMonitor {
 					ctx.handleData(channel, new CallStatusPacket(1, phoneNumber).build());
 				}
 				/**
-				 * Überprüfen ob der Anruf beendet wurde oder abgelehtn
+				 * Überprüfen ob der Anruf beendet oder abgelehtn wurde.
 				 */
 				else if(phoneState.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
 					if(phoneNumber == null) {
@@ -140,7 +140,7 @@ public class CallMonitor {
 					}
 					else {
 						/**
-						 * Wenn dieser Teil erreicht wird so wurde der ANruf verpasst
+						 * Wenn dieser Teil erreicht wird so wurde der Anruf verpasst.
 						 */
 						Log.i(TAG,"Missed call of "+phoneNumber); //not null call missed, null hang up, or refused
 						/**
@@ -154,7 +154,7 @@ public class CallMonitor {
 					isCalling = false;
 				}
 				/**
-				 * Überprüfen ob es einen Anruf gibt der gerade wählt, aktiv ist oder pausiert.
+				 * Überprüfen ob es einen Anruf gibt, der gerade wählt, aktiv ist oder pausiert.
 				 */
 				else if(phoneState.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
 					/**

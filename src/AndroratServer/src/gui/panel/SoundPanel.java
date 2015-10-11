@@ -60,7 +60,7 @@ public class SoundPanel extends JPanel {
 
 
 	/**
-	 * Erstellt das Sound Panel mit den entsprechenden Knöpfen.
+	 * Erstellt das Sound Panel.
 	 * @param gui Die Gui
 	 */
 	public SoundPanel(UserGUI gui) {
@@ -267,7 +267,7 @@ public class SoundPanel extends JPanel {
 
 	/**
 	 * Diese Methode ist zum Verändern der Größe der Bilder da.
-	 * @param path	Dier Pfad wo das Bild gespeichert ist.
+	 * @param path	Dier Pfad unter welchem das Bild gespeichert ist.
 	 * @return	Das veränderte Bild
 	 */
 	private ImageIcon reziseImage(String path)
@@ -332,7 +332,7 @@ public class SoundPanel extends JPanel {
 	/**
 	 * Diese Methode wird aufgerufen wenn der Aufnehmenknopf gedrückt wird.
 	 * Jenachdem ob schon aufgenommen wird oder nicht wird das Bild des Knopfes verändert.
-	 * Zusätzlich werden die Vorbereitungen getroffen um die ankommenden Daten in einem Ordner auf dem Rechner zu speichern.
+	 * Zusätzlich werden die Vorbereitungen getroffen, um die ankommenden Daten in einem Ordner auf dem Rechner zu speichern.
 	 */
 	private void fireButtonRecord()
 	{
@@ -403,7 +403,7 @@ public class SoundPanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen sobald der SoundHandler neue Daten empfängt.
+	 * Diese Methode wird aufgerufen, sobald der SoundHandler neue Daten empfängt.
 	 * Danach wird überprüft ob gemutet wurde oder nicht. Sollte nicht gemutet sein, so werden die empfangenen Daten geschrieben und ausgegeben.
 	 * zusätzlich wird überprüft ob aufgenommen wird. Ist dies der Fall werden die Daten zusätzlich auf den FileOutputStream geschrieben.
 	 * @param data	Die Sounddaten.

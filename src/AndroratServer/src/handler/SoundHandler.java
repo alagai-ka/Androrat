@@ -23,7 +23,7 @@ public class SoundHandler implements PacketHandler {
 	private String imei;
 
 	/**
-	 * Der Konstruktor weiﬂt den KLassenvariablen die entsprechenden Daten zu.
+	 * Der Konstruktor weist den KLassenvariablen die entsprechenden Daten zu.
 	 * @param channel	Der Datenkanal
 	 * @param imei	Die IMEI
 	 * @param gui	Die GUI

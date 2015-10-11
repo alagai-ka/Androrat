@@ -7,7 +7,7 @@ import Packet.Packet;
 import Packet.RawPacket;
 
 /**
- * Diese Klasse verarbeitet die CallMonitor-Pakete
+ * Diese Klasse verarbeitet die CallMonitor-Pakete.
  */
 public class CallMonitorHandler implements PacketHandler {
 	/**
@@ -24,7 +24,7 @@ public class CallMonitorHandler implements PacketHandler {
 	private String imei;
 
 	/**
-	 * Der Konstruktor der Klasse weißt die übergebenen Variablen den Klassenvaribalen zu.
+	 * Der Konstruktor der Klasse weist die übergebenen Variablen den Klassenvaribalen zu.
 	 * @param channel	Der Datenkanal
 	 * @param imei	Die IMEI des Geräts
 	 * @param gui	Die GUI
@@ -42,8 +42,8 @@ public class CallMonitorHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode erhält das Paket. Darauf hin wird eine Lognachricht erzeugt.
-	 * Im Anschluss wird der Listener für den Datenkanal aus dem Server entfernt und die GUI mitr den Daten des Geräts upgedatet.
+	 * Diese Methode erhält das Paket. Daraufhin wird eine Lognachricht erzeugt.
+	 * Im Anschluss wird der Listener für den Datenkanal entfernt und die GUI mit den Daten des Geräts upgedatet.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI
 	 * @param c	Der Server

@@ -22,7 +22,7 @@ import inout.Protocol;
  */
 
 /**
- * Diese Klasse wird zum Zwischenspeichern von Paketen verwendent.
+ * Diese Klasse wird zum Zwischenspeichern von Paketen verwendet.
  */
 public class TemporaryStorage
 {
@@ -128,8 +128,8 @@ public class TemporaryStorage
 			else//sinon (si c'est la fin)
 			{
 				/**
-				 * Wenn es sich um das letzte Paket handelt so wird überprüft ob der size_counter und die total_length übereinstimmten.
-				 * ist dies nicht der Fall so wird SIZE_ERROR zurückgegeben, da die Längen nicht übereinstimmen.
+				 * Wenn es sich um das letzte Paket handelt so wird überprüft, ob der size_counter und die total_length übereinstimmen.
+				 * Ist dies nicht der Fall so wird SIZE_ERROR zurückgegeben, da die Längen nicht übereinstimmen.
 				 */
 				if(size_counter != total_length)
 					return Protocol.SIZE_ERROR;
@@ -150,7 +150,7 @@ public class TemporaryStorage
 		}
 		else
 		/**
-		 * Sollte das Ende schon erreicht sein so wird NO_MORE zurückgegeben.
+		 * Sollte das Ende schon erreicht sein, wird NO_MORE zurückgegeben.
 		 */
 			//sinon erreur
 		   return Protocol.NO_MORE;
@@ -167,7 +167,7 @@ public class TemporaryStorage
 	}
 
 	/**
-	 * Gir das final_Data-Array zurück.
+	 * Gibt das final_Data-Array zurück.
 	 * @return	die finale zusammengesetzte Datei.
 	 */
 	public byte[] getFinalData()
@@ -176,7 +176,7 @@ public class TemporaryStorage
 	}
 
 	/**
-	 * Git die Sequenznummer des letzten empfandenen Pakets zurück.
+	 * Gibt die Sequenznummer des letzten empfangenen Pakets zurück.
 	 * @return	Letze Sequenznummer
 	 */
 	public int getLastPacketPositionReceived()

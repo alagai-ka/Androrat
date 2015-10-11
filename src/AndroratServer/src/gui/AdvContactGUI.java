@@ -235,7 +235,7 @@ public class AdvContactGUI extends JFrame {
 	}
 
 	/**
-	 * Diese Methode extrahiert die Daten den Kontakts und zeigt sie auf der Gui an.
+	 * Diese Methode extrahiert die zusätzlichen Daten des Kontakts und zeigt sie auf der Gui an.
 	 */
 	private void initContactInfo() {
 		lblValid.setText(""+contact.getId());

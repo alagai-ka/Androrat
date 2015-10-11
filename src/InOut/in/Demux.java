@@ -6,7 +6,7 @@ import inout.Protocol;
 import java.nio.ByteBuffer;
 
 /**
- * KLasse zum Demultiplexen
+ * Klasse zum Demultiplexen
  */
 public class Demux {
 	// acces au controler
@@ -30,7 +30,7 @@ public class Demux {
 
 	// le buffer de lecture
 	/**
-	 * buffer	Ein Zwischenspeicher
+	 * buffer	Ein Zwischenspeichern
 	 */
 	private ByteBuffer buffer;
 
@@ -38,7 +38,7 @@ public class Demux {
 	private boolean partialDataExpected, reading;
 
 	/**
-	 * Der Konstruktor weißt den Klassenvariablen die übergebenen Daten zu
+	 * Der Konstruktor weist den Klassenvariablen die übergebenen Daten zu.
 	 * @param s	Der Controler
 	 * @param i	Die IMEI
 	 */
@@ -56,7 +56,7 @@ public class Demux {
 		while (reading) {
 
 				/**
-			 	* Überprüfen ob es die Daten partiell ankommen oder im gesamten.
+			 	* Überprüfen ob die gesamten Daten angekommen sind.
 			 	*/
 				if(!partialDataExpected)
 					//si on n'attend pas de donn�es partielles(dans le cas d'un paquet pas re�ue enti�rement)
@@ -76,13 +76,13 @@ public class Demux {
 	
 				// dans le cas d'un paquet partiellement recue
 				/**
-			 	* Wenn die Daten partiell ankommen so wird die parseCompleter Methode aufgerufen um die Daten in der Klassenvariablen des Pakets zu speichern.
+			 	* Wenn die Daten partiell ankommen, wird die parseCompleter Methode aufgerufen um die Daten in der Klassenvariablen des Pakets zu speichern.
 			 	*/
 				if (partialDataExpected)
 					partialDataExpected = p.parseCompleter(buffer);
 				else
 				/**
-				 * Ansonsten wird die parse-Methode  auf dem Paket p aufgerufen. Um herauszufinden ob immernoch nicht alle Daten angekommen sind.
+				 * Ansonsten wird die parse-Methode  auf dem Paket p aufgerufen. Um herauszufinden, ob immernoch nicht alle Daten angekommen sind.
 				 */
 				{
 					p = new TransportPacket();
@@ -90,7 +90,7 @@ public class Demux {
 				}
 
 				/**
-			 	* Wenn nach der Überprüfung des Pakets immer noch Daten erwartet werden diese also nicht komplett sind so wird true zurückgeliefert.
+			 	* Wenn nach der Überprüfung des Pakets immer noch Daten erwartet werden, wird true zurückgeliefert.
 			 	*/
 				if (partialDataExpected)
 					return true;

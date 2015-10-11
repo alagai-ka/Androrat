@@ -10,7 +10,7 @@ import Packet.Packet;
 import gui.GUI;
 
 /**
- * Diese Klasse ist zum Verarbeiten eine FileTreePackets zuständig
+ * Diese Klasse ist zum Verarbeiten eine FileTreePackets zuständig.
  */
 public class FileTreeHandler implements PacketHandler {
 	/**
@@ -27,7 +27,7 @@ public class FileTreeHandler implements PacketHandler {
 	private String imei;
 
 	/**
-	 * Der Konstruktor weißt die Daten den Klassenvariablen zu.
+	 * Der Konstruktor weist die Daten den Klassenvariablen zu.
 	 * @param chan	Der Datankanal
 	 * @param imei	Die IMEI
 	 * @param gui	Die Benutzeroberfläche
@@ -44,7 +44,7 @@ public class FileTreeHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode erstell eine Lognachricht, entfernt den Listener für den entsprechenden Kanal um dann die updateFileTree Methode aufzurufen um die Daten auf der Gui anzuzeigen.
+	 * Diese Methode erstell eine Lognachricht, entfernt den Listener für den entsprechenden Kanal um dann die updateFileTree Methode aufzurufen und die Daten auf der Gui anzuzeigen.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI
 	 * @param c	Der Server

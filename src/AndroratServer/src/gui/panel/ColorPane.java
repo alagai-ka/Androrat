@@ -5,7 +5,7 @@ import javax.swing.text.*;
 import java.awt.Color;
 
 /**
- * Diese Klasse definiert das Aussehen und den Hintergrund der Panele
+ * Diese Klasse definiert das Aussehen und den Hintergrund der Panele.
  */
 public class ColorPane extends JTextPane {
 

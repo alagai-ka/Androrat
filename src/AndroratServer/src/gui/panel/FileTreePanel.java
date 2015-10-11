@@ -57,7 +57,7 @@ public class FileTreePanel extends JPanel {
 	private JTextField txtDir;
 
 	/**
-	 * Erstellt das Panel mit der Ordnerstruktur
+	 * Erstellt das filetree Panel
 	 * @param gui	Die GUI
 	 */
 	public FileTreePanel(UserGUI gui) {
@@ -244,8 +244,7 @@ public class FileTreePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode erhält eine Liste von MyFiles und erstellt daraus einen Ordnerbaum und zeigt diesen an.
-	 * Diese Methode ist zum Aktualisieren falls neue Daten erhalten werden.
+	 * Diese Methode erhï¿½lt eine Liste von MyFiles und erstellt daraus einen Ordnerbaum. Dieser wird dann auf der GUI angezeigt.
 	 * @param fileList	Die Liste der Ordner.
 	 */
 	public void updateFileTree(ArrayList<MyFile> fileList) {
@@ -264,7 +263,7 @@ public class FileTreePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ist zum Anzeigen und Hinzufügen von Kindknoten vorhanden.
+	 * Diese Methode ist zum Anzeigen und Hinzufï¿½gen von Kindknoten vorhanden.
 	 * @param parentPath	Der Pfade des Elternknoten
 	 * @param cur	Der derzeitige Ordner
 	 * @return	Den Knoten der Erstellt wurde.
@@ -292,7 +291,7 @@ public class FileTreePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird benötigt, sobald ein Ordner angeklickt wird um die entsprechenden Informationen über diesen auszulesen und anzuseigen.
+	 * Diese Methode wird benï¿½tigt, sobald ein Ordner angeklickt wird um die entsprechenden Informationen ï¿½ber diesen auszulesen und anzuseigen.
 	 * @param e	Das Mausevent
 	 */
 	private void fireClickNode(MouseEvent e) {
@@ -352,7 +351,7 @@ public class FileTreePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen sobald er Button Download File gedrückt wird.
+	 * Diese Methode wird aufgerufen sobald er Button Download File gedrï¿½ckt wird.
 	 * Sie ruft die Methode fireFileDownload der Klasse Gui auf um die Anfrage an den Client zu senden.
 	 */
 	private void fireButtonDownload() {
@@ -360,7 +359,7 @@ public class FileTreePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ruft die Methode fireTreeFile der KLasse GUI auf sobald auf den Button Get FileTree gedrückt wird.
+	 * Diese Methode ruft die Methode fireTreeFile der KLasse GUI auf sobald auf den Button Get FileTree gedrï¿½ckt wird.
 	 * Es wird dann eine Anfrage an den Client gesendet.
 	 */
 	private void fireButtonRequestTree() {

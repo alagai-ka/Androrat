@@ -6,7 +6,7 @@ import Packet.Packet;
 import gui.GUI;
 
 /**
- * Diese Klasse verarbeitet die ClientLog-Pakete
+ * Diese Klasse verarbeitet die ClientLog-Pakete.
  */
 public class ClientLogHandler implements PacketHandler {
 	/**
@@ -23,7 +23,7 @@ public class ClientLogHandler implements PacketHandler {
 	private String imei;
 
 	/**
-	 * Der Konstruktor der Klasse weißt die übergebenden Daten den Klassenvaribalen zu.
+	 * Der Konstruktor der Klasse weist die übergebenden Daten den Klassenvaribalen zu.
 	 * @param channel	Der Datenkanal
 	 * @param imei	Die IMEI des verbundenen Gerätes
 	 * @param gui	Die Benutzeroberfläche
@@ -41,8 +41,8 @@ public class ClientLogHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode besorgt sich das LogPacket des Servers und überprüft dann ob es sich um eine Lognachrichte handelt oder um eine Fehlernachricht.
-	 * Jenachdem wird die clientLogTxt oder die clientErrLogTxt Methode aufgerufen um diese Daten auf der Benutzeroberfläche anzuzeigen.
+	 * Diese Methode besorgt sich das LogPacket des Servers und überprüft dann, ob es sich um eine Lognachrichte handelt oder um eine Fehlernachricht.
+	 * Jenachdem wird die clientLogTxt oder die clientErrLogTxt Methode aufgerufen, um diese Daten auf der Benutzeroberfläche anzuzeigen.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI
 	 * @param c	Der Server

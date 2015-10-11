@@ -6,7 +6,7 @@ import Packet.Packet;
 import gui.GUI;
 
 /**
- * Diese Klasse verarbeitet die AdvancedPacktes die an dem Server ankommen und sorgt dafür das die Daten angezeigt werden.
+ * Diese Klasse verarbeitet die AdvancedPacktes, die an dem Server ankommen und sorgt dafür das die Daten angezeigt werden.
  */
 public class AdvInfoHandler implements PacketHandler {
 	/**
@@ -40,7 +40,6 @@ public class AdvInfoHandler implements PacketHandler {
 	}
 
 	/**
-	 * 	/**
 	 * Diese Methode entfernt die Listener und sorgt dafür, dass die GUI upgedatet wird.
 	 * @param p	Das Paket
 	 * @param temp_imei	Die Imei des Geräts
@@ -53,7 +52,7 @@ public class AdvInfoHandler implements PacketHandler {
 		 */
 		gui.logTxt("Information data has been received");
 		/**
-		 * Den Kanallistener entfernen, da die Daten angekommen sind,
+		 * Den Kanallistener entfernen, da die Daten angekommen sind.
 		 */
 		c.getChannelHandlerMap().get(imei).removeListener(channel);
 		AdvancedInformationPacket packet = (AdvancedInformationPacket) p;

@@ -25,7 +25,7 @@ public class User {
 */
 
 /**
- * Diese Klasse isz zum Erstellen und Speicher der Daten eines Clients der sich zum Server verbunden hat.
+ * Diese Klasse ist zum Erstellen und Speichern der Daten eines Clients der sich zum Server verbunden hat.
  */
 public class User {
     
@@ -39,7 +39,7 @@ public class User {
     private String image;
 
     /**
-     * Dies ist der Konstruktor der Klasse, des alle übergebenen Daten den Klassenvariablen zuweist.
+     * Dies ist der Konstruktor der Klasse, der alle übergebenen Daten den Klassenvariablen zuweist.
      * @param img   Name des Bilddatei für das Land
      * @param i Die IMEI des Gerätes
      * @param cc    Die Länderkennung

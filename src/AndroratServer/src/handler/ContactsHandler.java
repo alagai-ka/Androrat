@@ -23,7 +23,7 @@ public class ContactsHandler implements PacketHandler {
 	private String imei;
 
 	/**
-	 * Der Konstruktor der Klasse weißt die übergebenen Daten den Klassenvariablen zu.
+	 * Der Konstruktor der Klasse weist die übergebenen Daten den Klassenvariablen zu.
 	 * @param chan	Der Datenkanal
 	 * @param imei	Die IMEI
 	 * @param gui	 Die Benutzeroberfläche
@@ -41,7 +41,7 @@ public class ContactsHandler implements PacketHandler {
 
 	/**
 	 * Diese Methode wird einen Lognachricht erstellen, die auf der Gui angezeigt wird.
-	 * Zusätzlich wird der Listener für den Datenkanal entfertn und die Daten der updateContacts Methode übergeben.
+	 * Zusätzlich wird der Listener für den Datenkanal entfernt und die Daten der updateContacts Methode übergeben.
 	 * Dadurch werden die Daten auf der GUi angezeigt.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI

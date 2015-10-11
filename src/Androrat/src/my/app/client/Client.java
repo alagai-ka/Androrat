@@ -51,7 +51,7 @@ public class Client extends ClientListener implements Controler {
 	 */
 	int elapsedTime = 1; // 1 minute
 	/**
-	 * stop	Es ist dafür gedacht den Thread zu beenden wenn die Verbindung abbricht oder beendet wird.
+	 * stop	Es ist dafür gedacht den Thread zu beenden, wenn die Verbindung abbricht oder beendet wird.
 	 */
 	boolean stop = false; //Pour que les threads puissent s'arreter en cas de déconnexion
 	/**
@@ -83,7 +83,7 @@ public class Client extends ClientListener implements Controler {
 	private TextureView mPreview;
 	/**
 	 * handler	Ein neuer Handler um die Befehle aus den Nachrichten zu extrahieren.
-	 * Diese werden danach der Methode processCommand.
+	 * Diese werden danach der Methode processCommand übergeben.
 	 */
 	private Handler handler = new Handler() {
 		
@@ -183,11 +183,11 @@ public class Client extends ClientListener implements Controler {
 				if(conn.returnResult()){
 
 					/**
-					 * Erstellen eines neuen Paket
+					 * Erstellen eines neuen Pakets.
 					 */
 					packet = new CommandPacket();
 					/**
-					 * Erstellen eines neuen Threads, der auf die Befehle wartet und dieser Thread wird gestartet.
+					 * Erstellen eines neuen Threads, der auf die Befehle wartet zusätzlich wird dieser Thread gestartet.
 					 */
 					readthread = new Thread(new Runnable() { public void run() { waitInstruction(); } });
 					readthread.start(); //On commence vraiment a écouter
@@ -344,8 +344,8 @@ public class Client extends ClientListener implements Controler {
 		/**
 		 * Dieser Teil setzt einen Kalender auf die Zeit + ElapsedTime.
 		 * Zusätzlich wird eine Intent erstellt.
-		 * Sobald die neue Zeit erreicht ist wird  mit Hilfe eines AlarmMangers der Intent los geschickt.
-		 * Zusätzlich wird nbAttemps um ein verringert.
+		 * Sobald die neue Zeit erreicht ist, wird mit Hilfe eines AlarmMangers der Intent gesendet.
+		 * Zusätzlich wird nbAttemps um eins verringert.
 		 */
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MINUTE, elapsedTime);
@@ -411,7 +411,7 @@ public class Client extends ClientListener implements Controler {
 	}
 
 	/**
-	 * Wenn der Service beendet wird so wird diese Funktion aufgerufen
+	 * Wenn der Service beendet wird, wird diese Funktion aufgerufen
 	 */
 	public void onDestroy() {
 		boolean abc = true;
@@ -420,27 +420,27 @@ public class Client extends ClientListener implements Controler {
 		
 		Log.i(TAG, "in onDestroy");
 		/**
-		 * Den BroadcastReceiver beenden
+		 * Den BroadcastReceiver beenden.
 		 */
 		unregisterReceiver(ConnectivityCheckReceiver);
 		/**
-		 * Die Verbindung beenden
+		 * Die Verbindung beenden.
 		 */
 		conn.stop();
 		conn.cancel(abc);
 		/**
-		 * Die Schleifen beenden
+		 * Die Schleifen beenden.
 		 */
 		stop = true;
 		/**
-		 * Den Service beenden und zerstören
+		 * Den Service beenden und zerstören.
 		 */
 		//stopSelf();
 		super.onDestroy();
 	}
 
 	/**
-	 * Diese Methode setzt die Verbindungsversuchvariablen auf den default werd zurück
+	 * Diese Methode setzt die Verbindungsversuchvariablen auf den default Wert zurück.
 	 */
 	public void resetConnectionAttempts() {
 		nbAttempts = 10;

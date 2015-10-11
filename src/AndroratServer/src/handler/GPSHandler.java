@@ -39,7 +39,7 @@ public class GPSHandler implements PacketHandler
 
 	/**
 	 * Diese Methode erstellt eine Lognachricht, die dann auf der GUI ausgegeben wird.
-	 * Zusätlich wird der Speicher des Datenkanals geleert. Im Anschluss wird dann die updateUserMap Methode aufgerufen um den Ort auf der Karten anzuzeigen.
+	 * Zusätzlich wird der Speicher des Datenkanals geleert. Im Anschluss wird dann die updateUserMap Methode aufgerufen um den Ort auf der Karten anzuzeigen.
 	 * @param p	Das Paket
 	 * @param imei	Die IMEI
 	 * @param c	Der Server

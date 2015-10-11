@@ -206,8 +206,8 @@ public class SMSLogPanel extends JPanel {
 
 	/**
 	 * Diese Methode wird aufgerufen wenn der Button Get SMS aufgerufen wird.
-	 * Hier wird dann überprüft ob Filter gesetzt wurden. Sollte dies der Fall sein so werden diese in einen String geschrieben.
-	 * Zum Schluss wird dann die Methode fireGetSMS der Klasse GUI aufgerufen und der String mit den Filtern übergeben.
+	 * Hier wird dann überprüft ob Filter gesetzt wurden. Sollte dies der Fall sein, werden diese in einen String geschrieben.
+	 * Zum Schluss wird die Methode fireGetSMS der Klasse GUI aufgerufen und der String mit den Filtern übergeben.
 	 */
 	private void fireGetSMS() {
 		String request = "";
@@ -319,7 +319,7 @@ public class SMSLogPanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ist zum entfernen von Daten auf der GUI zuständig. Dies ist nötig um neue Daten anzeigen zu können.
+	 * Diese Methode ist zum Entfernen von Daten auf der GUI zuständig. Dies ist nötig um neue Daten anzeigen zu können.
 	 */
 	public void clearPanel() {
 		colorPane.setText("");

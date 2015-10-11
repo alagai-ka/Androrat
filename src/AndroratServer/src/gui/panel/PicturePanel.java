@@ -158,11 +158,17 @@ public class PicturePanel extends JPanel {
 		panel_1.setLayout(gl_panel_1);
 		setLayout(groupLayout);
 	}
-	
+
+	/**
+	 * Methode zum Senden der Anfrage ein Bild auf dem Client aufzunehmen
+	 */
 	private void fireTakePicture() {
 		gui.fireTakePicture((String)comboBox.getSelectedItem());
 	}
 
+	/**
+	 * Methode zum Aktiviern oder Deaktivieren des Blitzlichts auf dem Client.
+	 */
 	private void fireTorch(){
 		if(torch){
 			torch = false;
@@ -177,7 +183,10 @@ public class PicturePanel extends JPanel {
 			btnTakePicture.setEnabled(false);
 		}
 	}
-	
+
+	/**
+	 * Methode zum Anzeigen des gewählten Bilds aus der Liste.
+	 */
 	private void fireMouseClickedInList() {
 		String title = (String) list.getSelectedValue();
 		if(!lastTitle.equals(title)) {
@@ -194,7 +203,7 @@ public class PicturePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ist dazu da, die empfangenen Daten des PicuterHandler zu speicher und auf der gui darzustellen.
+	 * Diese Methode ist dazu da, die empfangenen Daten des PicuterHandler zu speichern und auf der GUI darzustellen.
 	 * Sollte dies nicht klappen so wird eine Fehlermeldung geworfen.
 	 * @param data	Die Bild Daten.
 	 */
@@ -239,7 +248,7 @@ public class PicturePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ist zum Skalieren des Bildes gedacht. Es wird so skaliert, dass es auf dem Panel gut angezeigt werden kann.
+	 * Diese Methode ist zum Skalieren des Bildes gedacht. Es wird so skaliert, dass es auf dem Panel angezeigt werden kann.
 	 * @param source	Das Bild
 	 * @param width	Die Breite
 	 * @param height	Die Höhe

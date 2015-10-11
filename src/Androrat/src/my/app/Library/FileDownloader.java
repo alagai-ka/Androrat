@@ -11,7 +11,7 @@ import my.app.client.ClientListener;
 import Packet.FilePacket;
 
 /**
- * Diese Klasse ist dazu da Ordner oder Datei von dem Gerät herunterzuladen.
+ * Diese Klasse ist dazu da Ordner oder Dateien von dem Gerät herunterzuladen.
  */
 public class FileDownloader {
 	/**
@@ -39,7 +39,7 @@ public class FileDownloader {
 	 */
 	FilePacket packet;
 	/**
-	 * buffer	Ein Byte-Array das später benötigt wird um die Daten zwischen zu speichern.
+	 * buffer	Ein Byte-Array welches später benötigt wird, um die Daten zwischen zu speichern.
 	 */
 	byte[] buffer;
 	/**
@@ -60,10 +60,10 @@ public class FileDownloader {
 	}
 
 	/**
-	 * Diese Funktion erstellt ein Thread in welchem die Datei oder der Ordner heruntergeladen wird.
-	 * @param s	Der Ordner welcher heruntergeladen werden soll.
+	 * Diese Funktion erstellt ein Thread in welchem die Datei/der Ordner heruntergeladen wird.
+	 * @param s	Der Ordner/Die Datei welcher heruntergeladen werden soll.
 	 * @param chan Der Kanal zur Datenübermittlung
-	 * @return	true falls heruntergeladen wurde, false falls dies nicht geklappt hat.
+	 * @return	true falls heruntergeladen wurde, false falls es nicht möglich war.
 	 */
 	public boolean downloadFile(String s, int chan) {
 		/**
@@ -71,22 +71,22 @@ public class FileDownloader {
 		 */
 		channel = chan;
 		/**
-		 * neunes File-Objekt erstellen mit dem Ordnerpfad.
+		 * neues File-Objekt erstellen und den Ordnerpfad übergeben.
 		 */
 		f = new File(s);
 		try {
 			/**
-			 * Versuchen einen neuen Stream zum auslesen der Daten in dem Ordner f zu erstellen.
+			 * Versuchen einen neuen Stream zum Auslesen der Daten des Ordners f zu erstellen.
 			 */
 			in = new FileInputStream(f);
 		} catch (FileNotFoundException e) {
 			/**
-			 * Sollte der Ordner nicht gefunden werden so wird false zurückgegeben.
+			 * Sollte der Ordner nicht gefunden werden und somit kein FileStream erstellt werden köönen, wird false zurückgegeben.
 			 */
 			return false;
 		}
 		/**
-		 * Erstellen eines neuen Threads um die Daten herunterzuladen
+		 * Erstellen eines neuen Threads um die Daten herunterzuladen.
 		 */
         Thread loadf = new Thread(new Runnable() {
         	public void run() {
@@ -94,7 +94,7 @@ public class FileDownloader {
         	}
         });
 		/**
-		 * Straten des Threads
+		 * Straten des Threads.
 		 */
         loadf.start();
 		/**
@@ -114,11 +114,11 @@ public class FileDownloader {
 			 */
 			while(true) {
 				/**
-				 * Erstellen des Buffers mit der BUFFER_SIZE als Größe
+				 * Erstellen des Buffers mit der BUFFER_SIZE als Größe.
 				 */
 				buffer = new byte[BUFF_SIZE];
 				/**
-				 * Auslesen der Daten. Der Buffer bestimmt die Größe der auszulesenden Daten.
+				 * Auslesen der Daten. Es werden maximal BUFF_SIZE Bytes ausgelesen.
 				 * Read ist die Anzahl der gelesen bytes.
 				 */
 				int read = in.read(buffer);
@@ -146,7 +146,7 @@ public class FileDownloader {
 					numseq ++;
 				}
 				/**
-				 * Sollte read ungleich der BUFFER_SIZE sein so handelt es sich um das letze Paket.
+				 * Sollte read ungleich der BUFFER_SIZE sein, handelt es sich um das letzte Paket.
 				 */
 				else {//C'était le dernier paquet
 					/**
@@ -172,12 +172,12 @@ public class FileDownloader {
 				}
 			}
 			/**
-			 * Der Filestream wird geschlossen
+			 * Der Filestream wird geschlossen.
 			 */
 			in.close();
 		}
 		/**
-		 * Sollte eine Exception geworfen werden so wird eine Fehlermeldung erstellt.
+		 * Sollte eine Exception geworfen werden, wird eine Fehlermeldung erstellt.
 		 */
 		catch(IOException e) {
 			ctx.sendError("IOException loading file");

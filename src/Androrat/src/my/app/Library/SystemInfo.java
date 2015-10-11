@@ -9,7 +9,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 
 /**
- * Diese Klasse sammelt die grundlegenden Informationen, die im Server angezeigt werden sobald sich das Gerät verbindet.
+ * Diese Klasse sammelt die grundlegenden Informationen, die auf dem Server angezeigt werden, sobald sich das Gerät verbindet.
  * Hierzugehört die Telefonnummer, die IMEI, die Länderkennung, der Name des Anbieters, die Länderkennung der Simkarte
  * der Anbieter der Simkarte und die Seriennummer des Simkarte.
  */
@@ -23,7 +23,7 @@ public class SystemInfo {
 	TelephonyManager tm;
 
 	/**
-	 * Konstruktor der Klasse. Alles was hier passiert ist, dass die Klassenvariablen befüllt werden.
+	 * Konstruktor der Klasse. Hier werden die Klassenvariablen befüllt.
 	 * @param c Der Kontext
 	 */
 	public SystemInfo(Context c) {
@@ -32,7 +32,7 @@ public class SystemInfo {
 	}
 
 	/**
-	 * Diese Methode gibt die Telefonnummer des Gräts zurück.
+	 * Diese Methode gibt die Telefonnummer des Geräts zurück.
 	 * @return Die Telefonnummer
 	 */
 	public String getPhoneNumber() {
@@ -40,7 +40,7 @@ public class SystemInfo {
 	}
 
 	/**
-	 * Diese Methode gibt die einduetige Seriennummer des Grätes zurück.
+	 * Diese Methode gibt die eindeutige Seriennummer des Grätes zurück.
 	 * @return Die IMEI des Gerätes.
 	 */
 	public String getIMEI() {
@@ -99,8 +99,8 @@ public class SystemInfo {
 		Hashtable<String, String> h = new Hashtable<String, String>();
 		String res;
 		/**
-		 * Imfolgenden werden alle obigen Methoden aufgerufen und überprüft ob diese ein Ergebnis liefern.
-		 * Sollte dies der Fall sein so werden die entsprechenden Daten zusammen mit ihrem Key der Hashtabelle hinzugefügt.
+		 * Im folgenden werden alle obigen Methoden aufgerufen und überprüft, ob diese ein Ergebnis liefern.
+		 * Sollte dies der Fall sein, werden die entsprechenden Daten zusammen mit ihrem Key der Hashtabelle hinzugefügt.
 		 */
 		res = getIMEI();
 		if(res != null)
@@ -124,8 +124,8 @@ public class SystemInfo {
 		if(res != null)
 			h.put("SimSerial", res);
 		/**
-		 * Zum Schluss wird nun noch versucht diese Hashtabelle in ein ByteArray umzuwandelt.
-		 * Sollte die erfolgreich sein so wird das ByteArray zurückgegeben.
+		 * Zum Schluss wird, versucht diese Hashtabelle in ein ByteArray umzuwandelt.
+		 * Sollte dies erfolgreich sein, wird das ByteArray zurückgegeben.
 		 * Ansonsten wird null zurückgegeben.
 		 */
 		try {

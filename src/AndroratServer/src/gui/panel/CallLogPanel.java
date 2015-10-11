@@ -28,7 +28,7 @@ import Packet.CallPacket;
 import javax.swing.JSplitPane;
 
 /**
- * Diese Klasse ist zum Erstellen und Verwalten des Calllogtabs zuständig
+ * Diese Klasse ist zum Erstellen und Verwalten des Calllogtabs zuständig.
  */
 public class CallLogPanel extends JPanel {
 	
@@ -219,9 +219,9 @@ public class CallLogPanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen sobald der Button Get Call Logs gedrückt wird.
-	 * Es wird dann überprüft ob Filter für die Anrufliste deklariert wurden oder nicht.
-	 * Ist dies der Fall wird in dem String request diese Filterliste gespeichert.
+	 * Diese Methode wird aufgerufen, sobald der Button Get Call Logs gedrückt wird.
+	 * Es wird dann überprüft, ob Filter für die Anrufliste deklariert wurden oder nicht.
+	 * Ist dies der Fall wird diese Filterliste in dem String request gespeichert.
 	 * Zum Schluss wird die Mehtode fireGetCallLogs der Klasse Gui aufgerufen die Daten an den Client zu senden.
 	 */
 	private void fireGetCallLogs() {
@@ -282,8 +282,8 @@ public class CallLogPanel extends JPanel {
 	}
 
 	/**
-	 * Erhält einen ArrayListe von CallPackets und verarbeitet diese um sie auf der Gui anzuzeigen.
-	 * Diese Methode wird aufgerufen sobald ein neues CallLogPacket ankommt um die Daten auf der Gui zu aktualisieren.
+	 * Erhält einen ArrayListe von CallPackets und verarbeitet diese, um sie auf der Gui anzuzeigen.
+	 * Diese Methode wird aufgerufen, sobald ein neues CallLogPacket empfangen wird, um die Daten auf der Gui zu aktualisieren.
 	 * @param logsList	Die Anrufliste.
 	 */
 	public void updateCallLogs(ArrayList<CallPacket> logsList) {
@@ -315,7 +315,7 @@ public class CallLogPanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode entfernt die bisher auf dem Panel angezeigten Daten.
+	 * Diese Methode entfernt, die bisher auf dem Panel angezeigten, Daten.
 	 */
 	public void clearPanel() {
 		colorPane.setText("");

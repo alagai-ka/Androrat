@@ -10,8 +10,7 @@ import android.media.AudioRecord.OnRecordPositionUpdateListener;
 import android.util.Log;
 
 /**
- * Diese  Klasse implementiert den Audiostream. Hiermit wird es ermöglicht das Gerät in eine Wanze umzuwandeln
- * und die Aufnahmen des Mikrofons live mitzuhören.
+ * Diese  Klasse implementiert den Audiostream. Hiermit ist es möglich Audioaufnahmen zu erstellen und diese live mitzuhören.
  */
 public class AudioStreamer {
 	/**
@@ -20,19 +19,19 @@ public class AudioStreamer {
 	 */
 	public final String TAG = "AudioStreamer";
 	/**
-	 * boolean stop  Wird später zur Steuerung einer Schleife benötigt
+	 * boolean stop  Wird später zur Steuerung einer Schleife benötigt.
 	 */
 	public boolean stop = false;
 	/**
-	 * BlokingQueue bbq  Um die von dem Mirofon augenommenen Daten zu speicher
+	 * BlockingQueue bbq  Um die von dem Mirofon augenommenen Daten zu speichern.
 	 */
 	public BlockingQueue<byte[]> bbq = new LinkedBlockingQueue<byte[]>();
 	/**
-	 * frequency  Für die Frequenz mit der aufgenommen wird
+	 * frequency  Für die Frequenz mit der aufgenommen die Audioaufnahme durchgeführt wird.
 	 */
 	int frequency = 11025;
 	/**
-	 * channelConfiguration  Mono/Stereo-Autdio
+	 * channelConfiguration  Mono/Stereo-Audio
 	 */
 	int channelConfiguration = AudioFormat.CHANNEL_CONFIGURATION_MONO;
 	/**
@@ -40,7 +39,7 @@ public class AudioStreamer {
 	 */
 	int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
 	/**
-	 * bufferSizeRecorder  Zum Festlegen der Buffergröße
+	 * bufferSizeRecorder  Zum Festlegen der Buffergröße.
 	 */
 	int bufferSizeRecorder;
 	//int bufferSizePlayer;
@@ -50,25 +49,25 @@ public class AudioStreamer {
 	byte[] buffer;
 	byte[] buff; // pour le methode directe
 	/**
-	 * audioRecord Android Objekt zum Erhalten der Audiodaten
+	 * audioRecord Android Objekt zum Aufnehmen und Erhalten der Audiodaten.
 	 */
 	AudioRecord audioRecord;
 	//AudioTrack audioTrack;
 	/**
-	 * threcord  Ein neuer Thread zum Aufnehmen der Audiodaten
+	 * threcord  Ein neuer Thread zum Aufnehmen der Audiodaten.
 	 */
 	Thread threcord;
 	Context ctx;
 	/**
-	 * chan  Benötigt für die handelData Methode
+	 * chan  Benötigt für die handelData Methode.
 	 */
 	int chan ;
 
 	/**
-	 * Der Konstruktor der Klasse. Erstellt einen neuen audioRecord
-	 * @param c Diese UpdateListener wird benachtrichtigt, sobald der Marker erreicht ist. Dies passiert jede Periode
-	 * @param source Bestimmt welche Quelle zur Audioaufnahme benutzt werden soll
-	 * @param chan Parameter für die handleData Methode
+	 * Der Konstruktor der Klasse. Erstellt einen neues Objekt der Klasse audioRecord.
+	 * @param c Diese UpdateListener wird benachtrichtigt, sobald der Marker erreicht ist. Dies geschieht periodisch.
+	 * @param source Bestimmt welche Quelle zur Audioaufnahme benutzt werden soll.
+	 * @param chan Parameter für die handleData Methode.
 	 */
 	public AudioStreamer(OnRecordPositionUpdateListener c, int source, int chan) {
 		/**
@@ -76,11 +75,11 @@ public class AudioStreamer {
 		 */
 		this.chan = chan ;
 		/**
-		 * Diese Methode gibt die Minimalebuffergröße zurück, die benötigt wird um erfolgreich ein AudioRecordObject zu erstellen.
+		 * Diese Methode gibt die minimale Buffergröße zurück, die benötigt wird, um erfolgreich ein AudioRecordObject zu erstellen.
 		 */
 		bufferSizeRecorder = AudioRecord.getMinBufferSize(frequency, channelConfiguration, audioEncoding);
 		/**
-		 * Hier wird ein neuer AudioRecord erstellt unter Berücksichtigung der Übergebenden und definierten Parametern.
+		 * Hier wird ein neuer AudioRecord erstellt unter Berücksichtigung der übergebenden und definierten Parameter.
 		 * Dieser wird dann in der KlassenVaribale audioRecord gespeichert.
 		 */
 		audioRecord = new AudioRecord(source, frequency, channelConfiguration, audioEncoding, bufferSizeRecorder);
@@ -116,15 +115,15 @@ public class AudioStreamer {
 	}
 
 	/**
-	 * Die eigentliche Methode welche die Audioaufnahme durchführt.
+	 * Die eigentliche Methode, welche die Audioaufnahme durchführt.
 	 */
 	public void record() {
 		/**
-		 * Versuchen eine Audioaunahme zu starten
+		 * Nun wird versucht eine Audioaunahme zu starten
 		 */
 		try {
 			/**
-			 * Sollte der audioRecord nicht iniziallisiert sein so wird er gelöscht und ein Logeintrag ausgegeben.
+			 * Sollte der audioRecord nicht iniziallisiert sein, wird er gelöscht und ein Logeintrag ausgegeben.
 			 * Danach wird die Methode mit dem return-Aufruf beendet.
 			 */
 			if (audioRecord.getState() == AudioRecord.STATE_UNINITIALIZED) {
@@ -134,7 +133,7 @@ public class AudioStreamer {
 				return;
 			}
 			/**
-			 * Initialisieren des Buffers
+			 * Erstellen des Buffers.
 			 */
 			buffer = new byte[bufferSizeRecorder];
 			/**
@@ -142,7 +141,7 @@ public class AudioStreamer {
 			 */
 			audioRecord.startRecording();
 			/**
-			 * Solange stop == false wird diese Schleife laufen
+			 * Solange stop == false ist diese Schleife aktiv.
 			 */
 			while (!stop) {
 				/**
@@ -154,11 +153,11 @@ public class AudioStreamer {
 				 */
 				byte[] tmp = new byte[bufferReadResult];
 				/**
-				 * Übertragen der Daten in den Byte-Buffer
+				 * Kopieren der Daten in den neuerstellten Byte-Buffer.
 				 */
 				System.arraycopy(buffer, 0, tmp, 0, bufferReadResult);
 				/**
-				 * Hinzufügen des Buffers zu der Queue
+				 * Hier wird der Buffer den Queue hinzugefügt.
 				 */
 				bbq.add(tmp);
 				// soit direct
@@ -173,7 +172,7 @@ public class AudioStreamer {
 
 		} catch (Throwable t) {
 			/**
-			 * Logeintrag falls Audioaufnahme nicht gestartet werden konnte
+			 * Logeintrag, falls die Audioaufnahme nicht gestartet werden konnte.
 			 */
 			Log.e("AudioRecord", "Recording Failed");
 		}
@@ -181,8 +180,8 @@ public class AudioStreamer {
 	}
 
 	/**
-	 * Methode die die Daten die in der Queue gespeichert sind zurückliefert
-	 * @return  Die Queue,falls Daten in ihr gespeicher sind ansonsten null
+	 * Methode welche, die in der Queue gespeicheren Daten zurückliefert.
+	 * @return  Die Queue, falls Daten in ihr gespeichert sind ansonsten null.
 	 */
 	public byte[] getData() {
 		//return buff;
@@ -204,7 +203,7 @@ public class AudioStreamer {
 	}
 
 	/**
-	 * Setzt die stop-Varibale auf true und beendet somit die while-Schleife der Methode-record
+	 * Setzt die stop-Varibale auf true und beendet somit die while-Schleife des Threads.
 	 */
 	public void stop() {
 		stop = true;

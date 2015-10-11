@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Dieses Paket ist dazu da die Daten der Klasse AdvancedSystemInfo zu speichern und zu übertragen.
+ * Dieses Paket wird dazu verwendet, die Daten der Klasse AdvancedSystemInfo zu speichern und zu übertragen.
  */
 public class AdvancedInformationPacket implements Packet, Serializable{
 
@@ -140,7 +140,7 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 	 */
 	int batteryTemperature;
 	/**
-	 * batteryVoltage	Das Voltlevelt der Batterie
+	 * batteryVoltage	Das Voltlevel der Batterie
 	 */
 	int batteryVoltage;
 	boolean rooted;
@@ -176,7 +176,7 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 	}
 
 	/**
-	 * Mit dieser Methode werden dei Klassenvariablen mit den Daten aus dem byte-Array befüllt.
+	 * Mit dieser Methode werden die Klassenvariablen mit den Daten aus dem byte-Array befüllt.
 	 * @param packet Ein Paket mit den Daten des byte-Arrays
 	 */
 	public void parse(byte[] packet) {
@@ -187,7 +187,7 @@ public class AdvancedInformationPacket implements Packet, Serializable{
 		ObjectInputStream in;
 		try {
 			/**
-			 * Hier wird ein neuer OBjectInputStream erzeugt.
+			 * Hier wird ein neuer ObjectInputStream erzeugt.
 			 */
 			in = new ObjectInputStream(bis);
 			/**

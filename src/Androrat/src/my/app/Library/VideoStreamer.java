@@ -56,11 +56,11 @@ public class VideoStreamer {
          */
         channel = chan;
         /**
-         * Überprüfen mehrere Kameras vorhanden sind.
+         * Überprüfen ob mehrere Kameras vorhanden sind.
          */
         if (numCam > 1) {
             /**
-             * Ist dies der Fall die Kamera mit der gwünschten Orientierung erstellen und reservieren.
+             * Ist dies der Fall kann die Kamera mit der gwünschten Orientierung erstellt und reserviert werden.
              */
             if (args[0] == 0) {
                 camera = Camera.open(BackCam);
@@ -68,17 +68,17 @@ public class VideoStreamer {
                 camera = Camera.open(FrontCam);
             }
             /**
-             * Ansonsten die default-Kamera öffnen
+             * Ansonsten wird die default-Kamera geöffnen
               */
         } else {
             camera = Camera.open();
         }
         /**
-         * Das Previewdisplay des Clients besorgen
+         * Das Previewdisplay des Clients besorgen.
          */
         mPreview = cl.getPreview();
         /**
-         * Erstellen des Threads zum Streamen der Videodateien
+         * Erstellen des Threads zum Streamen der Videodateien.
          */
         stream = new Thread(
                 new Runnable() {
@@ -93,7 +93,7 @@ public class VideoStreamer {
              */
             tempstore = new File(cl.getCacheDir()+"/videoRec.mp4");//(SDCardpath.getAbsolutePath() +"/Tryingagain.mp4" ); // cl.getCacheDir()
             /**
-             * InputStreams erstellen für diese Datei, damit die Daten später ausgelesen werden können.
+             * InputStreams für diese Datei erstellen, damit die Daten später ausgelesen werden können.
              */
             fis = new FileInputStream(tempstore);
             buf = new BufferedInputStream(fis);
@@ -106,7 +106,7 @@ public class VideoStreamer {
     }
 
     /**
-     * Diese Methode ist dazu da, den Sound welcher beim Starten einer Videoaufnahme abgespielt wird stummzuschalten.
+     * Diese Methode ist dazu da, den Sound, welcher beim Starten einer Videoaufnahme abgespielt wird, stummzuschalten.
      */
     public void mute(){
         AudioManager audioManager = (AudioManager) cl.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
@@ -124,7 +124,7 @@ public class VideoStreamer {
     }
 
     /**
-     * Mit dieser Methode wird der Ton, welcher beim Starten und Beenden einer Videoaufnahme abgespielt wird wieder aktiviert.
+     * Mit dieser Methode wird der Ton, welcher beim Starten und Beenden einer Videoaufnahme abgespielt wird, wieder aktiviert.
      */
     public void unmute(){
         AudioManager audioManager = (AudioManager) cl.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
@@ -155,7 +155,7 @@ public class VideoStreamer {
         mediaRecorder.start();
         try {
             /**
-             * Diese Schleife läuft solange bis der Befehel zum Beenden der Aufnahme vom Server kommt.
+             * Diese Schleife läuft solange, bis der Befehel zum Beenden der Aufnahme vom Server kommt.
              */
             while (streaming) {
                 /**
@@ -170,7 +170,7 @@ public class VideoStreamer {
                     bytesRead = buf.read(buffer);
                     Log.i("MediaRecorder", "BytesRead: " + bytesRead);
                     /**
-                     * Wenn keine Daten gelesen werden können wird die Schleife abgebrochen.
+                     * Wenn keine Daten gelesen werden können, wird die Schleife abgebrochen.
                      */
                     if (bytesRead == -1) {
                         Log.i("Mediarecorder", "break weil keine daten");
@@ -192,7 +192,7 @@ public class VideoStreamer {
                 }
 
             }
-
+            buf.close();
         } catch (IOException e) {
             Log.e("Fis", "No Bytes read from inputStream");
         }
@@ -207,7 +207,7 @@ public class VideoStreamer {
          */
         streaming = true;
         /**
-         * Sound beim Starten der Aufnahme abschalten
+         * Sound beim Starten der Aufnahme abschalten,
          */
         mute();
         /**
@@ -309,7 +309,7 @@ public class VideoStreamer {
             mediaRecorder.prepare();
         } catch (IOException | IllegalStateException e) {
             /**
-             * Falls das Vorbereiten fehlschlägt den MediaRecoder löschen.
+             * Falls das Vorbereiten fehlschlägt, den MediaRecoder löschen.
              */
             mediaRecorder.reset();
             mediaRecorder.release();
@@ -359,7 +359,7 @@ public class VideoStreamer {
     }
 
     /**
-     * Gibt zurück ob es sich um eine Aufnahme oder um Streamen handelt.
+     * Gibt zurück, ob es sich um eine Aufnahme oder um Streamen handelt.
      * @return  True wenn Aufnahme, false wenn Streamen.
      */
     public boolean getRecord(){

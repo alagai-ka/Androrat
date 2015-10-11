@@ -12,15 +12,14 @@ import android.preference.PreferenceActivity;
  */
 public class Preference extends PreferenceActivity {
 
- 
 
 
- 
-    @Override
+
     /**
      * Wird aufgerufen wenn die Activity gestartet wird.
      * @param savedInstanceState Gespeicherter Zustand
      */
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         /**
          * Stellt den gespeicherten Zustand wieder her und lädt die in xml.preferences gespeicherten Elemente

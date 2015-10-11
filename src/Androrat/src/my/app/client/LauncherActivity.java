@@ -10,16 +10,16 @@ import android.widget.EditText;
 import android.view.SurfaceView;
 
 /**
- * Diese ist die main Klasse und die Klasse, welche aufgerufen wird sollte die Anwendung gestartet werden.
- * Dies wird im AndroidManifest.xml festgellegt.
+ * Diese ist die main Klasse und die Klasse, welche aufgerufen wird; sollte die Anwendung gestartet werden.
+ * Dies wird im AndroidManifest.xml festgelegt.
  */
 public class LauncherActivity extends Activity {
     /**
-     * Client Der Intent ,welcher später an die Klasse Client gesendet wird und diese startet
+     * Client Der Intent, welcher später an die Klasse Client gesendet wird und diese startet:
      * btnStart Start-Button
-     * btnStop Stopp-Button
-     * ipfield Textfeld für die IP
-     * portfield Textfeld für den Port
+     * btnStop Stop-Button
+     * ipfield Textfeld für die IP.
+     * portfield Textfeld für den Port.
       */
 	Intent Client, ClientAlt;
 	Button btnStart, btnStop;
@@ -32,19 +32,19 @@ public class LauncherActivity extends Activity {
      */
     public void onCreate(Bundle savedInstanceState) {
         /**
-         * Sollte es einen gespeicherten Zustand geben wird dieser wirderhergestellt.
-         * Im Anschluss wird das Layout auf das unter R.layout.main definierte Layout gesetzt.
+         * Sollte es einen gespeicherten Zustand geben, wird dieser wiederhergestellt.
+         * Im Anschluss wird das Layout, auf das unter R.layout.main definierte Layout, gesetzt.
          */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
         /**
-         * Erstellen eines Intents für die Client-Klasse. Zudem wird zur Identifizierung des Senders, die Action des Intents auf dem Klassennamen gesetzt.
+         * Erstellen eines Intents für die Client-Klasse. Zudem wird zur Identifikation des Senders, die Action des Intents auf dem Klassennamen gesetzt.
          */
         Client = new Intent(this, Client.class);
         Client.setAction(LauncherActivity.class.getName());
         /**
-         * Hier werden die Buttons erstellt gemäß den in layout.main definierten Buttons.
+         * Hier werden die Buttonsgemäß den in layout.main definierten Buttons erstellt .
          * Außerdem werden hier ebenfalls die EditText Felder erstellt.
          */
        /* btnStart = (Button) findViewById(R.id.buttonstart);
@@ -70,7 +70,7 @@ public class LauncherActivity extends Activity {
             }
         });*/
         /**
-         * Diese Funktion wird aufgerufen wenn auf den btnStop geklicjt wird
+         * Diese Funktion wird aufgerufen wenn auf den btnStop geklickt wird
          */
         /*btnStop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

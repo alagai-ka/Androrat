@@ -9,12 +9,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.nio.ByteBuffer;
 
+/**
+ * Zur Veraltung des AlarmPanels gedacht.
+ */
 public class AlarmPanel extends JPanel {
     UserGUI gui;
     private JTextField hourField;
     private JTextField minuteField;
 
-
+    /**
+     * Erstellen des Tabs und speichern der GUI in der Klassenvariablen.
+     * @param gui
+     */
     public AlarmPanel(UserGUI gui){
         this.gui = gui;
 
@@ -77,6 +83,10 @@ public class AlarmPanel extends JPanel {
 
 
     }
+
+    /**
+     * Wenn der Button gedrückt wird, wird die Uhrzeit ausgelesen und an den Server gesendet.
+     */
     public void fireButtonSetClock(){
         byte[] args = new byte [2];
         String hour = hourField.getText();

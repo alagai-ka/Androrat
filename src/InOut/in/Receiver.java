@@ -33,9 +33,9 @@ public class Receiver {
 	private InputStream is;
 
 	/**
-	 * Dies ist der Konstruktor. Er weißt den übergebenen Socket der Klassenvariablen zu.
+	 * Dies ist der Konstruktor. Er weist den übergebenen Socket der Klassenvariablen zu.
 	 * Danach wird für diesen Socket ein neuer InputStream erstellt und in der Klassenvariablen gespeichert.
-	 * Danach werden die beiden Buffer mit der MAX_PACKET_SIZE erstellt.
+	 * Im Anschluss werden die beiden Buffer mit der MAX_PACKET_SIZE erstellt.
 	 * @param s	Der Socket
 	 * @throws IOException
 	 */
@@ -50,7 +50,7 @@ public class Receiver {
 	/**
 	 * Liest die Bytes der Klassenvariablen received_data und speichert die Anzahl der gelesenen Bytes in n.
 	 * Danach wird der buffer geleert. Im Anschluss werden die n Bytes von received_data in dem buffer gespeichert.
-	 * Danach wird dieser Buffer zurückgegeben.
+	 * Im Anschluss wird dieser Buffer zurückgegeben.
 	 * @return	Der Buffer der die reveiced_data enthält.
 	 * @throws IOException
 	 * @throws SocketException

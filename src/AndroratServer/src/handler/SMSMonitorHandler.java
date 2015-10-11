@@ -47,8 +47,8 @@ public class SMSMonitorHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode erstellt eine Lognachricht die später auf der GUI angezeigt wird.
-	 * Danach wir der Speicher des Datenkanals geleert und die addMonitoredSMS Methode aufgerufen um die SMS auf der GUI anzuzeigen.
+	 * Diese Methode erstellt eine Lognachricht, die später auf der GUI angezeigt wird.
+	 * Danach wird der Speicher des Datenkanals geleert und die addMonitoredSMS Methode aufgerufen um die SMS auf der GUI anzuzeigen.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI
 	 * @param c	Der Server

@@ -316,7 +316,7 @@ public class HomePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen wenn der Button Save Configuration geklickt wird.
+	 * Diese Methode wird aufgerufen, wenn der Button Save Configuration geklickt wird. Hiermit können die IP-Adresse und der Port auf dem Client gändert werden.
 	 * Sie erstellt ArrayListen in denen die eingegebenen Daten gespeichert werden und ruft die Methode fireSaveConnectConfigurations der Klasse Gui auf um diese an den Client zu senden.
 	 */
 	private void fireButtonSaveConnectionConfig() {
@@ -332,7 +332,7 @@ public class HomePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen wenn der Button Toast it gesrückt wird.
+	 * Diese Methode wird aufgerufen wenn der Button Toast it gedrückt wird. Mit Hilfe dieser Methode wird ein Toast auf dem Client angezeigt.
 	 * Es werden die Daten des Textfelds ausgelesen und an die Methode fireToastMessage übergeben.
 	 */
 	private void fireButtonToast() {
@@ -341,7 +341,7 @@ public class HomePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wirda aufgerufen wenn der Button Virbate gedrückt wird.
+	 * Diese Methode wird aufgerufen wenn der Button Virbate gedrückt wird und somit der Client zum virbireren gebracht.
 	 * Es werden dann die Daten des Textfelds ausgelesen in einem long int gespeichert und der Methode fireVirbrate übergeben.
 	 */
 	private void fireButtonVibrate() {
@@ -352,7 +352,7 @@ public class HomePanel extends JPanel {
 
 
 	/**
-	 * Diese Methode wird aufgerufen wenn der Button Browse it aktiviert wird.
+	 * Diese Methode wird aufgerufen wenn der Button Browse it aktiviert wird. Dadruch wird auf dem Client eine Webseite im Browser geöffnet.
 	 * Danach werden die Daten des TextFelds an die Methode fireBroserUrl übergeben.
 	 */
 	private void fireButtonBrowse() {
@@ -360,7 +360,7 @@ public class HomePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen wenn ein neue Prefence Paket ankommt um die Daten zu aktualisieren.
+	 * Diese Methode wird aufgerufen wenn ein neue PrefencePacket empfangen wird um die Daten auf der GUI zu aktualisieren.
 	 * @param ip	Die IP
 	 * @param port	Der Port
 	 * @param wait
@@ -394,7 +394,7 @@ public class HomePanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen wenn der Button Refresh gedrückt wird.
+	 * Diese Methode wird aufgerufen wenn der Button Refresh gedrückt wird. Dadruch wird eine neue Anfrage an den Server geschickt.
 	 * Danach wird das TextFeld geleert und die Klasse fireGetAdvancedInformations der Klasse Gui Aufgerufen.
 	 */
 	private void fireButtonRefreshAdv() {
@@ -404,7 +404,7 @@ public class HomePanel extends JPanel {
 
 	/**
 	 * Diese Methode wird aufgerufen wenn ein neues AdvancedInformationPacket ankommt.
-	 * Hier werden dann dessen Daten ausgelesen und auf der GUI angezeigt.
+	 * Hier werden dessen Daten ausgelesen und auf der GUI angezeigt.
  	 * @param packet	Das neue Paket mit den Daten
 	 */
 	public void updateInformations(AdvancedInformationPacket packet) {

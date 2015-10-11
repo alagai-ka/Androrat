@@ -94,7 +94,7 @@ public class Protocol {
 	public final static String KEY_SEND_SMS_BODY = "body";
 
 	/**
-	 * Erstellt aus den obigen Daten und den übergebenen Daten einen Header
+	 * Erstellt aus den obigen Daten und den übergebenen Daten einen Header.
 	 * @param totalLenght	Komplette Größe
 	 * @param localLength	Die Lokale Größe
 	 * @param moreF		Letzes Paket

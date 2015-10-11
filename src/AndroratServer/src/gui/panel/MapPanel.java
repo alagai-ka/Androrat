@@ -250,17 +250,17 @@ public class MapPanel extends JPanel {
 
 	/**
 	 * Diese Methode wird aufgerufen wenn der Button Center View gedrückt wird.
-	 * Die Methode rückt die die letzte Position des Geräts in die Mitte der Karte.
+	 * Die Methode zentriert die letzte Position des Geräts auf der Karte.
 	 */
 	private void centerMapView() {
 		 mapViewer.setDisplayPositionByLatLon(lastLatitude, lastLongitude, mapViewer.getZoom());
 	}
 
 	/**
-	 * Diese Methode wird aufgerufen wenn der Button Start Streaming aufgerufen wird.
+	 * Diese Methode wird aufgerufen wenn der Button Start Streaming betätigt wird.
 	 * Hierbei wird überprüft ob schon gestreamt wird.
 	 * Jenachdem wird der Button umbenannt und startet oder stoppt das Streamen der Lokalisationsdaten.
-	 * Um die entsprechenden Befehele zu senden werden entweder die Methode fireStopGPSStreaming oder die Methode fireStartGPSStreaming der Klasse GUI aufgerufen
+	 * Um die entsprechenden Befehele zu senden, werden entweder die Methode fireStopGPSStreaming oder die Methode fireStartGPSStreaming der Klasse GUI aufgerufen.
 	 */
 	private void fireButtonStreaming() {
 		if(streaming) {
@@ -279,7 +279,7 @@ public class MapPanel extends JPanel {
 
 	/**
 	 * Diese Methode ist zum Aktualisieren der Map.
-	 * Ihr werden die neuen Koordinaten übergeben und diese werden dann auf der Karte eingezeichnet.
+	 * Ihr werden die neuen Koordinaten übergeben und diese auf der Karte eingezeichnet.
 	 * Diese Methode wird aufgerufen sobald neue Daten des Clients am Server empfangen werden.
 	 * @param longitude	Längenrgrad
 	 * @param latitude	Breitengrad

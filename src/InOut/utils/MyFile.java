@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse ist zum Speichert der Daten von Ordnern gedacht.
+ * Diese Klasse ist zum Speichern der Daten von Ordnern gedacht.
  * Neben einem Konstruktor, der die Klassenvariablen befüllt gibt es für alle Variablen get und set Methoden.
  * Ansonten hat diese Klasse keine weiter Methoden.
  */

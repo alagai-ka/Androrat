@@ -41,8 +41,8 @@ public class CallLogHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode erstellt einen Logeintrag um zu informieren was passiert.
-	 * Zudem wir der Listener für den Datenkanal entfernt, da die Daten ja angekommen sind.
+	 * Diese Methode erstellt einen Logeintrag.
+	 * Zudem wir der Listener für den Datenkanal entfernt, da die Daten empfangen wurden.
 	 * Zum Schluss wird noch die GUI des Gerätes mit der IMEI upgedatet, sodass die Daten des Pakets auch angezeigt werden.
 	 * @param p	Das Paket
 	 * @param temp_imei	Eine IMEI

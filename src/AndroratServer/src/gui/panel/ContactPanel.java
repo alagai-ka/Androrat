@@ -41,7 +41,7 @@ import java.util.Vector;
 import javax.swing.JSplitPane;
 
 /**
- * Diese Klasse ist zum Erstellen und Verwalten des KontaktTab zuständig
+ * Diese Klasse ist zum Erstellen und Verwalten des KontaktTab zuständig.
  */
 public class ContactPanel extends JPanel {
 
@@ -305,6 +305,9 @@ public class ContactPanel extends JPanel {
 		setLayout(groupLayout);
 	}
 
+	/**
+	 * Diese Methode ist zum Anzeigen von Zusatzinformationen des ausgewählten Kontakts vorhanden.
+	 */
 	private void contactListMouseClicked() {
 		int selected = list.getSelectedIndex();
 		Contact contact = contactMap.get(selected);
@@ -344,21 +347,33 @@ public class ContactPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Um die Kontaktliste ernuet zu erhalten.
+	 */
 	private void fireRefreshList() {
 		gui.fireGetContacts();
 	}
 
+	/**
+	 * Falls die Nummer des Kontaks angerufen werden soll.
+	 */
 	private void fireButtonCall() {
 		if (!lblValnumber.getText().equals("n/a"))
 			gui.fireGiveCall(lblValnumber.getText());
 	}
 
+	/**
+	 * Falls eine SMS an die Nummer des ausgewählten Kontaks gesendet werden soll.
+	 */
 	private void fireButtonSMS() {
 		String txt = JOptionPane.showInputDialog(this, "Enter your text :");
 		if (!lblValnumber.getText().equals("n/a"))
 			gui.fireSendSMS(lblValnumber.getText(), txt);
 	}
 
+	/**
+	 * Diese Methode zeigt alle dem Kontakt zugehörigen Daten in einem Fenster der Klasse AdvContactGUI an.
+	 */
 	private void fireButtonMoreInfo() {
 		int selected = list.getSelectedIndex();
 		Contact contact = contactMap.get(selected);
@@ -388,7 +403,11 @@ public class ContactPanel extends JPanel {
 
 		list.setListData(values);
 	}*/
-	
+
+	/**
+	 * Methode um die empfangenen Kontaktdaten auf der GUI anzuzeigen.
+	 * @param contacts Die Kontaktliste.
+	 */
 	public void updateContactList(ArrayList<Contact> contacts)
 	{
 		contactMap = new HashMap<Integer, Contact>();

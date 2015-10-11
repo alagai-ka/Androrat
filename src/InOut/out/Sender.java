@@ -13,7 +13,7 @@ public class Sender {
 	DataOutputStream out;
 
 	/**
-	 * Weißt der Klassenvariable den übergebenen Stream zu.
+	 * Weist der Klassenvariable den übergebenen Stream zu.
 	 * @param out	Der DataoutputStream
 	 */
 	public Sender(DataOutputStream out)

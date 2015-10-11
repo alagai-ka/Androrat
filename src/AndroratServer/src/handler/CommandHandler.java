@@ -38,7 +38,7 @@ public class CommandHandler implements PacketHandler
 	}
 
 	/**
-	 * Erhält ein CommandPaket und verarbeitet dies sofern es sich um den CONNECT Befehl handelt.
+	 * Erhält ein CommandPaket und verarbeitet dies, sofern es sich um den CONNECT Befehl handelt.
 	 * @param p	Das CommandPaket
 	 * @param temp_imei	Die IMEI des derzeitig noch verbundenen Geräts
 	 * @param c	Der Server
@@ -53,7 +53,7 @@ public class CommandHandler implements PacketHandler
 			command = ((CommandPacket) p).getCommand();
 			arg = ((CommandPacket) p).getArguments();
 		/**
-		 * Überprüfen ob es sich um den CONNECT Befehl handelt
+		 * Überprüfen, ob es sich um den CONNECT Befehl handelt.
 		 */
 			switch (command) 
 			{
@@ -61,7 +61,7 @@ public class CommandHandler implements PacketHandler
 					
 					// Reconstruction des infos
 					/**
-					 * Hier werden nun die Argument Daten auf einen Stream Geschrieben und die daraus resultierende Daten werden in eine Hashtabelle gespeichert.
+					 * Hier werden nun die Argument Daten auf einen Stream geschrieben und die daraus resultierende Daten werden in eine Hashtabelle gespeichert.
 					 */
 					ByteArrayInputStream bis = new ByteArrayInputStream(arg);
 					ObjectInputStream in;
@@ -73,7 +73,7 @@ public class CommandHandler implements PacketHandler
 						e.printStackTrace();
 					}
 					/**
-					 * Hier wird die IMEI, die in dem Paket gespeichert ist in der Variabeln new_imei gespeichert.
+					 * Hier wird die IMEI, die in dem Paket gespeichert ist, in der Variabeln new_imei gespeichert.
 					 */
 					String new_imei = h.get("IMEI");
 					/**
@@ -87,14 +87,14 @@ public class CommandHandler implements PacketHandler
 					if(!c.getClientMap().containsKey(new_imei))
 					{
 						/**
-						 * Wenn es sich um eine neue IMEI handelt so wird der ClientHandler ders Servers mit der temp_imei
+						 * Wenn es sich um eine neue IMEI handelt so wird der ClientHandler des Servers mit der temp_imei
 						 * und der ChannelDistributionHandler mit der temp_imei in den Variablen ch und cdh gespeichert.
 						 */
 						//on r�cup�re son gestionnaire
 						ClientHandler ch = c.getClientMap().get(temp_imei);
 						ChannelDistributionHandler cdh = c.getChannelHandlerMap().get(temp_imei);
 						/**
-						 * Hier wird die IMEI des ClientHandler ch auf new_imei also die IMEI des Pakets gesetzt-
+						 * Hier wird die IMEI des ClientHandler ch auf new_imei also die IMEI des Pakets gesetzt.
 						 */
 						ch.updateIMEI(new_imei); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 						
@@ -108,7 +108,7 @@ public class CommandHandler implements PacketHandler
 						
 						//et on l'inscrit
 						/**
-						 * Danach wird der Client mit der neuen IMEI und der ChannelHandler mit der neue IMEI in dern Variablen des Serves gespeichert.
+						 * Danach wird der Client und der ChannelHandler mit der neue IMEI in den Variablen des Serves gespeichert.
 						 */
 						c.getClientMap().put(new_imei, ch);
 						c.getChannelHandlerMap().put(new_imei,cdh);
@@ -124,9 +124,9 @@ public class CommandHandler implements PacketHandler
 					else
 					{
 						/**
-						 * Sollte die IMEI im Server schon enthalten sein so verbindent sich das Gerät erneut zu dem Server.
-						 * Auch hier weren wieder der ClientHandler und der ChannelDistributionHandler aus der Variabeln des Servers geholt und in der Variablen ch1 und cdh1 gespeichert.
-						 * Danach werden die Daten mit der temp_imei aus den Server Variablen entfernt und die die Handelr mit der neuen IMEI als Key in die Hashtabellen des Servers geschrieben.
+						 * Sollte die IMEI im Server schon enthalten sein, verbindent sich das Gerät erneut zu dem Server.
+						 * Auch hier werden wieder der ClientHandler und der ChannelDistributionHandler aus der Variabeln des Servers geholt und in der Variablen ch1 und cdh1 gespeichert.
+						 * Danach werden die Daten mit der temp_imei aus den Server Variablen entfernt und die die Handler mit der neuen IMEI als Key in die Hashtabellen des Servers geschrieben.
 						 */
 						//on r�cup�re son gestionnaire
 						ClientHandler ch1 = c.getClientMap().get(temp_imei);

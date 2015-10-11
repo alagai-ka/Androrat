@@ -28,6 +28,12 @@ public class VideoHandler implements PacketHandler {
 		
 	}
 
+	/**
+	 * Erhält die Daten des Serves und ruft die addVideoByte Methode auf um die Videodaten in die Datei zu schreiben.
+	 * @param p	Das Paket mit den Videodaten
+	 * @param temp_imei	Die IMEI
+	 * @param c	Der Server
+	 */
 	@Override
 	public void handlePacket(Packet p, String temp_imei, Server c) {
 		gui.logTxt("Video data has been received");

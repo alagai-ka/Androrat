@@ -26,7 +26,7 @@ public class FileHandler implements PacketHandler {
 	 */
 	private int channel;
 	/**
-	 * imei	Die IMEI des verbundnen Gerätes.
+	 * imei	Die IMEI des verbundenen Gerätes.
 	 */
 	private String imei;
 	/**
@@ -51,17 +51,17 @@ public class FileHandler implements PacketHandler {
 	private long dataLength = 0;
 	private short max = 10;
 	/**
-	 * fout	Ein FileOutputStream zum schreiben der Daten in den Ordner.
+	 * fout	Ein FileOutputStream zum Schreiben der Daten in den Ordner.
 	 */
 	private FileOutputStream fout;
 
 	/**
 	 * Der Konstruktor der Klasse.
 	 * Zuerst werden die Klassenvariablen mit Hilfe der übergebenen Daten befüllt.
-	 * Im Anschluss wird ein neuer File erstellt mit der Variablen dir als Dateipfad.
-	 * Danach wird überprüft ob dieses Verzeichnis existiert. Sollte dies nicht der Fall sein so wird ein neues Verzeichnis erstellt.
+	 * Im Anschluss wird ein neuer File erstellt, mit der Variablen dir als Dateipfad.
+	 * Danach wird überprüft, ob dieses Verzeichnis existiert. Sollte dies nicht der Fall sein, wird ein neues Verzeichnis erstellt.
 	 * Im Anschluss wird ein neuer Ordner erstellt mit dir als Dateipfad und dwnName als Ordnername.
-	 * Zum Abschluss wird nun noch versucht einen FileOutPutStream für den gerade erstellten Ordner erstellt und tempData mit einer leeren HashMap initialisiert.
+	 * Dann wird noch versucht einen FileOutPutStream für den gerade erstellten Ordner zu kreieren und tempData mit einer leeren HashMap initialisiert.
 	 * @param chan	Der Datenkanal
 	 * @param imei	Die IMEI
 	 * @param gui	Die GUI
@@ -130,7 +130,7 @@ public class FileHandler implements PacketHandler {
 
 	/**
 	 * Diese Methode ist zum Empfangen und zum Verarbeiten der heruntergeladenen Daten zuständig.
-	 * Auch das zusammensetzen der einzelnen Pakete wird hier durchgeführt.
+	 * Auch das Zusammensetzen der einzelnen Pakete wird hier durchgeführt.
 	 * @param p	Das Paket
 	 * @param temp_imei	Die IMEI
 	 * @param c	Der Server
@@ -148,24 +148,24 @@ public class FileHandler implements PacketHandler {
 		//dataLength += packet.getData().length;
 		try {
 			/**
-			 * Die Größe des Daten Pakets und die Sequenznummer werden ausgelesen und in den Variablen length und numSeq gespeichert.
+			 * Die Größe des Datenpakets und die Sequenznummer werden ausgelesen und in den Variablen length und numSeq gespeichert.
 			 */
 			int length = packet.getData().length;
 			short numSeq = packet.getNumSeq();
 			/**
-			 * Nun wird überprüft ob es sich auch um das richtige Paket handelt, also die NextNumSeq mit der numSeq übereinstimmt,
+			 * Nun wird überprüft, ob es sich auch um das richtige Paket handelt, also die NextNumSeq mit der numSeq übereinstimmt.
 			 */
 			if(numSeq == nextNumSeq) {
 				/**
-				 * Sollte dies der Fall sein so werden die Daten auf den Stream geschrieben.
+				 * Sollte dies der Fall sein. werden die Daten auf den Stream geschrieben.
 				 */
 				fout.write(packet.getData());
 				/**
-				 * Zusätzlich wird die Gesamtlänger der Datei um die Länger der gerade geschriebenen Daten erhöht.
+				 * Zusätzlich wird die Gesamtlänger der Datei um die Länge der gerade geschriebenen Daten erhöht.
 				 */
 				dataLength += length;
 				/**
-				 * Aufrufen der Methdoe fillFile um zuüberprüfen ob in dem Zwischenspeicher schon Pakete mit den nächsten Seqeunznummern gespeicht sind.
+				 * Aufrufen der Methode fillFile um zu überprüfen, ob in dem Zwischenspeicher schon Pakete mit den nächsten Seqeunznummern gespeicht sind.
 				 */
 				fillFile(numSeq);
 				/**
@@ -179,7 +179,7 @@ public class FileHandler implements PacketHandler {
 				}
 				else {
 					/**
-					 * Ansonsten war es das letzte Paket und der FileStream kann geschlossen werden und der Listener für den Kanal gelöscht.
+					 * Ansonsten war es das letzte Paket und der FileStream kann geschlossen werden. Danach wird zusätzlich der Stream geschlossen.
 					 */
 					gui.setDownloadComplete(true);
 					gui.logTxt("File transfert complete !");
@@ -190,18 +190,18 @@ public class FileHandler implements PacketHandler {
 			}
 			else {
 				/**
-				 * Sollte es sich nicht um die richtige Sequenznummern handelt so wird überprüft ob die größe des Buffers kleiner als max ist.
+				 * Sollte es sich nicht um die richtige Sequenznummern handelen, wird überprüft ob die Größe des Buffers kleiner als max ist.
 				 */
 				if(tempData.size() <= max)
 				/**
-				 * Wenn die size kleiner als max ist so wird das Paket in tempData zwischen gespeichert.
+				 * Wenn die size kleiner als max ist, wird das Paket in tempData zwischen gespeichert.
 				 */
 					tempData.put(numSeq, packet.getData());
 				else {
 					/**
-					 * Ist die size größer als max so wird der Download abgebrochen und eine Fehlermeldung geworfen.
-					 * In diesem Fall fehlt ein Paket und es wurden zuviele zwischengespeichert. Daher ist es unwahscheinlich,
-					 * dass das fehlende Paket noch eintrifft. Daher wird dann der Doowload gestoppt,
+					 * Ist die size größer als max, wird der Download abgebrochen und eine Fehlermeldung geworfen.
+					 * In diesem Fall fehlt ein Paket und es wurden in der Zwischenzeit zuviele neue Pakete empfangen. Daher ist es unwahscheinlich,
+					 * dass das fehlende Paket noch eintrifft. Daher wird dann der Download gestoppt.
 					 */
 					gui.logErrTxt("File chunk missing. Stop");
 					fout.close();
@@ -216,9 +216,9 @@ public class FileHandler implements PacketHandler {
 	}
 
 	/**
-	 * Diese Methode überprüft ob es Pakete mit der Sequenznummer die auf die übergebene folgt in dem Zwischenspeicher gibt.
-	 * Sollte dies der Fall sein so werden alle diese Pakete nacheinander auf den FileStrem geschrieben und die nextNumSeq entsprechend erhöht.
-	 * Dies dient zur Leerung des Zwischenspeichers und zur richtigen Vervollständigung des Downloads
+	 * Diese Methode überprüft, ob es Pakete mit der Sequenznummer die auf die übergebene folgt in dem Zwischenspeicher gibt.
+	 * Sollte dies der Fall sein, werden alle diese Pakete nacheinander auf den FileStrem geschrieben und die nextNumSeq entsprechend erhöht.
+	 * Dies dient zur Leerung des Zwischenspeichers und zur Vervollständigung des Downloads.
 	 * @param numSeq	Die aktuelle Sequenznummer.
 	 * @throws IOException
 	 */

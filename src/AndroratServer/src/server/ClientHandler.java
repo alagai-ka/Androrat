@@ -17,7 +17,7 @@ import in.Receiver;
 import out.Mux;
 
 /**
- * Diese Klasse ist für das empfangen der Daten auf dem Server zuständig.
+ * Diese Klasse ist für das Empfangen der Daten auf dem Server zuständig.
  */
 public class ClientHandler extends Thread {
 	/**
@@ -25,7 +25,7 @@ public class ClientHandler extends Thread {
 	 */
 	private String imei;
 	/**
-	 * clientSocket Der Socket des Gerätes mit der imei
+	 * clientSocket Der Socket des Gerätes mit der IMEI
 	 */
 	private Socket clientSocket;
 	/**
@@ -58,7 +58,7 @@ public class ClientHandler extends Thread {
 	private GUI mainGUI;
 
 	/**
-	 * Der Konstruktor weißt den Klassenvariablen die übergebenen Daten zu.
+	 * Der Konstruktor weist den Klassenvariablen die übergebenen Daten zu.
 	 * Zusätzlich werden mit den übergebenen Daten auch die benötigten Objekte erstellt.
 	 * @param your_socket	Der Socket
 	 * @param id	Die id
@@ -85,7 +85,7 @@ public class ClientHandler extends Thread {
 
 	/**
 	 * Diese Methode empfängt die Daten und übergibt diese dem Demultiplexer. Zusätzlich werden hier verschiedene Fehler abgefangen,
-	 * die dazu führen, dass die Verbindung entfernt wird.
+	 * die dazu führen, dass die Verbindung getrennt wird.
 	 */
 	public void run() {
 		/**
@@ -110,7 +110,7 @@ public class ClientHandler extends Thread {
 					}
 				} catch (Exception e) {
 					/**
-					 * Es gab ein Fehler bei dem Demultiplexer. Daher wird eine Lognachricht erstellt und die Schleife beendet.
+					 * Es gab ein Fehler bei dem Demultiplexen. Daher wird eine Lognachricht erstellt und die Schleife beendet.
 					 */
 					connected = false;
 					/*
@@ -181,7 +181,7 @@ public class ClientHandler extends Thread {
 	}
 
 	/**
-	 * Eine neue IMEI erhalten und setze.
+	 * Eine neue IMEI setzen.
 	 * @param i	Die neue IMEI
 	 */
 	public void updateIMEI(String i) {

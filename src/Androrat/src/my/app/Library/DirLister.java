@@ -10,45 +10,44 @@ import Packet.FileTreePacket;
 import android.content.Context;
 import android.os.Environment;
 /**
- * Diese Klasse ist zum Erhalten der Ordnerstruktur gedacht.
+ * Diese Klasse wird zum Abfragen der Ordnerstruktur des Clients verwendent.
  */
 public class DirLister {
 	/**
-	 * Zum Erstellen eines FileTreePacket.
+	 * Methode zum Erstellen eines FileTreePacket.
 	 * @param c	Service der die Methode aufruft
 	 * @param channel Kanal zur Datenübertragung
-	 * @param dirname Ordner bei dem begonnen werden soll.
+	 * @param dirname Verzeichnis ab welchem die Auflistung beginnen soll.
 	 * @return false falls der Ordner nicht existiert, true sonst.
 	 */
 	public static boolean listDir(ClientListener c, int channel, String dirname) {
 		/**
-		 * f Von hier aus wir die Ordnerstruktur duchgesucht.
+		 * f Von hier aus wir diesem Verzeichnis aus wird die Ordnerstruktur erstellt.
 		 */
 		File f;
 		/**
-		 * ar	In dieser Liste werden die Daten über die Ornderstruktur gepseichert.
+		 * ar	In dieser Liste werden die Daten über die Ordner gepseichert.
 		 */
 		ArrayList<MyFile> ar = new ArrayList<MyFile>();
 		/**
-		 * Überprüfen ob das externe Dateisystem zurückgeliefert werden soll.
-		 * Hier wird dann der wurzel Ordner in f gespeicehrt.
+		 * Überprüfen ob das Startverzeichnis \ ist. Wenn dies nicht der Fall ist wird der erste externe Speicher als Verzeichniss verwendet.
 		 */
 		if(dirname.equals("/"))
 			f = Environment.getExternalStorageDirectory();
 		else
 		/**
-		 * Ansonsten einen neuen Ordner mit dem übergebenen Namen erstellen.
+		 * Ansonsten einen neuen Ordner mit dem übergebenen Verzeichnis erstellen.
 		 */
 			f = new File(dirname);
 		/**
-		 * Sollte f nicht existieren beenden der Methode
+		 * Sollte f nicht existieren, wird die Methode beendet.
 		 */
 		if (!f.exists()) {
 			return false;
 		} 
 		else {
 			/**
-			 * Ansonsten wird die vistiAllDirsAndFiles Methode mit f als Agrument aufgerufen und das Egeniss in der ArrayList ar gespeichert.
+			 * Ansonsten wird die vistiAllDirsAndFiles Methode mit f als Argument aufgerufen und das Ergebnis in der ArrayList ar gespeichert.
 			 */
 			ar.add(visitAllDirsAndFiles(f));
 			/**
@@ -62,9 +61,9 @@ public class DirLister {
 	}
 
 	/**
-	 * Diese Methode geht von Stratorder aus alles Ordner durch.
+	 * Diese Methode geht von Startverzeichnis aus alles Kindordner durch.
 	 * @param dir 	Der Start Konten
-	 * @param ar	Die ArrayListe in der dei daten gespeichert werden.
+	 * @param ar	Die ArrayListe in der die Daten gespeichert werden.
 	 */
 	public static void visitAllDirsAndFiles(File dir, ArrayList<MyFile> ar) {
 		/**
@@ -72,11 +71,11 @@ public class DirLister {
 		 */
 		if(dir.exists()) {
 			/**
-			 * Überprüfen ob es sich um einen Ordner handelt
+			 * Überprüfen ob es sich um eine Verzeichnis handelt.
 			 */
 		    if (dir.isDirectory()) {
 				/**
-				 * Mögliche Kinder es Ordner im StringArray auflisten.
+				 * Mögliche Kinderordner des Verzeichnis im StringArray auflisten.
 				 */
 		        String[] children = dir.list();
 				/**
@@ -84,7 +83,7 @@ public class DirLister {
 				 */
 				ar.add(new MyFile(dir));
 				/**
-				 * Überprüfen ob es Unterordner gibt.
+				 * Überprüfen ob die Kindordner wiederum Kindordner besitzen.
 				 */
 		        if(children != null) {
 					/**
@@ -94,11 +93,11 @@ public class DirLister {
 			        	//System.out.println(dir.toString()+"/"+child);
 			        	try {
 							/**
-							 * Erstellen eines neuen Files wobei dir der Ordnerpfat und child der Ordnername ist
+							 * Erstellen eines neuen Files wobei der dir Ordnerpfad und child der Ordnername ist.
 							 */
 			        		File f = new File(dir, child);
 							/**
-							 * Rekursiver aufruf der Methode vistiAllDirsAndFiles
+							 * Rekursiver Aufruf der Methode vistiAllDirsAndFiles
 							 */
 			        		visitAllDirsAndFiles(f, ar);
 			        	}
@@ -111,7 +110,7 @@ public class DirLister {
 		    }
 		    else
 			/**
-			 * Wenn kein Ordner dir als neuen MyFile zu ar hinzufügen.
+			 * Wenn dir kein Verzeichnis ist, nur die Datei dir der Liste ar hinzufügen.
 			 */
 		    	ar.add(new MyFile(dir));
 		}
@@ -128,11 +127,11 @@ public class DirLister {
 		 */
 		if(dir.exists()) {
 			/**
-			 * Überprüfen ob dir ein Ordner ist
+			 * Überprüfen ob dir ein Verzeichnis ist.
 			 */
 		    if (dir.isDirectory()) {
 				/**
-				 * Unterordern/Datein von Dir auflisten und in children speichern.
+				 * Unterorder/Dateien von Dir auflisten und in children speichern.
 				 */
 		        String[] children = dir.list();
 				/**
@@ -155,18 +154,15 @@ public class DirLister {
 				        	//System.out.println(dir.toString()+"/"+child);
 				        	try {
 								/**
-								 * Verscuhen ob ein neuer Ordner mit dem Pfar dir und dem Namen Child erstellt werden kann
+								 * Versuchen einen neuen Ordner mit dem Pfad dir und dem Namen Child zu erstellt.
 								 */
 				        		File f = new File(dir, child);
 								/**
-								 * rekursiver Aufruf der Methode.
+								 * Rekursiver Aufruf der Methode.
 								 */
 				        		myf.addChild(visitAllDirsAndFiles(f));
 				        	}
 				        	catch(Exception e) {
-								/**
-								 * Sonst ist es eine Datei und kein unterordner mehr.
-								 */
 				        		System.out.println("Child !"+child);
 				        		e.printStackTrace();
 				        	}
@@ -174,7 +170,7 @@ public class DirLister {
 		        	}
 		        }
 				/**
-				 * myf zurücliefern
+				 * myf zurückgeben
 				 */
 	        	return myf;
 		    }
@@ -185,7 +181,7 @@ public class DirLister {
 		    	return new MyFile(dir);
 		}
 		/**
-		 * Ornder existiert nicht daher wird null zurückgeliefert.
+		 * Ordner existiert nicht daher wird null zurückgeliefert.
 		 */
 		return null;
 	}

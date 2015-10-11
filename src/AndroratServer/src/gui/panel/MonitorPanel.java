@@ -44,8 +44,8 @@ public class MonitorPanel extends JPanel {
 
 	/**
 	 * Diese Methode erstellt das entspechende Panel
-	 * @param gui	Die Guo
-	 * @param callMonitor	Ob es sich um Call Monitor oder SMS Monitor handelt
+	 * @param gui	Die GUI
+	 * @param callMonitor	Legt fest, ob es sich um Call Monitor oder SMS Monitor handelt.
 	 */
 	public MonitorPanel(UserGUI gui, boolean callMonitor) {
 		this.gui = gui;
@@ -157,11 +157,10 @@ public class MonitorPanel extends JPanel {
 
 	/**
 	 * Diese Methode wir aufgerufen wenn der Button Start monitoring gedrückt wird.
-	 * Da der Button zum Starten und Stoppen des Monitoning zuständig ist, wird zu erst überprüft welcher Zustand zutrifft.
-	 * jenachdem wird der Text des Buttons verändert.
-	 * Sollte es schon aktiv sein so wird zusätzlich die Variable callMonitor überprüft. Sollte diese true sein wird die Funktion fireStopCallMonitoring aufgerufen.
-	 * Sonste wird die Methode fireStopSMSMonitoring der Klasse GUI aufgerufen.
-	 * Sollte das ganze noch nicht aktiv sein so wird der Filter auf den Inhalt überprüft. Im Anschluss wird dann jenachdem welchen Wert callMonitor besitzt die Methode
+	 * Da der Button zum Starten und Stoppen des Monitoning zuständig ist, wird zu erst überprüft in welchem Zustand sich das Objekt befindet und somit der Text des Buttons verändert.
+	 * Sollte es schon aktiv sein, wird zusätzlich die Variable callMonitor überprüft. Wenn diese true ist, wird die Funktion fireStopCallMonitoring aufgerufen.
+	 * Sonst wird die Methode fireStopSMSMonitoring der Klasse GUI aufgerufen.
+	 * Sollte das ganze noch nicht aktiv sein, wird der Filter auf den Inhalt überprüft. Im Anschluss wird jenachdem welchen Wert callMonitor besitzt die Methode
 	 * fireStartCallMonitoring oder die Methode fireStartSMSMonitoring aufgerufen.
 	 */
 	private void fireButtonMonitoring() {
@@ -230,7 +229,7 @@ public class MonitorPanel extends JPanel {
 	}
 
 	/**
-	 * Diese Methode ist zum hinzufügen einer neuen SMS für das Monitorfenster zuständig.
+	 * Diese Methode ist zum Hinzufügen einer neuen SMS für das Monitorfenster zuständig.
 	 * @param addr	Die Telefonnummer
 	 * @param date	Der Zeitstempel
 	 * @param body	Der Text der SMS

@@ -6,7 +6,7 @@ import android.hardware.Camera.Parameters;
 import my.app.client.ClientListener;
 
 /**
- * Diese Klasse ist zum Aktivieren des Blitz zuständig.
+ * Diese Klasse ist zum Erhalten der Kontrolle über das Blitzlicht vorhanden.
  */
 public class Torch {
     private Camera camera;
@@ -16,7 +16,7 @@ public class Torch {
     ClientListener ctx;
 
     /**
-     * Der Konstruktor erhält den Client und speicher ihn in der Klassenvariable.
+     * Der Konstruktor erhält den Client und speichert ihn in der Klassenvariable.
      * @param c
      */
     public Torch(ClientListener c){
@@ -24,19 +24,19 @@ public class Torch {
     }
 
     /**
-     * Mit dieser Methode wird er Blitz angestellt.
-     * @return  true wenn ein Blitz existiert, false sonst.
+     * Mit dieser Methode wird das Blitzlicht aktiviert.
+     * @return  true wenn ein Blitzlicht existiert, false sonst.
      */
     public boolean turnOnFlash(){
         /**
-         * Überprüfen ob ein Blitz existert.
+         * Überprüfen ob ein Blitzlicht existert.
          */
         flashExists = ctx.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (!flashExists) {
             return false;
         } else {
             /**
-             * Ist dies der Fall so wird ein Kameraobjekt erstellt und diesem der Parameter FLASH_MODE_TORSCH übergeben und der Blitz mit der Methode startPreview gestartet.
+             * Ist dies der Fall so wird ein Kameraobjekt erstellt und diesem der Parameter FLASH_MODE_TORSCH übergeben und das Blitzlicht mit der Methode startPreview gestartet.
              */
             camera = Camera.open();
             params = camera.getParameters();
@@ -49,7 +49,7 @@ public class Torch {
     }
 
     /**
-     * Diese Methode ist zum Ausschalte des Blitz vorhanden.
+     * Diese Methode ist zum Ausschalte des Blitzlichts vorhanden.
      */
     public void turnOffFlash(){
         if(on) {

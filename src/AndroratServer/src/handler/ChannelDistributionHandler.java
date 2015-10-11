@@ -8,7 +8,7 @@ import Packet.CommandPacket;
 import Packet.Packet;
 
 /**
- * Diese Klasse ist zur Verteilung der Datenkanälen verantwortlich.
+ * Diese Klasse ist zur Verteilung der Datenkanäle verantwortlich.
  */
 public class ChannelDistributionHandler
 {
@@ -30,7 +30,7 @@ public class ChannelDistributionHandler
 	private Map<Integer,PacketHandler> packetHandlerMap;
 
 	/**
-	 * Der Konstruktor erstellt die unterschiedlichen Maps und weißt diese den Klassenvariablen zu.
+	 * Der Konstruktor erstellt die unterschiedlichen Maps und weist diese den Klassenvariablen zu.
 	 */
 	public ChannelDistributionHandler()
 	{
@@ -48,12 +48,12 @@ public class ChannelDistributionHandler
 
 
 	/**
-	 * Mit dieser Methode wird überprüft ob das übergebene Paket schon in der Paketmap vorhanden ist.
+	 * Mit dieser Methode wird überprüft, ob das übergebene Paket schon in der Paketmap vorhanden ist.
 	 * Wenn nicht so wird das Paket mit dem Kanal in die Map eingepflegt.
-	 * Zusätzlich wird in der tempDataMap ein neues TemporaryStorage-Obejekt für dem Kanal erstellt.
+	 * Zusätzlich wird in der tempDataMap ein neues TemporaryStorage-Objekt für dem Kanal erstellt.
 	 * @param chan	Der Datenkanal
 	 * @param packet	Das Paket
-	 * @return	Ture wenn der Listener registriert wurde, sonst false.
+	 * @return	true wenn der Listener registriert wurde, sonst false.
 	 */
 	public boolean registerListener(int chan, Packet packet)
 	{
@@ -68,8 +68,8 @@ public class ChannelDistributionHandler
 	}
 
 	/**
-	 * Diese Methode registriert einen neuen Handler. Hierzu wird überprüft ob schon ein Handelr mit dem Key chan vorhanden ist.
-	 * Wenn nicht so wird ein neuer Eintrag in der HashMap gemacht. Hierzu wird der übergebene Handler und der Kanal als Key der Map hinzugefügt.
+	 * Diese Methode registriert einen neuen Handler. Hierzu wird überprüft, ob schon ein Handler mit dem Key chan vorhanden ist.
+	 * Wenn nicht wird ein neuer Eintrag in der HashMap erstellt. Hierzu wird der übergebene Handler und der Kanal, als Key, der Map hinzugefügt.
 	 * @param chan	Der Kanal
 	 * @param han	Der Handler
 	 * @return	True wenn der Handler registriert werden konnte, sonst falls.
@@ -85,8 +85,8 @@ public class ChannelDistributionHandler
 
 	/**
 	 * Diese Methode ist zum Entfernen von Listener.
-	 * Hier wird überprüft ob es ein Paket gibt, welches als Key den übergeben Kanal beseitzt.
-	 * Sollte dies der Fall sein so werden in der packetMap, der tempDataMap und der packetHandlerMap die Daten mit dem Kanal als Key entfernt.
+	 * Hier wird überprüft, ob es ein Paket gibt, welches als Key den übergeben Kanal besitzt.
+	 * Sollte dies der Fall sein, werden in der packetMap, der tempDataMap und der packetHandlerMap die Daten mit dem Kanal als Key entfernt.
 	 * @param chan	Der Kanal
 	 * @return	True wenn die Daten gelöscht wurden, sonst false.
 	 */

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse ist zum Speicher von Kontaktdaten gedacht. Zusätzlich sind in ihr sämtliche set und get Methoden für die Klassenvariablen implementiert.
+ * Diese Klasse ist zum Speichern von Kontaktdaten gedacht. Zusätzlich sind in ihr sämtliche set und get Methoden für die Klassenvariablen implementiert.
  * Andere Methoden besitzt diese Klasse nicht.
  */
 public class Contact implements Serializable {
